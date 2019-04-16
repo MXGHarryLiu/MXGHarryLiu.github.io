@@ -1,0 +1,387 @@
+/* Text Elements */
+
+h1.page-title {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #383a3d;
+  font-weight: 600;
+  font-size: 40px;
+  font-family: 'Montserrat', sans-serif;
+ }
+
+h1.page-title.center {
+  text-align: center;
+}
+
+h1.page-title.left {
+  text-align: left;
+}
+
+@media screen and (max-width: 419px) {
+  h1.page-title {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 30px;
+  }
+}
+
+h2.sub-title {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: #2a617d;
+  text-align: left;
+  font-size: 32px;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+}
+
+h2.sub-title.center {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 36px;
+}
+
+@media screen and (max-width: 419px) {
+  h2.sub-title {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 28px;
+  }
+}
+
+h3.sub-title {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  color: rgba(180,0,180,1.00);
+  text-align: left;
+  font-size: 24px;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+}
+
+@media screen and (max-width: 558px) {
+  h3.sub-title {
+    margin-top: 10px;
+    margin-bottom: 0px;
+  }
+}
+
+@media screen and (max-width: 419px) {
+  h3.sub-title {
+    margin-top: 10px;
+    margin-bottom: 0px;
+    font-size: 20px;
+  }
+}
+
+h4.sub-title {
+  margin-top: 10px;
+  margin-bottom: 0px;
+  color: rgba(0,180,180,1.00);
+  text-align: left;
+  font-size: 24px;
+  font-weight: 600;
+  font-style: italic;
+  font-family: 'Montserrat', sans-serif;
+}
+
+h6.home-heading {
+  color: #18191a;
+  text-align: center;
+  font-size: 22px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+h6.home-heading.italic {
+  font-style: italic;
+}
+
+p.paragraph.action-paragraph {
+  color: rgba(30, 30, 30, .8);
+}
+
+a.plain-text.footer {
+  display: inline-block;
+  padding-right: 20px;
+  padding-left: 20px;
+  color: #424345;
+  font-size: 15px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+a.link-text.footer-link {
+  display: inline-block;
+  padding-right: 20px;
+  padding-left: 20px;
+  color: #424345;
+  font-size: 15px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+a.link-text.footer-link:hover {
+  color: #61a3c9;
+}
+
+/* Interaction Elements */
+
+a.link-button.nav {
+  margin-top: 9px;
+  margin-bottom: 9px;
+  background-color: transparent;
+  font-family: 'Montserrat', sans-serif;
+}
+
+a.link-button.nav:hover {
+  background-color: #727272;
+}
+
+@media screen and (max-width: 558px) {
+  a.link-button.nav {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+}
+
+@media screen and (max-width: 419px) {
+  a.link-button.nav {
+    display: block;
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+}
+
+a.link-button.action-button {
+  background-color: #242424;
+  font-style: italic;
+  font-size: 22px;
+  font-family: 'Montserrat', sans-serif;
+  /*Georgia, Times, 'Times New Roman', serif;*/
+}
+
+/* hover nav*/
+li.dropdown {
+    display: inline-block;
+}
+
+@media screen and (max-width: 419px) {
+	li.dropdown {
+    	display: block;
+	}
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+	background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Layout Elements */
+
+body.grid-1 {
+  padding-bottom: 0;
+  background-color: #fff;
+}
+
+body > .row.nav-row {
+  background-color: #262626;
+}
+
+body > .row > [class*='coffee-span-'].footer-column {
+  text-align: center;
+}
+
+body > .row > [class*='coffee-span-'].hero-column {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+body > .row.footer-row {
+  margin-top: 0px;
+  padding-bottom: 20px;
+}
+
+body > .row > [class*='coffee-span-'].centered-content {
+  text-align: center;
+}
+
+div.responsive-picture.travel-image {
+	max-width: 1000px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+p span.bold {
+	font-weight: 700;
+}
+
+div.responsive-picture.hero-image {
+	margin-top: 0;
+	max-width: none;
+}
+
+p.action-paragraph {
+  margin-top: 0px;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 800px;
+  color: rgba(30, 30, 30, .8);
+  text-align: center;
+  font-size: 18px;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.4;
+}
+
+p.detail-paragraph {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: auto;
+  color: rgba(30, 30, 30, .8);
+  text-align: left;
+  font-size: 18px;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.4;
+}
+
+p.detail-paragraph.bullet-1 {
+	margin-left: 20px;
+}
+
+p.detail-paragraph.bullet-2 {
+	margin-left: 40px;
+}
+
+p.detail-paragraph.bullet-3 {
+	margin-left: 60px;
+}
+
+@media screen and (max-width: 419px) {
+  p.detail-paragraph {
+    font-size: 14px;
+  }
+}
+
+/*slide shows*/
+div.mySlides {
+	display:none;
+}
+
+div.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+a.prev, a.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+
+/* Position the "next button" to the right */
+a.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+a.prev:hover, a.next:hover, div.text:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+div.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+  transition: 0.6s ease;
+}
+
+/* Number text (1/3 etc) */
+div.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+span.dot {
+  cursor:pointer;
+  height: 13px;
+  width: 13px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+span.active, span.dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+div.mySlides.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+/*Video*/
+div.video-container {
+	position:relative;
+	padding-bottom:50%;
+	padding-top:30px;
+	height:0;
+	overflow:hidden;
+}
+
+div.video-container iframe, div.video-container object, div.video-container embed {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+}

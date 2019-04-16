@@ -1,0 +1,66 @@
+skills (the screenshots)
+01 Lumerical FDTD Solutions (4-2 EECS429 Semiconductor Optoelectronic Devices, Homework and final project simulation) 
+02 MATLAB (4-2 BIOMEDE517 Neural Engineering, Homework and final project simulation)
+03 SolidWorks (4-2 BIOMEDE450 Semester Senior Capstone Design, Prototype design) 
+04 Microsoft Visio (4-2 EECS311 Electronic Circuits Lab report visualization)
+05 EndNote (4-2 BIOMEDE517 Neural Engineering, Literature review notes)
+06 Microsoft Project (4-2 BIOMEDE450 Semester Senior Capstone Design, productivity tools)
+07 COMSOL Multiphysics (4-2 BIOMEDE350 Introduction to Biomedical Engineering Design, Course focus? )
+08 NEURON (4-2 BIOMEDE517 Neural Engineering, Homework)
+09 LabVIEW (4-1 EECS458 Biomedical Instrumentation & Design, Lab project)
+10 Cadence Virtuoso (4-2 EECS311 Electronic Circuits Lab)
+11 Microsoft Visual Studio (???)
+12 Adobe Premiere (4-3 VE450 Major Design Experience, Promotional Video)
+13 Eclipse IDE (4-3 VE450 Major Design Experience, Android application development)
+14 Wolfram Mathematica (4-3 VE484 Data Mining, Course project and homework)
+15 MeshLab (4-3 VE450 Major Design Experience, 3D Model visualization)
+16 Microsoft Publisher (Adolescent Innovation Fair, Brochure Design)
+
+Microsoft Word
+Microsoft Excel
+Microsoft Powerpoint
+Adobe Photoshop
+LaTeX 
+R (Language)
+Jupyter (Python)
+
+Arduino (1-1 VG100 Introduction to Engineering)
+Xilinx ISE (2-3 VE270 Introduction to Logic Design, FPGA Design Lab)
+Cadence OrCAD PSpice 
+
+
+Liberate Arts
+1-3 VR262 Introduction to Philosophy of Religion
+3-1 CLCIV328 Ancient Languages and Scripts
+4-1 CLCIV125 Mini Course in CLCIV
+
+12.05.21 partial s.e ,shanghai
+2015.09.27 t.l.e ann arbor
+2013/02/10 orion
+
+St-Pierreбпs research focuses on optical methods for imaging brain activity with exquisite spatiotemporal resolution. These methods create a more complete and accurate image of how neuronal networks communicate иC how they send signals and the paths those signals take иC which ultimately guides our behavior. This in turn helps researchers understand what is happening in the brain when those processes are not working correctly.
+
+
+places
+Shanghai/
+Taiwan/Taipei 25.0330бу N, 121.5654бу E
+Hong Kong 22.3964бу N, 114.1095бу E
+Macao 22.1987бу N, 113.5439бу E
+Greece/Athens 37.9838бу N, 23.7275бу E
+France/Paris 48.8566бу N, 2.3522бу E
+Italy/Rome 41.9028бу N, 12.4964бу E
+Vantican City 41.9029бу N, 12.4534бу E
+Switzerland/Geneva 46.2044бу N, 6.1432бу E/Lausanne
+Cambodia/Siem Reap
+Thailand/Bangkok 13.7563бу N, 100.5018бу E
+Malaysia/Kuala Lumpur 3.1390бу N, 101.6869бу E
+Singapore 1.3521бу N, 103.8198бу E
+Cananda/Vancouver 49.2827бу N, 123.1207бу W
+USA(Danver 39.7392бу N, 104.9903бу W/Colorado Springs 38.8339бу N, 104.8214бу W/Estas Park 40.3772бу N, 105.5217бу W/Boston 42.3601бу N, 71.0589бу W/New York City 40.7128бу N, 74.0059бу W/Chicago 41.8781бу N, 87.6298бу W/Houston/Ann Arbor/Detroit 42.3314бу N, 83.0458бу W)
+UAE 
+ 
+northest: edmonton 53.5444бу N, 113.4909бу W
+southest: singapore 1.3521бу N, 103.8198бу E
+
+hobbies paragraph:
+able to pronounce Russian, German, basic French words. 
