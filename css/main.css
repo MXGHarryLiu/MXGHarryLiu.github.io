@@ -261,15 +261,17 @@ p.detail-paragraph {
 }
 
 p.detail-paragraph.bullet-1 {
-	margin-left: 20px;
+	text-indent: -26px;
+  margin-left: 45px;
 }
 
 p.detail-paragraph.bullet-2 {
-	margin-left: 40px;
+  text-indent: -18px;
+	margin-left: 65px;
 }
 
 p.detail-paragraph.bullet-3 {
-	margin-left: 60px;
+	margin-left: 80px;
 }
 
 @media screen and (max-width: 419px) {
