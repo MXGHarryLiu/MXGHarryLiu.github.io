@@ -12,7 +12,7 @@
 	<script src="../js/footer.js" type="text/javascript" defer></script>
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,b">
-    <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
     <!--
         This map was created using Pixel Map Generator by amCharts and is licensed under the Creative Commons Attribution 4.0 International License.
         You may use this map the way you see fit as long as proper attribution to the name of amCharts is given in the form of link to https://pixelmap.amcharts.com/
@@ -34,7 +34,7 @@
             <li class="dropdown">
 	            <a class="link-button nav dropbtn" href="#">Research</a>
                 <div class="dropdown-content">
-                    <a href="research.html#researchinterests">Research Interests</a>
+                    <a href="research.html#publications">Publications</a>
                     <a href="research.html#experience">Experience</a>
                     <a href="research.html#projects">Projects</a>
                     <a href="research.html#ideas">Ideas</a>
@@ -366,7 +366,7 @@
     	<div class="coffee-span-6 coffee-558-span-12 coffee-419-span-12">
 	        <h4 class="sub-title">Statistics</h4>
             <p class="detail-paragraph bullet-1">Countries/Regions Visited: <span class="shownum" title="3 continents" style="cursor: help;">15</span></p>
-            <p class="detail-paragraph bullet-1">Longest Stay Away From Home: <span class="shownum" title="In Houston" style="cursor: help;" id="dates">840
+            <p class="detail-paragraph bullet-1">Longest Stay Away From Hometown: <span class="shownum" title="In Houston" style="cursor: help;" id="dates">840
                 <!-- <script>
                     var dn = new Date();
                     var d2 = new Date("2016/08/14");
@@ -400,66 +400,66 @@
 					display: block;
 				}
             </style>
-			<p class="detail-paragraph hoverimgt"><span class="bold">Q: Who is the little boy with you on your <a href="index.html" title="Go to the home page">profile picture</a>?</span></p>
+			<p class="detail-paragraph hoverimgt"><b>Q: Who is the little boy with you on your <a href="index.html" title="Go to the home page">profile picture</a>?</b></p>
             <p class="detail-paragraph bullet-1 hoverimg">It was me 8 years ago! How appropriate 同登彼岸 means being on both sides of the shore! </p>
-			<p class="detail-paragraph hoverimgt"><span class="bold">Q: What sports do you play?</span></p>
+			<p class="detail-paragraph hoverimgt"><b>Q: What sports do you play?</b></p>
             <p class="detail-paragraph bullet-1 hoverimg">I'm good at swimming and other individual sports such as table tennis, and tennis. </p>
-            <p class="detail-paragraph hoverimgt"><span class="bold">Q: How do you spend your leisure time?</span></p>
+            <p class="detail-paragraph hoverimgt"><b>Q: How do you spend your leisure time?</b></p>
             <p class="detail-paragraph bullet-1 hoverimg">I cook, watch <span style="font-style:italic;">Doctor Who</span> and BBC documentaries, play space simulation games (SpaceEngine, KSP), and listen to Electronica albums (Engima, Conjure One). </p>
-            <p class="detail-paragraph hoverimgt"><span class="bold">Q: Anything else you want to show?</span></p>
+            <p class="detail-paragraph hoverimgt"><b>Q: Anything else you want to show?</b></p>
             <p class="detail-paragraph bullet-1 hoverimg">Anything you'd like to know! </p>
         </div>
 	</main>
     
     <footer-component></footer-component>
   
-<script>
-	showtext("");
-	function showtext(prmpt) {
-		var i;
-		var t = document.getElementsByClassName("t");
-		for (i = 0; i < t.length; i++) {
-			t[i].style.display = "none";
+	<script>
+		showtext("");
+		function showtext(prmpt) {
+			var i;
+			var t = document.getElementsByClassName("t");
+			for (i = 0; i < t.length; i++) {
+				t[i].style.display = "none";
+			}
+			if (prmpt.localeCompare("") != 0) {
+				var tt = document.getElementsByName(prmpt);
+				tt[0].style.display = "block";
+			}
 		}
-		if (prmpt.localeCompare("") != 0) {
-			var tt = document.getElementsByName(prmpt);
-			tt[0].style.display = "block";
-		}
-	}
 
-	var slideIndex = [0, 1, 21, 24, 27];
-	var slideMax = [0, 20, 23, 26, 37];
-	var slideMin = [0, 1, 21, 24, 27];
-	currentSlide(1, 1);
-	currentSlide(1, 2);
-	currentSlide(1, 3);
-	currentSlide(1 + parseInt(Math.random()*(slideMax[4]-slideMin[4]+1)), 4);
+		var slideIndex = [0, 1, 21, 24, 27];
+		var slideMax = [0, 20, 23, 26, 37];
+		var slideMin = [0, 1, 21, 24, 27];
+		currentSlide(1, 1);
+		currentSlide(1, 2);
+		currentSlide(1, 3);
+		currentSlide(1 + parseInt(Math.random()*(slideMax[4]-slideMin[4]+1)), 4);
 
-	function plusSlides(n, ids) {
-		showSlides(slideIndex[ids] += n, ids);
-	}
-	
-	function currentSlide(n, ids) {
-		showSlides(slideIndex[ids] = n + slideMin[ids] - 1, ids);
-	}
-	
-	function showSlides(n, ids) {
-		var i;
-		var slides = document.getElementsByClassName("mySlides");
-		var dots = document.getElementsByClassName("dot");
-		if (n > slideMax[ids]) {slideIndex[ids] = slideMin[ids]}
-		if (n < slideMin[ids]) {slideIndex[ids] = slideMax[ids]}
-		for (i = slideMin[ids]; i <=  slideMax[ids]; i++) {
-			slides[i - 1].style.display = "none";
+		function plusSlides(n, ids) {
+			showSlides(slideIndex[ids] += n, ids);
 		}
-		if (ids==2 || ids==3){
-		  for (i = slideMin[ids]; i <=  slideMax[ids]; i++) {
-			  dots[i - 1 - slideMax[1]].className = dots[i - 1 - slideMax[1]].className.replace(" active", "");
-		  }
-		  dots[slideIndex[ids] - 1 - slideMax[1]].className += " active";
+
+		function currentSlide(n, ids) {
+			showSlides(slideIndex[ids] = n + slideMin[ids] - 1, ids);
 		}
-		slides[slideIndex[ids] - 1].style.display = "block";
-	}
-</script>
+
+		function showSlides(n, ids) {
+			var i;
+			var slides = document.getElementsByClassName("mySlides");
+			var dots = document.getElementsByClassName("dot");
+			if (n > slideMax[ids]) {slideIndex[ids] = slideMin[ids]}
+			if (n < slideMin[ids]) {slideIndex[ids] = slideMax[ids]}
+			for (i = slideMin[ids]; i <=  slideMax[ids]; i++) {
+				slides[i - 1].style.display = "none";
+			}
+			if (ids==2 || ids==3){
+			  for (i = slideMin[ids]; i <=  slideMax[ids]; i++) {
+				  dots[i - 1 - slideMax[1]].className = dots[i - 1 - slideMax[1]].className.replace(" active", "");
+			  }
+			  dots[slideIndex[ids] - 1 - slideMax[1]].className += " active";
+			}
+			slides[slideIndex[ids] - 1].style.display = "block";
+		}
+	</script>
 </body>
 </html>
