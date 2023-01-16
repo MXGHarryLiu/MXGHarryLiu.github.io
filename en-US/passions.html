@@ -66,71 +66,83 @@
     <main class="row">
 		<div class="coffee-span-6 coffee-558-span-12 coffee-419-span-12">
 		<style>
-		a.p { cursor:pointer;}
-		a.p.a { color: rgba(225,0,150,1.00);}
-		a.p.b { color: rgba(150,0,150,0.80);}
-		a.p.c { color: rgba(100,0,255,0.60);}
+			a.p { cursor:pointer;}
+			a.p.a { color: rgba(225,0,150,1.00);}
+			a.p.b { color: rgba(150,0,150,0.80);}
+			a.p.c { color: rgba(100,0,255,0.60);}
 		</style> 
         <p class="detail-paragraph"><!--a:proficient  c:seldom-->
-        	<a class="p c" onclick="showtext('l'); currentSlide(1, 1)">Lumerical FDTD Solutions</a> | 
-            <a class="p a" onclick="showtext('ml'); currentSlide(2, 1)">MATLAB</a> | 
-            <a class="p b" onclick="showtext('s'); currentSlide(3, 1)">SolidWorks</a> | 
-            <a class="p c" onclick="showtext('mv'); currentSlide(4, 1)">Microsoft Visio</a> | 
-            <a class="p b" onclick="showtext('e'); currentSlide(5, 1)">EndNote</a> | 
-            <a class="p c" onclick="showtext('mp'); currentSlide(6, 1)">Microsoft Project</a> | 
-            <a class="p c" onclick="showtext('cm'); currentSlide(7, 1)">COMSOL Multiphysics</a> | 
-            <a class="p c" onclick="showtext('n'); currentSlide(8, 1)">NEURON</a> | 
-            <a class="p b" onclick="showtext('lv'); currentSlide(9, 1)">LabVIEW</a> | 
-            <a class="p c" onclick="showtext('cv'); currentSlide(10, 1)">Cadence Virtuoso</a> |
-            <a class="p a" onclick="showtext('mvs'); currentSlide(11, 1)">Microsoft Visual Studio</a> |
-            <a class="p b" onclick="showtext('ap'); currentSlide(12, 1)">Adobe Premiere</a> |
-            <a class="p c" onclick="showtext('ec'); currentSlide(13, 1)">Eclipse IDE</a> |
-            <a class="p a" onclick="showtext('w'); currentSlide(14, 1)">Wolfram Mathematica</a> | 
-            <a class="p c" onclick="showtext('ms'); currentSlide(15, 1)">MeshLab</a> |
-            <a class="p c" onclick="showtext('mpb'); currentSlide(16, 1)">Microsoft Publisher</a> | 
-            <a class="p c" onclick="showtext('ad'); currentSlide(17, 1)">Adobe Dreamweaver</a>	| 
-            <a class="p a" onclick="showtext('p'); currentSlide(18, 1)">Python</a> |
-            <a class="p c" onclick="showtext('af'); currentSlide(19, 1)">Adobe Photoshop</a> | 
-            <!--<a class="p" onclick="showtext(''); currentSlide(20, 1)"></a> |-->
-            <a class="p c" onclick="showtext('lx'); currentSlide(20, 1)">LaTeX</a> | 
-            <a class="p c" onclick="showtext('a'); currentSlide(20, 1)">Arduino</a> | 
-            <a class="p c" onclick="showtext('x'); currentSlide(20, 1)">Xilinx ISE</a> | 
-            <a class="p b" onclick="showtext('mpw'); currentSlide(20, 1)">Microsoft Powerpoint</a> | 
-            <a class="p b" onclick="showtext('me'); currentSlide(20, 1)">Microsoft Excel</a> | 
-            <a class="p b" onclick="showtext('mw'); currentSlide(20, 1)">Microsoft Word</a> | ...
+			<p class="detail-paragraph" style="color:rgba(60,60,60,0.50)">Click on the link to reveal comments &gt;&gt;&gt;</p>
+			<p class="detail-paragraph"><b>Productivity and Design</b>: 
+			  <a class="p a" onclick="showtext('Illustrator'); currentSlide(20, 1)">Adobe Illustrator</a> | 
+			  <a class="p b" onclick="showtext('Premiere'); currentSlide(12, 1)">Adobe Premiere</a> |
+			  <!-- placeholder -->
+			  <a class="p b" onclick="showtext('Powerpoint'); currentSlide(21, 1)">Microsoft Powerpoint</a> | 
+			  <!-- placeholder -->
+              <a class="p b" onclick="showtext('Excel'); currentSlide(21, 1)">Microsoft Excel</a> | 
+			  <!-- placeholder -->
+              <a class="p b" onclick="showtext('Word'); currentSlide(21, 1)">Microsoft Word</a> | 
+			  <a class="p c" onclick="showtext('Photoshop'); currentSlide(19, 1)">Adobe Photoshop</a> | 
+			  <a class="p c" onclick="showtext('Project'); currentSlide(6, 1)">Microsoft Project</a> | 
+			  <a class="p c" onclick="showtext('Publisher'); currentSlide(16, 1)">Microsoft Publisher</a>
+			</p>
+			<p class="detail-paragraph"><b>Programming</b>: 
+			  <a class="p a" onclick="showtext('MATLAB'); currentSlide(2, 1)">MATLAB</a> | 
+			  <a class="p a" onclick="showtext('Mathematica'); currentSlide(14, 1)">Wolfram Mathematica</a> | 
+			  <a class="p b" onclick="showtext('Dreamweaver'); currentSlide(17, 1)">Adobe Dreamweaver</a> | 
+			  <a class="p b" onclick="showtext('Python'); currentSlide(18, 1)">Python</a> | 
+			  <!-- placeholder -->
+			  <a class="p b" onclick="showtext('VisualStudio'); currentSlide(11, 1)">Microsoft Visual Studio (VB)</a> |
+			  <!-- placeholder -->
+			  <a class="p c" onclick="showtext('Latex'); currentSlide(21, 1)">LaTeX</a> | 
+			  <a class="p c" onclick="showtext('Arduino'); currentSlide(21, 1)">Arduino (C++)</a> | 
+			  <a class="p c" onclick="showtext('Eclipse'); currentSlide(13, 1)">Eclipse IDE (Java)</a>
+			</p>
+			<p class="detail-paragraph"><b>Research</b>: 
+              <a class="p b" onclick="showtext('SolidWorks'); currentSlide(3, 1)">SolidWorks</a> | 
+			  <a class="p b" onclick="showtext('LabVIEW'); currentSlide(9, 1)">LabVIEW</a> | 
+			  <a class="p c" onclick="showtext('Lumerical'); currentSlide(1, 1)">Lumerical FDTD Solutions</a> | 
+              <a class="p c" onclick="showtext('Visio'); currentSlide(4, 1)">Microsoft Visio</a> | 
+			  <a class="p c" onclick="showtext('EndNote'); currentSlide(5, 1)">EndNote</a> | 
+			  <a class="p c" onclick="showtext('COMSOL'); currentSlide(7, 1)">COMSOL Multiphysics</a> | 
+              <a class="p c" onclick="showtext('NEURON'); currentSlide(8, 1)">NEURON</a> | 
+			  <!-- placeholder -->
+			  <a class="p c" onclick="showtext('Xilinx'); currentSlide(21, 1)">Xilinx ISE</a> | 
+			  <a class="p c" onclick="showtext('MeshLab'); currentSlide(15, 1)">MeshLab</a> | 
+		      <a class="p c" onclick="showtext('Cadence'); currentSlide(10, 1)">Cadence Virtuoso</a>
+			</p>
         </p>
         <style>
 		a.t { color: rgba(30, 30, 30, .8);}
 		</style>
         <p class="detail-paragraph bullet-1">
-        	<a class="t" name="l">EECS429 Semiconductor Optoelectronic Devices - Homework and final project simulation</a>
-            <a class="t" name="ml">BME517 Neural Engineering - Homework and final project simulation</a>
-            <a class="t" name="mv">EECS311 Electronic Circuits - Lab report visualization</a>
-            <a class="t" name="s">BME450 Semester Senior Capstone Design - Prototype design</a>
-			<a class="t" name="e">BME517 Neural Engineering - Literature review notes</a>
-            <a class="t" name="mp">BME450 Semester Senior Capstone Design - Productivity tools</a>
-            <a class="t" name="cm">BME350 Introduction to Biomedical Engineering Design - Course focus</a>
-            <a class="t" name="n">BME517 Neural Engineering - Homework</a>
-            <a class="t" name="lv">BME/EECS458 Biomedical Instrumentation &amp; Design - Lab project</a>
-            <a class="t" name="cv">EECS311 Electronic Circuits - Lab</a>
-            <a class="t" name="mvs">Personal interest</a>
-            <a class="t" name="ap">VE450 Major Design Experience - Promotional Video</a>
-            <a class="t" name="ec">VE450 Major Design Experience - Android application development</a>
-            <a class="t" name="w">VE484 Data Mining - Course project and homework, Personal interest</a>
-            <a class="t" name="ms">VE450 Major Design Experience - 3D model visualization</a>
-            <a class="t" name="mpb">Adolescents Innovation Fair - Brochure design</a>
-            <a class="t" name="p">ELEC 548 Machine Learning and Singal Processing for Neuro Engineering - Neural modeling</a>
-            <a class="t" name="af">High School Leadership, Personal interest</a>
-            <a class="t" name="ad">My first ever computer programming language learned, helping me to build this site! </a>
-            <a class="t" name="lx">SJTU Homeworks</a>
-            <a class="t" name="a">VG100 Introduction to Engineering - Projects</a>
-            <a class="t" name="x">VE270 Introduction to Logic Design - FPGA Design Lab</a>
-            <a class="t" name="mpw">Essential tool for paperless learning and working</a>
-            <a class="t" name="me">Essential tool for paperless learning and working</a>
-            <a class="t" name="mw">Essential tool for paperless learning and working</a>
-            <!--<a class="t" name=""></a>-->
+        	<a class="t" name="Lumerical">EECS429 Semiconductor Optoelectronic Devices - Homework and final project simulation</a>
+            <a class="t" name="MATLAB">BME517 Neural Engineering - Homework and final project simulation</a>
+            <a class="t" name="Visio">EECS311 Electronic Circuits - Lab report visualization</a>
+            <a class="t" name="SolidWorks">BME450 Semester Senior Capstone Design - Prototype design</a>
+			<a class="t" name="EndNote">BME517 Neural Engineering - Literature review notes</a>
+            <a class="t" name="Project">BME450 Semester Senior Capstone Design - Productivity tools</a>
+            <a class="t" name="COMSOL">BME350 Introduction to Biomedical Engineering Design - Course focus</a>
+            <a class="t" name="NEURON">BME517 Neural Engineering - Homework</a>
+            <a class="t" name="LabVIEW">BME/EECS458 Biomedical Instrumentation &amp; Design - Lab project</a>
+            <a class="t" name="Cadence">EECS311 Electronic Circuits - Lab</a>
+            <a class="t" name="VisualStudio">Personal interest</a>
+            <a class="t" name="Premiere">VE450 Major Design Experience - Promotional Video</a>
+            <a class="t" name="Eclipse">VE450 Major Design Experience - Android application development</a>
+            <a class="t" name="Mathematica">VE484 Data Mining - Course project and homework, Personal interest</a>
+            <a class="t" name="MeshLab">VE450 Major Design Experience - 3D model visualization</a>
+            <a class="t" name="Publisher">Adolescents Innovation Fair - Brochure design</a>
+            <a class="t" name="Python">ELEC 548 Machine Learning and Singal Processing for Neuro Engineering - Neural modeling</a>
+            <a class="t" name="Photoshop">High School Leadership, Personal interest</a>
+            <a class="t" name="Dreamweaver">My first ever computer programming language learned, helping me to build this site! </a>
+            <a class="t" name="Latex">SJTU Homeworks</a>
+            <a class="t" name="Arduino">VG100 Introduction to Engineering - Projects</a>
+            <a class="t" name="Xilinx">VE270 Introduction to Logic Design - FPGA Design Lab</a>
+            <a class="t" name="Powerpoint">Essential tool for paperless learning and working</a>
+            <a class="t" name="Excel">Essential tool for paperless learning and working</a>
+            <a class="t" name="Word">Essential tool for paperless learning and working</a>
+			<a class="t" name="Illustrator">Vector graphics design for publication figures</a>
         </p>
-		<p class="detail-paragraph" style="color:rgba(60,60,60,0.50)">Click to reveal comments &gt;&gt;&gt;</p>
         
         </div>
         <div class="coffee-span-6 coffee-558-span-12 coffee-419-span-12">
@@ -184,13 +196,16 @@
 			<a href="../img/screen/16.png"><img alt="Microsoft Publisher" title="Microsoft Publisher" src="../img/screen/16.png"/></a>
           </div>
           <div class="mySlides fade">
-			<a href="../img/screen/17.png"><img alt="Adobe Dreamweaver" title="Adobe Dreamweaver" src="../img/screen/17.png"/></a>
+			<a href="../img/screen/17 Dreamweaver.png"><img alt="Adobe Dreamweaver" title="Adobe Dreamweaver" src="../img/screen/17 Dreamweaver.png"/></a>
           </div>
           <div class="mySlides fade">
 			<a href="../img/screen/18.png"><img alt="Python" title="Python" src="../img/screen/18.png"/></a>
           </div>
           <div class="mySlides fade">
 			<a href="../img/screen/19.png"><img alt="Adobe Photoshop" title="Adobe Photoshop" src="../img/screen/19.png"/></a>
+          </div>
+		  <div class="mySlides fade">
+			<a href="../img/screen/20 Illustrator.png"><img alt="Adobe Illustrator" title="Adobe Illustrator" src="../img/screen/20 Illustrator.png"></a>
           </div>
           <div class="mySlides fade">
 			<img alt="My Workspace" title="My Workspace" src="../img/placeholder2.jpg"/>
@@ -426,10 +441,10 @@
 				tt[0].style.display = "block";
 			}
 		}
-
-		var slideIndex = [0, 1, 21, 24, 27];
-		var slideMax = [0, 20, 23, 26, 37];
-		var slideMin = [0, 1, 21, 24, 27];
+		
+		var slideMax = [0, 21, 24, 27, 38];
+		var slideMin = [0, 1, 22, 25, 28];
+		var slideIndex = [0, 1, 22, 25, 28];
 		currentSlide(1, 1);
 		currentSlide(1, 2);
 		currentSlide(1, 3);
