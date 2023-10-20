@@ -14,8 +14,7 @@ class Footer extends HTMLElement {
                 <div class="rule">
                     <hr>
                 </div>
-                <a class="plain-text footer">Copyright &copy; 2016 - 2023 Zhuohe Liu</a>
-                <a class="link-text footer-link" href="/zh-CN/index.html" title="">中文</a>
+                <a class="plain-text footer" data-i18n="copyright"></a>
             </div>
         </footer>
         `

@@ -1,10 +1,99 @@
 ﻿<!DOCTYPE html>
-<html lang="en-us">
+<html lang="en-US">
 
 <head>
-    <meta http-equiv="refresh" content="0; url=./en-US/index.html" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="home/title"></title>
+    <link rel="stylesheet" href="css/coffeegrinder.min.css">
+    <link rel="stylesheet" href="css/wireframe-theme.min.css">
+    <script>document.createElement("picture");</script>
+    <script src="js/picturefill.min.js" class="picturefill" async="async"></script>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,b">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+	<!-- dynamic last updated date -->
+	<script type="application/javascript" src="https://unpkg.com/react@16.0.0/umd/react.production.min.js"></script>
+  	<script type="application/javascript" src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.production.min.js"></script>
+  	<script type="application/javascript" src="https://unpkg.com/@babel/standalone@7.20.12/babel.min.js"></script>
+  	<script type="application/javascript" src="https://unpkg.com/whatwg-fetch@3.0.0/dist/fetch.umd.js"></script>
+	<script type="text/jsx" src="js/lastupdated.jsx"></script>
+    <script src="js/nav.js" type="text/javascript" defer></script>
 </head>
-<body>
+
+<body class="grid-1">
+	
+    <div class="row">
+        <div class="coffee-span-12">
+            <h1 class="page-title center" data-i18n="home/title"></h1>
+        </div>
+    </div>
+
+    <nav-component></nav-component>
+
+    <header class="row">
+        <div class="coffee-span-12 hero-column">
+            <div class="responsive-picture hero-image">
+                <img src="img/homebanner.jpg">
+            </div>
+        </div>
+    </header>
+
+    <main class="row">
+        <div class="coffee-span-12">
+            <h2 class="sub-title center" data-i18n="motto"></h2>
+        </div>
+    </main>
+
+    <main class="row">
+        <div class="coffee-span-4 coffee-558-span-6 coffee-419-span-12">
+            <div class="responsive-picture travel-image">
+                <a href="/en-US/passions.html"><img src="img/vancouver-beatymuseum-s.jpg"></a>
+            </div>
+            <h6 class="home-heading italic" data-i18n="home/highlight1"></h6>
+        </div>
+        <div class="coffee-span-4 coffee-558-span-6 coffee-419-span-12">
+            <div class="responsive-picture travel-image">
+                <a href="./bio.html"><img src="img/profile-s.jpg"></a>
+            </div>
+            <h6 class="home-heading italic" data-i18n="home/highlight2"></h6>
+        </div>
+
+        <div class="coffee-span-4 coffee-558-span-12">
+            <div class="responsive-picture travel-image">
+                <a href="/en-US/research.html"><img src="img/tale-s.jpg"></a>
+            </div>
+            <h6 class="home-heading italic" data-i18n="home/highlight3"></h6>
+        </div>
+    </main>
+
+    <main class="row">
+        <main class="coffee-span-12 centered-content">
+            <p class="action-paragraph paragraph" data-i18n="home/intro"></p>
+        </main>
+    </main>
+	
+    <footer class="row footer-row">
+        <div class="coffee-span-12 footer-column">
+            <div class="rule">
+                <hr>
+            </div>
+            <a class="plain-text footer">Copyright &copy; 2016 - 2023 Zhuohe Liu</a>
+            <a class="link-text footer-link" href="https://www.coffeecup.com/designer/">Made with RSD</a>
+			<!-- last updated -->
+            <a class="plain-text footer" id="lastupdated"></a>
+			<!-- hitwebcounter Code START -->
+            <a href="https://www.hitwebcounter.com" target="_blank">
+                <img alt=""
+                    src="https://hitwebcounter.com/counter/counter.php?page=6506180&style=0024&nbdigits=5&type=ip&initCount=0"
+                    border="0"></a>
+            <!-- hitwebcounter.com -->
+            <a href="https://www.hitwebcounter.com" title="Find IP" target="_blank"
+                style="font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #9A96A3; text-decoration: underline ;"><em>Find
+                    IP</em></a>
+        </div>
+    </footer>
+    <script src="js/i18n.js"></script>
 </body>
 
 </html>

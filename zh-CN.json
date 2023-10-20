@@ -1,0 +1,122 @@
+{
+    "menu": {
+        "home": "主页",
+        "bio": "简介",
+        "research": {
+            "root": "学术",
+            "publication": "论文",
+            "experience": "经历",
+            "project": "项目",
+            "idea": "金点子"
+        },
+        "passion": "兴趣",
+        "contact": "联系"
+    },
+    "motto": "知己方知彼",
+    "home": {
+        "title": "刘卓和",
+        "highlight1": "探索世界",
+        "highlight2": "品味生活",
+        "highlight3": "讲述轶事",
+        "intro": "<br>欢迎！这是我的第一个个人网站！<br> 我正在成为生物电子工程师的成长道路上。"
+    },
+    "bio": {
+        "title": "简介 - 刘卓和",
+        "m1": {
+            "education": "学历"
+        },
+        "m2": {
+            "college": "高等教育",
+            "school": "基础教育"
+        },
+        "phd": {
+            "title": "博士",
+            "place": "<a href=\"http://www.rice.edu/\">莱斯大学</a>乔治布朗工程学院，美国德克萨斯州休斯顿",
+            "focus": "电子和计算机工程（平均积点：4.05/4）",
+            "date": "2022年12月"
+        },
+        "ms": {
+            "title": "硕士",
+            "place": "莱斯大学乔治布朗工程学院，美国德克萨斯州休斯顿",
+            "focus": "电子和计算机工程",
+            "date": "2020年12月",
+            "course": "神经工程机器学习和信号处理，计算机视觉，合成生物学，深度学习，光学成像和纳米生物光子学，网络科学和分析等。"
+        },
+        "bs2": {
+            "title": "工学学士",
+            "place": "<a href=\"https://umich.edu/\">密西根大学</a>工程学院，美国密歇根州安娜堡",
+            "course": "生物化学、生物力学、定量生理学、定量细胞生物学、光电子导论、半导体设备导论等"
+        },
+        "bs1": {
+            "title": "工学学士",
+            "place": "上海交通大学，<a href=\"https://www.ji.sjtu.edu.cn/\">交大密西根联合学院</a>",
+            "city": "",
+            "focus": "电子与计算机工程（平均积点：3.63/4）",
+            "date": "2016年8月",
+            "awards": "荣誉和奖项：",
+            "award1": "<b>校优秀奖学金（C等）</b>（两次）：2012-2013和2013-2014学年，￥500奖学金。",
+            "award2": "<b>学院院长荣誉名单</b>（三次）：2012学年秋季、2013学年夏季和2013学年秋季：颁发给学期累计积点大于3.5的学生。",
+            "course": "信号和系统、逻辑电路设计、工程材料导论、现代物理、数据挖掘等。"
+        },
+        "high": {
+            "title": "高中",
+            "place": "华东师范大学第二附属中学",
+            "city": "（上海）",
+            "focus": "高考化学学科",
+            "awards": "荣誉和奖项：",
+            "award1": "<b>上海市明日科技之星</b>：共十名获奖者，一万元奖学金。",
+            "award2": "第二十六届英特尔上海市青少年科技创新大赛<b>一等奖</b>",
+            "leadership": "领导力：",
+            "award3": "生物社社长（2010-2011）",
+            "award4": "学生会宣传部副主席（2010-2011）"
+        },
+        "middle": {
+            "title": "初中",
+            "place": "上海市民办华育中学",
+            "city": ""
+        },
+        "elem": {
+            "title": "小学",
+            "place":  "上海市徐汇区向阳小学",
+            "city": ""
+        }
+    },
+    "passion": {
+        "title": "兴趣 - 刘卓和",
+        "m1": {
+            "workspace": "我的虚拟工作台",
+            "hobby": "兴趣爱好",
+            "place": "我的足迹",
+            "trivia": "问答"
+        }
+    },
+    "contact": {
+        "title": "联系方式 - 刘卓和",
+        "follow": "敬请关注"
+    },
+    "copyright": "版权所有 &copy; 2016 - 2023 刘卓和",
+    "alt": {
+        "img": {
+            "homebanner.jpg": "冰封密西根湖（亲自摄于芝加哥 @ 2015/3/2）",
+            "vancouver-beatymuseum-s.jpg": "探索世界",
+            "profile-s.jpg": "品味生活",
+            "tale-s.jpg": "讲述轶事",
+            "20220916 Zhuohe Liu.jpg": "刘卓和头像",
+            "2-panorama-of-rice-university-academic-quad-houston-texas-silvio-ligutti.jpg": "莱斯大学全景 (&copy; www.collegepond.com/rice-university/)",
+            "education": {
+                "stpierrelab.png": "在博士导师St-Pierre的实验室",
+                "umich-s.jpg": "在密大中校广场",
+                "umsjtuji-expo-s.jpg": "在交大闵行校区密西根学院楼前（摄于2014/8/7）",
+                "efz.jpg": "华东师范大学第二附属中学校徽",
+                "hy.png": "上海市民办华育中学校徽"
+            }
+        }
+    },
+    "icon": {
+        "place": "地点",
+        "date": "日期",
+        "focus": "专业",
+        "award": "荣誉和奖项",
+        "course": "课程"
+    }
+}

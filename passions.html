@@ -4,15 +4,15 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Passions - Zhuohe Liu</title>
-    <link rel="stylesheet" href="../css/coffeegrinder.min.css">
-    <link rel="stylesheet" href="../css/wireframe-theme.min.css">
+    <title data-i18n="passion/title"></title>
+    <link rel="stylesheet" href="css/coffeegrinder.min.css">
+    <link rel="stylesheet" href="css/wireframe-theme.min.css">
     <script>document.createElement("picture");</script>
-    <script src="../js/picturefill.min.js" class="picturefill" async="async"></script>
-	<script src="../js/footer.js" type="text/javascript" defer></script>
-    <link rel="stylesheet" href="../css/main.css">
+    <script src="js/picturefill.min.js" class="picturefill" async="async"></script>
+	<script src="js/footer.js" type="text/javascript" defer></script>
+    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,b">
-    <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
     <!--
         This map was created using Pixel Map Generator by amCharts and is licensed under the Creative Commons Attribution 4.0 International License.
         You may use this map the way you see fit as long as proper attribution to the name of amCharts is given in the form of link to https://pixelmap.amcharts.com/
@@ -20,34 +20,19 @@
         If you would like to use this map without any attribution, you can acquire a commercial license for the JavaScript Maps - a tool that was used to produce this map.
         To do so, visit amCharts Online Store: https://www.amcharts.com/online-store/
     -->
-    <script type="text/javascript" src="../js/ammap.js"></script>
-    <script type="text/javascript" src="../js/worldLow.js"></script>
-    <script type="text/javascript" src="../js/mapmain.js"></script>
+    <script type="text/javascript" src="js/ammap.js"></script>
+    <script type="text/javascript" src="js/worldLow.js"></script>
+    <script type="text/javascript" src="js/mapmain.js"></script>
+    <script src="js/nav.js" type="text/javascript" defer></script>
 </head>
 
 <body class="grid-1">
 
-	<header class="row nav-row">
-		<nav class="coffee-span-12">
-            <a class="link-button nav" href="index.html">Home</a>
-            <a class="link-button nav" href="bio.html">Bio</a>
-            <li class="dropdown">
-	            <a class="link-button nav dropbtn" href="#">Research</a>
-                <div class="dropdown-content">
-                    <a href="research.html#publications">Publications</a>
-                    <a href="research.html#experience">Experience</a>
-                    <a href="research.html#projects">Projects</a>
-                    <a href="research.html#ideas">Ideas</a>
-                </div>
-            </li>
-            <a class="link-button nav" href="#">Passions</a>
-            <a class="link-button nav" href="contact.html">Contact</a>
-		</nav>
-	</header>
+	<nav-component></nav-component>
   
 	<div class="row">
 		<div class="coffee-span-12">
-			<h1 class="page-title left">Zhuohe Liu &gt; Passions</h1>
+			<h1 class="page-title left" data-i18n="passion/title"></h1>
 		</div>
 	</div>
     
@@ -59,7 +44,7 @@
     
     <div class="row">
 		<div class="coffee-span-12">
-			<h2 class="sub-title"><a name="workspace"></a>Workspace</h2>
+			<h2 class="sub-title" data-i18n="passion/m1/workspace"></h2>
 		</div>
 	</div>
         
@@ -218,7 +203,7 @@
    
     <div class="row">
 		<div class="coffee-span-12">
-			<h2 class="sub-title"><a name="hobbies"></a>Hobbies</h2>
+			<h2 class="sub-title" data-i18n="passion/m1/hobby"></h2>
 		</div>
 	</div>
     
@@ -294,7 +279,7 @@
      
 	<div class="row">
 		<div class="coffee-span-12">
-			<h2 class="sub-title"><a name="places"></a>Places I've Been</h2>
+			<h2 class="sub-title" data-i18n="passion/m1/place"></h2>
             <p class="detail-paragraph" style="color:rgba(60,60,60,0.50)">Click on the pins to reveal more info. <br><img alt="Green pin" src="../img/places/ping.svg">Trips  <img alt="Red pin" src="../img/places/piny.svg">Sojourns  <img alt="Red pin" src="../img/places/pinr.svg">Hometown</p>
 		</div>
 	</div>
@@ -401,7 +386,7 @@
     
 	<div class="row">
 		<div class="coffee-span-12">
-			<h2 class="sub-title"><a name="trivia"></a>Trivia</h2>
+			<h2 class="sub-title" data-i18n="passion/m1/trivia"></h2>
 		</div>
 	</div>
     
@@ -476,5 +461,7 @@
 			slides[slideIndex[ids] - 1].style.display = "block";
 		}
 	</script>
+    <script src="js/i18n.js"></script>
 </body>
+
 </html>

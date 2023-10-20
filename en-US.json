@@ -1,0 +1,122 @@
+{
+    "menu": {
+        "home": "Home",
+        "bio": "Bio",
+        "research": {
+            "root": "Research",
+            "publication": "Publications",
+            "experience": "Experience",
+            "project": "Projects",
+            "idea": "Ideas"
+        },
+        "passion": "Passion",
+        "contact": "Contact"
+    },
+    "motto": "Know thyself",
+    "home": {
+        "title": "Zhuohe Liu",
+        "highlight1": "A world to explore",
+        "highlight2": "A life to live",
+        "highlight3": "A tale to tell",
+        "intro": "<br>Welcome! This is my first ever personal website! <br> I'm on the path of being a biotechnology engineer. <br>"
+    },
+    "bio": {
+        "title": "Bio - Zhuohe Liu",
+        "m1": {
+            "education": "Education"
+        },
+        "m2": {
+            "college": "Colleges",
+            "school": "Schools"
+        },
+        "phd": {
+            "title": "Doctor of Philosophy",
+            "place": "<a href=\"http://www.rice.edu/\">Rice University</a>, George R. Brown School of Engineering, Houston, Texas, USA",
+            "focus": "Electrical and Computer Engineering (GPA: 4.05/4)",
+            "date": "Dec. 2022"
+        },
+        "ms": {
+            "title": "Master of Science",
+            "place": "Rice University, George R. Brown School of Engineering, Houston, Texas, USA",
+            "focus": "Electrical and Computer Engineering",
+            "date":"Dec. 2020",
+            "course": "Machine Learning and Signal Processing for Neuro Engineering, Computer Vision, Synthetic Biology, Deep Learning, Optical Imaging and Nanobiophotonics, Network Science and Analytics, etc."
+        },
+        "bs2": {
+            "title": "Bachelor of Science in Engineering",
+            "place": "<a href=\"https://umich.edu/\">University of Michigan</a>, College of Engineering, Ann Arbor, Michigan, USA",
+            "course": "Biochemistry, Biomechanics, Quant. Physiology, Quant. Cell Biology, Optoelectronics, Semiconductor Devices, etc. "
+        },
+        "bs1": {
+            "title": "Bachelor of Science in Engineering",
+            "place": "Shanghai Jiao Tong University, <a href=\"https://www.ji.sjtu.edu.cn/\">UM-SJTU Joint Institute</a>",
+            "city":", Shanghai, China",
+            "focus": "Electrical and Computer Engineering (GPA: 3.63/4)",
+            "date": "Aug. 2016",
+            "awards":"Honors &amp; Awards: ",
+            "award1": "<b>Excellent Student Scholarship (Level C)</b> (2x): Academic year 2012-2013 and 2013-2014. ￥500 stipend. ",
+            "award2": "<b>Dean's List (3x)</b>: Fall 2012, Summer 2013, and Fall 2013. Awarded to students with term GPA &gt; 3.5. ",
+            "course": "Signals and Systems, Logic Design, Engineering Materials, Modern Physics, Data Mining, etc. "
+        },
+        "high": {
+            "title": "High School",
+            "place": "No.2 Secondary School Attached to East China Normal University",
+            "city": ", Shanghai, China",
+            "focus": "Chemistry Concentration in College Entrance Examination",
+            "awards": "Honors &amp; Awards: ",
+            "award1": "<b>Shanghai Future Science Star</b>: 1 of 10 awardees. ￥10,000 scholarship. ",
+            "award2": "<b>First Prize</b> in The 26<sup>th</sup> Intel Shanghai Adolescents Science &amp; Technology Innovation Fair",
+            "leadership": "Leadership:",
+            "award3": "President of Biology Club (2010 - 2011)",
+            "award4": "Vice Chief of Student Association Communication Department (2010 - 2011)"
+        },
+        "middle": {
+            "title": "Middle School",
+            "place": "Shanghai Huayu Private Middle School",
+            "city": ", Shanghai, China"
+        },
+        "elem": {
+            "title": "Elementry School",
+            "place": "Shanghai Xuhui Xiangyang Elementry School",
+            "city": ", Shanghai, China"
+        }
+    },
+    "passion": {
+        "title": "Passions - Zhuohe Liu",
+        "m1": {
+            "worksppace": "Workspace",
+            "hobby": "Hobbies",
+            "place": "Places I've Been",
+            "trivia": "Trivia"
+        }
+    },
+    "contact": {
+        "title": "Contact - Zhuohe Liu",
+        "follow": "Please follow me on: "
+    },
+    "copyright": "Copyright &copy; 2016 - 2023 Zhuohe Liu",
+    "alt": {
+        "img": {
+            "homebanner.jpg": "Arctic Scene at Chicago (Taken by me @ 2015/3/2)",
+            "vancouver-beatymuseum-s.jpg": "A world to explore",
+            "profile-s.jpg": "A life to live",
+            "tale-s.jpg": "A tale to tell",
+            "20220916 Zhuohe Liu.jpg": "Zhuohe Liu profile picture",
+            "2-panorama-of-rice-university-academic-quad-houston-texas-silvio-ligutti.jpg": "Rice Panorama (&copy; www.collegepond.com/rice-university/)",
+            "education": {
+                "stpierrelab.png": "Spent my Ph.D. in St-Pierre Lab",
+                "umich-s.jpg": "Me at University of Michigan Central Campus, the Diag",
+                "umsjtuji-expo-s.jpg": "Me in front of the UM-SJTU JI Building in SJTU Minhang Campus (Taken 8/7/2014)",
+                "efz.jpg": "No.2 Secondary School Attached to East China Normal University emblem",
+                "hy.png": "Shanghai Huayu Private Middle School emblem"
+            }
+        }
+    },
+    "icon": {
+        "place": "Place",
+        "date": "Date",
+        "focus": "Focus",
+        "award": "Award",
+        "course": "Courses"
+    }
+}

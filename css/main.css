@@ -200,10 +200,6 @@ body.grid-1 {
   background-color: #fff;
 }
 
-body > .row.nav-row {
-  background-color: #262626;
-}
-
 body > .row > [class*='coffee-span-'].footer-column {
   text-align: center;
 }
@@ -216,10 +212,6 @@ body > .row > [class*='coffee-span-'].hero-column {
 body > .row.footer-row {
   margin-top: 0px;
   padding-bottom: 20px;
-}
-
-body > .row > [class*='coffee-span-'].centered-content {
-  text-align: center;
 }
 
 div.responsive-picture.travel-image {

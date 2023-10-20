@@ -13,27 +13,12 @@
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,b">
     <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+	<script src="js/nav.js" type="text/javascript" defer></script>
 </head>
 
 <body class="grid-1">
-    <header class="row nav-row">
-        <nav class="coffee-span-12">
-            <a class="link-button nav" href="index.html">Home</a>
-            <a class="link-button nav" href="bio.html">Bio</a>
-            <li class="dropdown">
-	            <a class="link-button nav dropbtn" href="#">Research</a>
-                <div class="dropdown-content">
-                    <a href="research.html#publications">Publications</a>
-                    <a href="research.html#experience">Experience</a>
-                    <a href="research.html#projects">Projects</a>
-                    <a href="research.html#ideas">Ideas</a>
-                </div>
-            </li>
-            <a class="link-button nav" href="passions.html">Passions</a>
-            <!--<a class="link-button nav" href="#action-row">Trivia</a>-->
-            <a class="link-button nav" href="contact.html">Contact</a>
-        </nav>
-    </header>
+	
+    <nav-component></nav-component>
   
 	<div class="row">
 		<div class="coffee-span-12">
@@ -495,40 +480,41 @@
   
     <footer-component></footer-component>
  
-<script>
-	var slideIndex = [0, 1, 3, 7, 11, 14];
-	var slideMax = [0, 3, 7, 11, 14, 17];
-	var slideMin = [0, 1, 4, 8, 12, 15];
-	showSlides(slideIndex[1], 1);
-	showSlides(slideIndex[2], 2);
-	showSlides(slideIndex[3], 3);
-	showSlides(slideIndex[4], 4);
-	showSlides(slideIndex[5], 5);
-	
-	function plusSlides(n, ids) {
-	  showSlides(slideIndex[ids] += n, ids);
-	}
-	
-	function currentSlide(n, ids) {
-	  showSlides(slideIndex[ids] = n + slideMin[ids] - 1, ids);
-	}
-	
-	function showSlides(n, ids) {
-		var i;
-		var slides = document.getElementsByClassName("mySlides");
-		var dots = document.getElementsByClassName("dot");
-		if (n > slideMax[ids]) {slideIndex[ids] = slideMin[ids]}
-		if (n < slideMin[ids]) {slideIndex[ids] = slideMax[ids]}
-		for (i = slideMin[ids]; i <=  slideMax[ids]; i++) {
-		  slides[i - 1].style.display = "none";
+	<script>
+		var slideIndex = [0, 1, 3, 7, 11, 14];
+		var slideMax = [0, 3, 7, 11, 14, 17];
+		var slideMin = [0, 1, 4, 8, 12, 15];
+		showSlides(slideIndex[1], 1);
+		showSlides(slideIndex[2], 2);
+		showSlides(slideIndex[3], 3);
+		showSlides(slideIndex[4], 4);
+		showSlides(slideIndex[5], 5);
+		
+		function plusSlides(n, ids) {
+		showSlides(slideIndex[ids] += n, ids);
 		}
-		for (i = slideMin[ids]; i <=  slideMax[ids]; i++) {
-		  dots[i - 1].className = dots[i - 1].className.replace(" active", "");
+		
+		function currentSlide(n, ids) {
+		showSlides(slideIndex[ids] = n + slideMin[ids] - 1, ids);
 		}
-		slides[slideIndex[ids]-1].style.display = "block";
-		dots[slideIndex[ids]-1].className += " active";
-	}
-</script>
+		
+		function showSlides(n, ids) {
+			var i;
+			var slides = document.getElementsByClassName("mySlides");
+			var dots = document.getElementsByClassName("dot");
+			if (n > slideMax[ids]) {slideIndex[ids] = slideMin[ids]}
+			if (n < slideMin[ids]) {slideIndex[ids] = slideMax[ids]}
+			for (i = slideMin[ids]; i <=  slideMax[ids]; i++) {
+			slides[i - 1].style.display = "none";
+			}
+			for (i = slideMin[ids]; i <=  slideMax[ids]; i++) {
+			dots[i - 1].className = dots[i - 1].className.replace(" active", "");
+			}
+			slides[slideIndex[ids]-1].style.display = "block";
+			dots[slideIndex[ids]-1].className += " active";
+		}
+	</script>
+	<script src="js/i18n.js"></script>
 </body>
 
 </html>
