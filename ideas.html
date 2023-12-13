@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="idea/title"></title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        header.nav-row {
+            background-color: #262626;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .navbar-dark .navbar-brand {
+            font-size: 18px;
+        }
+
+        .navbar-dark .navbar-nav .nav-link {
+            color: #ffffff; 
+            font-size: 16px;
+        }
+
+        .navbar-dark .navbar-toggler-icon {
+            background-color: #262626; 
+        }
+
+        .construction-banner {
+            background-color: #ffc107;
+            color: #000000; 
+            text-align: center;
+            padding: 10px;
+            font-weight: bold;
+        }
+
+        .card-img-top {
+            max-height: 300px;
+            width: 100%;
+            object-fit: contain; 
+        }
+        
+        .container-flex {
+            flex: 1;
+        }
+
+        .footer {
+            background-color: #262626; 
+            color: #ffffff; 
+            padding: 20px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <a class="navbar-brand" data-i18n="basic/brand" href="./index.html"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="./bio.html" data-i18n="menu/bio"></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-i18n="menu/research/root" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="./research.html#publications" data-i18n="menu/research/publication"></a>
+                        <a class="dropdown-item" href="./research.html#experience" data-i18n="menu/research/experience"></a>
+                        <a class="dropdown-item" href="./research.html#projects" data-i18n="menu/research/project"></a>
+                        <a class="dropdown-item" href="./ideas.html" data-i18n="menu/research/idea"></a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./passions.html" data-i18n="menu/passion"></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./contact.html" data-i18n="menu/contact"></a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="lanSelector" onclick="toggleLanguage()"></a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="construction-banner">
+        This page is under construction. More will be added soon. 
+    </div>
+
+    <div class="container mt-4">
+        <h1 class="text-center" data-i18n="idea/title"></h1>
+        <p class="text-center">My personal projects</p>
+
+        <div class="card mt-4">
+            <div class="row">
+                <div class="col-md-6 order-md-2">
+                    <a href="https://github.com/MXGHarryLiu/EnglishEnhancer"><img alt="English Enhancer" class="card-img-top" title="English Enhancer" src="https://raw.githubusercontent.com/MXGHarryLiu/EnglishEnhancer/main/resource/welcome.png"></a>
+                </div>
+                <div class="col-md-6 order-md-1">
+                    <div class="card-body">
+                        <h5 class="card-title">English Enhancer</h5>
+                        <ul>
+                            <li><b>Developed in VB.NET</b></li>
+                            <li>This program helps you to improve your writing and reading skills by enlarging your vocabulary through synonyms. </li>
+                            <li><a href="https://github.com/MXGHarryLiu/EnglishEnhancer/raw/main/zips/EnglishEnhancer%201.1.zip">Download the Latest Version</a> (zip, 221 KB, Windows 7, 8, 8.1, 10)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <div class="row">
+                <div class="col-md-6 order-md-2">
+                    <img class="card-img-top" alt="Portable Semiconductor Fridge" title="Portable Semiconductor Fridge" src="img/ideas/fridge-s.png">
+                </div>
+                <div class="col-md-6 order-md-1">
+                    <div class="card-body">
+                        <h5 class="card-title">Portable Semiconductor Fridge</h5>
+                        <ul>
+                            <li><b>DIY portable compressor-less fridge with built-in battery.</b></li>
+                            <li>Cooling contents to 4°C from room temperature in 4 h. </li>
+                            <li>Single charge lasts 2 h (25 W), 4 h to full charge while operation.</li>
+                            <li>LED light and air circulation inside. </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <footer class="footer">
+        <a class="" data-i18n="basic/copyright"></a>
+    </footer>
+
+    <script src="js/i18n.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>

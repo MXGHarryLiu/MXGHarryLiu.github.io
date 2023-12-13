@@ -14,7 +14,7 @@ class Footer extends HTMLElement {
                 <div class="rule">
                     <hr>
                 </div>
-                <a class="plain-text footer" data-i18n="copyright"></a>
+                <a class="plain-text footer" data-i18n="basic/copyright"></a>
             </div>
         </footer>
         `

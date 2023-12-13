@@ -20,7 +20,7 @@ class Nav extends HTMLElement {
                         <a href="./research.html#publications" data-i18n="menu/research/publication"></a>
                         <a href="./research.html#experience" data-i18n="menu/research/experience"></a>
                         <a href="./research.html#projects" data-i18n="menu/research/project"></a>
-                        <a href="./research.html#ideas" data-i18n="menu/research/idea"></a>
+                        <a href="./ideas.html" data-i18n="menu/research/idea"></a>
                     </div>
                 </li>
                 <a class="link-button nav" href="./passions.html" data-i18n="menu/passion"></a>

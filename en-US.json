@@ -87,6 +87,9 @@
             "city": ", Shanghai, China"
         }
     },
+    "idea": {
+        "title": "Ideas"
+    },
     "passion": {
         "title": "Passions - Zhuohe Liu",
         "m1": {
@@ -100,7 +103,6 @@
         "title": "Contact - Zhuohe Liu",
         "follow": "Please follow me on: "
     },
-    "copyright": "Copyright &copy; 2016 - 2023 Zhuohe Liu",
     "alt": {
         "img": {
             "homebanner.jpg": "Arctic Scene at Chicago (Taken by me @ 2015/3/2)",
@@ -124,5 +126,9 @@
         "focus": "Focus",
         "award": "Award",
         "course": "Courses"
+    },
+    "basic": {
+        "brand": "Zhuohe Liu", 
+        "copyright": "Copyright &copy; 2016 - 2023 Zhuohe Liu"
     }
 }
