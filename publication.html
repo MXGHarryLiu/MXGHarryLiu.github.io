@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="publication/title"></title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <style>
+        header.nav-row {
+            background-color: #262626;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .navbar-dark .navbar-brand {
+            font-size: 18px;
+        }
+
+        .navbar-dark .navbar-nav .nav-link {
+            color: #ffffff; 
+            font-size: 16px;
+        }
+
+        .navbar-dark .navbar-toggler-icon {
+            background-color: #262626; 
+        }
+
+        .card-img-top {
+            max-height: 300px;
+            width: 100%;
+            object-fit: contain; 
+        }
+        
+        .container-flex {
+            flex: 1;
+        }
+
+        .btn-label {
+            position: relative;
+            left: -12px;
+            display: inline-block;
+            padding: 6px 12px;
+            background: rgba(0, 0, 0, 0.15);
+            border-radius: 3px 0 0 3px;
+        }
+
+        .btn-labeled {
+            padding-top: 0;
+            padding-bottom: 0;
+            border: 1px solid #262626;
+        }
+
+        .btn {
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            background-color: #262626; 
+            color: #ffffff; 
+            padding: 20px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <a class="navbar-brand" data-i18n="basic/brand" href="./index.html"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="./bio.html" data-i18n="menu/bio"></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-i18n="menu/research/root" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="./publication.html" data-i18n="menu/research/publication"></a>
+                        <a class="dropdown-item" href="./research.html#experience" data-i18n="menu/research/experience"></a>
+                        <a class="dropdown-item" href="./research.html#projects" data-i18n="menu/research/project"></a>
+                        <a class="dropdown-item" href="./ideas.html" data-i18n="menu/research/idea"></a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./passions.html" data-i18n="menu/passion"></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./contact.html" data-i18n="menu/contact"></a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="lanSelector" onclick="toggleLanguage()"></a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="container mt-4">
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <i class="bi bi-tools"></i> This page is under construction. More will be added soon.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
+
+    <h1 class="text-center" data-i18n="publication/title"></h1>
+    <p class="text-center" data-i18n="publication/summary"></p>
+
+    <div class="container mt-4">
+        <h2 class="text-center" data-i18n="publication/m1/peerreviewed"></h2>
+        
+        <div class="card mt-4">
+            <div class="row">
+                <div class="col-md-6 order-md-2">
+                    <a href="https://doi.org/10.1021/acs.biochem.2c00357"><img class="card-img-top" title="ACS Biochemistry Abstract" alt="ACS Biochemistry Abstract" src="img/publication/20221031 ACS Biochemistry Abstract.png"></a>
+                </div>
+                <div class="col-md-6 order-md-1">
+                    <div class="card-body">
+                        <h5 class="card-title">Automating the high-throughput screening of protein-based optical indicators and actuators</h5>
+                        <button type="button" class="btn btn-labeled btn-default" disabled>
+                            <span class="btn-label"><i class="bi bi-calendar2-check-fill"></i></span>Oct. 31, 2022</button>
+                        <a href="https://doi.org/10.1021/acs.biochem.2c00357" target="_blank" rel="noopener noreferrer">
+                            <button type="button" class="btn btn-labeled btn-default">
+                            <span class="btn-label"><i class="bi bi-journal-bookmark"></i></span>ACS Biochemistry</button>
+                        </a>
+                        <div>
+                            <span title="Authors">🤝</span> Jihwan Lee, Beatriz Campillo, Shaminta Hamidian, <b>Zhuohe Liu</b>, Matthew Shorey, and François St-Pierre
+                        </div>
+                        A review of <b>protein engineering</b> approaches to screen and optimize optical sensors and indicators for biological systems.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <a href="https://doi.org/10.1016/j.cell.2022.07.013"><img class="card-img-top" title="Cell Abstract" alt="Cell Abstract" src="img/publication/20220818 Cell Abstract.png"></a>
+                </div>
+                <div class="col-md-6">
+                    <div class="card-body">
+                        <h5 class="card-title">Sustained deep-tissue voltage recording using a fast indicator optimized for two-photon microscopy</h5>
+                        <button type="button" class="btn btn-labeled btn-default" disabled>
+                            <span class="btn-label"><i class="bi bi-calendar2-check-fill"></i></span>Aug. 18, 2022</button>
+                        <a href="https://doi.org/10.1016/j.cell.2022.07.013" target="_blank" rel="noopener noreferrer">
+                            <button type="button" class="btn btn-labeled btn-default">
+                            <span class="btn-label"><i class="bi bi-journal-bookmark"></i></span>Cell</button>
+                        </a>
+                        <div>
+                            <span title="Authors">🤝</span> <b>Zhuohe Liu</b><span title="These authors contributed equally. ">*</span>, Xiaoyu Lu<span title="These authors contributed equally. ">*</span>, Vincent Villette<span title="These authors contributed equally. ">*</span>, Yueyang Gou<span title="These authors contributed equally. ">*</span>, Kevin L. Colbert, Shujuan Lai, Sihui Guan, Michelle A. Land, Jihwan Lee, Tensae Assefa, Daniel R. Zollinger, Maria M. Korympidou, Anna L. Vlasits, Michelle M. Pang, Sharon Su, Changjia Cai, Emmanouil Froudarakis, Na Zhou, Saumil S. Patel, Cameron L. Smith, Annick Ayon, Pierre Bizouard, Jonathan Bradley, Katrin Franke, Thomas R. Clandinin, Andrea Giovannucci, Andreas S. Tolias, Jacob Reimer, Stéphane Dieudonné, François St-Pierre
+                        </div>
+                        Engineer a fast, sensitive, bright and photostable <b>genetically encoded voltage indicator</b> called <span style="color:green;font-weight:bold;">JEDI-2P</span> that is compatible with two-photon microscopy. JEDI-2P enables deep-tissue optical recording of rapid voltage dynamics over tens of minutes. </p>
+                        <span title="References">🔗</span> Media coverage (<a href="https://mp.weixin.qq.com/s/e70aqu6doH27xioiMhnvRg">BioArt (Chinese)</a>, <a href="https://www.bcm.edu/news/new-method-enables-long-lasting-imaging-of-rapid-brain-activity">Baylor College of Medicine News</a>)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <div class="row">
+                <div class="col-md-6 order-md-2">
+                    <a href="https://doi.org/10.1126/sciadv.abb7438"><img class="card-img-top" title="Science Advances Figure 1" alt="Science Advances Figure 1" src="https://www.science.org/cms/10.1126/sciadv.abb7438/asset/afd3768f-cfd8-49fa-8a76-bfeef24a63d4/assets/graphic/abb7438-f1.jpeg"></a>
+                </div>
+                <div class="col-md-6 order-md-1">
+                    <div class="card-body">
+                        <h5 class="card-title">Versatile phenotype-activated cell sorting</h5>
+                        <button type="button" class="btn btn-labeled btn-default" disabled>
+                            <span class="btn-label"><i class="bi bi-calendar2-check-fill"></i></span>Oct. 23, 2020</button>
+                        <a href="https://doi.org/10.1126/sciadv.abb7438" target="_blank" rel="noopener noreferrer">
+                            <button type="button" class="btn btn-labeled btn-default">
+                            <span class="btn-label"><i class="bi bi-journal-bookmark"></i></span>Science Advances</button>
+                        </a>
+                        <div>
+                            <span title="Authors">🤝</span> Jihwan Lee, <b>Zhuohe Liu</b>, Peter H. Suzuki, John F. Ahrens, Shujuan Lai, Xiaoyu Lu, Sihui Guan, François St-Pierre
+                        </div>
+                        A versatile <b>high-throughput technique</b> called <span style="color:green;font-weight:bold;">SPOTlight</span> to isolate individual yeast or human cells with unique spatiotemporal profiles from heterogeneous populations. This technique allows engineer of a bright and new yellow fluorescent protein <b>mGold</b>. </p>
+                        Pending patents: </p>
+                        <ul>
+                            <li>Photostable fluorescent proteins (<a href="https://patents.google.com/patent/US20230203110A1">US20230203110A1</a>)</li>
+                            <li>Methods and compositions for retrieving cellular structures based on spatiotemporal profiles (<a href="https://patents.google.com/patent/US20230031708A1">US20230031708A1</a>)</li>
+                        </ul>
+	                    <span title="References">🔗</span> mGold (<a href="https://www.fpbase.org/protein/mgold/">FPBase</a>), Media coverage (<a href="https://blogs.bcm.edu/2020/11/18/from-the-labs-spotlight-can-identify-individual-cells-among-hundreds-of-thousands/">Baylor College of Medicine Blog</a>)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container mt-4">
+        <h2 class="text-center"></h2>
+
+    </div>
+
+    <footer class="footer">
+        <a class="" data-i18n="basic/copyright"></a>
+    </footer>
+
+    <script src="js/i18n.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>

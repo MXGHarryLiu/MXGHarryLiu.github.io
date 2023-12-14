@@ -87,6 +87,13 @@
             "city": ""
         }
     },
+    "publication": {
+        "title": "文献著作",
+        "summary": "请参考<a href=\"https://scholar.google.com/citations?user=A1aLmWIAAAAJ\">谷歌个人学术档案</a>或<a href=\"https://orcid.org/0000-0002-1818-646X\">ORCID个人页面</a>以获取我的完整著作信息。",
+        "m1": {
+            "peerreviewed": "同行评审期刊文章"
+        }
+    },
     "idea": {
         "title": "金点子"
     },

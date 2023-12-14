@@ -6,6 +6,7 @@
     <title data-i18n="idea/title"></title>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <style>
         header.nav-row {
             background-color: #262626;
@@ -26,14 +27,6 @@
             background-color: #262626; 
         }
 
-        .construction-banner {
-            background-color: #ffc107;
-            color: #000000; 
-            text-align: center;
-            padding: 10px;
-            font-weight: bold;
-        }
-
         .card-img-top {
             max-height: 300px;
             width: 100%;
@@ -42,6 +35,25 @@
         
         .container-flex {
             flex: 1;
+        }
+
+        .btn-label {
+            position: relative;
+            left: -12px;
+            display: inline-block;
+            padding: 6px 12px;
+            background: rgba(0, 0, 0, 0.15);
+            border-radius: 3px 0 0 3px;
+        }
+
+        .btn-labeled {
+            padding-top: 0;
+            padding-bottom: 0;
+            border: 1px solid #262626;
+        }
+
+        .btn {
+            margin-bottom: 10px;
         }
 
         .footer {
@@ -67,7 +79,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" data-i18n="menu/research/root" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="./research.html#publications" data-i18n="menu/research/publication"></a>
+                        <a class="dropdown-item" href="./publication.html" data-i18n="menu/research/publication"></a>
                         <a class="dropdown-item" href="./research.html#experience" data-i18n="menu/research/experience"></a>
                         <a class="dropdown-item" href="./research.html#projects" data-i18n="menu/research/project"></a>
                         <a class="dropdown-item" href="./ideas.html" data-i18n="menu/research/idea"></a>
@@ -88,8 +100,13 @@
         </div>
     </header>
 
-    <div class="construction-banner">
-        This page is under construction. More will be added soon. 
+    <div class="container mt-4">
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <i class="bi bi-tools"></i> This page is under construction. More will be added soon.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
     </div>
 
     <div class="container mt-4">
@@ -104,11 +121,13 @@
                 <div class="col-md-6 order-md-1">
                     <div class="card-body">
                         <h5 class="card-title">English Enhancer</h5>
+                        <button type="button" class="btn btn-labeled btn-default" disabled>
+                            <span class="btn-label"><i class="bi bi-calendar2-check-fill"></i></span>Aug. 2015</button>
                         <ul>
-                            <li><b>Developed in VB.NET</b></li>
                             <li>This program helps you to improve your writing and reading skills by enlarging your vocabulary through synonyms. </li>
                             <li><a href="https://github.com/MXGHarryLiu/EnglishEnhancer/raw/main/zips/EnglishEnhancer%201.1.zip">Download the Latest Version</a> (zip, 221 KB, Windows 7, 8, 8.1, 10)</li>
                         </ul>
+                        <div class="badge badge-info badge">.NET (Visual Basic)</div>
                     </div>
                 </div>
             </div>

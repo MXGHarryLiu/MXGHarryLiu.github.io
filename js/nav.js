@@ -17,7 +17,7 @@ class Nav extends HTMLElement {
                 <li class="dropdown">
                     <a class="link-button nav" href="#" data-i18n="menu/research/root"></a>
                     <div class="dropdown-content">
-                        <a href="./research.html#publications" data-i18n="menu/research/publication"></a>
+                        <a href="./publication.html" data-i18n="menu/research/publication"></a>
                         <a href="./research.html#experience" data-i18n="menu/research/experience"></a>
                         <a href="./research.html#projects" data-i18n="menu/research/project"></a>
                         <a href="./ideas.html" data-i18n="menu/research/idea"></a>
