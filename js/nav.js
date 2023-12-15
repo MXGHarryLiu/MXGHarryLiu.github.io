@@ -24,7 +24,6 @@ class Nav extends HTMLElement {
                     </div>
                 </li>
                 <a class="link-button nav" href="./passions.html" data-i18n="menu/passion"></a>
-                <a class="link-button nav" href="./contact.html" data-i18n="menu/contact"></a>
                 <a class="link-button nav" href="#" id="lanSelector" onclick="toggleLanguage()"></a>
             </nav>
         </header>
