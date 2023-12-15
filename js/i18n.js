@@ -91,6 +91,21 @@ window.addEventListener('DOMContentLoaded', async () => {
     insertIcon('award', '🏆');
     insertIcon('course', '📚');
 
+    function insertListMarker(className, icon, color) {
+        const is = document.querySelectorAll('.i-' + className);
+        is.forEach(i => {
+            i.title = getContent('icon/' + className);
+            i.classList.add('bi', icon);
+            i.style.color = color
+        });
+    }
+    insertListMarker('place', 'bi-geo-alt', '#3498db')
+    insertListMarker('focus', 'bi-mortarboard', '#333')
+    insertListMarker('date', 'bi-calendar2-check', '#e74c3c')
+    insertListMarker('award', 'bi-trophy', '#ffd700')
+    insertListMarker('course', 'bi-book', '#4caf50')
+    insertListMarker('bullet', 'bi-arrow-right-short', '#808080')
+
     if (document.title === '') {
         document.title = getContent('basic/brand')
     } else {

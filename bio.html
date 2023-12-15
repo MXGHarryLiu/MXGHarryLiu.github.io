@@ -18,6 +18,14 @@
         .container-flex {
             flex: 1;
         }
+        .card-list li {
+            list-style: none;
+            margin-left: 0;
+            padding-left: 2.5em;
+        }
+        .card-list li i {
+            text-indent: -2em;
+        }
     </style>
 </head>
 
@@ -61,23 +69,22 @@
                 <div class="col-md-8 order-md-1">
                     <div class="card-body">
                         <h5 class="card-title" data-i18n="bio/phd/title"></h5>
-                        <ul>
-                            <li><span class="place"></span> <span data-i18n="bio/phd/place"></span></li>
-                            <li><span class="focus"></span> <span data-i18n="bio/phd/focus"></span></li>
-                            <li><span class="date"></span> <span data-i18n="bio/phd/date"></span></li>
+                        <ul class="card-list list-unstyled">
+                            <li><i class="i-place"></i><span data-i18n="bio/phd/place"></span></li>
+                            <li><i class="i-focus"></i><span data-i18n="bio/phd/focus"></span></li>
+                            <li><i class="i-date"></i><span data-i18n="bio/phd/date"></span></li>
                         </ul>
                         <h5 class="card-title" data-i18n="bio/ms/title"></h5>
-                        <ul>
-                            <li><span class="place"></span> <span data-i18n="bio/ms/place"></span></li>
-                            <li><span class="focus"></span> <span data-i18n="bio/ms/focus"></span></li>
-                            <li><span class="date"></span> <span data-i18n="bio/ms/date"></span></li>
-                            <li><span class="award"></span> Honors &amp; Awards: 
-                                <ul>
-                                    <li><b>Trainee Highlight Award</b>: The 7<sup>th</sup> Annual BRAIN Initiative Investigators Meeting. $400 stipend. </li>
-
+                        <ul class="card-list list-unstyled">
+                            <li><i class="i-place"></i><span data-i18n="bio/ms/place"></span></li>
+                            <li><i class="i-focus"></i><span data-i18n="bio/ms/focus"></span></li>
+                            <li><i class="i-date"></i><span data-i18n="bio/ms/date"></span></li>
+                            <li><i class="i-award"></i><span data-i18n="bio/ms/awards"></span>
+                                <ul class="card-list list-unstyled">
+                                    <li><i class="i-bullet"></i><span data-i18n="bio/ms/award1"></span></li>
                                 </ul>
                             </li>
-                            <li><span class="course"></span> <span data-i18n="bio/ms/course"></span></li>
+                            <li><i class="i-course"></i><span data-i18n="bio/ms/course"></span></li>
                         </ul>
                     </div>
                 </div>
@@ -92,18 +99,18 @@
                 <div class="col-md-8 order-md-1">
                     <div class="card-body">
                         <h5 class="card-title" data-i18n="bio/bs2/title"></h5>
-                        <ul>
-                            <li><span class="place"></span> <span data-i18n="bio/bs2/place"></span></li>
-                            <li><span class="focus"></span> <span data-i18n="bio/bs2/focus"></span></li>
-                            <li><span class="date"></span> <span data-i18n="bio/bs2/date"></span></li>
-                            <li><span class="award"></span> <span data-i18n="bio/bs2/awards"></span>
-                                <ul>
-                                    <li><span data-i18n="bio/bs2/award1"></span></li>
-                                    <li><span data-i18n="bio/bs2/award2"></span></li>
-                                    <li><span data-i18n="bio/bs2/award3"></span></li>
+                        <ul class="card-list list-unstyled">
+                            <li><i class="i-place"></i><span data-i18n="bio/bs2/place"></span></li>
+                            <li><i class="i-focus"></i><span data-i18n="bio/bs2/focus"></span></li>
+                            <li><i class="i-date"></i><span data-i18n="bio/bs2/date"></span></li>
+                            <li><i class="i-award"></i><span data-i18n="bio/bs2/awards"></span>
+                                <ul class="card-list list-unstyled">
+                                    <li><i class="i-bullet"></i><span data-i18n="bio/bs2/award1"></span></li>
+                                    <li><i class="i-bullet"></i><span data-i18n="bio/bs2/award2"></span></li>
+                                    <li><i class="i-bullet"></i><span data-i18n="bio/bs2/award3"></span></li>
                                 </ul>
                             </li>
-                            <li><span class="course"></span> <span data-i18n="bio/bs2/course"></span></li>
+                            <li><i class="i-course"></i><span data-i18n="bio/bs2/course"></span></li>
                         </ul>
                         <p><a href="research.html#projects" title="More on projects...">Projects</a> | <a href="research.html#experience1" title="Research Assistant">Experience</a></p>
                     </div>
@@ -119,17 +126,17 @@
                 <div class="col-md-8 order-md-1">
                     <div class="card-body">
                         <h5 class="card-title" data-i18n="bio/bs1/title"></h5>
-                        <ul>
-                            <li><span class="place"></span><span data-i18n="bio/bs1/place"></span><span data-i18n="bio/bs1/city"></span></li>
-                            <li><span class="focus"></span> <span data-i18n="bio/bs1/focus"></span></li>
-                            <li><span class="date"></span> <span data-i18n="bio/bs1/date"></span></li>
-                            <li><span class="award"></span> <span data-i18n="bio/bs1/awards"></span>
-                                <ul>
-                                    <li><span data-i18n="bio/bs1/award1"></span></li>
-                                    <li><span data-i18n="bio/bs1/award2"></span></li>
+                        <ul class="card-list list-unstyled">
+                            <li><i class="i-place"></i><span data-i18n="bio/bs1/place"></span><span data-i18n="bio/bs1/city"></span></li>
+                            <li><i class="i-focus"></i><span data-i18n="bio/bs1/focus"></span></li>
+                            <li><i class="i-date"></i><span data-i18n="bio/bs1/date"></span></li>
+                            <li><i class="i-award"></i><span data-i18n="bio/bs1/awards"></span>
+                                <ul class="card-list list-unstyled">
+                                    <li><i class="i-bullet"></i><span data-i18n="bio/bs1/award1"></span></li>
+                                    <li><i class="i-bullet"></i><span data-i18n="bio/bs1/award2"></span></li>
                                 </ul>
                             </li>
-                            <li><span class="course"></span> <span data-i18n="bio/bs1/course"></span></li>
+                            <li><i class="i-course"></i><span data-i18n="bio/bs1/course"></span></li>
                         </ul>
                         <p><a href="research.html#projects" title="More on projects...">Projects</a> | <a href="research.html#experience2" title="Laboratory Assistant (Student Innovation Center)">Experience</a></p>
                     </div>
@@ -149,20 +156,20 @@
                 <div class="col-md-8 order-md-1">
                     <div class="card-body">
                         <h5 class="card-title" data-i18n="bio/high/title"></h5>
-                        <ul>
-                            <li><span class="place"></span> <a href="http://www.hsefz.cn/" data-i18n="bio/high/place"></a><span data-i18n="bio/high/city"></span></li>
-                            <li><span class="focus"></span> <span data-i18n="bio/high/focus"></span></li>
-                            <li><span class="date"></span> 2009 - 2012</li>
-                            <li><span class="award"></span> <span data-i18n="bio/high/awards"></span>
-                                <ul>
-                                    <li><span data-i18n="bio/high/award1"></span></li>
-                                    <li><span data-i18n="bio/high/award2"></span></li>
+                        <ul class="card-list list-unstyled">
+                            <li><i class="i-place"></i><a href="http://www.hsefz.cn/" data-i18n="bio/high/place"></a><span data-i18n="bio/high/city"></span></li>
+                            <li><i class="i-focus"></i><span data-i18n="bio/high/focus"></span></li>
+                            <li><i class="i-date"></i>2009 - 2012</li>
+                            <li><i class="i-award"></i><span data-i18n="bio/high/awards"></span>
+                                <ul class="card-list list-unstyled">
+                                    <li><i class="i-bullet"></i><span data-i18n="bio/high/award1"></span></li>
+                                    <li><i class="i-bullet"></i><span data-i18n="bio/high/award2"></span></li>
                                 </ul>
                             </li>
-                            <li><span data-i18n="bio/high/leadership"></span>
-                                <ul>
-                                    <li><span data-i18n="bio/high/award3"></span></li>
-                                    <li><span data-i18n="bio/high/award4"></span></li>
+                            <li><i class="i-bullet"></i><span data-i18n="bio/high/leadership"></span>
+                                <ul class="card-list list-unstyled">
+                                    <li><i class="i-bullet"></i><span data-i18n="bio/high/award3"></span></li>
+                                    <li><i class="i-bullet"></i><span data-i18n="bio/high/award4"></span></li>
                                 </ul>
                             </li>
                         </ul>
@@ -180,9 +187,9 @@
                 <div class="col-md-8 order-md-1">
                     <div class="card-body">
                         <h5 class="card-title" data-i18n="bio/middle/title"></h5>
-                        <ul>
-                            <li><span class="place"></span><a href="http://www.hy.sh.cn/" data-i18n="bio/middle/place"></a><span data-i18n="bio/middle/city"></span></li>
-                            <li><span class="date"></span> 2005 - 2009</li>
+                        <ul class="card-list list-unstyled">
+                            <li><i class="i-place"></i><a href="http://www.hy.sh.cn/" data-i18n="bio/middle/place"></a><span data-i18n="bio/middle/city"></span></li>
+                            <li><i class="i-date"></i>2005 - 2009</li>
                         </ul>
                     </div>
                 </div>
@@ -194,10 +201,9 @@
                 <div class="col-md-12">
                     <div class="card-body">
                         <h5 class="card-title" data-i18n="bio/elem/title"></h5>
-                        <ul>
-                            <li><span class="place"></span>
-                                <a href="http://xyxx.xhedu.sh.cn/cms/" data-i18n="bio/elem/place"></a><span data-i18n="bio/elem/city"></span></li>
-                            <li><span class="date"></span> 2000 - 2005</li>
+                        <ul class="card-list list-unstyled">
+                            <li><i class="i-place"></i><a href="http://xyxx.xhedu.sh.cn/cms/" data-i18n="bio/elem/place"></a><span data-i18n="bio/elem/city"></span></li>
+                            <li><i class="i-date"></i>2000 - 2005</li>
                         </ul>
                     </div>
                 </div>
