@@ -81,7 +81,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     function insertIcon(className, emoji) {
         const spans = document.querySelectorAll('.' + className);
         spans.forEach(span => {
-            span.title = getContent("icon/" + className);
+            span.title = getContent('icon/' + className);
             span.innerHTML = emoji;
         });
     }
@@ -90,4 +90,10 @@ window.addEventListener('DOMContentLoaded', async () => {
     insertIcon('focus', '💡');
     insertIcon('award', '🏆');
     insertIcon('course', '📚');
+
+    if (document.title === '') {
+        document.title = getContent('basic/brand')
+    } else {
+        document.title = document.title + ' - ' + getContent('basic/brand')
+    }
 });

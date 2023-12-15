@@ -1,179 +1,211 @@
 ﻿<!DOCTYPE html>
-<html lang="en-US">
-
+<html lang="en-us">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-i18n="bio/title"></title>
-    <link rel="stylesheet" href="css/coffeegrinder.min.css">
-    <link rel="stylesheet" href="css/wireframe-theme.min.css">
-    <script src="js/picturefill.min.js" class="picturefill" async="async"></script>
-    <script src="js/footer.js" type="text/javascript" defer></script>
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,b">
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-    <script src="js/nav.js" type="text/javascript" defer></script>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="components/nav.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="js/i18n.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style>
+        .container-flex {
+            flex: 1;
+        }
+    </style>
 </head>
 
 <body class="grid-1">
 
     <nav-component></nav-component>
 
-    <div class="row">
-        <div class="coffee-span-12">
-            <h1 class="page-title left" data-i18n="bio/title"></h1>
+    <div class="container mt-4">
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <i class="bi bi-tools"></i> This page is under construction. More will be added soon.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
         </div>
     </div>
 
-    <main class="row">
-        <div class="coffee-span-4 coffee-558-span-6 coffee-419-span-12">
-            <div class="responsive-picture travel-image">
-                <picture>
-                    <img src="img/20220916 Zhuohe Liu.jpg">
-                </picture>
+    <h1 class="text-center" data-i18n="bio/title"></h1>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <img class="img-fluid" src="img/20220916 Zhuohe Liu.jpg">
+            </div>
+            <div class="col-lg-8 col-md-6">
+                <p>My name is <b>Zhuohe Liu</b>, and I go by <b>Harry</b> if it's easier for you to pronounce my first name as /JOO-oh-her/ instead. </p>
+                <p>I received the B. S. E. in biomedical engineering from <a class="list-item-link" href="http://www.umich.edu/">University of Michigan</a> in 2016, and had my second B. S. E. degree in electrical and computer engineering from Shanghai Jiao Tong University (<a class="list-item-link" href="http://umji.sjtu.edu.cn/">UM-SJTU Joint Institute</a>). 
+                Later in 2016, I moved to Houston, TX to study at <a class="list-item-link" href="http://www.ece.rice.edu/">Rice University</a>, and got my M.S. in 2020, and Ph.D. in 2022, both in electrical and computer engineering. </p>
             </div>
         </div>
-        <div class="coffee-span-8 coffee-558-span-6 coffee-419-span-12">
-            <p class="detail-paragraph">My name is <b>Zhuohe Liu</b>, and I go by <b>Harry</b> if it's easier for you to pronounce my first name as /JOO-oh-her/ instead. </p>
-		    <p class="detail-paragraph">I received the B. S. E. in biomedical engineering from <a class="list-item-link" href="http://www.umich.edu/">University of Michigan</a> in 2016, and had my second B. S. E. degree in electrical and computer engineering from Shanghai Jiao Tong University (<a class="list-item-link" href="http://umji.sjtu.edu.cn/">UM-SJTU Joint Institute</a>). 
-			Later in 2016, I moved to Houston, TX to study at <a class="list-item-link" href="http://www.ece.rice.edu/">Rice University</a>, and got my M.S. in 2020, and Ph.D. in 2022, both in electrical and computer engineering. </p>
-        </div>
-    </main>
+    </div>
 
-    <main class="row">
-        <div class="coffee-span-12">
-            <h2 class="sub-title" data-i18n="bio/m1/education"></h2>
-        </div>
-    </main>
+    <h2 class="text-center" data-i18n="bio/m1/education"></h2>
 
-    <main class="row">
-        <div class="coffee-span-12">
-            <h4 class="sub-title" data-i18n="bio/m2/college"></h4>
-        </div>
-    </main>
+    <div class="container mt-4">
+        <h3 class="text-center" data-i18n="bio/m2/college"></h4>
+        <div class="card mt-4">
+            <div class="row"> 
+                <div class="col-md-4 order-md-2">
+                    <a href="img/education/stpierrelab.png"><img class="card-img-top" src="img/education/stpierrelab.png"></a>
+                </div>
+                <div class="col-md-8 order-md-1">
+                    <div class="card-body">
+                        <h5 class="card-title" data-i18n="bio/phd/title"></h5>
+                        <ul>
+                            <li><span class="place"></span> <span data-i18n="bio/phd/place"></span></li>
+                            <li><span class="focus"></span> <span data-i18n="bio/phd/focus"></span></li>
+                            <li><span class="date"></span> <span data-i18n="bio/phd/date"></span></li>
+                        </ul>
+                        <h5 class="card-title" data-i18n="bio/ms/title"></h5>
+                        <ul>
+                            <li><span class="place"></span> <span data-i18n="bio/ms/place"></span></li>
+                            <li><span class="focus"></span> <span data-i18n="bio/ms/focus"></span></li>
+                            <li><span class="date"></span> <span data-i18n="bio/ms/date"></span></li>
+                            <li><span class="award"></span> Honors &amp; Awards: 
+                                <ul>
+                                    <li><b>Trainee Highlight Award</b>: The 7<sup>th</sup> Annual BRAIN Initiative Investigators Meeting. $400 stipend. </li>
 
-    <main class="row">
-        <div class="coffee-span-8 coffee-558-span-7 coffee-419-span-12">
-            <h3 class="sub-title" data-i18n="bio/phd/title"></h3>
-            <p class="detail-paragraph bullet-1"><span class="place"></span> <span data-i18n="bio/phd/place"></span></p>
-			<p class="detail-paragraph bullet-1"><span class="focus"></span> <span data-i18n="bio/phd/focus"></span></p>
-			<p class="detail-paragraph bullet-1"><span class="date"></span> <span data-i18n="bio/phd/date"></span></p>
-			<h3 class="sub-title" data-i18n="bio/ms/title"></h3>
-			<p class="detail-paragraph bullet-1"><span class="place"></span> <span data-i18n="bio/ms/place"></span></p>
-			<p class="detail-paragraph bullet-1"><span class="focus"></span> <span data-i18n="bio/ms/focus"></span></p>
-			<p class="detail-paragraph bullet-1"><span class="date"></span> <span data-i18n="bio/ms/date"></span></p>
-			<p class="detail-paragraph bullet-1"><span class="award"></span> Honors &amp; Awards: </p>
-			<p class="detail-paragraph bullet-2">● <b>Trainee Highlight Award</b>: The 7<sup>th</sup> Annual BRAIN Initiative Investigators Meeting. $400 stipend. </p>
-			<p class="detail-paragraph bullet-1"><span class="course"></span> <span data-i18n="bio/ms/course"></span> </p>
-        </div>
-        <div class="coffee-span-4 coffee-558-span-5 coffee-419-span-12">
-            <div class="responsive-picture travel-image">
-                <picture>
-                    <a href="img/education/stpierrelab.png"><img src="img/education/stpierrelab.png"></a>
-                </picture>
+                                </ul>
+                            </li>
+                            <li><span class="course"></span> <span data-i18n="bio/ms/course"></span></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
-    </main>
 
-    <main class="row">
-        <div class="coffee-span-8 coffee-558-span-7 coffee-419-span-12">
-            <h3 class="sub-title" data-i18n="bio/bs2/title"></h3>
-            <p class="detail-paragraph bullet-1"><span class="place"></span> <span data-i18n="bio/bs2/place"></span></p>
-			<p class="detail-paragraph bullet-1"><span class="focus"></span> <span data-i18n="bio/bs2/focus"></span></p>
-			<p class="detail-paragraph bullet-1"><span class="date"></span> <span data-i18n="bio/bs2/date"></span></p>
-			<p class="detail-paragraph bullet-1"><span class="award"></span> <span data-i18n="bio/bs2/awards"></span></p>
-            <p class="detail-paragraph bullet-2">● <span data-i18n="bio/bs2/award1"></span></p>
-			<p class="detail-paragraph bullet-2">● <span data-i18n="bio/bs2/award2"></span></p>
-            <p class="detail-paragraph bullet-2">● <span data-i18n="bio/bs2/award3"></span></p>
-            <p class="detail-paragraph bullet-1"><span class="course"></span> <span data-i18n="bio/bs2/course"></span></p>
-            <p class="detail-paragraph bullet-1"><a href="research.html#projects" title="More on projects...">Projects</a> | <a href="research.html#experience1" title="Research Assistant">Experience</a></p>
-        </div>
-        <div class="coffee-span-4 coffee-558-span-5 coffee-419-span-12">
-            <div class="responsive-picture travel-image">
-                <picture>
-                    <a href="img/education/umich.jpg"><img src="img/education/umich-s.jpg"></a>
-                </picture>
+        <div class="card mt-4">
+            <div class="row">
+                <div class="col-md-4 order-md-2">
+                    <a href="img/education/umich.jpg"><img class="card-img-top" src="img/education/umich-s.jpg"></a>
+                </div>
+                <div class="col-md-8 order-md-1">
+                    <div class="card-body">
+                        <h5 class="card-title" data-i18n="bio/bs2/title"></h5>
+                        <ul>
+                            <li><span class="place"></span> <span data-i18n="bio/bs2/place"></span></li>
+                            <li><span class="focus"></span> <span data-i18n="bio/bs2/focus"></span></li>
+                            <li><span class="date"></span> <span data-i18n="bio/bs2/date"></span></li>
+                            <li><span class="award"></span> <span data-i18n="bio/bs2/awards"></span>
+                                <ul>
+                                    <li><span data-i18n="bio/bs2/award1"></span></li>
+                                    <li><span data-i18n="bio/bs2/award2"></span></li>
+                                    <li><span data-i18n="bio/bs2/award3"></span></li>
+                                </ul>
+                            </li>
+                            <li><span class="course"></span> <span data-i18n="bio/bs2/course"></span></li>
+                        </ul>
+                        <p><a href="research.html#projects" title="More on projects...">Projects</a> | <a href="research.html#experience1" title="Research Assistant">Experience</a></p>
+                    </div>
+                </div>
             </div>
         </div>
-    </main>
 
-    <main class="row">
-        <div class="coffee-span-8 coffee-558-span-7 coffee-419-span-12">
-            <h3 class="sub-title" data-i18n="bio/bs1/title"></h3>
-            <p class="detail-paragraph bullet-1"><span class="place"></span><span data-i18n="bio/bs1/place"></span><span data-i18n="bio/bs1/city"></span></p>
-			<p class="detail-paragraph bullet-1"><span class="focus"></span> <span data-i18n="bio/bs1/focus"></span></p>
-            <p class="detail-paragraph bullet-1"><span class="date"></span> <span data-i18n="bio/bs1/date"></span></p>
-			<p class="detail-paragraph bullet-1"><span class="award"></span> <span data-i18n="bio/bs1/awards"></span></p>
-            <p class="detail-paragraph bullet-2">● <span data-i18n="bio/bs1/award1"></span></p>
-	        <p class="detail-paragraph bullet-2">● <span data-i18n="bio/bs1/award2"></span></p>
-            <p class="detail-paragraph bullet-1"><span class="course"></span> <span data-i18n="bio/bs1/course"></span></p>
-            <p class="detail-paragraph bullet-1"><a href="research.html#projects" title="More on projects...">Projects</a> | <a href="research.html#experience2" title="Laboratory Assistant (Student Innovation Center)">Experience</a></p>
-        </div>
-        <div class="coffee-span-4 coffee-558-span-5 coffee-419-span-12">
-            <div class="responsive-picture travel-image">
-                <picture>
-                    <a href="img/education/umsjtuji-expo.jpg"><img src="img/education/umsjtuji-expo-s.jpg"></a>
-                </picture>
+        <div class="card mt-4">
+            <div class="row">
+                <div class="col-md-4 order-md-2">
+                    <a href="img/education/umsjtuji-expo.jpg"><img class="card-img-top" src="img/education/umsjtuji-expo-s.jpg"></a>
+                </div>
+                <div class="col-md-8 order-md-1">
+                    <div class="card-body">
+                        <h5 class="card-title" data-i18n="bio/bs1/title"></h5>
+                        <ul>
+                            <li><span class="place"></span><span data-i18n="bio/bs1/place"></span><span data-i18n="bio/bs1/city"></span></li>
+                            <li><span class="focus"></span> <span data-i18n="bio/bs1/focus"></span></li>
+                            <li><span class="date"></span> <span data-i18n="bio/bs1/date"></span></li>
+                            <li><span class="award"></span> <span data-i18n="bio/bs1/awards"></span>
+                                <ul>
+                                    <li><span data-i18n="bio/bs1/award1"></span></li>
+                                    <li><span data-i18n="bio/bs1/award2"></span></li>
+                                </ul>
+                            </li>
+                            <li><span class="course"></span> <span data-i18n="bio/bs1/course"></span></li>
+                        </ul>
+                        <p><a href="research.html#projects" title="More on projects...">Projects</a> | <a href="research.html#experience2" title="Laboratory Assistant (Student Innovation Center)">Experience</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>
+        
+    
+    <div class="container mt-4">
+        <h3 class="text-center" data-i18n="bio/m2/school"></h4>
+        <div class="card mt-4">
+            <div class="row">
+                <div class="col-md-4 order-md-2">
+                    <a href="http://www.hsefz.cn/"><img class="card-img-top" src="img/education/efz.jpg"></a>
+                </div>
+                <div class="col-md-8 order-md-1">
+                    <div class="card-body">
+                        <h5 class="card-title" data-i18n="bio/high/title"></h5>
+                        <ul>
+                            <li><span class="place"></span> <a href="http://www.hsefz.cn/" data-i18n="bio/high/place"></a><span data-i18n="bio/high/city"></span></li>
+                            <li><span class="focus"></span> <span data-i18n="bio/high/focus"></span></li>
+                            <li><span class="date"></span> 2009 - 2012</li>
+                            <li><span class="award"></span> <span data-i18n="bio/high/awards"></span>
+                                <ul>
+                                    <li><span data-i18n="bio/high/award1"></span></li>
+                                    <li><span data-i18n="bio/high/award2"></span></li>
+                                </ul>
+                            </li>
+                            <li><span data-i18n="bio/high/leadership"></span>
+                                <ul>
+                                    <li><span data-i18n="bio/high/award3"></span></li>
+                                    <li><span data-i18n="bio/high/award4"></span></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <p><a href="research.html#projectefz" title="More on projects...">Projects</a></p>
+                    </div>
+                </div>
             </div>
         </div>
-    </main>
 
-    <main class="row">
-        <div class="coffee-span-12">
-            <h4 class="sub-title" data-i18n="bio/m2/school"></h4>
-        </div>
-    </main>
-
-    <main class="row">
-        <div class="coffee-span-10 coffee-558-span-8 coffee-419-span-12">
-            <h3 class="sub-title" data-i18n="bio/high/title"></h3>
-            <p class="detail-paragraph bullet-1"><span class="place"></span> <a href="http://www.hsefz.cn/" data-i18n="bio/high/place"></a><span data-i18n="bio/high/city"></span></p>
-			<p class="detail-paragraph bullet-1"><span class="focus"></span> <span data-i18n="bio/high/focus"></span></p>
-			<p class="detail-paragraph bullet-1"><span class="date"></span> 2009 - 2012</p>
-            <p class="detail-paragraph bullet-1"><span class="award"></span> <span data-i18n="bio/high/awards"></span></p>
-			<p class="detail-paragraph bullet-2">● <span data-i18n="bio/high/award1"></span></p>
-			<p class="detail-paragraph bullet-2">● <span data-i18n="bio/high/award2"></span></p>
-            <p class="detail-paragraph bullet-2" data-i18n="bio/high/leadership"></p>
-	        <p class="detail-paragraph bullet-2">● <span data-i18n="bio/high/award3"></span></p>
-			<p class="detail-paragraph bullet-2">● <span data-i18n="bio/high/award4"></span></p>
-            <p class="detail-paragraph bullet-1"><a href="research.html#projectefz" title="More on projects...">Projects</a></p>
-        </div>
-        <div class="coffee-span-2 coffee-558-span-4 coffee-419-span-12">
-            <div class="responsive-picture travel-image">
-                <picture>
-                    <a href="http://www.hsefz.cn/"><img src="img/education/efz.jpg"></a>
-                </picture>
+        <div class="card mt-4">
+            <div class="row">
+                <div class="col-md-4 order-md-2">
+                    <a href="http://www.hy.sh.cn/"><img class="card-img-top" src="img/education/hy.png"></a>
+                </div>
+                <div class="col-md-8 order-md-1">
+                    <div class="card-body">
+                        <h5 class="card-title" data-i18n="bio/middle/title"></h5>
+                        <ul>
+                            <li><span class="place"></span><a href="http://www.hy.sh.cn/" data-i18n="bio/middle/place"></a><span data-i18n="bio/middle/city"></span></li>
+                            <li><span class="date"></span> 2005 - 2009</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
-    </main>
 
-    <main class="row">
-        <div class="coffee-span-10 coffee-558-span-8 coffee-419-span-12">
-            <h3 class="sub-title" data-i18n="bio/middle/title"></h3>
-            <p class="detail-paragraph bullet-1"><span class="place"></span>
-                <a href="http://www.hy.sh.cn/" data-i18n="bio/middle/place"></a><span data-i18n="bio/middle/city"></span></p>
-			<p class="detail-paragraph bullet-1"><span class="date"></span> 2005 - 2009</p>
-        </div>
-        <div class="coffee-span-2 coffee-558-span-4 coffee-419-span-12">
-            <div class="responsive-picture travel-image">
-                <picture>
-                    <a href="http://www.hy.sh.cn/"><img src="img/education/hy.png"></a>
-                </picture>
+        <div class="card mt-4">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card-body">
+                        <h5 class="card-title" data-i18n="bio/elem/title"></h5>
+                        <ul>
+                            <li><span class="place"></span>
+                                <a href="http://xyxx.xhedu.sh.cn/cms/" data-i18n="bio/elem/place"></a><span data-i18n="bio/elem/city"></span></li>
+                            <li><span class="date"></span> 2000 - 2005</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
-    </main>
-
-    <main class="row">
-        <div class="coffee-span-12 coffee-558-span-12 coffee-419-span-12">
-            <h3 class="sub-title" data-i18n="bio/elem/title"></h3>
-			<p class="detail-paragraph bullet-1"><span class="place"></span>
-                <a href="http://xyxx.xhedu.sh.cn/cms/" data-i18n="bio/elem/place"></a><span data-i18n="bio/elem/city"></span></p>
-            <p class="detail-paragraph bullet-1"><span class="date"></span> 2000 - 2005</p>
-        </div>
-    </main>
+    </div>
 	
 	<footer-component></footer-component>
     <script src="js/i18n.js"></script>
 </body>
-
 </html>

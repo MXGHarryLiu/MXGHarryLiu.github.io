@@ -14,14 +14,14 @@
     },
     "motto": "Know thyself",
     "home": {
-        "title": "Zhuohe Liu",
+        "title": "",
         "highlight1": "A world to explore",
         "highlight2": "A life to live",
         "highlight3": "A tale to tell",
         "intro": "<br>Welcome! This is my first ever personal website! <br> I'm on the path of being a biotechnology engineer. <br>"
     },
     "bio": {
-        "title": "Bio - Zhuohe Liu",
+        "title": "Bio",
         "m1": {
             "education": "Education"
         },
@@ -98,7 +98,7 @@
         "title": "Ideas"
     },
     "passion": {
-        "title": "Passions - Zhuohe Liu",
+        "title": "Passions",
         "m1": {
             "worksppace": "Workspace",
             "hobby": "Hobbies",

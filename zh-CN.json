@@ -14,14 +14,14 @@
     },
     "motto": "知己方知彼",
     "home": {
-        "title": "刘卓和",
+        "title": "",
         "highlight1": "探索世界",
         "highlight2": "品味生活",
         "highlight3": "讲述轶事",
         "intro": "<br>欢迎！这是我的第一个个人网站！<br> 我正在成为生物电子工程师的成长道路上。"
     },
     "bio": {
-        "title": "简介 - 刘卓和",
+        "title": "简介",
         "m1": {
             "education": "学历"
         },
@@ -98,7 +98,7 @@
         "title": "金点子"
     },
     "passion": {
-        "title": "兴趣 - 刘卓和",
+        "title": "兴趣",
         "m1": {
             "workspace": "我的虚拟工作台",
             "hobby": "兴趣爱好",
