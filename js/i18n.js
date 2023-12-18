@@ -99,12 +99,16 @@ window.addEventListener('DOMContentLoaded', async () => {
             i.style.color = color
         });
     }
-    insertListMarker('place', 'bi-geo-alt', '#3498db')
-    insertListMarker('focus', 'bi-mortarboard', '#333')
-    insertListMarker('date', 'bi-calendar2-check', '#e74c3c')
-    insertListMarker('award', 'bi-trophy', '#ffd700')
-    insertListMarker('course', 'bi-book', '#4caf50')
+    insertListMarker('place', 'bi-geo-alt', '#3498db') //blue
+    insertListMarker('focus', 'bi-mortarboard', '#333') //gray
+    insertListMarker('date', 'bi-calendar2-check', '#e74c3c') //red
+    insertListMarker('award', 'bi-trophy', '#ffd700') //yellow/gold
+    insertListMarker('course', 'bi-book', '#4caf50') //green
+    insertListMarker('skill', 'bi-rocket', '#c8a2c8') //purple
+    insertListMarker('team', 'bi-people', '#ffa500') //orange
+
     insertListMarker('bullet', 'bi-arrow-right-short', '#808080')
+    insertListMarker('dot', 'bi-dot', '#808080')
 
     if (document.title === '') {
         document.title = getContent('basic/brand')

@@ -13,13 +13,13 @@ class Nav extends HTMLElement {
         <header class="row nav-row">
             <nav class="coffee-span-12">
                 <a class="link-button nav" href="./index.html" data-i18n="menu/home"></a>
-                <a class="link-button nav" href="./bio.html" data-i18n="menu/bio"></a>
+                <a class="link-button nav" href="./bio.html" data-i18n="bio/title"></a>
                 <li class="dropdown">
                     <a class="link-button nav" href="#" data-i18n="menu/research/root"></a>
                     <div class="dropdown-content">
-                        <a href="./publication.html" data-i18n="menu/research/publication"></a>
-                        <a href="./research.html#experience" data-i18n="menu/research/experience"></a>
-                        <a href="./research.html#projects" data-i18n="menu/research/project"></a>
+                        <a href="./publication.html" data-i18n="publication/title"></a>
+                        <a href="./experience.html" data-i18n="experience/title"></a>
+                        <a href="./research.html" data-i18n="menu/research/project"></a>
                         <a href="./ideas.html" data-i18n="menu/research/idea"></a>
                     </div>
                 </li>

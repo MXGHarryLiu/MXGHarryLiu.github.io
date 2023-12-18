@@ -1,16 +1,12 @@
 {
     "menu": {
         "home": "主页",
-        "bio": "简介",
         "research": {
             "root": "学术",
-            "publication": "论文",
-            "experience": "经历",
             "project": "项目",
             "idea": "金点子"
         },
-        "passion": "兴趣",
-        "contact": "联系"
+        "passion": "兴趣"
     },
     "motto": "知己方知彼",
     "home": {
@@ -41,7 +37,7 @@
             "focus": "电子和计算机工程",
             "date": "2020年12月",
             "awards": "荣誉和奖项：",
-            "award1": "<b>学生亮点奖</b>: 第七届年度 BRAIN Initiative研究人员会议，$400奖学金。",
+            "award1": "<b>学生亮点奖</b>: 第七届年度 BRAIN Initiative 研究人员会议，$400奖学金。",
             "course": "神经工程机器学习和信号处理，计算机视觉，合成生物学，深度学习，光学成像和纳米生物光子学，网络科学和分析等。"
         },
         "bs2": {
@@ -89,6 +85,13 @@
             "city": ""
         }
     },
+    "experience": {
+        "title": "经历",
+        "gs": {
+            "title": "研究生",
+            "place": "贝勒医学院神经科学系<a href=\"https://www.stpierrelab.com/\">St-Pierre实验室</a>"
+        }
+    },
     "publication": {
         "title": "文献著作",
         "summary": "请参考<a href=\"https://scholar.google.com/citations?user=A1aLmWIAAAAJ\">谷歌个人学术档案</a>或<a href=\"https://orcid.org/0000-0002-1818-646X\">ORCID个人页面</a>以获取我的完整著作信息。",
@@ -133,7 +136,9 @@
         "date": "日期",
         "focus": "专业",
         "award": "荣誉和奖项",
-        "course": "课程"
+        "course": "课程",
+        "skill": "技能",
+        "team": "团队和导师"
     },
     "basic": {
         "brand": "刘卓和",

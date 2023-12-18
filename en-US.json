@@ -1,16 +1,12 @@
 {
     "menu": {
         "home": "Home",
-        "bio": "Bio",
         "research": {
             "root": "Research",
-            "publication": "Publications",
-            "experience": "Experience",
             "project": "Projects",
             "idea": "Ideas"
         },
-        "passion": "Passion",
-        "contact": "Contact"
+        "passion": "Passion"
     },
     "motto": "Know thyself",
     "home": {
@@ -89,6 +85,13 @@
             "city": ", Shanghai, China"
         }
     },
+    "experience": {
+        "title": "Experience",
+        "gs": {
+            "title": "Guaduate Research Assistant",
+            "place": "<a href=\"https://www.stpierrelab.com/\">St-Pierre Lab</a>, Department of Neurosciece, Baylor College of Medicine"
+        }
+    },
     "publication": {
         "title": "Publications",
         "summary": "Please visit my <a href=\"https://scholar.google.com/citations?user=A1aLmWIAAAAJ\">Google Scholar Profile</a> or <a href=\"https://orcid.org/0000-0002-1818-646X\">ORCID Profile</a> for a complete list of publications. ",
@@ -133,7 +136,9 @@
         "date": "Date",
         "focus": "Focus",
         "award": "Award",
-        "course": "Courses"
+        "course": "Courses",
+        "skill": "Skills",
+        "team": "Teams and advisors"
     },
     "basic": {
         "brand": "Zhuohe Liu", 
