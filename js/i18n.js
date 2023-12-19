@@ -107,7 +107,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     insertListMarker('skill', 'bi-rocket', '#c8a2c8') //purple
     insertListMarker('team', 'bi-people', '#ffa500') //orange
 
-    insertListMarker('bullet', 'bi-arrow-right-short', '#808080')
+    insertListMarker('arrow', 'bi-arrow-right-short', '#808080')
     insertListMarker('dot', 'bi-dot', '#808080')
 
     if (document.title === '') {

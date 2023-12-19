@@ -8,25 +8,13 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/theme.css">
     <script src="components/nav.js"></script>
     <script src="components/footer.js"></script>
     <script src="js/i18n.js" defer></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <style>
-        .container-flex {
-            flex: 1;
-        }
-        .card-list li {
-            list-style: none;
-            margin-left: 0;
-            padding-left: 2.5em;
-        }
-        .card-list li i {
-            text-indent: -2em;
-        }
-    </style>
 </head>
 <body class="grid-1">
     <nav-component></nav-component>
@@ -48,27 +36,27 @@
                 <div class="col-md-8">
                     <div class="card-body">
                         <h5 class="card-title" data-i18n="experience/gs/title"></h5>
-                        <ul class="card-list list-unstyled">
+                        <ul class="card-list">
                             <li><i class="i-place"></i><span data-i18n="experience/gs/place"></span></li>
                             <li><i class="i-team"></i><a href="https://www.bcm.edu/people/view/francois-st-pierre/ce5139a8-20f1-11e5-8d53-005056b104be" title="Dr. St-Pierre BCM profile">Dr. François St-Pierre</a> (advisor)</li>
                             <li><i class="i-date"></i>Jan. 2017 - Dec. 2022</li>
-                            <li><i class="i-bullet"></i><b>High-throughput Microscopy Screening Platform for Fluorescent Voltage Biosensor</b>
-                                <ul class="card-list list-unstyled">
+                            <li><i class="i-arrow"></i><b>High-throughput Microscopy Screening Platform for Fluorescent Voltage Biosensor</b>
+                                <ul class="card-list">
                                     <li><i class="i-dot"></i>Built image analysis pipelines in <b>MATLAB</b> to automate analysis of fluorescence microscopy recordings. </li>
                                     <li><i class="i-dot"></i>Designed parallel computing framework to process TBs of data and upload to <b>MongoDB</b> database.</li>
                                     <li><i class="i-dot"></i>Crafted advanced <b>UI</b> to visualize high-dimensional data and display statistical analysis results.</li>
                                     <li><i class="i-dot"></i>Documented 100+ custom functions and classes in HTML integrated to MATLAB and wrote tutorials.</li>
                                 </ul>
                             </li>
-                            <li><i class="i-bullet"></i><b>Electrode Motor Assembly as a Microscope Add-on for Electric Field Stimulation</b>
-                                <ul class="card-list list-unstyled">
+                            <li><i class="i-arrow"></i><b>Electrode Motor Assembly as a Microscope Add-on for Electric Field Stimulation</b>
+                                <ul class="card-list">
                                     <li><i class="i-dot"></i>Built a prototype controlled by a <b>Raspberry Pi</b> to position Pt electrodes to provide stimulation to cells.</li>
                                     <li><i class="i-dot"></i>Improved sturdiness and precision using off-the-shelf optomechanical parts and <b>SolidWorks</b> modeling.</li>
                                     <li><i class="i-dot"></i>Deployed the redesigned assembly to 2 inverted microscopes and trained 10+ lab members.</li>
                                 </ul>
                             </li>
-                            <li><i class="i-bullet"></i><b>SPOTlight: A Versatile Single-cell Microscope-based Bioproduct Engineering Platform</b>
-                                <ul class="card-list list-unstyled">
+                            <li><i class="i-arrow"></i><b>SPOTlight: A Versatile Single-cell Microscope-based Bioproduct Engineering Platform</b>
+                                <ul class="card-list">
                                     <li><i class="i-dot"></i>Streamlined automated workflow to control stage position with single-cell precision.</li>
                                     <li><i class="i-dot"></i>Achieved at least 1 million fold throughput improvement over well-based screening approaches.</li>
                                 </ul>
@@ -123,12 +111,12 @@
                 <div class="col-md-12">
                     <div class="card-body">
                         <h5 class="card-title" data-i18n="experience/ta/title">Teaching Assistant</h5>
-                        <ul class="card-list list-unstyled">
+                        <ul class="card-list">
                             <li><i class="i-place"></i><span data-i18n="experience/ta/place">Department of Electrical and Computer Engineering, Rice University</span></li>
                             <li><i class="i-team"></i><a href="http://varman.rice.edu/">Dr. Peter J. Varman</a> (instructor of <span style="font-style:italic">ELEC326 Digital Logic Design</span>)</li>
                             <li><i class="i-date"></i>Fall 2017, Fall 2018, Fall 2021</li>
-                            <li><i class="i-bullet"></i>Graded lab reports and homework on <b>Verilog</b> from undergraduate students.</li>
-                            <li><i class="i-bullet"></i>Held lab sessions on <b>FPGA</b> board development.</li>
+                            <li><i class="i-dot"></i>Graded lab reports and homework on <b>Verilog</b> from undergraduate students.</li>
+                            <li><i class="i-dot"></i>Held lab sessions on <b>FPGA</b> board development.</li>
                         </ul>
                     </div>
                 </div>
@@ -140,14 +128,14 @@
                 <div class="col-md-8">
                     <div class="card-body">
                         <h5 class="card-title" data-i18n="experience/us/title">Undergraduate Research Assistant</h5>
-                        <ul class="card-list list-unstyled">
+                        <ul class="card-list">
                             <li><i class="i-place"></i><a href="http://shearesearch.engin.umich.edu/" title="Shea Lab">Shea Lab</a>, Department of Biomedical Engineering, University of Michigan</li>
                             <li><i class="i-team"></i><a href="https://www.linkedin.com/in/joe-decker-90474647/" title="LinkedIn profile">Dr. Joseph Decker</a> (advisor)</li>
                             <li><i class="i-date"></i>May 2015 - Mar. 2016</li>
-                            <li><i class="i-bullet"></i>Developed techniques of bioluminescence living cell microarrays.</li>
-                            <li><i class="i-bullet"></i>Studied the time-dependent transcription factor / microRNA activity using R for statistical analysis.</li>
-                            <li><i class="i-bullet"></i>Performed plasmid cloning of 110 microRNA to make luciferase reporters. </li>
-                            <li><i class="i-bullet"></i>Conducted lentiviruses production and the transfection on target human cells.</li>
+                            <li><i class="i-dot"></i>Developed techniques of bioluminescence living cell microarrays.</li>
+                            <li><i class="i-dot"></i>Studied the time-dependent transcription factor / microRNA activity using R for statistical analysis.</li>
+                            <li><i class="i-dot"></i>Performed plasmid cloning of 110 microRNA to make luciferase reporters. </li>
+                            <li><i class="i-dot"></i>Conducted lentiviruses production and the transfection on target human cells.</li>
                             <li><i class="i-skill"></i>Plasmid cloning, Bacterial transformation, Virus production, Lentiviral transfection, DNA Microarray analysis, Bioluminescence and biofluorescence imaging.</li>
                         </ul>
                     </div>
@@ -163,11 +151,11 @@
                 <div class="col-md-12">
                     <div class="card-body">
                         <h5 class="card-title" data-i18n="experience/la/title">Laboratory Assistant</h5>
-                        <ul class="card-list list-unstyled">
+                        <ul class="card-list">
                             <li><i class="i-place"></i>Student Innovation Center, UM-SJTU Joint Institute, Shanghai Jiao Tong University</li>
                             <li><i class="i-date"></i>Sep. 2012 - Aug. 2013</li>
-                            <li><i class="i-bullet"></i>Answered electrical &amp; computer engineering related technical questions for lab users. </li>
-                            <li><i class="i-bullet"></i>Maintained lab environment, and managed equipment usage for 300 JI students. </li>
+                            <li><i class="i-dot"></i>Answered electrical &amp; computer engineering related technical questions for lab users. </li>
+                            <li><i class="i-dot"></i>Maintained lab environment, and managed equipment usage for 300 JI students. </li>
                         </ul>
                     </div>
                 </div>

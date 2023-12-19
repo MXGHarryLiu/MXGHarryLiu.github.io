@@ -8,43 +8,13 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/theme.css">
     <script src="components/nav.js"></script>
     <script src="components/footer.js"></script>
     <script src="js/i18n.js" defer></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-    <style>
-        .card-img-top {
-            max-height: 300px;
-            width: 100%;
-            object-fit: contain; 
-        }
-        
-        .container-flex {
-            flex: 1;
-        }
-
-        .btn-label {
-            position: relative;
-            left: -12px;
-            display: inline-block;
-            padding: 6px 12px;
-            background: rgba(0, 0, 0, 0.15);
-            border-radius: 3px 0 0 3px;
-        }
-
-        .btn-labeled {
-            padding-top: 0;
-            padding-bottom: 0;
-            border: 1px solid #262626;
-        }
-
-        .btn {
-            margin-bottom: 10px;
-        }
-    </style>
 </head>
 <body>
 
@@ -61,7 +31,26 @@
 
     <div class="container mt-4">
         <h1 class="text-center" data-i18n="idea/title"></h1>
-        <p class="text-center">My personal projects</p>
+        <p class="text-center" data-i18n="idea/summary"></p>
+
+        <div class="card mt-4">
+            <div class="row">
+                <div class="col-md-6 order-md-2">
+                    <img class="card-img-top" src="img/ideas/20231214 Index.png">
+                </div>
+                <div class="col-md-6 order-md-1">
+                    <div class="card-body">
+                        <h5 class="card-title">Personal Website</h5>
+                        <ul class="card-list">
+                            <li><i class="i-date"></i>Sep. 2016</li>
+                            <li><i class="i-dot"></i>Implemented static internationalization in Oct. 2023. </li>
+                            <li><i class="i-dot"></i>Overhaul using Bootstrap framework in Dec. 2023. </li>
+                        </ul>
+                        <div class="badge badge-info badge">HTML/JavaScript/CSS</div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="card mt-4">
             <div class="row">
@@ -71,11 +60,12 @@
                 <div class="col-md-6 order-md-1">
                     <div class="card-body">
                         <h5 class="card-title">English Enhancer</h5>
-                        <button type="button" class="btn btn-labeled btn-default" disabled>
-                            <span class="btn-label"><i class="bi bi-calendar2-check-fill"></i></span>Aug. 2015</button>
-                        <ul>
-                            <li>This program helps you to improve your writing and reading skills by enlarging your vocabulary through synonyms. </li>
-                            <li><a href="https://github.com/MXGHarryLiu/EnglishEnhancer/raw/main/zips/EnglishEnhancer%201.1.zip">Download the Latest Version</a> (zip, 221 KB, Windows 7, 8, 8.1, 10)</li>
+                        <!-- <button type="button" class="btn btn-labeled btn-default" disabled>
+                            <span class="btn-label"><i class="bi bi-calendar2-check-fill"></i></span></button> -->
+                        <ul class="card-list">
+                            <li><i class="i-date"></i>Aug. 2015</li>
+                            <li><i class="i-dot"></i>This program helps you to improve your writing and reading skills by enlarging your vocabulary through synonyms. </li>
+                            <li><i class="i-dot"></i><a href="https://github.com/MXGHarryLiu/EnglishEnhancer/raw/main/zips/EnglishEnhancer%201.1.zip">Download the Latest Version</a> (zip, 221 KB, Windows 10+)</li>
                         </ul>
                         <div class="badge badge-info badge">.NET (Visual Basic)</div>
                     </div>
@@ -91,17 +81,17 @@
                 <div class="col-md-6 order-md-1">
                     <div class="card-body">
                         <h5 class="card-title">Portable Semiconductor Fridge</h5>
-                        <ul>
-                            <li><b>DIY portable compressor-less fridge with built-in battery.</b></li>
-                            <li>Cooling contents to 4°C from room temperature in 4 h. </li>
-                            <li>Single charge lasts 2 h (25 W), 4 h to full charge while operation.</li>
-                            <li>LED light and air circulation inside. </li>
+                        <ul class="card-list">
+                            <li><i class="i-date"></i>June 2012</li>
+                            <li><i class="i-dot"></i><b>DIY portable compressor-less fridge with built-in battery.</b></li>
+                            <li><i class="i-dot"></i>Cooling contents to 4°C from room temperature in 4 h. </li>
+                            <li><i class="i-dot"></i>Single charge lasts 2 h (25 W), 4 h to full charge while operation.</li>
+                            <li><i class="i-dot"></i>LED light and air circulation inside. </li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
     
     <footer-component></footer-component>

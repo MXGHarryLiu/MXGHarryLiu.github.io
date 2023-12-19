@@ -100,7 +100,8 @@
         }
     },
     "idea": {
-        "title": "Ideas"
+        "title": "Ideas",
+        "summary": "I express my ideas through my personal projects, not to impress but to learn and explore. "
     },
     "passion": {
         "title": "Passions",
@@ -128,6 +129,9 @@
                 "umsjtuji-expo-s.jpg": "Me in front of the UM-SJTU JI Building in SJTU Minhang Campus (Taken 8/7/2014)",
                 "efz.jpg": "No.2 Secondary School Attached to East China Normal University emblem",
                 "hy.png": "Shanghai Huayu Private Middle School emblem"
+            },
+            "ideas": {
+                "20231214 Index.png": "Index page of my personal website at its first version"
             }
         }
     },
