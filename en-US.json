@@ -2,15 +2,12 @@
     "menu": {
         "home": "Home",
         "research": {
-            "root": "Research",
-            "project": "Projects",
-            "idea": "Ideas"
-        },
-        "passion": "Passion"
+            "root": "Research"   
+        }
     },
-    "motto": "Know thyself",
     "home": {
         "title": "",
+        "motto": "Know thyself",
         "highlight1": "A world to explore",
         "highlight2": "A life to live",
         "highlight3": "A tale to tell",
@@ -98,6 +95,10 @@
         "m1": {
             "peerreviewed": "Peer-reviewed journal articles"
         }
+    },
+    "project": {
+        "title": "Projects",
+        "summary": ""
     },
     "idea": {
         "title": "Ideas",

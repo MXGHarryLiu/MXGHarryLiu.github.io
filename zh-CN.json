@@ -2,15 +2,12 @@
     "menu": {
         "home": "主页",
         "research": {
-            "root": "学术",
-            "project": "项目",
-            "idea": "金点子"
-        },
-        "passion": "兴趣"
+            "root": "学术"
+        }
     },
-    "motto": "知己方知彼",
     "home": {
         "title": "",
+        "motto": "知己方知彼",
         "highlight1": "探索世界",
         "highlight2": "品味生活",
         "highlight3": "讲述轶事",
@@ -98,6 +95,10 @@
         "m1": {
             "peerreviewed": "同行评审期刊文章"
         }
+    },
+    "project": {
+        "title": "项目",
+        "summary": ""
     },
     "idea": {
         "title": "金点子",

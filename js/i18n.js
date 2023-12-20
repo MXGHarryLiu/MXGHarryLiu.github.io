@@ -78,19 +78,6 @@ window.addEventListener('DOMContentLoaded', async () => {
     
     updateContent(langData, userPreferredLanguage);
 
-    function insertIcon(className, emoji) {
-        const spans = document.querySelectorAll('.' + className);
-        spans.forEach(span => {
-            span.title = getContent('icon/' + className);
-            span.innerHTML = emoji;
-        });
-    }
-    insertIcon('place', '🌐');
-    insertIcon('date', '📅');
-    insertIcon('focus', '💡');
-    insertIcon('award', '🏆');
-    insertIcon('course', '📚');
-
     function insertListMarker(className, icon, color) {
         const is = document.querySelectorAll('.i-' + className);
         is.forEach(i => {

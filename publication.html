@@ -15,6 +15,24 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+        function showAuthorsModal(listId) {
+            var authorList = document.getElementById(listId).innerHTML;
+            document.getElementById('modalContent').innerHTML = authorList;
+            document.getElementById('authorsModalLabel').textContent = "Cite " + listId;
+            $('#authorsModal').modal('show');
+        }
+        function copyToClipboard() {
+            var modalContent = document.getElementById('modalContent');
+            var copyContent = modalContent.getElementById('APA');
+            var range = document.createRange();
+            range.selectNode(modalContent);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            document.execCommand('copy');
+            window.getSelection().removeAllRanges();
+        }
+    </script>
 </head>
 <body>
 
@@ -43,16 +61,22 @@
                 <div class="col-md-6 order-md-1">
                     <div class="card-body">
                         <h5 class="card-title">Automating the high-throughput screening of protein-based optical indicators and actuators</h5>
-                        <button type="button" class="btn btn-labeled btn-default" disabled>
-                            <span class="btn-label"><i class="bi bi-calendar2-check-fill"></i></span>Oct. 31, 2022</button>
                         <a href="https://doi.org/10.1021/acs.biochem.2c00357" target="_blank" rel="noopener noreferrer">
                             <button type="button" class="btn btn-labeled btn-default">
-                            <span class="btn-label"><i class="bi bi-journal-bookmark"></i></span>ACS Biochemistry</button>
+                                <span class="btn-label"><i class="bi bi-journal-bookmark"></i></span>ACS Biochemistry
+                            </button>
                         </a>
-                        <div>
-                            <span title="Authors">🤝</span> Jihwan Lee, Beatriz Campillo, Shaminta Hamidian, <b>Zhuohe Liu</b>, Matthew Shorey, and François St-Pierre
+                        <button type="button" class="btn btn-labeled btn-default" onclick="showAuthorsModal('Lee et al., 2022')">
+                            <span class="btn-label"><i class="bi bi-quote"></i></span>Lee et al., 2022
+                        </button>
+                        <div class="author-list" id="Lee et al., 2022" style="display: none;">
+                            <p id="APA">Lee, J., Campillo, B., Hamidian, S., <b>Liu, Z.</b>, Shorey, M., & St-Pierre, F. (2022). Automating the High-Throughput Screening of Protein-Based Optical Indicators and Actuators. Biochemistry, 62(2), 169-177.</p>
                         </div>
-                        A review of <b>protein engineering</b> approaches to screen and optimize optical sensors and indicators for biological systems.</p>
+                        <ul class="card-list">
+                            <!-- Jihwan Lee, Beatriz Campillo, Shaminta Hamidian, <b>Zhuohe Liu</b>, Matthew Shorey, François St-Pierre -->
+                            <li><i class="i-date"></i>Oct. 31, 2022</li>
+                            <li><i class="i-dot"></i>A review of <b>protein engineering</b> approaches to screen and optimize optical sensors and indicators for biological systems.</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -66,16 +90,23 @@
                 <div class="col-md-6">
                     <div class="card-body">
                         <h5 class="card-title">Sustained deep-tissue voltage recording using a fast indicator optimized for two-photon microscopy</h5>
-                        <button type="button" class="btn btn-labeled btn-default" disabled>
-                            <span class="btn-label"><i class="bi bi-calendar2-check-fill"></i></span>Aug. 18, 2022</button>
                         <a href="https://doi.org/10.1016/j.cell.2022.07.013" target="_blank" rel="noopener noreferrer">
                             <button type="button" class="btn btn-labeled btn-default">
-                            <span class="btn-label"><i class="bi bi-journal-bookmark"></i></span>Cell</button>
+                                <span class="btn-label"><i class="bi bi-journal-bookmark"></i></span>Cell
+                            </button>
                         </a>
-                        <div>
-                            <span title="Authors">🤝</span> <b>Zhuohe Liu</b><span title="These authors contributed equally. ">*</span>, Xiaoyu Lu<span title="These authors contributed equally. ">*</span>, Vincent Villette<span title="These authors contributed equally. ">*</span>, Yueyang Gou<span title="These authors contributed equally. ">*</span>, Kevin L. Colbert, Shujuan Lai, Sihui Guan, Michelle A. Land, Jihwan Lee, Tensae Assefa, Daniel R. Zollinger, Maria M. Korympidou, Anna L. Vlasits, Michelle M. Pang, Sharon Su, Changjia Cai, Emmanouil Froudarakis, Na Zhou, Saumil S. Patel, Cameron L. Smith, Annick Ayon, Pierre Bizouard, Jonathan Bradley, Katrin Franke, Thomas R. Clandinin, Andrea Giovannucci, Andreas S. Tolias, Jacob Reimer, Stéphane Dieudonné, François St-Pierre
+                        <button type="button" class="btn btn-labeled btn-default" onclick="showAuthorsModal('Liu et al., 2022')">
+                            <span class="btn-label"><i class="bi bi-quote"></i></span>Liu et al., 2022</button>
+                        <div class="author-list" id="Liu et al., 2022" style="display: none;">
+                            <!-- Jihwan Lee, Beatriz Campillo, Shaminta Hamidian, <b>Zhuohe Liu</b>, Matthew Shorey, François St-Pierre -->
+                            <p id="APA"><b>Liu, Z.</b>, Lu, X., Villette, V., Gou, Y., Colbert, K. L., Lai, S., ... & St-Pierre, F. (2022). Sustained deep-tissue voltage recording using a fast indicator evolved for two-photon microscopy. Cell, 185(18), 3408-3425.</p>
+                            <p>These authors contributed equally: <b>Liu, Z.</b>, Lu, X., Villette, V., Gou, Y.</p>
                         </div>
-                        Engineer a fast, sensitive, bright and photostable <b>genetically encoded voltage indicator</b> called <span style="color:green;font-weight:bold;">JEDI-2P</span> that is compatible with two-photon microscopy. JEDI-2P enables deep-tissue optical recording of rapid voltage dynamics over tens of minutes. </p>
+                        <ul class="card-list">
+                            <!-- <b>Zhuohe Liu</b>, Xiaoyu Lu, Vincent Villette, Yueyang Gou, Kevin L. Colbert, Shujuan Lai, Sihui Guan, Michelle A. Land, Jihwan Lee, Tensae Assefa, Daniel R. Zollinger, Maria M. Korympidou, Anna L. Vlasits, Michelle M. Pang, Sharon Su, Changjia Cai, Emmanouil Froudarakis, Na Zhou, Saumil S. Patel, Cameron L. Smith, Annick Ayon, Pierre Bizouard, Jonathan Bradley, Katrin Franke, Thomas R. Clandinin, Andrea Giovannucci, Andreas S. Tolias, Jacob Reimer, Stéphane Dieudonné, François St-Pierre -->
+                            <li><i class="i-date"></i>Aug. 18, 2022</li>
+                            <li><i class="i-dot"></i>Engineer a fast, sensitive, bright and photostable <b>genetically encoded voltage indicator</b> called <span style="color:green;font-weight:bold;">JEDI-2P</span> that is compatible with two-photon microscopy. JEDI-2P enables deep-tissue optical recording of rapid voltage dynamics over tens of minutes. </li>
+                        </ul>
                         <span title="References">🔗</span> Media coverage (<a href="https://mp.weixin.qq.com/s/e70aqu6doH27xioiMhnvRg">BioArt (Chinese)</a>, <a href="https://www.bcm.edu/news/new-method-enables-long-lasting-imaging-of-rapid-brain-activity">Baylor College of Medicine News</a>)</p>
                     </div>
                 </div>
@@ -90,20 +121,26 @@
                 <div class="col-md-6 order-md-1">
                     <div class="card-body">
                         <h5 class="card-title">Versatile phenotype-activated cell sorting</h5>
-                        <button type="button" class="btn btn-labeled btn-default" disabled>
-                            <span class="btn-label"><i class="bi bi-calendar2-check-fill"></i></span>Oct. 23, 2020</button>
                         <a href="https://doi.org/10.1126/sciadv.abb7438" target="_blank" rel="noopener noreferrer">
                             <button type="button" class="btn btn-labeled btn-default">
-                            <span class="btn-label"><i class="bi bi-journal-bookmark"></i></span>Science Advances</button>
+                                <span class="btn-label"><i class="bi bi-journal-bookmark"></i></span>Science Advances
+                            </button>
                         </a>
-                        <div>
-                            <span title="Authors">🤝</span> Jihwan Lee, <b>Zhuohe Liu</b>, Peter H. Suzuki, John F. Ahrens, Shujuan Lai, Xiaoyu Lu, Sihui Guan, François St-Pierre
+                        <button type="button" class="btn btn-labeled btn-default" onclick="showAuthorsModal('Lee et al., 2020')">
+                            <span class="btn-label"><i class="bi bi-quote"></i></span>Lee et al., 2020
+                        </button>
+                        <div class="author-list" id="Lee et al., 2020" style="display: none;">
+                            <!-- Jihwan Lee, <b>Zhuohe Liu</b>, Peter H. Suzuki, John F. Ahrens, Shujuan Lai, Xiaoyu Lu, Sihui Guan, François St-Pierre -->
+                            <p id="APA">Lee, J., <b>Liu, Z.</b>, Suzuki, P. H., Ahrens, J. F., Lai, S., Lu, X., ... & St-Pierre, F. (2020). Versatile phenotype-activated cell sorting. Science advances, 6(43), eabb7438.</p>
                         </div>
-                        A versatile <b>high-throughput technique</b> called <span style="color:green;font-weight:bold;">SPOTlight</span> to isolate individual yeast or human cells with unique spatiotemporal profiles from heterogeneous populations. This technique allows engineer of a bright and new yellow fluorescent protein <b>mGold</b>. </p>
-                        Pending patents: </p>
-                        <ul>
-                            <li>Photostable fluorescent proteins (<a href="https://patents.google.com/patent/US20230203110A1">US20230203110A1</a>)</li>
-                            <li>Methods and compositions for retrieving cellular structures based on spatiotemporal profiles (<a href="https://patents.google.com/patent/US20230031708A1">US20230031708A1</a>)</li>
+                        <ul class="card-list">
+                            <li><i class="i-date"></i>Oct. 23, 2020</li>
+                            <li><i class="i-dot"></i>A versatile <b>high-throughput technique</b> called <span style="color:green;font-weight:bold;">SPOTlight</span> to isolate individual yeast or human cells with unique spatiotemporal profiles from heterogeneous populations. This technique allows engineer of a bright and new yellow fluorescent protein <b>mGold</b>. </li>
+                        </ul>
+                        <p>Pending patents: </p>
+                        <ul class="card-list">
+                            <li><i class="i-dot"></i>Photostable fluorescent proteins (<a href="https://patents.google.com/patent/US20230203110A1">US20230203110A1</a>)</li>
+                            <li><i class="i-dot"></i>Methods and compositions for retrieving cellular structures based on spatiotemporal profiles (<a href="https://patents.google.com/patent/US20230031708A1">US20230031708A1</a>)</li>
                         </ul>
 	                    <span title="References">🔗</span> mGold (<a href="https://www.fpbase.org/protein/mgold/">FPBase</a>), Media coverage (<a href="https://blogs.bcm.edu/2020/11/18/from-the-labs-spotlight-can-identify-individual-cells-among-hundreds-of-thousands/">Baylor College of Medicine Blog</a>)</p>
                     </div>
@@ -113,9 +150,24 @@
 
     </div>
 
-    <div class="container mt-4">
-        <h2 class="text-center"></h2>
-
+    <div class="modal fade" id="authorsModal" tabindex="-1" role="dialog" aria-labelledby="authorsModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="authorsModalLabel"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="modalContent"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="copyToClipboard()" data-dismiss="modal">Copy</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <footer-component></footer-component>

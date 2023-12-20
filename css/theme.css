@@ -33,3 +33,11 @@
 .card-list li i {
     text-indent: -1.5em;
 }
+
+.carousel-caption{
+    transition: background 0.5s;
+}
+  
+.carousel-caption:hover {
+    background: rgba(0, 0, 0, 0.5);
+}

@@ -38,29 +38,28 @@ Liberate Arts
 2015.09.27 t.l.e ann arbor
 2013/02/10 orion
 
-St-Pierre¡¯s research focuses on optical methods for imaging brain activity with exquisite spatiotemporal resolution. These methods create a more complete and accurate image of how neuronal networks communicate ¨C how they send signals and the paths those signals take ¨C which ultimately guides our behavior. This in turn helps researchers understand what is happening in the brain when those processes are not working correctly.
+St-Pierreï¿½ï¿½s research focuses on optical methods for imaging brain activity with exquisite spatiotemporal resolution. These methods create a more complete and accurate image of how neuronal networks communicate ï¿½C how they send signals and the paths those signals take ï¿½C which ultimately guides our behavior. This in turn helps researchers understand what is happening in the brain when those processes are not working correctly.
 
 
 places
 Shanghai/
-Taiwan/Taipei 25.0330¡ã N, 121.5654¡ã E
-Hong Kong 22.3964¡ã N, 114.1095¡ã E
-Macao 22.1987¡ã N, 113.5439¡ã E
-Greece/Athens 37.9838¡ã N, 23.7275¡ã E
-France/Paris 48.8566¡ã N, 2.3522¡ã E
-Italy/Rome 41.9028¡ã N, 12.4964¡ã E
-Vantican City 41.9029¡ã N, 12.4534¡ã E
-Switzerland/Geneva 46.2044¡ã N, 6.1432¡ã E/Lausanne
+Taiwan/Taipei 25.0330ï¿½ï¿½ N, 121.5654ï¿½ï¿½ E
+Hong Kong 22.3964ï¿½ï¿½ N, 114.1095ï¿½ï¿½ E
+Macao 22.1987ï¿½ï¿½ N, 113.5439ï¿½ï¿½ E
+Greece/Athens 37.9838ï¿½ï¿½ N, 23.7275ï¿½ï¿½ E
+France/Paris 48.8566ï¿½ï¿½ N, 2.3522ï¿½ï¿½ E
+Italy/Rome 41.9028ï¿½ï¿½ N, 12.4964ï¿½ï¿½ E
+Vantican City 41.9029ï¿½ï¿½ N, 12.4534ï¿½ï¿½ E
+Switzerland/Geneva 46.2044ï¿½ï¿½ N, 6.1432ï¿½ï¿½ E/Lausanne
 Cambodia/Siem Reap
-Thailand/Bangkok 13.7563¡ã N, 100.5018¡ã E
-Malaysia/Kuala Lumpur 3.1390¡ã N, 101.6869¡ã E
-Singapore 1.3521¡ã N, 103.8198¡ã E
-Cananda/Vancouver 49.2827¡ã N, 123.1207¡ã W
-USA(Danver 39.7392¡ã N, 104.9903¡ã W/Colorado Springs 38.8339¡ã N, 104.8214¡ã W/Estas Park 40.3772¡ã N, 105.5217¡ã W/Boston 42.3601¡ã N, 71.0589¡ã W/New York City 40.7128¡ã N, 74.0059¡ã W/Chicago 41.8781¡ã N, 87.6298¡ã W/Houston/Ann Arbor/Detroit 42.3314¡ã N, 83.0458¡ã W)
+Thailand/Bangkok 13.7563ï¿½ï¿½ N, 100.5018ï¿½ï¿½ E
+Malaysia/Kuala Lumpur 3.1390ï¿½ï¿½ N, 101.6869ï¿½ï¿½ E
+Singapore 1.3521ï¿½ï¿½ N, 103.8198ï¿½ï¿½ E
+Cananda/Vancouver 49.2827ï¿½ï¿½ N, 123.1207ï¿½ï¿½ W
+USA(Danver 39.7392ï¿½ï¿½ N, 104.9903ï¿½ï¿½ W/Colorado Springs 38.8339ï¿½ï¿½ N, 104.8214ï¿½ï¿½ W/Estas Park 40.3772ï¿½ï¿½ N, 105.5217ï¿½ï¿½ W/Boston 42.3601ï¿½ï¿½ N, 71.0589ï¿½ï¿½ W/New York City 40.7128ï¿½ï¿½ N, 74.0059ï¿½ï¿½ W/Chicago 41.8781ï¿½ï¿½ N, 87.6298ï¿½ï¿½ W/Houston/Ann Arbor/Detroit 42.3314ï¿½ï¿½ N, 83.0458ï¿½ï¿½ W)
 UAE 
  
-northest: edmonton 53.5444¡ã N, 113.4909¡ã W
-southest: singapore 1.3521¡ã N, 103.8198¡ã E
+northest: edmonton 53.5444ï¿½ï¿½ N, 113.4909ï¿½ï¿½ W
+southest: singapore 1.3521ï¿½ï¿½ N, 103.8198ï¿½ï¿½ E
 
-hobbies paragraph:
-able to pronounce Russian, German, basic French words. 
+My research is at the interdisciplinary field of software, hardware, and wetware. I enjoy working with a diverse team and challenge myself to bring innovations across boundaries of knowledge domains. I look forward to advancing image analysis, lab automation, and biomedical hardware, which will impact life science and healthcare and our daily lives.

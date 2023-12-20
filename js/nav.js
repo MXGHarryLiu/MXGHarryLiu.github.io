@@ -19,11 +19,11 @@ class Nav extends HTMLElement {
                     <div class="dropdown-content">
                         <a href="./publication.html" data-i18n="publication/title"></a>
                         <a href="./experience.html" data-i18n="experience/title"></a>
-                        <a href="./research.html" data-i18n="menu/research/project"></a>
-                        <a href="./ideas.html" data-i18n="menu/research/idea"></a>
+                        <a href="./research.html" data-i18n="project/title"></a>
+                        <a href="./ideas.html" data-i18n="idea/title"></a>
                     </div>
                 </li>
-                <a class="link-button nav" href="./passions.html" data-i18n="menu/passion"></a>
+                <a class="link-button nav" href="./passions.html" data-i18n="passion/title"></a>
                 <a class="link-button nav" href="#" id="lanSelector" onclick="toggleLanguage()"></a>
             </nav>
         </header>
