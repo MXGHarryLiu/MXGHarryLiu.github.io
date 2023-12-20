@@ -86,7 +86,18 @@
         "title": "Experience",
         "gs": {
             "title": "Guaduate Research Assistant",
-            "place": "<a href=\"https://www.stpierrelab.com/\">St-Pierre Lab</a>, Department of Neurosciece, Baylor College of Medicine"
+            "place": "<a href=\"https://www.stpierrelab.com/\">St-Pierre Lab</a>, Department of Neurosciece, Baylor College of Medicine",
+            "date": "Jan. 2017 - Dec. 2022"
+        },
+        "ta": {
+            "title": "Teaching Assistant",
+            "place": "Department of Electrical and Computer Engineering, Rice University",
+            "date": "Fall 2017, Fall 2018, Fall 2021"
+        },
+        "us": {
+            "title": "Undergraduate Research Assistant",
+            "place": "<a href=\"http://shearesearch.engin.umich.edu/\">Shea Lab</a>, Department of Biomedical Engineering, University of Michigan",
+            "date": "May 2015 - Mar. 2016"
         }
     },
     "publication": {
@@ -133,6 +144,11 @@
             },
             "ideas": {
                 "20231214 Index.png": "Index page of my personal website at its first version"
+            },
+            "experience": {
+                "cells.gif": "Flashing of GEVI Cells (Changing in Fluorescence) under Field Stimulation",
+                "fluorescence-b.png": "Fluorescence Microscopy of HEK293 Cells Transfected with GEVI (ASAP2s)",
+                "resp map-s.png": "Response Map of ASAP2s"
             }
         }
     },

@@ -15,6 +15,61 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+        function decorateCarousel(carouselId) {
+            var carousel = document.getElementById(carouselId);
+            var carouselInner = carousel.querySelector('.carousel-inner');
+            var carouselItem = carouselInner.querySelectorAll('.carousel-item');
+            var numSlides = carouselItem.length;
+            // indicators
+            // <ol class="carousel-indicators">
+            //     <li data-target="#carouselId" data-slide-to="0" class="active"></li>
+            //     <li data-target="#carouselId" data-slide-to="1"></li>
+            //     ...
+            // </ol>
+            var indicatorsList = document.createElement('ol');
+            indicatorsList.classList.add('carousel-indicators');
+            for (var i = 0; i < numSlides; i++) {
+                var indicatorItem = document.createElement('li');
+                indicatorItem.setAttribute('data-target', '#' + carouselId);
+                indicatorItem.setAttribute('data-slide-to', i);
+                if (i === 0) {
+                    indicatorItem.classList.add('active');
+                }
+                indicatorsList.appendChild(indicatorItem);
+            }
+            carousel.appendChild(indicatorsList);
+            // control
+            var controlsHtml = `
+                <div class="carousel-controls">
+                    <a class="carousel-control-prev" href="#${carouselId}" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#${carouselId}" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            `;
+            carousel.insertAdjacentHTML('beforeend', controlsHtml);
+            // format carousel-item
+            for (var i = 0; i < numSlides; i++) {
+                var currentItem = carouselItem[i];
+                if (i === 0) {
+                    currentItem.classList.add('active');
+                }
+                // warp h5
+                var carouselCaptionDiv = document.createElement('div');
+                carouselCaptionDiv.classList.add('carousel-caption', 'd-none', 'd-md-block');
+                var h5Element = currentItem.querySelector('h5');
+                if (h5Element) {
+                    carouselCaptionDiv.appendChild(h5Element);
+                    currentItem.appendChild(carouselCaptionDiv);
+                }
+            }
+        }
+    </script>
 </head>
 <body class="grid-1">
     <nav-component></nav-component>
@@ -39,7 +94,7 @@
                         <ul class="card-list">
                             <li><i class="i-place"></i><span data-i18n="experience/gs/place"></span></li>
                             <li><i class="i-team"></i><a href="https://www.bcm.edu/people/view/francois-st-pierre/ce5139a8-20f1-11e5-8d53-005056b104be" title="Dr. St-Pierre BCM profile">Dr. François St-Pierre</a> (advisor)</li>
-                            <li><i class="i-date"></i>Jan. 2017 - Dec. 2022</li>
+                            <li><i class="i-date"></i><span data-i18n="experience/gs/date"></span></li>
                             <li><i class="i-arrow"></i><b>High-throughput Microscopy Screening Platform for Fluorescent Voltage Biosensor</b>
                                 <ul class="card-list">
                                     <li><i class="i-dot"></i>Built image analysis pipelines in <b>MATLAB</b> to automate analysis of fluorescence microscopy recordings. </li>
@@ -67,41 +122,23 @@
                 </div>
                 
                 <div class="col-md-4">
-                    <div id="carousel1" class="carousel slide" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                            <li data-target="#carousel1" data-slide-to="0" class="active"></li>
-                            <li data-target="#carousel1" data-slide-to="1"></li>
-                            <li data-target="#carousel1" data-slide-to="2"></li>
-                        </ol>
+                    <div id="carouselgs" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="img/experience/cells.gif" alt="Flashing of GEVI Cells (Changing in Fluorescence) under Field Stimulation">
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h5>Flashing of GEVI Cells (Changing in Fluorescence) under Field Stimulation</h5>
-                                </div>
+                            <div class="carousel-item">
+                                <img src="img/experience/cells.gif"/>
+                                <h5 data-i18n="alt/img/experience/cells.gif"></h5>
                             </div>
                             <div class="carousel-item">
-                                <img alt="Fluorescence Microscopy of HEK293 Cells Transfected with GEVI (ASAP2s)" title="Fluorescence Microscopy of HEK293 Cells Transfected with GEVI (ASAP2s)" src="img/experience/fluorescence-b.png"/>
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h5>Fluorescence Microscopy of HEK293 Cells Transfected with GEVI (<a href="https://elifesciences.org/articles/25690">ASAP2s</a>)</h5>
-                                </div>
+                                <img src="img/experience/fluorescence-b.png"/>
+                                <h5 data-i18n="alt/img/experience/fluorescence-b.png"></h5>
                             </div>
                             <div class="carousel-item">
-                                <img alt="Response Map of ASAP2s" title="Response Map of ASAP2s" src="img/experience/resp map-s.png"/>
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h5>Response Map of <a href="https://elifesciences.org/articles/25690">ASAP2s</a></h5>
-                                </div>
+                                <img src="img/experience/resp map-s.png"/>
+                                <h5 data-i18n="alt/img/experience/resp map-s.png"></h5>
                             </div>
                         </div>
-                        <a class="carousel-control-prev" href="#carousel1" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carousel1" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
                     </div>
+                    <script>decorateCarousel('carouselgs');</script>
                 </div>
             </div>
         </div>
@@ -110,11 +147,11 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card-body">
-                        <h5 class="card-title" data-i18n="experience/ta/title">Teaching Assistant</h5>
+                        <h5 class="card-title" data-i18n="experience/ta/title"></h5>
                         <ul class="card-list">
-                            <li><i class="i-place"></i><span data-i18n="experience/ta/place">Department of Electrical and Computer Engineering, Rice University</span></li>
+                            <li><i class="i-place"></i><span data-i18n="experience/ta/place"></span></li>
                             <li><i class="i-team"></i><a href="http://varman.rice.edu/">Dr. Peter J. Varman</a> (instructor of <span style="font-style:italic">ELEC326 Digital Logic Design</span>)</li>
-                            <li><i class="i-date"></i>Fall 2017, Fall 2018, Fall 2021</li>
+                            <li><i class="i-date"></i><span data-i18n="experience/ta/date"></span></li>
                             <li><i class="i-dot"></i>Graded lab reports and homework on <b>Verilog</b> from undergraduate students.</li>
                             <li><i class="i-dot"></i>Held lab sessions on <b>FPGA</b> board development.</li>
                         </ul>
@@ -127,11 +164,11 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title" data-i18n="experience/us/title">Undergraduate Research Assistant</h5>
+                        <h5 class="card-title" data-i18n="experience/us/title"></h5>
                         <ul class="card-list">
-                            <li><i class="i-place"></i><a href="http://shearesearch.engin.umich.edu/" title="Shea Lab">Shea Lab</a>, Department of Biomedical Engineering, University of Michigan</li>
+                            <li><i class="i-place"></i><span data-i18n="experience/us/place"></span></li>
                             <li><i class="i-team"></i><a href="https://www.linkedin.com/in/joe-decker-90474647/" title="LinkedIn profile">Dr. Joseph Decker</a> (advisor)</li>
-                            <li><i class="i-date"></i>May 2015 - Mar. 2016</li>
+                            <li><i class="i-date"></i><span data-i18n="experience/us/date"></span></li>
                             <li><i class="i-dot"></i>Developed techniques of bioluminescence living cell microarrays.</li>
                             <li><i class="i-dot"></i>Studied the time-dependent transcription factor / microRNA activity using R for statistical analysis.</li>
                             <li><i class="i-dot"></i>Performed plasmid cloning of 110 microRNA to make luciferase reporters. </li>
