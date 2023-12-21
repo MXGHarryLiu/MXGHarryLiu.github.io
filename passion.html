@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="passion/title"></title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <script src="components/nav.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="js/i18n.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!--
+        This map was created using Pixel Map Generator by amCharts and is licensed under the Creative Commons Attribution 4.0 International License.
+        You may use this map the way you see fit as long as proper attribution to the name of amCharts is given in the form of link to https://pixelmap.amcharts.com/
+        To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/
+        If you would like to use this map without any attribution, you can acquire a commercial license for the JavaScript Maps - a tool that was used to produce this map.
+        To do so, visit amCharts Online Store: https://www.amcharts.com/online-store/
+    -->
+    <script type="text/javascript" src="js/ammap.js"></script>
+    <script type="text/javascript" src="js/worldLow.js"></script>
+    <script type="text/javascript" src="js/mapmain.js"></script>
+    <script>
+        function decorateCarousel(carouselId) {
+            var carousel = document.getElementById(carouselId);
+            var carouselInner = carousel.querySelector('.carousel-inner');
+            var carouselItem = carouselInner.querySelectorAll('.carousel-item');
+            var numSlides = carouselItem.length;
+            // indicators
+            // <ol class="carousel-indicators">
+            //     <li data-target="#carouselId" data-slide-to="0" class="active"></li>
+            //     <li data-target="#carouselId" data-slide-to="1"></li>
+            //     ...
+            // </ol>
+            var indicatorsList = document.createElement('ol');
+            indicatorsList.classList.add('carousel-indicators');
+            for (var i = 0; i < numSlides; i++) {
+                var indicatorItem = document.createElement('li');
+                indicatorItem.setAttribute('data-target', '#' + carouselId);
+                indicatorItem.setAttribute('data-slide-to', i);
+                if (i === 0) {
+                    indicatorItem.classList.add('active');
+                }
+                indicatorsList.appendChild(indicatorItem);
+            }
+            carousel.appendChild(indicatorsList);
+            // control
+            var controlsHtml = `
+                <div class="carousel-controls">
+                    <a class="carousel-control-prev" href="#${carouselId}" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#${carouselId}" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            `;
+            carousel.insertAdjacentHTML('beforeend', controlsHtml);
+            // format carousel-item
+            for (var i = 0; i < numSlides; i++) {
+                var currentItem = carouselItem[i];
+                if (i === 0) {
+                    currentItem.classList.add('active');
+                }
+                // warp h5
+                var carouselCaptionDiv = document.createElement('div');
+                carouselCaptionDiv.classList.add('carousel-caption', 'd-none', 'd-md-block');
+                var h5Element = currentItem.querySelector('h5');
+                if (h5Element) {
+                    carouselCaptionDiv.appendChild(h5Element);
+                    currentItem.appendChild(carouselCaptionDiv);
+                }
+            }
+        }
+    </script>
+</head>
+<body class="grid-1">
+	<nav-component></nav-component>
+    
+    <div class="container mt-4">
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <i class="bi bi-tools"></i> This page is under construction. More will be added soon.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="container mt-4">
+        <h1 class="text-center" data-i18n="passion/title"></h1>
+        <p class="text-center" data-i18n="passion/summary">The screenshots of my computer witness my academic endeavor. The work and collections from my hobbies illustrate my pursuit of knowledge outside the classroom. The scattered pins over the world map along with the photos of me show my joy of experiencing exotic custom and culture. MY PASSION is what I talk about with thrill and happiness. </p>
+
+        <h2 class="text-center" data-i18n="passion/m1/workspace"></h2>
+        <div class="row">
+            <div class="col-md-6">
+                <style>
+                    a.p { cursor:pointer;}
+                    a.p.a { color: rgba(225,0,150,1.00);}
+                    a.p.b { color: rgba(150,0,150,0.80);}
+                    a.p.c { color: rgba(100,0,255,0.60);}
+                </style> 
+                <!--a:proficient  c:seldom-->
+                <!-- placeholder = 21 -->
+                <p style="color:rgba(60,60,60,0.50)">Click on the link to reveal comments &gt;&gt;&gt;</p>
+                <p><b>Productivity and Design</b>: 
+                    <a class="p a" onclick="goToSlideW(20, 'Illustrator')">Adobe Illustrator</a> | 
+                    <a class="p b" onclick="goToSlideW(12, 'Premiere')">Adobe Premiere</a> |
+                    <a class="p b" onclick="goToSlideW(21, 'Powerpoint')">Microsoft Powerpoint</a> | 
+                    <a class="p b" onclick="goToSlideW(21, 'Excel')">Microsoft Excel</a> | 
+                    <a class="p b" onclick="goToSlideW(21, 'Word')">Microsoft Word</a> | 
+                    <a class="p c" onclick="goToSlideW(19, 'Photoshop')">Adobe Photoshop</a> | 
+                    <a class="p c" onclick="goToSlideW(6, 'Project')">Microsoft Project</a> | 
+                    <a class="p c" onclick="goToSlideW(16, 'Publisher')">Microsoft Publisher</a>
+                </p>
+                <p><b>Programming</b>: 
+                    <a class="p a" onclick="goToSlideW(2, 'MATLAB')">MATLAB</a> | 
+                    <a class="p a" onclick="goToSlideW(14, 'Mathematica')">Wolfram Mathematica</a> | 
+                    <a class="p b" onclick="goToSlideW(17, 'Dreamweaver')">Adobe Dreamweaver</a> | 
+                    <a class="p b" onclick="goToSlideW(18, 'Python')">Python</a> | 
+                    <a class="p b" onclick="goToSlideW(11, 'VisualStudio')">Microsoft Visual Studio (VB)</a> |
+                    <a class="p c" onclick="goToSlideW(21, 'Latex')">LaTeX</a> | 
+                    <a class="p c" onclick="goToSlideW(21, 'Arduino')">Arduino (C++)</a> | 
+                    <a class="p c" onclick="goToSlideW(13, 'Eclipse')">Eclipse IDE (Java)</a>
+                </p>
+                <p><b>Research</b>: 
+                    <a class="p b" onclick="goToSlideW(3, 'SolidWorks')">SolidWorks</a> | 
+                    <a class="p b" onclick="goToSlideW(9, 'LabVIEW')">LabVIEW</a> | 
+                    <a class="p c" onclick="goToSlideW(1, 'Lumerical')">Lumerical FDTD Solutions</a> | 
+                    <a class="p c" onclick="goToSlideW(4, 'Visio')">Microsoft Visio</a> | 
+                    <a class="p c" onclick="goToSlideW(5, 'EndNote')">EndNote</a> | 
+                    <a class="p c" onclick="goToSlideW(7, 'COMSOL')">COMSOL Multiphysics</a> | 
+                    <a class="p c" onclick="goToSlideW(8, 'NEURON')">NEURON</a> | 
+                    <a class="p c" onclick="goToSlideW(21, 'Xilinx')">Xilinx ISE</a> | 
+                    <a class="p c" onclick="goToSlideW(15, 'MeshLab')">MeshLab</a> | 
+                    <a class="p c" onclick="goToSlideW(10, 'Cadence')">Cadence Virtuoso</a>
+                </p>
+                <style>
+                    a.t {
+                        color: rgba(30, 30, 30, .8);
+                    }
+                </style>
+                <p class="wCaption">
+                    <span id="Lumerical">EECS429 Semiconductor Optoelectronic Devices - Homework and final project simulation</span>
+                    <span id="MATLAB">BME517 Neural Engineering - Homework and final project simulation</span>
+                    <span id="Visio">EECS311 Electronic Circuits - Lab report visualization</span>
+                    <span id="SolidWorks">BME450 Semester Senior Capstone Design - Prototype design</span>
+                    <span id="EndNote">BME517 Neural Engineering - Literature review notes</span>
+                    <span id="Project">BME450 Semester Senior Capstone Design - Productivity tools</span>
+                    <span id="COMSOL">BME350 Introduction to Biomedical Engineering Design - Course focus</span>
+                    <span id="NEURON">BME517 Neural Engineering - Homework</span>
+                    <span id="LabVIEW">BME/EECS458 Biomedical Instrumentation &amp; Design - Lab project</span>
+                    <span id="Cadence">EECS311 Electronic Circuits - Lab</span>
+                    <span id="VisualStudio">Personal interest</span>
+                    <span id="Premiere">VE450 Major Design Experience - Promotional Video</span>
+                    <span id="Eclipse">VE450 Major Design Experience - Android application development</span>
+                    <span id="Mathematica">VE484 Data Mining - Course project and homework, Personal interest</span>
+                    <span id="MeshLab">VE450 Major Design Experience - 3D model visualization</span>
+                    <span id="Publisher">Adolescents Innovation Fair - Brochure design</span>
+                    <span id="Python">ELEC 548 Machine Learning and Singal Processing for Neuro Engineering - Neural modeling</span>
+                    <span id="Photoshop">High School Leadership, Personal interest</span>
+                    <span id="Dreamweaver">My first ever computer programming language learned, helping me to build this site! </span>
+                    <span id="Latex">SJTU Homeworks</span>
+                    <span id="Arduino">VG100 Introduction to Engineering - Projects</span>
+                    <span id="Xilinx">VE270 Introduction to Logic Design - FPGA Design Lab</span>
+                    <span id="Powerpoint">Essential tool for paperless learning and working</span>
+                    <span id="Excel">Essential tool for paperless learning and working</span>
+                    <span id="Word">Essential tool for paperless learning and working</span>
+                    <span id="Illustrator">Vector graphics design for publication figures</span>
+                </p>
+            </div>
+            <div class="col-md-6">
+                <div id="carouselw" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item">
+                            <img src="img/screen/01.png">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/screen/02.png">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/screen/03.png">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/screen/04.png">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/screen/05.png">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/screen/06.png">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/screen/07.png">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/screen/08.png">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/screen/09.png">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/screen/10.png">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/screen/11.png">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/screen/12.png">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/screen/13.png">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/screen/14.png">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/screen/15.png">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/screen/16.png">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/screen/17 Dreamweaver.png">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/screen/18.png">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/screen/19.png">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/screen/20 Illustrator.png">
+                        </div>
+                        <div class="carousel-item">
+                            <img alt="My Workspace" title="My Workspace" src="img/placeholder2.jpg">
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    decorateCarousel('carouselw');
+                    $('.wCaption span').hide();
+                    function goToSlideW(id, name) {
+                        $('#carouselw').carousel(id - 1);
+                        $('.wCaption span').hide();
+                        $('.wCaption #' + name).show();
+                    }
+                </script>
+            </div>
+        </div>
+    </div>
+    
+	<div class="container mt-4">
+        <h2 class="text-center" data-i18n="passion/m1/hobby"></h2>
+        <p class="text-center">My hobbies span a vast field of disciplines. Happiness from gaining knowledge despite being esoteric is the incentive. </p>
+        <div class="row">
+            <div class="col-md-4">
+                <h5 class="text-center">Astrophotography</h5>
+                <div id="carouselastro" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item">
+                            <img src="img/hobbies/ha1-s.jpg">
+                            <h5 data-i18n="alt/img/hobbies/ha1-s.jpg"></h5>
+                        </div>  
+                        <div class="carousel-item">
+                            <img src="img/hobbies/ha2-s.jpg">
+                            <h5 data-i18n="alt/img/hobbies/ha2-s.jpg"></h5>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/hobbies/ha3-s.jpg">
+                            <h5 data-i18n="alt/img/hobbies/ha3-s.jpg"></h5>
+                        </div>
+                    </div>
+                </div>
+                <script>decorateCarousel('carouselastro');</script>
+                <p>Appreciate the night sky with high-tech gadgets. </p>
+            </div>
+            <div class="col-md-4">
+                <h5 class="text-center">Numismatics (Notaphily)</h5>
+                <div id="carouselnote" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item">
+                            <img alt="Zimbabwe Z$100 Trillion Dollar" title="Zimbabwe Z$100 Trillion Dollar" src="img/hobbies/hn1-s.jpg"/>
+                            <h5>Zimbabwe Z$100 Trillion Dollar<br>(One of The World's Highest Currencies)</5>
+                        </div>
+                        <div class="carousel-item">
+                            <img alt="Banknote Set Collections" title="Banknote Set Collections" src="img/hobbies/hn2-s.jpg"/>
+                            <h5>Banknote Set Collections<br>(Mongolian ₮0.1 to ₮20,000 Tugrik)</h5>
+                        </div>
+                        <div class="carousel-item">
+                            <img alt="USA Coin Sets" title="USA Coin Sets" src="img/hobbies/hn3-s.jpg"/>
+                            <h5>USA Coin Sets</h5>
+                        </div>
+                    </div>
+                </div>
+                <script>decorateCarousel('carouselnote');</script>
+                <p>Treasure banknotes and coins gathered from travels, banks and dealers.</p> 
+            </div>
+            <div class="col-md-4">
+                <h5 class="text-center">Phonetics</h5>
+                <img class="card-img-top" alt="IPA" title="IPA" src="img/hobbies/IPA-t.jpg">
+                <p>Support the conservation of Wu Chinese. <br>"IPA 101 - All about IPA and Phonetics" Slides <a href="files/A Letter a Day (IPA 101).pdf" target="_blank">(pdf, 3.19 MB)</a></p>
+            </div>
+        </div>
+    </div>
+    
+	<div class="container mt-4">
+        <h2 class="text-center" data-i18n="passion/m1/place"></h2>
+        <p>Click on the pins to reveal more info. <br><img alt="Green pin" src="img/places/ping.svg">Trips  <img alt="Red pin" src="img/places/piny.svg">Sojourns  <img alt="Red pin" src="img/places/pinr.svg">Hometown</p>
+        <div class="row">
+            <div class="col-md-6">
+                <style>
+                    div.mapt {
+                        width: 100%;
+                        position: relative;
+                        height: 400px;
+                    }
+                    @media screen and (max-width: 558px) {
+                        div.mapt {
+                            height: 300px;
+                        }
+                    }
+                    @media screen and (max-width: 419px) {
+                        div.mapt {
+                            height: 250px;
+                        }
+                    }
+                </style>
+                <div id="map" class="mapt"></div>
+            </div>
+            <div class="col-md-6">
+                <div id="carouselplace" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item">
+                            <img src="img/places/ann arbor-s.jpg">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/places/athens acropolis-s.jpg">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/places/bangkok-s.jpg">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/places/coloradosprings-s.jpg">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/places/houston-s.jpg">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/places/santorini-s.jpg">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/places/family-s.jpg">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/places/siem reap-s.jpg">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/places/singapore-s.jpg">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/places/vancouver-s.jpg">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/places/vantican-s.jpg">
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    decorateCarousel('carouselplace');
+                    function goToSlideP(id) {
+                        $('#carouselplace').carousel(id - 1);
+                    }
+                </script>
+            </div>
+        </div>
+        
+
+        <div class="row">
+            <div class="col-md-6">
+                <style>
+                    span.shownum {
+                        color: red;
+                        font-size: 36px;
+                        font-style: oblique;
+                    }
+                </style>
+                <h4>Statistics</h4>
+                <p>Countries/Regions Visited: <span class="shownum" title="3 continents" style="cursor: help;">15</span></p>
+                <p>Longest Stay Away From Hometown: <span class="shownum" title="In Houston" style="cursor: help;" id="dates">840
+                    <!-- <script>
+                        var dn = new Date();
+                        var d2 = new Date("2016/08/14");
+                        document.getElementById("dates").innerHTML = Math.round((dn.getTime() - d2.getTime()) / 1000 / 60 / 60 / 24).toString();
+                    </script>
+                    -->
+                </span> days</p>
+                <p>Highest Peak Reached: <span class="shownum" title="Shika Snow Mountain, 2007/06/27" style="cursor: help;">4440</span>  m</p>
+            </div>
+            <div class="col-md-6">
+                <h4>Goals</h4>
+                <p>1. Enter the Southern Hemisphere; </p>
+                <p>2. Across the Arctic Circle; </p>
+                <p>3. Be on a New Continent. </p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container mt-4">
+        <h2 class="text-center" data-i18n="passion/m1/trivia"></h2>
+        <div class="row">
+            <div class="col-md-12">
+                <style>
+                    p.hoverimg{
+                        display: none
+                    }
+                    p.hoverimgt:hover + p.hoverimg{
+                        display: block;
+                    }
+                </style>
+                <p class="hoverimgt"><b>Q: Who is the little boy with you on your <a href="index.html" title="Go to the home page">profile picture</a>?</b></p>
+                <p class="hoverimg">It was me 8 years ago! How appropriate 同登彼岸 means being on both sides of the shore! </p>
+                <p class="hoverimgt"><b>Q: What sports do you play?</b></p>
+                <p class="hoverimg">I'm good at swimming and other individual sports such as table tennis, and tennis. </p>
+                <p class="hoverimgt"><b>Q: How do you spend your leisure time?</b></p>
+                <p class="hoverimg">I cook, watch <span style="font-style:italic;">Doctor Who</span> and BBC documentaries, play space simulation games (SpaceEngine, KSP), and listen to Electronica albums (Engima, Conjure One). </p>
+                <p class="hoverimgt"><b>Q: Anything else you want to show?</b></p>
+                <p class="hoverimg">Anything you'd like to know! </p>
+            </div>
+        </div>
+    </div>
+
+    <footer-component></footer-component>
+</body>
+</html>

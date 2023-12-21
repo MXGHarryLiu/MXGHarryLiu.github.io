@@ -23,7 +23,7 @@ class Nav extends HTMLElement {
                         <a href="ideas.html" data-i18n="idea/title"></a>
                     </div>
                 </li>
-                <a class="link-button nav" href="passions.html" data-i18n="passion/title"></a>
+                <a class="link-button nav" href="passion.html" data-i18n="passion/title"></a>
                 <a class="link-button nav" href="#" id="lanSelector" onclick="toggleLanguage()"></a>
             </nav>
         </header>

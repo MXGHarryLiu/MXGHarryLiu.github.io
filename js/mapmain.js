@@ -29,7 +29,7 @@ AmCharts.makeChart("map",{
 				"svgPath": svgpath,
 				"color": "rgba(255,245,0,0.8)",
 				"scale": 1,
-				"url": "javascript:currentSlide(1, 4)"
+				"url": "javascript:goToSlideP(1)"
 			},
 			{
 				"title": "Athens",
@@ -39,7 +39,7 @@ AmCharts.makeChart("map",{
 				"svgPath": svgpath,
 				"color": "rgba(75,216,181,0.8)",
 				"scale": 1,
-				"url": "javascript:currentSlide(2, 4)"
+				"url": "javascript:goToSlideP(2)"
 			},
 			{
 				"title": "Bangkok",
@@ -49,7 +49,7 @@ AmCharts.makeChart("map",{
 				"svgPath": svgpath,
 				"color": "rgba(75,216,181,0.8)",
 				"scale": 1,
-				"url": "javascript:currentSlide(3, 4)"
+				"url": "javascript:goToSlideP(3)"
 			},
 			{
 				"title": "Colorado Springs",
@@ -59,7 +59,7 @@ AmCharts.makeChart("map",{
 				"svgPath": svgpath,
 				"color": "rgba(75,216,181,0.8)",
 				"scale": 1,
-				"url": "javascript:currentSlide(4, 4)"
+				"url": "javascript:goToSlideP(4)"
 			},
 			{
 				"title": "Houston",
@@ -69,7 +69,7 @@ AmCharts.makeChart("map",{
 				"svgPath": svgpath,
 				"color": "rgba(255,245,0,0.8)",
 				"scale": 1,
-				"url": "javascript:currentSlide(5, 4)"
+				"url": "javascript:goToSlideP(5)"
 			},
 			{
 				"title": "Santorini",
@@ -79,7 +79,7 @@ AmCharts.makeChart("map",{
 				"svgPath": svgpath,
 				"color": "rgba(75,216,181,0.8)",
 				"scale": 1,
-				"url": "javascript:currentSlide(6, 4)"
+				"url": "javascript:goToSlideP(6)"
 			},
 			{
 				"title": "Shanghai",
@@ -89,7 +89,7 @@ AmCharts.makeChart("map",{
 				"svgPath": svgpath,
 				"color": "rgba(255,30,0,0.8)",
 				"scale": 1,
-				"url": "javascript:currentSlide(7, 4)"
+				"url": "javascript:goToSlideP(7)"
 			},
 			{
 				"title": "Siem Reap",
@@ -99,7 +99,7 @@ AmCharts.makeChart("map",{
 				"svgPath": svgpath,
 				"color": "rgba(75,216,181,0.8)",
 				"scale": 1,
-				"url": "javascript:currentSlide(8, 4)"
+				"url": "javascript:goToSlideP(8)"
 			},
 			{
 				"title": "Singapore",
@@ -109,7 +109,7 @@ AmCharts.makeChart("map",{
 				"svgPath": svgpath,
 				"color": "rgba(75,216,181,0.8)",
 				"scale": 1,
-				"url": "javascript:currentSlide(9, 4)"
+				"url": "javascript:goToSlideP(9)"
 			},
 			{
 				"title": "Vancouver",
@@ -119,7 +119,7 @@ AmCharts.makeChart("map",{
 				"svgPath": svgpath,
 				"color": "rgba(75,216,181,0.8)",
 				"scale": 1,
-				"url": "javascript:currentSlide(10, 4)"
+				"url": "javascript:goToSlideP(10)"
 			},
 			{
 				"title": "Vantican City",
@@ -129,7 +129,7 @@ AmCharts.makeChart("map",{
 				"svgPath": svgpath,
 				"color": "rgba(75,216,181,0.8)",
 				"scale": 1,
-				"url": "javascript:currentSlide(11, 4)"
+				"url": "javascript:goToSlideP(11)"
 			}
 		],
 		"areas": [

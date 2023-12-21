@@ -172,9 +172,44 @@
                 "mp2-s.jpg": "VG100 Remote Control Smart Identification Socket"
             },
             "hobbies": {
-                "ha1-s.png": "Partial Solar Eclipse (05/21/2012, Shanghai)",
+                "ha1-s.jpg": "Partial Solar Eclipse (05/21/2012, Shanghai)",
                 "ha2-s.jpg": "Total Lunar Eclipse (09/27/2015, Ann Arbor)",
                 "ha3-s.jpg": "Orion (02/10/2013, Shanghai)"
+            },
+            "screen": {
+                "01.png": "Lumerical FDTD Solutions",
+                "02.png": "MATLAB",
+                "03.png": "SolidWorks",
+                "04.png": "Microsoft Visio",
+                "05.png": "EndNote",
+                "06.png": "Microsoft Project",
+                "07.png": "COMSOL Multiphysics",
+                "08.png": "NEURON",
+                "09.png": "LabVIEW",
+                "10.png": "Cadence Virtuoso",
+                "11.png": "Microsoft Visual Studio",
+                "12.png": "Adobe Premiere",
+                "13.png": "Eclipse IDE",
+                "14.png": "Wolfram Mathematica",
+                "15.png": "MeshLab",
+                "16.png": "Microsoft Publisher",
+                "17 Dreamweaver.png": "Adobe Dreamweaver",
+                "18.png": "Python",
+                "19.png": "Adobe Photoshop",
+                "20 Illustrator.png": "Adobe Illustrator"
+            },
+            "places": {
+                "ann arbor-s.jpg": "Ann Arbor (University of Michigan Law School), Michigan",
+                "athens acropolis-s.jpg": "Acropolis, Athens, Greece",
+                "bangkok-s.jpg": "The Grand Palace, Bangkok, Thailand",
+                "coloradosprings-s.jpg": "Pikes Peak, Colorado Springs",
+                "houston-s.jpg": "Houston (Houston Space Center), Texas",
+                "santorini-s.jpg": "Santorini, Greece",
+                "family-s.jpg": "My Family and Me (L2R: Aunt, Gfather, Gmother, Uncle, Me, Mom, Dad)",
+                "siem reap-s.jpg": "Siem Reap, Cambodia",
+                "singapore-s.jpg": "Singapore",
+                "vancouver-s.jpg": "Vancouver (Beaty Biodiversity Museum), Canada",
+                "vantican-s.jpg": "St. Peter's Basilica, Vantican City"
             }
         }
     },
