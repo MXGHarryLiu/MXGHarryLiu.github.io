@@ -1,5 +1,5 @@
 <style>
-    header.nav-row {
+    nav {
         background-color: #262626;
         text-align: center;
         padding: 10px;
@@ -18,33 +18,35 @@
         background-color: #262626; 
     }
 </style>
-<header class="navbar navbar-expand-sm navbar-dark bg-dark">
-    <a class="navbar-brand" data-i18n="basic/brand" href="index.html"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="bio.html" data-i18n="bio/title"></a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" data-i18n="menu/research/root" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="publication.html" data-i18n="publication/title"></a>
-                    <a class="dropdown-item" href="experience.html" data-i18n="experience/title"></a>
-                    <a class="dropdown-item" href="project.html" data-i18n="project/title"></a>
-                    <a class="dropdown-item" href="ideas.html" data-i18n="idea/title"></a>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="passion.html" data-i18n="passion/title"></a>
-            </li>
-        </ul>
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="#" id="lanSelector" onclick="toggleLanguage()"></a>
-            </li>
-        </ul>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" data-i18n="basic/brand" href="index.html"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="bio.html" data-i18n="bio/title"></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-i18n="menu/research/root" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="publication.html" data-i18n="publication/title"></a></li>
+                        <li><a class="dropdown-item" href="experience.html" data-i18n="experience/title"></a></li>
+                        <li><a class="dropdown-item" href="project.html" data-i18n="project/title"></a></li>
+                        <li><a class="dropdown-item" href="ideas.html" data-i18n="idea/title"></a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="passion.html" data-i18n="passion/title"></a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="lanSelector" onclick="toggleLanguage()"></a>
+                </li>
+            </ul>
+        </div>
     </div>
-</header>
+</nav>

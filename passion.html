@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-i18n="passion/title"></title>
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/theme.css">
@@ -14,8 +14,7 @@
     <script src="js/carousel.js"></script>
     <script src="js/i18n.js" defer></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <!-- Plotly map -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js'></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
@@ -26,9 +25,7 @@
     <div class="container mt-4">
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
             <i class="bi bi-tools"></i> This page is under construction. More will be added soon.
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     </div>
 
@@ -115,7 +112,7 @@
                 </p>
             </div>
             <div class="col-md-6">
-                <div id="carouselw" class="carousel slide" data-ride="carousel">
+                <div id="carouselw">
                     <div class="carousel-inner">
                         <div class="carousel-item">
                             <img src="img/screen/01.png">
@@ -201,7 +198,7 @@
         <div class="row">
             <div class="col-md-4">
                 <h5 class="text-center">Astrophotography</h5>
-                <div id="carouselastro" class="carousel slide" data-ride="carousel">
+                <div id="carouselastro">
                     <div class="carousel-inner">
                         <div class="carousel-item">
                             <img src="img/hobbies/ha1-s.jpg">
@@ -222,7 +219,7 @@
             </div>
             <div class="col-md-4">
                 <h5 class="text-center">Numismatics (Notaphily)</h5>
-                <div id="carouselnote" class="carousel slide" data-ride="carousel">
+                <div id="carouselnote">
                     <div class="carousel-inner">
                         <div class="carousel-item">
                             <img alt="Zimbabwe Z$100 Trillion Dollar" title="Zimbabwe Z$100 Trillion Dollar" src="img/hobbies/hn1-s.jpg"/>
@@ -317,7 +314,7 @@
                 </script>
             </div>
             <div class="col-md-6">
-                <div id="carouselplace" class="carousel slide" data-ride="carousel">
+                <div id="carouselplace">
                     <div class="carousel-inner">
                         <div class="carousel-item">
                             <img src="img/places/ann arbor-s.jpg">
@@ -395,23 +392,62 @@
     <div class="container mt-4">
         <h2 class="text-center" data-i18n="passion/m1/trivia"></h2>
         <div class="row">
+            <style>
+                .accordion-button {
+                    font-weight: bold;
+                }
+            </style>
             <div class="col-md-12">
-                <style>
-                    p.hoverimg{
-                        display: none
-                    }
-                    p.hoverimgt:hover + p.hoverimg{
-                        display: block;
-                    }
-                </style>
-                <p class="hoverimgt"><b>Q: Who is the little boy with you on your <a href="index.html" title="Go to the home page">profile picture</a>?</b></p>
-                <p class="hoverimg">It was me 8 years ago! How appropriate 同登彼岸 means being on both sides of the shore! </p>
-                <p class="hoverimgt"><b>Q: What sports do you play?</b></p>
-                <p class="hoverimg">I'm good at swimming and other individual sports such as table tennis, and tennis. </p>
-                <p class="hoverimgt"><b>Q: How do you spend your leisure time?</b></p>
-                <p class="hoverimg">I cook, watch <span style="font-style:italic;">Doctor Who</span> and BBC documentaries, play space simulation games (SpaceEngine, KSP), and listen to Electronica albums (Engima, Conjure One). </p>
-                <p class="hoverimgt"><b>Q: Anything else you want to show?</b></p>
-                <p class="hoverimg">Anything you'd like to know! </p>
+                <div class="accordion" id="accordiontrivia">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                Q: Who is the little boy with you on your profile picture?
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordiontrivia">
+                            <div class="accordion-body">
+                                It was me 8 years ago! How appropriate 同登彼岸 means being on both sides of the shore!
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Q: What sports do you play?
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordiontrivia">
+                            <div class="accordion-body">
+                                I'm good at swimming and other individual sports such as table tennis, and tennis.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Q: How do you spend your leisure time?
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordiontrivia">
+                            <div class="accordion-body">
+                                I cook, watch <span style="font-style:italic;">Doctor Who</span> and BBC documentaries, play space simulation games (SpaceEngine, KSP), and listen to Electronica albums (Engima, Conjure One).
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                <b>Q: Anything else you want to show?</b>
+                            </button>
+                        </h2>
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordiontrivia">
+                            <div class="accordion-body">
+                                Anything you'd like to know!
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
