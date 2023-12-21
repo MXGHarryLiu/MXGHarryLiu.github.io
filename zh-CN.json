@@ -109,7 +109,10 @@
     },
     "project": {
         "title": "项目",
-        "summary": ""
+        "summary": "",
+        "m1": {
+            "more": "更多项目"
+        }
     },
     "idea": {
         "title": "金点子",
@@ -149,6 +152,29 @@
                 "cells.gif": "Flashing of GEVI Cells (Changing in Fluorescence) under Field Stimulation",
                 "fluorescence-b.png": "Fluorescence Microscopy of HEK293 Cells Transfected with GEVI (ASAP2s)",
                 "resp map-s.png": "Response Map of ASAP2s"
+            },
+            "project": {
+                "p1-1-s.jpg": "At Summer 2016 Design Expo Award Ceremony",
+                "p1-2-s.jpg": "Summer 2016 Design Expo",
+                "p1-3-s.jpg": "The Test Site",
+                "p1-4-s.jpg": "The Bluetooth Robot Car",
+                "p2-1-s.jpg": "Design Expo Poster Session",
+                "p2-2-s.jpg": "Working Hard at Duderstadt",
+                "p2-3-s.jpg": "3D Printing the Prototype",
+                "p2-4-s.jpg": "From Sketch to Reality",
+                "p3-1-s.jpg": "Final Project Poster Session",
+                "p3-2-s.jpg": "Testing Our Strength",
+                "p3-3-s.jpg": "Lurie Biomedical Engineering Building",
+                "p4-1-s.jpg": "At The Innovation Fair 2011",
+                "p4-2-s.jpg": "Final Presentation",
+                "p4-3-s.jpg": "Candidates and Classmates from My High School",
+                "mp1-s.jpg": "VG100 Arduino Line Following Car",
+                "mp2-s.jpg": "VG100 Remote Control Smart Identification Socket"
+            },
+            "hobbies": {
+                "ha1-s.png": "Partial Solar Eclipse (05/21/2012, Shanghai)",
+                "ha2-s.jpg": "Total Lunar Eclipse (09/27/2015, Ann Arbor)",
+                "ha3-s.jpg": "Orion (02/10/2013, Shanghai)"
             }
         }
     },

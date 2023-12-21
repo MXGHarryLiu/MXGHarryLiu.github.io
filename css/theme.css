@@ -34,10 +34,15 @@
     text-indent: -1.5em;
 }
 
+.carousel-item img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    object-position: center;
+}
 .carousel-caption{
     transition: background 0.5s;
-}
-  
+}  
 .carousel-caption:hover {
     background: rgba(0, 0, 0, 0.5);
 }
