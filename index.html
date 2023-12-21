@@ -1,99 +1,90 @@
 ﻿<!DOCTYPE html>
 <html lang="en-US">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-i18n="home/title"></title>
-    <link rel="stylesheet" href="css/coffeegrinder.min.css">
-    <link rel="stylesheet" href="css/wireframe-theme.min.css">
-    <script>document.createElement("picture");</script>
-    <script src="js/picturefill.min.js" class="picturefill" async="async"></script>
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,b">
     <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <script src="components/nav.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="js/i18n.js" defer></script>
 	<!-- dynamic last updated date -->
-	<script type="application/javascript" src="https://unpkg.com/react@16.0.0/umd/react.production.min.js"></script>
-  	<script type="application/javascript" src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.production.min.js"></script>
-  	<script type="application/javascript" src="https://unpkg.com/@babel/standalone@7.20.12/babel.min.js"></script>
-  	<script type="application/javascript" src="https://unpkg.com/whatwg-fetch@3.0.0/dist/fetch.umd.js"></script>
+	<script src="https://unpkg.com/react@16.0.0/umd/react.production.min.js"></script>
+  	<script src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.production.min.js"></script>
+  	<script src="https://unpkg.com/@babel/standalone@7.20.12/babel.min.js"></script>
+  	<script src="https://unpkg.com/whatwg-fetch@3.0.0/dist/fetch.umd.js"></script>
 	<script type="text/jsx" src="js/lastupdated.jsx"></script>
-    <script src="js/nav.js" defer></script>
+    <style>
+        .hero-img {
+          width: 100%;
+          min-height: 300px;
+          object-fit: cover;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: -1;
+        }
+      </style>
 </head>
-
 <body class="grid-1">
 	
-    <div class="row">
-        <div class="coffee-span-12">
-            <h1 class="page-title center" data-i18n="basic/brand"></h1>
+    <nav-component></nav-component>
+
+    <div class="bg-image" style="
+        background-image: url('img/homebanner.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        max-width: 100%;
+        height: 300px;
+        ">
+        <div class="row  p-5">
+            <div class="col-md-12">
+                <h1 class="text-left" data-i18n="basic/brand"></h1>
+            </div>
+            <div class="col-md-12">
+                <h2 class="text-left" data-i18n="home/motto"></h2>
+            </div>
+            <div class="col-md-12 col-lg-6">
+                <p class="text-left" data-i18n="home/intro"></p>
+            </div>
         </div>
     </div>
 
-    <nav-component></nav-component>
-
-    <header class="row">
-        <div class="coffee-span-12 hero-column">
-            <div class="responsive-picture hero-image">
-                <img src="img/homebanner.jpg">
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-4">
+                <a href="passion.html"><img class="card-img-top" src="img/vancouver-beatymuseum-s.jpg"></a>
+                <h6 data-i18n="home/highlight1"></h6>
+            </div>
+            <div class="col-md-4">
+                <a href="bio.html"><img class="card-img-top" src="img/profile-s.jpg"></a>
+                <h6 data-i18n="home/highlight2"></h6>
+            </div>
+            <div class="col-md-4">
+                <a href="experience.html"><img class="card-img-top" src="img/tale-s.jpg"></a>
+                <h6 data-i18n="home/highlight3"></h6>
             </div>
         </div>
-    </header>
 
-    <main class="row">
-        <div class="coffee-span-12">
-            <h2 class="sub-title center" data-i18n="home/motto"></h2>
-        </div>
-    </main>
-
-    <main class="row">
-        <div class="coffee-span-4 coffee-558-span-6 coffee-419-span-12">
-            <div class="responsive-picture travel-image">
-                <a href="/en-US/passions.html"><img src="img/vancouver-beatymuseum-s.jpg"></a>
+        <div class="row">
+            <div class="col-md-12">
+                <!-- last updated -->
+                <p class="text-center" id="lastupdated"></p>
+                <!-- hitwebcounter Code START -->
+                <p class="text-center">
+                    <a href="https://www.hitwebcounter.com" target="_blank">
+                        <img alt="" src="https://hitwebcounter.com/counter/counter.php?page=6506180&style=0024&nbdigits=5&type=ip&initCount=0" border="0">
+                    </a>
+                </p>
             </div>
-            <h6 class="home-heading italic" data-i18n="home/highlight1"></h6>
         </div>
-        <div class="coffee-span-4 coffee-558-span-6 coffee-419-span-12">
-            <div class="responsive-picture travel-image">
-                <a href="./bio.html"><img src="img/profile-s.jpg"></a>
-            </div>
-            <h6 class="home-heading italic" data-i18n="home/highlight2"></h6>
-        </div>
-
-        <div class="coffee-span-4 coffee-558-span-12">
-            <div class="responsive-picture travel-image">
-                <a href="/en-US/research.html"><img src="img/tale-s.jpg"></a>
-            </div>
-            <h6 class="home-heading italic" data-i18n="home/highlight3"></h6>
-        </div>
-    </main>
-
-    <main class="row">
-        <main class="coffee-span-12 centered-content">
-            <p class="action-paragraph paragraph" data-i18n="home/intro"></p>
-        </main>
-    </main>
+    </div>
 	
-    <footer class="row footer-row">
-        <div class="coffee-span-12 footer-column">
-            <div class="rule">
-                <hr>
-            </div>
-            <a class="plain-text footer">Copyright &copy; 2016 - 2023 Zhuohe Liu</a>
-            <a class="link-text footer-link" href="https://www.coffeecup.com/designer/">Made with RSD</a>
-			<!-- last updated -->
-            <a class="plain-text footer" id="lastupdated"></a>
-			<!-- hitwebcounter Code START -->
-            <a href="https://www.hitwebcounter.com" target="_blank">
-                <img alt=""
-                    src="https://hitwebcounter.com/counter/counter.php?page=6506180&style=0024&nbdigits=5&type=ip&initCount=0"
-                    border="0"></a>
-            <!-- hitwebcounter.com -->
-            <a href="https://www.hitwebcounter.com" title="Find IP" target="_blank"
-                style="font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #9A96A3; text-decoration: underline ;"><em>Find
-                    IP</em></a>
-        </div>
-    </footer>
-    <script src="js/i18n.js"></script>
+    <footer-component></footer-component>
 </body>
-
 </html>

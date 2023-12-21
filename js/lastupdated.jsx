@@ -22,7 +22,7 @@ class LatestCommitComponent extends React.Component {
   
     render() {
       return (
-        <a class="plain-text footer">Last updated: {this.state.date.slice(0, 10)}</a>
+        <span>Last updated: {this.state.date.slice(0, 10)}</span>
       );
     }
   }
