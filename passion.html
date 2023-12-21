@@ -16,16 +16,9 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <!--
-        This map was created using Pixel Map Generator by amCharts and is licensed under the Creative Commons Attribution 4.0 International License.
-        You may use this map the way you see fit as long as proper attribution to the name of amCharts is given in the form of link to https://pixelmap.amcharts.com/
-        To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/
-        If you would like to use this map without any attribution, you can acquire a commercial license for the JavaScript Maps - a tool that was used to produce this map.
-        To do so, visit amCharts Online Store: https://www.amcharts.com/online-store/
-    -->
-    <script type="text/javascript" src="js/ammap.js"></script>
-    <script type="text/javascript" src="js/worldLow.js"></script>
-    <script type="text/javascript" src="js/mapmain.js"></script>
+    <!-- Plotly map -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js'></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 <body class="grid-1">
 	<nav-component></nav-component>
@@ -258,27 +251,70 @@
     
 	<div class="container mt-4">
         <h2 class="text-center" data-i18n="passion/m1/place"></h2>
-        <p>Click on the pins to reveal more info. <br><img alt="Green pin" src="img/places/ping.svg">Trips  <img alt="Red pin" src="img/places/piny.svg">Sojourns  <img alt="Red pin" src="img/places/pinr.svg">Hometown</p>
         <div class="row">
             <div class="col-md-6">
-                <style>
-                    div.mapt {
-                        width: 100%;
-                        position: relative;
-                        height: 400px;
-                    }
-                    @media screen and (max-width: 558px) {
-                        div.mapt {
-                            height: 300px;
+                <p>Click on the pins to reveal more info.</p>
+                <div id="plotly-map"></div>
+                <script>
+                    function getColorByType(type) {
+                        switch (type) {
+                            case 'home':
+                                return 'rgba(255,30,0,0.8)';
+                            case 'sojourn':
+                                return 'rgba(255,245,0,0.8)';
+                            default:
+                                return 'rgba(75,216,181,0.8)';
                         }
                     }
-                    @media screen and (max-width: 419px) {
-                        div.mapt {
-                            height: 250px;
+                    
+                    d3.csv('data/map.csv', function(err, rows) {
+                        var typeArray = unpack(rows, 'type');
+                        var types = [...new Set(typeArray)];
+                        function unpack(rows, key) {
+                            return rows.map(function(row) { return row[key]; });
                         }
-                    }
-                </style>
-                <div id="map" class="mapt"></div>
+                        var data = types.map(function(type) {
+                            var rowsFiltered = rows.filter(function(row) {
+                                return (row.type === type);
+                            });
+                            return {
+                                type: 'scattermapbox',
+                                name: type,
+                                lat: unpack(rowsFiltered, 'lat'),
+                                lon: unpack(rowsFiltered, 'lon'),
+                                text: unpack(rowsFiltered, 'label'),
+                                marker: {
+                                    size: 14, 
+                                    color: getColorByType(type)
+                                }
+                            };
+                        });
+                
+                        var layout = {
+                            mapbox: {
+                                style: 'open-street-map',
+                                center: { lat: 38.03, lon: -90.70},
+                                zoom: 0
+                            },
+                            margin: { l: 0, r: 0, t: 0, b: 0, pad: 5},
+                            showlegend: true,
+                            legend: {
+                                x: 0,
+                                xanchor: 'left',
+                                y: 1,
+                                orientation: "h"
+                            }
+                        };
+
+                        var config = {responsive: true}
+                
+                        Plotly.newPlot('plotly-map', data, layout, config);
+                        document.getElementById('plotly-map').on('plotly_click', function (data) {
+                            var id = data.points[0].pointIndex;
+                            goToSlideP(id + 1);
+                        });
+                    });
+                </script>
             </div>
             <div class="col-md-6">
                 <div id="carouselplace" class="carousel slide" data-ride="carousel">
@@ -326,8 +362,6 @@
                 </script>
             </div>
         </div>
-        
-
         <div class="row">
             <div class="col-md-6">
                 <style>
@@ -356,7 +390,6 @@
                 <p>3. Be on a New Continent. </p>
             </div>
         </div>
-
     </div>
 
     <div class="container mt-4">
