@@ -34,21 +34,41 @@
     </script>
 </head>
 <body>
-
     <nav-component></nav-component>
-
-    <div class="container mt-4">
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            <i class="bi bi-tools"></i> This page is under construction. More will be added soon.
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    </div>
 
     <h1 class="text-center" data-i18n="publication/title"></h1>
     <p class="text-center" data-i18n="publication/summary"></p>
 
     <div class="container mt-4">
         <h2 class="text-center" data-i18n="publication/m1/peerreviewed"></h2>
+        
+        <div class="card mt-4">
+            <div class="row">
+                <div class="col-md-6 order-md-1">
+                    <a href="https://doi.org/10.1038/s41467-023-41975-3"><img class="card-img-top" src="img/publication/20231012 Nature Communications.png"></a>
+                </div>
+                <div class="col-md-6 order-md-2">
+                    <div class="card-body">
+                        <h5 class="card-title">Widefield imaging of rapid pan-cortical voltage dynamics with an indicator evolved for one-photon microscopy</h5>
+                        <a href="https://doi.org/10.1038/s41467-023-41975-3" target="_blank" rel="noopener noreferrer">
+                            <button type="button" class="btn btn-labeled btn-default">
+                                <span class="btn-label"><i class="bi bi-journal-bookmark"></i></span>Nature Communications
+                            </button>
+                        </a>
+                        <button type="button" class="btn btn-labeled btn-default" onclick="showAuthorsModal('Lu et al., 2023')">
+                            <span class="btn-label"><i class="bi bi-quote"></i></span>Lu et al., 2023
+                        </button>
+                        <div class="author-list" id="Lu et al., 2023" style="display: none;">
+                            <p id="APA">Lu, X., Wang, Y., <b>Liu, Z.</b>, Gou, Y., Jaeger, D., & St-Pierre, F. (2023). Widefield imaging of rapid pan-cortical voltage dynamics with an indicator evolved for one-photon microscopy. Nature Communications, 14(1), 6423.</p>
+                        </div>
+                        <ul class="card-list">
+                            <li><i class="i-date"></i>Oct. 12, 2023</li>
+                            <li><i class="i-dot"></i>A <b>genetically encoded voltage indicator</b>, <span style="color:green;font-weight:bold;">JEDI-1P</span> enable wide brain imaging of fast neural activity. </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
         
         <div class="card mt-4">
             <div class="row">
