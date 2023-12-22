@@ -98,6 +98,11 @@
             "title": "本科科研助理",
             "place": "密西根大学生物医学工程系<a href=\"http://shearesearch.engin.umich.edu/\">Shea实验室</a>",
             "date": "2015年5月至2016年3月"
+        },
+        "la": {
+            "title": "实验室助手",
+            "place": "交大密西根联合学院学生创新中心,",
+            "date": "2012年9月至2013年8月"
         }
     },
     "publication": {
@@ -224,6 +229,6 @@
     },
     "basic": {
         "brand": "刘卓和",
-        "copyright": "版权所有 &copy; 2016 - 2023 刘卓和"
+        "copyright": "版权所有 &copy; 2016 - 2024 刘卓和"
     }
 }

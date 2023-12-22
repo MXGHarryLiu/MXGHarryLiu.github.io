@@ -15,9 +15,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </head>
-
 <body class="grid-1">
-
     <nav-component></nav-component>
 
     <div class="container mt-4">
@@ -27,26 +25,27 @@
         </div>
     </div>
 
-    <h1 class="text-center" data-i18n="bio/title"></h1>
+    
 
     <div class="container mt-4">
+        <h1 class="text-center" data-i18n="bio/title"></h1>
+
         <div class="row">
             <div class="col-lg-4 col-md-6">
                 <img class="img-fluid" src="img/20220916 Zhuohe Liu.jpg">
             </div>
             <div class="col-lg-8 col-md-6">
-                <p>My name is <b>Zhuohe Liu</b>, and I go by <b>Harry</b> if it's easier for you to pronounce my first name as /JOO-oh-her/ instead. </p>
-                <p>I received the B. S. E. in biomedical engineering from <a class="list-item-link" href="http://www.umich.edu/">University of Michigan</a> in 2016, and had my second B. S. E. degree in electrical and computer engineering from Shanghai Jiao Tong University (<a class="list-item-link" href="http://umji.sjtu.edu.cn/">UM-SJTU Joint Institute</a>). 
-                Later in 2016, I moved to Houston, TX to study at <a class="list-item-link" href="http://www.ece.rice.edu/">Rice University</a>, and got my M.S. in 2020, and Ph.D. in 2022, both in electrical and computer engineering. </p>
+                <p>My name is <b>Zhuohe Liu</b>, and I go by <b>Harry</b> if it's easier for you to pronounce my first name as /JOO-oh-her/ instead. <br>
+                I received the B. S. E. in biomedical engineering from <a href="#bs1">University of Michigan</a> in 2016, and had my second B. S. E. degree in electrical and computer engineering from Shanghai Jiao Tong University (<a href="#bs2">UM-SJTU Joint Institute</a>). 
+                Later in 2016, I moved to Houston, TX to study at <a href="#phd">Rice University</a>, and got my M.S. in 2020, and Ph.D. in 2022, both in electrical and computer engineering. </p>
             </div>
         </div>
     </div>
 
-    <h2 class="text-center" data-i18n="bio/m1/education"></h2>
-
     <div class="container mt-4">
+        <h2 class="text-center" data-i18n="bio/m1/education"></h2>
         <h3 class="text-center" data-i18n="bio/m2/college"></h4>
-        <div class="card mt-4">
+        <div class="card mt-4" id="phd">
             <div class="row"> 
                 <div class="col-md-4 order-md-2">
                     <a href="img/education/stpierrelab.png"><img class="card-img-top" src="img/education/stpierrelab.png"></a>
@@ -76,7 +75,7 @@
             </div>
         </div>
 
-        <div class="card mt-4">
+        <div class="card mt-4" id="bs2">
             <div class="row">
                 <div class="col-md-4 order-md-2">
                     <a href="img/education/umich.jpg"><img class="card-img-top" src="img/education/umich-s.jpg"></a>
@@ -103,7 +102,7 @@
             </div>
         </div>
 
-        <div class="card mt-4">
+        <div class="card mt-4" id="bs1">
             <div class="row">
                 <div class="col-md-4 order-md-2">
                     <a href="img/education/umsjtuji-expo.jpg"><img class="card-img-top" src="img/education/umsjtuji-expo-s.jpg"></a>

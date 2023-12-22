@@ -98,6 +98,11 @@
             "title": "Undergraduate Research Assistant",
             "place": "<a href=\"http://shearesearch.engin.umich.edu/\">Shea Lab</a>, Department of Biomedical Engineering, University of Michigan",
             "date": "May 2015 - Mar. 2016"
+        },
+        "la": {
+            "title": "Laboratory Assistant",
+            "place": "Student Innovation Center, UM-SJTU Joint Institute, Shanghai Jiao Tong University",
+            "date": "Sep. 2012 - Aug. 2013"
         }
     },
     "publication": {
@@ -224,6 +229,6 @@
     },
     "basic": {
         "brand": "Zhuohe Liu", 
-        "copyright": "Copyright &copy; 2016 - 2023 Zhuohe Liu"
+        "copyright": "Copyright &copy; 2016 - 2024 Zhuohe Liu"
     }
 }
