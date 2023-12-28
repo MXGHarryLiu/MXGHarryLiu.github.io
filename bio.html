@@ -18,16 +18,14 @@
 <body class="grid-1">
     <nav-component></nav-component>
 
-    <div class="container mt-4">
+    <div class="container my-4">
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
             <i class="bi bi-tools"></i> This page is under construction. More will be added soon.
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     </div>
 
-    
-
-    <div class="container mt-4">
+    <div class="container my-4">
         <h1 class="text-center" data-i18n="bio/title"></h1>
 
         <div class="row">
@@ -44,15 +42,15 @@
 
     <div class="container mt-4">
         <h2 class="text-center" data-i18n="bio/m1/education"></h2>
-        <h3 class="text-center" data-i18n="bio/m2/college"></h4>
+        <h3 class="text-center" data-i18n="bio/m2/college"></h3>
         <div class="card mt-4" id="phd">
-            <div class="row"> 
+            <h5 class="card-header" data-i18n="bio/phd/title"></h5>
+            <div class="row">
                 <div class="col-md-4 order-md-2">
                     <a href="img/education/stpierrelab.png"><img class="card-img-top" src="img/education/stpierrelab.png"></a>
                 </div>
                 <div class="col-md-8 order-md-1">
                     <div class="card-body">
-                        <h5 class="card-title" data-i18n="bio/phd/title"></h5>
                         <ul class="card-list">
                             <li><i class="i-place"></i><span data-i18n="bio/phd/place"></span></li>
                             <li><i class="i-focus"></i><span data-i18n="bio/phd/focus"></span></li>
@@ -73,16 +71,23 @@
                     </div>
                 </div>
             </div>
+            <div class="card-footer">
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link" href="publication.html#Liu2022" data-i18n="publication/title"></a>
+                    </li>
+                </ul>
+            </div>
         </div>
 
         <div class="card mt-4" id="bs2">
+            <h5 class="card-header" data-i18n="bio/bs2/title"></h5>
             <div class="row">
                 <div class="col-md-4 order-md-2">
                     <a href="img/education/umich.jpg"><img class="card-img-top" src="img/education/umich-s.jpg"></a>
                 </div>
                 <div class="col-md-8 order-md-1">
                     <div class="card-body">
-                        <h5 class="card-title" data-i18n="bio/bs2/title"></h5>
                         <ul class="card-list">
                             <li><i class="i-place"></i><span data-i18n="bio/bs2/place"></span></li>
                             <li><i class="i-focus"></i><span data-i18n="bio/bs2/focus"></span></li>
@@ -96,20 +101,29 @@
                             </li>
                             <li><i class="i-course"></i><span data-i18n="bio/bs2/course"></span></li>
                         </ul>
-                        <p><a href="research.html#projects" title="More on projects...">Projects</a> | <a href="research.html#experience1" title="Research Assistant">Experience</a></p>
                     </div>
                 </div>
+            </div>
+            <div class="card-footer">
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link" href="project.html" data-i18n="project/title"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="experience.html" data-i18n="experience/title"></a>
+                    </li>
+                </ul>
             </div>
         </div>
 
         <div class="card mt-4" id="bs1">
+            <h5 class="card-header" data-i18n="bio/bs1/title"></h5>
             <div class="row">
                 <div class="col-md-4 order-md-2">
                     <a href="img/education/umsjtuji-expo.jpg"><img class="card-img-top" src="img/education/umsjtuji-expo-s.jpg"></a>
                 </div>
                 <div class="col-md-8 order-md-1">
                     <div class="card-body">
-                        <h5 class="card-title" data-i18n="bio/bs1/title"></h5>
                         <ul class="card-list">
                             <li><i class="i-place"></i><span data-i18n="bio/bs1/place"></span><span data-i18n="bio/bs1/city"></span></li>
                             <li><i class="i-focus"></i><span data-i18n="bio/bs1/focus"></span></li>
@@ -122,68 +136,78 @@
                             </li>
                             <li><i class="i-course"></i><span data-i18n="bio/bs1/course"></span></li>
                         </ul>
-                        <p><a href="research.html#projects" title="More on projects...">Projects</a> | <a href="research.html#experience2" title="Laboratory Assistant (Student Innovation Center)">Experience</a></p>
                     </div>
                 </div>
+            </div>
+            <div class="card-footer">
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link" href="project.html" data-i18n="project/title"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="experience.html" data-i18n="experience/title"></a>
+                    </li>
+                </ul>
             </div>
         </div>  
     </div>
     
-    <div class="container mt-4">
-        <h3 class="text-center" data-i18n="bio/m2/school"></h4>
-        <div class="card mt-4">
-            <div class="row">
-                <div class="col-md-4 order-md-2">
-                    <a href="http://www.hsefz.cn/"><img class="card-img-top" src="img/education/efz.jpg"></a>
+    <h3 class="text-center" data-i18n="bio/m2/school"></h3>
+    
+    <div class="container my-4">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            <div class="col">
+                <div class="card" id="high">
+                <h5 class="card-header" data-i18n="bio/high/title"></h5>
+                <div class="card-body">
+                    <ul class="card-list">
+                        <li><i class="i-place"></i><a href="http://www.hsefz.cn/" data-i18n="bio/high/place"></a><span data-i18n="bio/high/city"></span></li>
+                        <li><i class="i-focus"></i><span data-i18n="bio/high/focus"></span></li>
+                        <li><i class="i-date"></i>2009 - 2012</li>
+                        <li><i class="i-award"></i><span data-i18n="bio/high/awards"></span>
+                            <ul class="card-list">
+                                <li><i class="i-dot"></i><span data-i18n="bio/high/award1"></span></li>
+                                <li><i class="i-dot"></i><span data-i18n="bio/high/award2"></span></li>
+                            </ul>
+                        </li>
+                        <li><i class="i-arrow"></i><span data-i18n="bio/high/leadership"></span>
+                            <ul class="card-list">
+                                <li><i class="i-dot"></i><span data-i18n="bio/high/award3"></span></li>
+                                <li><i class="i-dot"></i><span data-i18n="bio/high/award4"></span></li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
-                <div class="col-md-8 order-md-1">
-                    <div class="card-body">
-                        <h5 class="card-title" data-i18n="bio/high/title"></h5>
-                        <ul class="card-list">
-                            <li><i class="i-place"></i><a href="http://www.hsefz.cn/" data-i18n="bio/high/place"></a><span data-i18n="bio/high/city"></span></li>
-                            <li><i class="i-focus"></i><span data-i18n="bio/high/focus"></span></li>
-                            <li><i class="i-date"></i>2009 - 2012</li>
-                            <li><i class="i-award"></i><span data-i18n="bio/high/awards"></span>
-                                <ul class="card-list">
-                                    <li><i class="i-dot"></i><span data-i18n="bio/high/award1"></span></li>
-                                    <li><i class="i-dot"></i><span data-i18n="bio/high/award2"></span></li>
-                                </ul>
-                            </li>
-                            <li><i class="i-arrow"></i><span data-i18n="bio/high/leadership"></span>
-                                <ul class="card-list">
-                                    <li><i class="i-dot"></i><span data-i18n="bio/high/award3"></span></li>
-                                    <li><i class="i-dot"></i><span data-i18n="bio/high/award4"></span></li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <p><a href="research.html#projectefz" title="More on projects...">Projects</a></p>
-                    </div>
+                <div class="text-center">
+                    <img class="card-img-bottom" style="max-width: 50%;" src="img/education/efz.jpg">
+                </div>
+                <div class="card-footer">
+                    <ul class="nav nav-pills">
+                        <li class="nav-item">
+                            <a class="nav-link" href="project.html" data-i18n="project/title"></a>
+                        </li>
+                    </ul>
+                </div>
                 </div>
             </div>
-        </div>
-
-        <div class="card mt-4">
-            <div class="row">
-                <div class="col-md-4 order-md-2">
-                    <a href="http://www.hy.sh.cn/"><img class="card-img-top" src="img/education/hy.png"></a>
-                </div>
-                <div class="col-md-8 order-md-1">
+            <div class="col">
+                <div class="card" id="middle">
+                    <h5 class="card-header" data-i18n="bio/middle/title"></h5>
                     <div class="card-body">
-                        <h5 class="card-title" data-i18n="bio/middle/title"></h5>
                         <ul class="card-list">
                             <li><i class="i-place"></i><a href="http://www.hy.sh.cn/" data-i18n="bio/middle/place"></a><span data-i18n="bio/middle/city"></span></li>
                             <li><i class="i-date"></i>2005 - 2009</li>
                         </ul>
                     </div>
+                    <div class="text-center">
+                        <img class="card-img-bottom" style="max-width: 50%;" src="img/education/hy.png">
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <div class="card mt-4">
-            <div class="row">
-                <div class="col-md-12">
+            <div class="col">
+                <div class="card" id="elem">
+                    <h5 class="card-header" data-i18n="bio/elem/title"></h5>    
                     <div class="card-body">
-                        <h5 class="card-title" data-i18n="bio/elem/title"></h5>
                         <ul class="card-list">
                             <li><i class="i-place"></i><a href="http://xyxx.xhedu.sh.cn/cms/" data-i18n="bio/elem/place"></a><span data-i18n="bio/elem/city"></span></li>
                             <li><i class="i-date"></i>2000 - 2005</li>
@@ -192,6 +216,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 	
 	<footer-component></footer-component>

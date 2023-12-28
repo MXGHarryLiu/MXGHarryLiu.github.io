@@ -19,21 +19,21 @@
 <body class="grid-1">
     <nav-component></nav-component>
 
-    <div class="container mt-4">
+    <div class="container my-4">
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
             <i class="bi bi-tools"></i> This page is under construction. More will be added soon.
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     </div>
 
-    <div class="container mt-4">
+    <div class="container my-4">
         <h1 class="text-center" data-i18n="experience/title"></h1>
 
-        <div class="card mt-4">
+        <div class="card mt-4" id="gs">
+            <h5 class="card-header" data-i18n="experience/gs/title"></h5>
             <div class="row">
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title" data-i18n="experience/gs/title"></h5>
                         <ul class="card-list">
                             <li><i class="i-place"></i><span data-i18n="experience/gs/place"></span></li>
                             <li><i class="i-team"></i><a href="https://www.bcm.edu/people/view/francois-st-pierre/ce5139a8-20f1-11e5-8d53-005056b104be" title="Dr. St-Pierre BCM profile">Dr. François St-Pierre</a> (advisor)</li>
@@ -63,7 +63,6 @@
                         <p><span title="References">🔗</span> <a href="https://en.wikipedia.org/wiki/Genetically_encoded_voltage_indicator" title="Genetically encoded voltage indicator">GEVI (Wikipedia page I created)</a></p>
                     </div>
                 </div>
-                
                 <div class="col-md-4">
                     <div id="carouselgs">
                         <div class="carousel-inner">
@@ -86,28 +85,24 @@
             </div>
         </div>
 
-        <div class="card mt-4">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card-body">
-                        <h5 class="card-title" data-i18n="experience/ta/title"></h5>
-                        <ul class="card-list">
-                            <li><i class="i-place"></i><span data-i18n="experience/ta/place"></span></li>
-                            <li><i class="i-team"></i><a href="http://varman.rice.edu/">Dr. Peter J. Varman</a> (instructor of <span style="font-style:italic">ELEC326 Digital Logic Design</span>)</li>
-                            <li><i class="i-date"></i><span data-i18n="experience/ta/date"></span></li>
-                            <li><i class="i-dot"></i>Graded lab reports and homework on <b>Verilog</b> from undergraduate students.</li>
-                            <li><i class="i-dot"></i>Held lab sessions on <b>FPGA</b> board development.</li>
-                        </ul>
-                    </div>
-                </div>
+        <div class="card mt-4" id="ta">
+            <h5 class="card-header" data-i18n="experience/ta/title"></h5>
+            <div class="card-body">
+                <ul class="card-list">
+                    <li><i class="i-place"></i><span data-i18n="experience/ta/place"></span></li>
+                    <li><i class="i-team"></i><a href="http://varman.rice.edu/">Dr. Peter J. Varman</a> (instructor of <span style="font-style:italic">ELEC326 Digital Logic Design</span>)</li>
+                    <li><i class="i-date"></i><span data-i18n="experience/ta/date"></span></li>
+                    <li><i class="i-dot"></i>Graded lab reports and homework on <b>Verilog</b> from undergraduate students.</li>
+                    <li><i class="i-dot"></i>Held lab sessions on <b>FPGA</b> board development.</li>
+                </ul>
             </div>
         </div>
 
-        <div class="card mt-4">
+        <div class="card mt-4" id="us">
+            <h5 class="card-header" data-i18n="experience/us/title"></h5>
             <div class="row">
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title" data-i18n="experience/us/title"></h5>
                         <ul class="card-list">
                             <li><i class="i-place"></i><span data-i18n="experience/us/place"></span></li>
                             <li><i class="i-team"></i><a href="https://www.linkedin.com/in/joe-decker-90474647/" title="LinkedIn profile">Dr. Joseph Decker</a> (advisor)</li>
@@ -126,19 +121,15 @@
             </div>
         </div>
 
-        <div class="card mt-4">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card-body">
-                        <h5 class="card-title" data-i18n="experience/la/title"></h5>
-                        <ul class="card-list">
-                            <li><i class="i-place"></i><span data-i18n="experience/la/place"></span></li>
-                            <li><i class="i-date"></i><span data-i18n="experience/la/date"></span></li>
-                            <li><i class="i-dot"></i>Answered electrical &amp; computer engineering related technical questions for lab users. </li>
-                            <li><i class="i-dot"></i>Maintained lab environment, and managed equipment usage for 300 JI students. </li>
-                        </ul>
-                    </div>
-                </div>
+        <div class="card mt-4" id="la">
+            <h5 class="card-header" data-i18n="experience/la/title"></h5>
+            <div class="card-body">
+                <ul class="card-list">
+                    <li><i class="i-place"></i><span data-i18n="experience/la/place"></span></li>
+                    <li><i class="i-date"></i><span data-i18n="experience/la/date"></span></li>
+                    <li><i class="i-dot"></i>Answered electrical &amp; computer engineering related technical questions for lab users. </li>
+                    <li><i class="i-dot"></i>Maintained lab environment, and managed equipment usage for 300 JI students. </li>
+                </ul>
             </div>
         </div>
     </div>
