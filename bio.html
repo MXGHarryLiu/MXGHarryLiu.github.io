@@ -47,7 +47,7 @@
             <h5 class="card-header" data-i18n="bio/phd/title"></h5>
             <div class="row">
                 <div class="col-md-4 order-md-2">
-                    <a href="img/education/stpierrelab.png"><img class="card-img-top" src="img/education/stpierrelab.png"></a>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#lightboxModal" data-bs-img="img/education/stpierrelab.png"><img class="card-img-top" src="img/education/stpierrelab.png"></a>
                 </div>
                 <div class="col-md-8 order-md-1">
                     <div class="card-body">
@@ -84,7 +84,7 @@
             <h5 class="card-header" data-i18n="bio/bs2/title"></h5>
             <div class="row">
                 <div class="col-md-4 order-md-2">
-                    <a href="img/education/umich.jpg"><img class="card-img-top" src="img/education/umich-s.jpg"></a>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#lightboxModal" data-bs-img="img/education/umich-s.jpg"><img class="card-img-top" src="img/education/umich-s.jpg"></a>
                 </div>
                 <div class="col-md-8 order-md-1">
                     <div class="card-body">
@@ -120,7 +120,7 @@
             <h5 class="card-header" data-i18n="bio/bs1/title"></h5>
             <div class="row">
                 <div class="col-md-4 order-md-2">
-                    <a href="img/education/umsjtuji-expo.jpg"><img class="card-img-top" src="img/education/umsjtuji-expo-s.jpg"></a>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#lightboxModal" data-bs-img="img/education/umsjtuji-expo-s.jpg"><img class="card-img-top" src="img/education/umsjtuji-expo-s.jpg"></a>
                 </div>
                 <div class="col-md-8 order-md-1">
                     <div class="card-body">
@@ -216,9 +216,35 @@
                 </div>
             </div>
         </div>
-
     </div>
 	
+    <div class="modal fade" id="lightboxModal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ModalLabel"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="" class="img-fluid">
+                </div>
+            </div>
+        </div>
+        <script>
+            var lightboxModal = document.getElementById('lightboxModal');
+            lightboxModal.addEventListener('show.bs.modal', function (event) {
+                var button = event.relatedTarget;
+                var recipient = button.getAttribute('data-bs-img');
+                var modalTitle = lightboxModal.querySelector('.modal-title');
+                modalTitle.textContent = getContent("alt/" + recipient);
+                var modalImage = lightboxModal.querySelector('.modal-body img');
+                // remove "-s" from recipient to display full size image
+                recipient = recipient.replace(/-s\./, ".");
+                modalImage.src = recipient;
+            });
+        </script>
+    </div>
+
 	<footer-component></footer-component>
 </body>
 </html>

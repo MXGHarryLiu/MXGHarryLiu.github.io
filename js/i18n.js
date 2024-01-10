@@ -75,6 +75,7 @@ window.addEventListener('DOMContentLoaded', async () => {
         }
         return content || '';
     }
+    window.getContent = getContent;
     
     updateContent(langData, userPreferredLanguage);
 

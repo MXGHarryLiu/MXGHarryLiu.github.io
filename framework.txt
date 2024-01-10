@@ -63,3 +63,10 @@ northest: edmonton 53.5444�� N, 113.4909�� W
 southest: singapore 1.3521�� N, 103.8198�� E
 
 My research is at the interdisciplinary field of software, hardware, and wetware. I enjoy working with a diverse team and challenge myself to bring innovations across boundaries of knowledge domains. I look forward to advancing image analysis, lab automation, and biomedical hardware, which will impact life science and healthcare and our daily lives.
+
+TODO:
+* Add card header and nav bar combo 
+* Add timeline effect https://mdbootstrap.com/docs/standard/extended/timeline/
+* Graph citation in plotly
+* Add lightbox for images. 
+* Add fourth marker for places without photos. 
