@@ -24,12 +24,26 @@
         function copyToClipboard() {
             var modalContent = document.getElementById('modalContent');
             var copyContent = modalContent.querySelector('p#APA');
+            if (!copyContent) {
+                return;
+            }
+            var text = copyContent.textContent || '';
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).catch(function () {
+                    fallbackCopy(copyContent);
+                });
+                return;
+            }
+            fallbackCopy(copyContent);
+        }
+        function fallbackCopy(copyContent) {
             var range = document.createRange();
-            range.selectNode(modalContent);
-            window.getSelection().removeAllRanges();
-            window.getSelection().addRange(range);
+            range.selectNode(copyContent);
+            var selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
             document.execCommand('copy');
-            window.getSelection().removeAllRanges();
+            selection.removeAllRanges();
         }
     </script>
 </head>
@@ -158,7 +172,7 @@
                             <li><i class="i-dot"></i>Photostable fluorescent proteins (<a href="https://patents.google.com/patent/US20230203110A1">US20230203110A1</a>)</li>
                             <li><i class="i-dot"></i>Methods and compositions for retrieving cellular structures based on spatiotemporal profiles (<a href="https://patents.google.com/patent/US20230031708A1">US20230031708A1</a>)</li>
                         </ul>
-	                    <span title="References">🔗</span> mGold (<a href="https://www.fpbase.org/protein/mgold/">FPBase</a>), Media coverage (<a href="https://blogs.bcm.edu/2020/11/18/from-the-labs-spotlight-can-identify-individual-cells-among-hundreds-of-thousands/">Baylor College of Medicine Blog</a>)</p>
+                        <span title="References">🔗</span> mGold (<a href="https://www.fpbase.org/protein/mgold/">FPBase</a>), Media coverage (<a href="https://blogs.bcm.edu/2020/11/18/from-the-labs-spotlight-can-identify-individual-cells-among-hundreds-of-thousands/">Baylor College of Medicine Blog</a>)</p>
                     </div>
                 </div>
             </div>
