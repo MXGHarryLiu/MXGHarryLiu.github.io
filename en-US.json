@@ -11,10 +11,18 @@
         "highlight1": "A world to explore",
         "highlight2": "A life to live",
         "highlight3": "A tale to tell",
-        "intro": "<br>Welcome! This is my first ever personal website! <br> I'm on the path of being a biotechnology engineer. <br>"
+        "intro": "<br>Welcome! This is my first ever personal website! <br> I'm on the path of being a biotechnology data engineer. <br>"
     },
     "bio": {
         "title": "Bio",
+        "timeline": {
+            "phd": "Ph.D. / M.S.",
+            "bs2": "B.S.E. (UM)",
+            "bs1": "B.S.E. (SJTU)",
+            "high": "High School",
+            "middle": "Middle School",
+            "elem": "Elementary"
+        },
         "m1": {
             "education": "Education"
         },
@@ -229,6 +237,6 @@
     },
     "basic": {
         "brand": "Zhuohe Liu", 
-        "copyright": "Copyright &copy; 2016 - 2025 Zhuohe Liu"
+        "copyright": "Copyright &copy; 2016 - 2026 Zhuohe Liu"
     }
 }

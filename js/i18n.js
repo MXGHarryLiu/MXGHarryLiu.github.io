@@ -78,6 +78,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     window.getContent = getContent;
     
     updateContent(langData, userPreferredLanguage);
+    document.dispatchEvent(new CustomEvent('i18n-ready'));
 
     function insertListMarker(className, icon, color) {
         const is = document.querySelectorAll('.i-' + className);

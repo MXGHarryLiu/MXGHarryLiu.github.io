@@ -16,7 +16,123 @@ class Timeline extends HTMLElement {
             return;
         }
         var title = this.getAttribute('data-title') || '';
-        function parseYearMonth(value) {
+        var self = this;
+        var render = function () {
+            var minValue = null;
+            var maxValue = null;
+            items.forEach(function (item) {
+                var startValue = parseYearMonth(item.start);
+                var endValue = parseYearMonth(item.end);
+                if (startValue !== null) {
+                    minValue = minValue === null ? startValue : Math.min(minValue, startValue);
+                }
+                if (endValue !== null) {
+                    maxValue = maxValue === null ? endValue : Math.max(maxValue, endValue);
+                }
+            });
+            var minOverride = parseYearMonth(self.getAttribute('data-min'));
+            var maxOverride = parseYearMonth(self.getAttribute('data-max'));
+            if (minOverride !== null) {
+                minValue = minOverride;
+            }
+            if (maxOverride !== null) {
+                maxValue = maxOverride;
+            }
+            if (minValue === null || maxValue === null || maxValue <= minValue) {
+                minValue = minValue || 2000;
+                maxValue = maxValue || minValue + 1;
+            }
+            var startTick = Math.ceil(minValue / 5) * 5;
+            var endTick = Math.floor(maxValue / 5) * 5;
+            var ticks = [];
+            for (var y = startTick; y <= endTick; y += 5) {
+                ticks.push(y);
+            }
+            var html = '<div class="timeline-section">' +
+                (title ? '<div class="timeline-title">' + title + '</div>' : '') +
+                '<div class="timeline-track" data-min="' + minValue + '" data-max="' + maxValue + '">';
+            html += '<div class="timeline-ticks">';
+            ticks.forEach(function (year) {
+                var left = ((year - minValue) / (maxValue - minValue)) * 100;
+                html += '<div class="timeline-tick" style="--tick:' + left + '%">' +
+                    '<span>' + year + '</span>' +
+                '</div>';
+            });
+            html += '</div>';
+            items.forEach(function (item, index) {
+                var position = item.position || (index % 2 === 0 ? '1' : '2');
+                var label = '';
+                if (item.labelKey && typeof window.getContent === 'function') {
+                    label = window.getContent(item.labelKey) || '';
+                }
+                if (!label) {
+                    label = item.label || '';
+                }
+                var href = item.href || '#';
+                var startValue = parseYearMonth(item.start);
+                var endValue = parseYearMonth(item.end);
+                var startPct = ((startValue - minValue) / (maxValue - minValue)) * 100;
+                var endPct = ((endValue - minValue) / (maxValue - minValue)) * 100;
+                var left = Math.min(startPct, endPct);
+                var width = Math.abs(endPct - startPct);
+                var midPct = left + width / 2;
+                html += '<div class="timeline-item" data-position="' + position + '">' +
+                    '<div class="timeline-range" style="--start:' + left + '%; --length:' + width + '%"></div>' +
+                    '<div class="timeline-dot" style="--mid:' + midPct + '%"></div>' +
+                    '<div class="timeline-callout" style="--mid:' + midPct + '%">' +
+                        '<a href="' + href + '">' + label + '</a>' +
+                    '</div>' +
+                '</div>';
+            });
+            html += '</div></div>';
+            self.innerHTML = html;
+
+            var track = self.querySelector('.timeline-track');
+            var updateOrientation = function () {
+                if (!track) {
+                    return;
+                }
+                var isVertical = window.matchMedia('(max-width: 768px)').matches;
+                track.setAttribute('data-orientation', isVertical ? 'vertical' : 'horizontal');
+                if (isVertical) {
+                    var fixedHeight = self.getAttribute('data-height');
+                    if (fixedHeight) {
+                        track.style.height = fixedHeight;
+                        track.style.removeProperty('--track-length');
+                        return;
+                    }
+                    var spanYears = maxValue - minValue;
+                    var heightPx = Math.max(220, Math.round(spanYears * 18));
+                    track.style.setProperty('--track-length', heightPx + 'px');
+                    track.style.removeProperty('height');
+                } else {
+                    track.style.removeProperty('--track-length');
+                    track.style.removeProperty('height');
+                }
+            };
+            updateOrientation();
+            window.addEventListener('resize', updateOrientation);
+
+            self.querySelectorAll('.timeline-item').forEach(function (item) {
+                var callout = item.querySelector('.timeline-callout a');
+                if (!callout) {
+                    return;
+                }
+                callout.addEventListener('mouseenter', function () {
+                    item.classList.add('is-active');
+                });
+                callout.addEventListener('mouseleave', function () {
+                    item.classList.remove('is-active');
+                });
+                callout.addEventListener('focus', function () {
+                    item.classList.add('is-active');
+                });
+                callout.addEventListener('blur', function () {
+                    item.classList.remove('is-active');
+                });
+            });
+        };
+        var parseYearMonth = function (value) {
             if (!value) {
                 return null;
             }
@@ -30,113 +146,12 @@ class Timeline extends HTMLElement {
                 return null;
             }
             return year + (month - 1) / 12;
-        }
-        var minValue = null;
-        var maxValue = null;
-        items.forEach(function (item) {
-            var startValue = parseYearMonth(item.start);
-            var endValue = parseYearMonth(item.end);
-            if (startValue !== null) {
-                minValue = minValue === null ? startValue : Math.min(minValue, startValue);
-            }
-            if (endValue !== null) {
-                maxValue = maxValue === null ? endValue : Math.max(maxValue, endValue);
-            }
-        });
-        var minOverride = parseYearMonth(this.getAttribute('data-min'));
-        var maxOverride = parseYearMonth(this.getAttribute('data-max'));
-        if (minOverride !== null) {
-            minValue = minOverride;
-        }
-        if (maxOverride !== null) {
-            maxValue = maxOverride;
-        }
-        if (minValue === null || maxValue === null || maxValue <= minValue) {
-            minValue = minValue || 2000;
-            maxValue = maxValue || minValue + 1;
-        }
-        var startTick = Math.ceil(minValue / 5) * 5;
-        var endTick = Math.floor(maxValue / 5) * 5;
-        var ticks = [];
-        for (var y = startTick; y <= endTick; y += 5) {
-            ticks.push(y);
-        }
-        var html = '<div class="timeline-section">' +
-            (title ? '<div class="timeline-title">' + title + '</div>' : '') +
-            '<div class="timeline-track" data-min="' + minValue + '" data-max="' + maxValue + '">';
-        html += '<div class="timeline-ticks">';
-        ticks.forEach(function (year) {
-            var left = ((year - minValue) / (maxValue - minValue)) * 100;
-            html += '<div class="timeline-tick" style="--tick:' + left + '%">' +
-                '<span>' + year + '</span>' +
-            '</div>';
-        });
-        html += '</div>';
-        items.forEach(function (item, index) {
-            var position = item.position || (index % 2 === 0 ? '1' : '2');
-            var label = item.label || '';
-            var href = item.href || '#';
-            var startValue = parseYearMonth(item.start);
-            var endValue = parseYearMonth(item.end);
-            var startPct = ((startValue - minValue) / (maxValue - minValue)) * 100;
-            var endPct = ((endValue - minValue) / (maxValue - minValue)) * 100;
-            var left = Math.min(startPct, endPct);
-            var width = Math.abs(endPct - startPct);
-            var midPct = left + width / 2;
-            html += '<div class="timeline-item" data-position="' + position + '">' +
-                '<div class="timeline-range" style="--start:' + left + '%; --length:' + width + '%"></div>' +
-                '<div class="timeline-dot" style="--mid:' + midPct + '%"></div>' +
-                '<div class="timeline-callout" style="--mid:' + midPct + '%">' +
-                    '<a href="' + href + '">' + label + '</a>' +
-                '</div>' +
-            '</div>';
-        });
-        html += '</div></div>';
-        this.innerHTML = html;
-        var track = this.querySelector('.timeline-track');
-        var updateOrientation = function () {
-            if (!track) {
-                return;
-            }
-            var isVertical = window.matchMedia('(max-width: 768px)').matches;
-            track.setAttribute('data-orientation', isVertical ? 'vertical' : 'horizontal');
-            if (isVertical) {
-                var fixedHeight = this.getAttribute('data-height');
-                if (fixedHeight) {
-                    track.style.height = fixedHeight;
-                    track.style.removeProperty('--track-length');
-                    return;
-                }
-                var spanYears = maxValue - minValue;
-                var heightPx = Math.max(220, Math.round(spanYears * 18));
-                track.style.setProperty('--track-length', heightPx + 'px');
-                track.style.removeProperty('height');
-            } else {
-                track.style.removeProperty('--track-length');
-                track.style.removeProperty('height');
-            }
-        }.bind(this);
-        updateOrientation();
-        window.addEventListener('resize', updateOrientation);
+        };
 
-        this.querySelectorAll('.timeline-item').forEach(function (item) {
-            var callout = item.querySelector('.timeline-callout a');
-            if (!callout) {
-                return;
-            }
-            callout.addEventListener('mouseenter', function () {
-                item.classList.add('is-active');
-            });
-            callout.addEventListener('mouseleave', function () {
-                item.classList.remove('is-active');
-            });
-            callout.addEventListener('focus', function () {
-                item.classList.add('is-active');
-            });
-            callout.addEventListener('blur', function () {
-                item.classList.remove('is-active');
-            });
-        });
+        render();
+        if (items.some(function (item) { return item.labelKey; }) && typeof window.getContent !== 'function') {
+            document.addEventListener('i18n-ready', render, { once: true });
+        }
     }
 }
 customElements.define('timeline-component', Timeline);
