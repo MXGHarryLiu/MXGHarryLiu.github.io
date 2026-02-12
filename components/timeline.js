@@ -175,8 +175,18 @@ class Timeline extends HTMLElement {
         };
 
         render();
-        if (items.some(function (item) { return item.labelKey; }) && typeof window.getContent !== 'function') {
-            document.addEventListener('i18n-ready', render, { once: true });
+        if (!this._i18nListener) {
+            this._i18nListener = function () {
+                render();
+            };
+            document.addEventListener('i18n-ready', this._i18nListener);
+        }
+    }
+
+    disconnectedCallback() {
+        if (this._i18nListener) {
+            document.removeEventListener('i18n-ready', this._i18nListener);
+            this._i18nListener = null;
         }
     }
 }

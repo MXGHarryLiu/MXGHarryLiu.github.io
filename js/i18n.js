@@ -45,15 +45,17 @@ function updateContent(langData, lang) {
 }
 function setLanguagePreference(lang) {
     localStorage.setItem('language', lang);
-    location.reload();
 }
 
 async function toggleLanguage() {
     const currentLang = localStorage.getItem('language') || 'en-US';
     const newLang = currentLang === 'en-US' ? 'zh-CN' : 'en-US';
-    await setLanguagePreference(newLang);
+    setLanguagePreference(newLang);
     const langData = await fetchLanguageData(newLang);
+    window.__langData = langData;
     updateContent(langData, newLang);
+    applyI18nSideEffects(langData, newLang);
+    document.dispatchEvent(new CustomEvent('i18n-ready'));
 }
 function insertIcon(className, emoji) {
     const spans = document.querySelectorAll('.' + className);
@@ -62,10 +64,7 @@ function insertIcon(className, emoji) {
         span.innerHTML = emoji;
     });
 }
-window.addEventListener('DOMContentLoaded', async () => {
-    const userPreferredLanguage = localStorage.getItem('language') || 'en-US';
-    const langData = await fetchLanguageData(userPreferredLanguage);
-    
+function applyI18nSideEffects(langData, lang) {
     function getContent(query) {
         const keys = query.split('/');
         let content = langData;
@@ -76,16 +75,13 @@ window.addEventListener('DOMContentLoaded', async () => {
         return content || '';
     }
     window.getContent = getContent;
-    
-    updateContent(langData, userPreferredLanguage);
-    document.dispatchEvent(new CustomEvent('i18n-ready'));
 
     function insertListMarker(className, icon, color) {
         const is = document.querySelectorAll('.i-' + className);
         is.forEach(i => {
             i.title = getContent('icon/' + className);
             i.classList.add('bi', icon);
-            i.style.color = color
+            i.style.color = color;
         });
     }
     insertListMarker('place', 'bi-geo-alt', '#3498db') //blue
@@ -100,8 +96,17 @@ window.addEventListener('DOMContentLoaded', async () => {
     insertListMarker('dot', 'bi-dot', '#808080')
 
     if (document.title === '') {
-        document.title = getContent('basic/brand')
+        document.title = getContent('basic/brand');
     } else {
-        document.title = document.title + ' - ' + getContent('basic/brand')
+        document.title = document.title.split(' - ')[0] + ' - ' + getContent('basic/brand');
     }
+}
+
+window.addEventListener('DOMContentLoaded', async () => {
+    const userPreferredLanguage = localStorage.getItem('language') || 'en-US';
+    const langData = await fetchLanguageData(userPreferredLanguage);
+    window.__langData = langData;
+    updateContent(langData, userPreferredLanguage);
+    applyI18nSideEffects(langData, userPreferredLanguage);
+    document.dispatchEvent(new CustomEvent('i18n-ready'));
 });
