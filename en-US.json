@@ -93,6 +93,12 @@
     },
     "experience": {
         "title": "Experience",
+        "timeline": {
+            "gs": "Grad Research",
+            "ta": "Teaching Assistant",
+            "us": "Undergrad Research",
+            "la": "Lab Assistant"
+        },
         "gs": {
             "title": "Guaduate Research Assistant",
             "place": "<a href=\"https://www.stpierrelab.com/\">St-Pierre Lab</a>, Department of Neurosciece, Baylor College of Medicine",

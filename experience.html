@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/theme.css">
     <script src="components/nav.js"></script>
     <script src="components/footer.js"></script>
+    <script src="components/timeline.js"></script>
     <script src="js/carousel.js"></script>
     <script src="js/i18n.js" defer></script>
     <script src="https://code.jquery.com/jquery-3.5.0.slim.min.js"></script>
@@ -28,6 +29,16 @@
 
     <div class="container my-4">
         <h1 class="text-center" data-i18n="experience/title"></h1>
+
+        <script type="application/json" id="experience-timeline">
+            [
+                { "labelKey": "experience/timeline/gs", "href": "#gs", "start": "2017-01", "end": "2022-12", "position": "1" },
+                { "labelKey": "experience/timeline/ta", "href": "#ta", "start": "2017-09", "end": "2021-12", "position": "2" },
+                { "labelKey": "experience/timeline/us", "href": "#us", "start": "2015-05", "end": "2016-03", "position": "1" },
+                { "labelKey": "experience/timeline/la", "href": "#la", "start": "2012-09", "end": "2013-08", "position": "2" }
+            ]
+        </script>
+        <timeline-component data-source="experience-timeline" data-min="2012-01" data-max="2026-01" data-height="220px"></timeline-component>
 
         <div class="card mt-4" id="gs">
             <h5 class="card-header" data-i18n="experience/gs/title"></h5>

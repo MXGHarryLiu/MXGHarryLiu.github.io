@@ -93,6 +93,12 @@
     },
     "experience": {
         "title": "经历",
+        "timeline": {
+            "gs": "研究生",
+            "ta": "助教",
+            "us": "本科科研",
+            "la": "实验室助手"
+        },
         "gs": {
             "title": "研究生",
             "place": "贝勒医学院神经科学系<a href=\"https://www.stpierrelab.com/\">St-Pierre实验室</a>",
