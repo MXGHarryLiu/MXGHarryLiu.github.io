@@ -54,6 +54,16 @@
     border-color: rgba(251, 191, 36, 0.35);
 }
 
+.publication-card {
+    border-color: rgba(96, 165, 250, 0.45);
+}
+
+.publication-card .card-header,
+.publication-card .card-footer {
+    background-color: rgba(96, 165, 250, 0.18);
+    border-color: rgba(96, 165, 250, 0.35);
+}
+
 .carousel-item img {
     width: 100%;
     max-height: 400px;

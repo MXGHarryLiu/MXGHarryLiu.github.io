@@ -49,7 +49,7 @@
                 { "labelKey": "experience/timeline/la", "href": "#la", "start": "2012-09", "end": "2013-08", "position": "2" }
             ]
         </script>
-        <timeline-component data-source="experience-timeline" data-min="2012-01" data-max="2026-01" data-activate-animation="pulse" data-title-key="experience/timelineTitle" data-hint-key="experience/timelineHint" data-toggle-title-key="timeline/toggleHint"></timeline-component>
+        <timeline-component data-source="experience-timeline" data-min="2012-01" data-max="2026-01" data-activate-animation="pulse" data-title-key="experience/timelineTitle" data-hint-auto="click" data-toggle-title-key="timeline/toggleHint"></timeline-component>
 
         <script type="application/json" id="education-timeline">
             [
@@ -153,7 +153,9 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <img class="card-img-top" alt="My Adviser and I in Umich North Campus Research Complex (NCRC)" title="My Adviser and I in Umich North Campus Research Complex (NCRC)" src="img/experience/jdecker.jpg">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#lightboxModal" data-bs-img="img/experience/jdecker.jpg">
+                        <img class="card-img-top" src="img/experience/jdecker.jpg">
+                    </a>
                 </div>
             </div>
         </div>

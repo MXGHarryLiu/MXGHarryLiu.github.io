@@ -89,7 +89,6 @@
     },
     "experience": {
         "timelineTitle": "Experience",
-        "timelineHint": "Click item to view details",
         "timeline": {
             "gs": "Grad Research",
             "ta": "Teaching Assistant",
@@ -120,8 +119,14 @@
     "publication": {
         "title": "Publications",
         "summary": "Please visit my <a href=\"https://scholar.google.com/citations?user=A1aLmWIAAAAJ\">Google Scholar Profile</a> or <a href=\"https://orcid.org/0000-0002-1818-646X\">ORCID Profile</a> for a complete list of publications. ",
+        "timelineTitle": "Publications",
+        "timeline": {
+            "2023": "Lu et al., 2023 (Nat. Commun.)",
+            "2022b": "Lee et al., 2022 (Biochemistry)",
+            "2022a": "Liu et al., 2022 (Cell)",
+            "2020": "Lee et al., 2020 (Sci. Adv.)"
+        },
         "m1": {
-            "peerreviewed": "Peer-reviewed journal articles"
         }
     },
     "project": {
@@ -148,6 +153,7 @@
         "follow": "Please follow me on: "
     },
     "timeline": {
+        "clickHint": "Click item to view details",
         "toggleHint": "Toggle timeline range"
     },
     "alt": {
@@ -171,7 +177,8 @@
             "experience": {
                 "cells.gif": "Flashing of GEVI Cells (Changing in Fluorescence) under Field Stimulation",
                 "fluorescence-b.png": "Fluorescence Microscopy of HEK293 Cells Transfected with GEVI (ASAP2s)",
-                "resp map-s.png": "Response Map of ASAP2s"
+                "resp map-s.png": "Response Map of ASAP2s",
+                "jdecker.jpg": "My Adviser and I in Umich North Campus Research Complex (NCRC)"
             },
             "project": {
                 "p1-1-s.jpg": "At Summer 2016 Design Expo Award Ceremony",

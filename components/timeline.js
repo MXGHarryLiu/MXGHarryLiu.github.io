@@ -21,6 +21,7 @@ class Timeline extends HTMLElement {
         var titleKey = this.getAttribute('data-title-key') || '';
         var hint = this.getAttribute('data-hint') || '';
         var hintKey = this.getAttribute('data-hint-key') || '';
+        var hintAuto = this.getAttribute('data-hint-auto') || '';
         var toggleTitle = this.getAttribute('data-toggle-title') || '';
         var toggleTitleKey = this.getAttribute('data-toggle-title-key') || '';
         var self = this;
@@ -67,6 +68,9 @@ class Timeline extends HTMLElement {
             var resolvedHint = hint;
             if (hintKey && typeof window.getContent === 'function') {
                 resolvedHint = window.getContent(hintKey) || resolvedHint;
+            }
+            if (!resolvedHint && hintAuto && hintAuto.toLowerCase() === 'click' && typeof window.getContent === 'function') {
+                resolvedHint = window.getContent('timeline/clickHint') || resolvedHint;
             }
             var resolvedToggleTitle = toggleTitle;
             if (toggleTitleKey && typeof window.getContent === 'function') {
