@@ -147,6 +147,9 @@
     "contact": {
         "follow": "敬请关注"
     },
+    "timeline": {
+        "toggleHint": "切换时间范围"
+    },
     "alt": {
         "img": {
             "homebanner.jpg": "冰封密西根湖（亲自摄于芝加哥 @ 2015/3/2）",

@@ -86,6 +86,24 @@
     gap: 8px;
 }
 
+.timeline-title-left {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.timeline-toggle {
+    margin-left: auto;
+    color: #9ca3af;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.timeline-toggle:hover {
+    color: #6b7280;
+}
+
 .timeline-hint {
     font-size: 13px;
     color: #9ca3af;

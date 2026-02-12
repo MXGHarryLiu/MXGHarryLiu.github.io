@@ -1,5 +1,7 @@
 class Timeline extends HTMLElement {
     connectedCallback() {
+        this._rangeMode = this._rangeMode || this.getAttribute('data-range-mode') || 'data';
+        this._wideRange = this._wideRange || null;
         var sourceId = this.getAttribute('data-source');
         if (!sourceId) {
             return;
@@ -19,6 +21,8 @@ class Timeline extends HTMLElement {
         var titleKey = this.getAttribute('data-title-key') || '';
         var hint = this.getAttribute('data-hint') || '';
         var hintKey = this.getAttribute('data-hint-key') || '';
+        var toggleTitle = this.getAttribute('data-toggle-title') || '';
+        var toggleTitleKey = this.getAttribute('data-toggle-title-key') || '';
         var self = this;
         var render = function () {
             var minValue = null;
@@ -41,6 +45,11 @@ class Timeline extends HTMLElement {
             if (maxOverride !== null) {
                 maxValue = maxOverride;
             }
+            self._computedRange = { min: minValue, max: maxValue };
+            if (self._rangeMode === 'wide' && self._wideRange) {
+                minValue = self._wideRange.min;
+                maxValue = self._wideRange.max;
+            }
             if (minValue === null || maxValue === null || maxValue <= minValue) {
                 minValue = minValue || 2000;
                 maxValue = maxValue || minValue + 1;
@@ -59,11 +68,22 @@ class Timeline extends HTMLElement {
             if (hintKey && typeof window.getContent === 'function') {
                 resolvedHint = window.getContent(hintKey) || resolvedHint;
             }
+            var resolvedToggleTitle = toggleTitle;
+            if (toggleTitleKey && typeof window.getContent === 'function') {
+                resolvedToggleTitle = window.getContent(toggleTitleKey) || resolvedToggleTitle;
+            }
+            var rangeMode = self._rangeMode || self.getAttribute('data-range-mode') || 'data';
+            var toggleIcon = rangeMode === 'wide' ? 'fa-link' : 'fa-link-slash';
             var titleHtml = '';
             if (resolvedTitle || resolvedHint) {
                 titleHtml = '<div class="timeline-title">' +
-                    (resolvedTitle ? '<span class="timeline-title-text">' + resolvedTitle + '</span>' : '') +
-                    (resolvedHint ? '<span class="timeline-hint">' + resolvedHint + '</span>' : '') +
+                    '<span class="timeline-title-left">' +
+                        (resolvedTitle ? '<span class="timeline-title-text">' + resolvedTitle + '</span>' : '') +
+                        (resolvedHint ? '<span class="timeline-hint">' + resolvedHint + '</span>' : '') +
+                    '</span>' +
+                    '<span class="timeline-toggle" title="' + resolvedToggleTitle + '" aria-label="' + resolvedToggleTitle + '">' +
+                        '<i class="fa-solid ' + toggleIcon + '"></i>' +
+                    '</span>' +
                 '</div>';
             }
             var html = '<div class="timeline-section">' +
@@ -188,6 +208,7 @@ class Timeline extends HTMLElement {
             return year + (month - 1) / 12;
         };
 
+        this._render = render;
         render();
         if (!this._i18nListener) {
             this._i18nListener = function () {
@@ -202,6 +223,29 @@ class Timeline extends HTMLElement {
             document.removeEventListener('i18n-ready', this._i18nListener);
             this._i18nListener = null;
         }
+    }
+
+    setRangeMode(mode) {
+        this._rangeMode = mode || 'data';
+        this.setAttribute('data-range-mode', this._rangeMode);
+        if (this._render) {
+            this._render();
+        }
+    }
+
+    setWideRange(min, max) {
+        if (min === null || max === null || typeof min === 'undefined' || typeof max === 'undefined') {
+            this._wideRange = null;
+        } else {
+            this._wideRange = { min: min, max: max };
+        }
+        if (this._render) {
+            this._render();
+        }
+    }
+
+    getDataRange() {
+        return this._computedRange || null;
     }
 }
 customElements.define('timeline-component', Timeline);
