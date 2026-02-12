@@ -16,6 +16,7 @@ class Timeline extends HTMLElement {
             return;
         }
         var title = this.getAttribute('data-title') || '';
+        var titleKey = this.getAttribute('data-title-key') || '';
         var self = this;
         var render = function () {
             var minValue = null;
@@ -48,8 +49,12 @@ class Timeline extends HTMLElement {
             for (var y = startTick; y <= endTick; y += 5) {
                 ticks.push(y);
             }
+            var resolvedTitle = title;
+            if (titleKey && typeof window.getContent === 'function') {
+                resolvedTitle = window.getContent(titleKey) || resolvedTitle;
+            }
             var html = '<div class="timeline-section">' +
-                (title ? '<div class="timeline-title">' + title + '</div>' : '') +
+                (resolvedTitle ? '<div class="timeline-title">' + resolvedTitle + '</div>' : '') +
                 '<div class="timeline-track" data-min="' + minValue + '" data-max="' + maxValue + '">';
             html += '<div class="timeline-ticks">';
             ticks.forEach(function (year) {
@@ -88,6 +93,26 @@ class Timeline extends HTMLElement {
             self.innerHTML = html;
 
             var track = self.querySelector('.timeline-track');
+            var highlightColor = (self.getAttribute('data-highlight-color') || '').trim();
+            if (track && highlightColor) {
+                var rgba = null;
+                var hex = highlightColor.replace('#', '');
+                if (hex.length === 3) {
+                    hex = hex.split('').map(function (c) { return c + c; }).join('');
+                }
+                if (hex.length === 6) {
+                    var r = parseInt(hex.slice(0, 2), 16);
+                    var g = parseInt(hex.slice(2, 4), 16);
+                    var b = parseInt(hex.slice(4, 6), 16);
+                    if (!isNaN(r) && !isNaN(g) && !isNaN(b)) {
+                        rgba = 'rgba(' + r + ', ' + g + ', ' + b + ', 0.35)';
+                        track.style.setProperty('--timeline-highlight-shadow', rgba);
+                        track.style.setProperty('--timeline-highlight-shadow-fade', 'rgba(' + r + ', ' + g + ', ' + b + ', 0)');
+                    }
+                }
+                track.style.setProperty('--timeline-highlight', highlightColor);
+                track.style.setProperty('--timeline-highlight-strong', highlightColor);
+            }
             var updateOrientation = function () {
                 if (!track) {
                     return;

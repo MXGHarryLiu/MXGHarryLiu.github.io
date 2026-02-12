@@ -15,14 +15,6 @@
     },
     "bio": {
         "title": "Bio",
-        "timeline": {
-            "phd": "Ph.D. / M.S.",
-            "bs2": "B.S.E. (UM)",
-            "bs1": "B.S.E. (SJTU)",
-            "high": "High School",
-            "middle": "Middle School",
-            "elem": "Elementary"
-        },
         "intro": "My name is <b>Zhuohe Liu</b>, and I go by <b>Harry</b> if it's easier for you to pronounce my first name as /JOO-oh-her/ instead. <br>I received the B. S. E. in biomedical engineering from <a href=\"#bs1\">University of Michigan</a> in 2016, and had my second B. S. E. degree in electrical and computer engineering from Shanghai Jiao Tong University (<a href=\"#bs2\">UM-SJTU Joint Institute</a>). Later in 2016, I moved to Houston, TX to study at <a href=\"#phd\">Rice University</a>, and got my M.S. in 2020, and Ph.D. in 2022, both in electrical and computer engineering.",
         "phd": {
             "title": "Doctor of Philosophy",
@@ -84,8 +76,19 @@
             "city": ", Shanghai, China"
         }
     },
+    "education": {
+        "timelineTitle": "Education",
+        "timeline": {
+            "phd": "Ph.D. / M.S.",
+            "bs2": "B.S.E. (UM)",
+            "bs1": "B.S.E. (SJTU)",
+            "high": "High School",
+            "middle": "Middle School",
+            "elem": "Elementary"
+        }
+    },
     "experience": {
-        "title": "Experience",
+        "timelineTitle": "Experience",
         "timeline": {
             "gs": "Grad Research",
             "ta": "Teaching Assistant",
