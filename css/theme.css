@@ -189,6 +189,26 @@
     background: #f59e0b;
 }
 
+.timeline-item.timeline-activate-pulse .timeline-dot {
+    animation: timeline-pulse 1.6s ease-in-out infinite;
+}
+
+.timeline-item.timeline-activate-pulse .timeline-range {
+    animation: timeline-breathe 1.6s ease-in-out infinite;
+}
+
+@keyframes timeline-pulse {
+    0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.35); }
+    70% { box-shadow: 0 0 0 8px rgba(245, 158, 11, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+}
+
+@keyframes timeline-breathe {
+    0% { opacity: 0.35; }
+    50% { opacity: 0.9; }
+    100% { opacity: 0.35; }
+}
+
 .timeline-ticks {
     position: absolute;
     left: 0;

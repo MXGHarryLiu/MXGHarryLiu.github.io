@@ -24,13 +24,6 @@
             "elem": "Elementary"
         },
         "intro": "My name is <b>Zhuohe Liu</b>, and I go by <b>Harry</b> if it's easier for you to pronounce my first name as /JOO-oh-her/ instead. <br>I received the B. S. E. in biomedical engineering from <a href=\"#bs1\">University of Michigan</a> in 2016, and had my second B. S. E. degree in electrical and computer engineering from Shanghai Jiao Tong University (<a href=\"#bs2\">UM-SJTU Joint Institute</a>). Later in 2016, I moved to Houston, TX to study at <a href=\"#phd\">Rice University</a>, and got my M.S. in 2020, and Ph.D. in 2022, both in electrical and computer engineering.",
-        "m1": {
-            "education": "Education"
-        },
-        "m2": {
-            "college": "Colleges",
-            "school": "Schools"
-        },
         "phd": {
             "title": "Doctor of Philosophy",
             "place": "<a href=\"http://www.rice.edu/\">Rice University</a>, George R. Brown School of Engineering, Houston, Texas, USA",

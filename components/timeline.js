@@ -113,6 +113,25 @@ class Timeline extends HTMLElement {
             updateOrientation();
             window.addEventListener('resize', updateOrientation);
 
+            var activationAnimation = (self.getAttribute('data-activate-animation') || '').trim();
+            var activationClass = activationAnimation ? ('timeline-activate-' + activationAnimation) : '';
+            var setActive = function (activeItem) {
+                self.querySelectorAll('.timeline-item').forEach(function (candidate) {
+                    candidate.classList.remove('is-active');
+                    candidate.classList.remove('is-locked');
+                    if (activationClass) {
+                        candidate.classList.remove(activationClass);
+                    }
+                });
+                activeItem.classList.add('is-active');
+                activeItem.classList.add('is-locked');
+                if (activationClass) {
+                    activeItem.classList.remove(activationClass);
+                    void activeItem.offsetWidth;
+                    activeItem.classList.add(activationClass);
+                }
+            };
+
             self.querySelectorAll('.timeline-item').forEach(function (item) {
                 var callout = item.querySelector('.timeline-callout a');
                 if (!callout) {
@@ -122,13 +141,20 @@ class Timeline extends HTMLElement {
                     item.classList.add('is-active');
                 });
                 callout.addEventListener('mouseleave', function () {
-                    item.classList.remove('is-active');
+                    if (!item.classList.contains('is-locked')) {
+                        item.classList.remove('is-active');
+                    }
                 });
                 callout.addEventListener('focus', function () {
                     item.classList.add('is-active');
                 });
                 callout.addEventListener('blur', function () {
-                    item.classList.remove('is-active');
+                    if (!item.classList.contains('is-locked')) {
+                        item.classList.remove('is-active');
+                    }
+                });
+                callout.addEventListener('click', function () {
+                    setActive(item);
                 });
             });
         };
