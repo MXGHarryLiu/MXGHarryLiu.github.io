@@ -17,6 +17,8 @@ class Timeline extends HTMLElement {
         }
         var title = this.getAttribute('data-title') || '';
         var titleKey = this.getAttribute('data-title-key') || '';
+        var hint = this.getAttribute('data-hint') || '';
+        var hintKey = this.getAttribute('data-hint-key') || '';
         var self = this;
         var render = function () {
             var minValue = null;
@@ -53,8 +55,19 @@ class Timeline extends HTMLElement {
             if (titleKey && typeof window.getContent === 'function') {
                 resolvedTitle = window.getContent(titleKey) || resolvedTitle;
             }
+            var resolvedHint = hint;
+            if (hintKey && typeof window.getContent === 'function') {
+                resolvedHint = window.getContent(hintKey) || resolvedHint;
+            }
+            var titleHtml = '';
+            if (resolvedTitle || resolvedHint) {
+                titleHtml = '<div class="timeline-title">' +
+                    (resolvedTitle ? '<span class="timeline-title-text">' + resolvedTitle + '</span>' : '') +
+                    (resolvedHint ? '<span class="timeline-hint">' + resolvedHint + '</span>' : '') +
+                '</div>';
+            }
             var html = '<div class="timeline-section">' +
-                (resolvedTitle ? '<div class="timeline-title">' + resolvedTitle + '</div>' : '') +
+                titleHtml +
                 '<div class="timeline-track" data-min="' + minValue + '" data-max="' + maxValue + '">';
             html += '<div class="timeline-ticks">';
             ticks.forEach(function (year) {
@@ -113,30 +126,6 @@ class Timeline extends HTMLElement {
                 track.style.setProperty('--timeline-highlight', highlightColor);
                 track.style.setProperty('--timeline-highlight-strong', highlightColor);
             }
-            var updateOrientation = function () {
-                if (!track) {
-                    return;
-                }
-                var isVertical = window.matchMedia('(max-width: 768px)').matches;
-                track.setAttribute('data-orientation', isVertical ? 'vertical' : 'horizontal');
-                if (isVertical) {
-                    var fixedHeight = self.getAttribute('data-height');
-                    if (fixedHeight) {
-                        track.style.height = fixedHeight;
-                        track.style.removeProperty('--track-length');
-                        return;
-                    }
-                    var spanYears = maxValue - minValue;
-                    var heightPx = Math.max(220, Math.round(spanYears * 18));
-                    track.style.setProperty('--track-length', heightPx + 'px');
-                    track.style.removeProperty('height');
-                } else {
-                    track.style.removeProperty('--track-length');
-                    track.style.removeProperty('height');
-                }
-            };
-            updateOrientation();
-            window.addEventListener('resize', updateOrientation);
 
             var activationAnimation = (self.getAttribute('data-activate-animation') || '').trim();
             var activationClass = activationAnimation ? ('timeline-activate-' + activationAnimation) : '';

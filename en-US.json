@@ -89,6 +89,7 @@
     },
     "experience": {
         "timelineTitle": "Experience",
+        "timelineHint": "Click item to view details",
         "timeline": {
             "gs": "Grad Research",
             "ta": "Teaching Assistant",

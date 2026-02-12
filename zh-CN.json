@@ -89,6 +89,7 @@
     },
     "experience": {
         "timelineTitle": "履历",
+        "timelineHint": "点击节点查看详情",
         "timeline": {
             "gs": "研究生",
             "ta": "助教",
