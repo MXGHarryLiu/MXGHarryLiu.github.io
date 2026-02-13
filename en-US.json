@@ -133,6 +133,15 @@
     "project": {
         "title": "Projects",
         "summary": "",
+        "timelineTitle": "Projects",
+        "timeline": {
+            "p1": "Smartphone SLAM",
+            "p2": "Epidural Catheter Force Gauge",
+            "p3": "Closed-loop Nerve Block Model",
+            "p4": "Facial EMG Communication Aid",
+            "p5": "Biceps EMG Electrode Position",
+            "p6": "Physalien Food Coloring"
+        },
         "m1": {
             "more": "More Projects"
         }
@@ -200,9 +209,7 @@
                 "p3-3-s.jpg": "Lurie Biomedical Engineering Building",
                 "p4-1-s.jpg": "At The Innovation Fair 2011",
                 "p4-2-s.jpg": "Final Presentation",
-                "p4-3-s.jpg": "Candidates and Classmates from My High School",
-                "mp1-s.jpg": "VG100 Arduino Line Following Car",
-                "mp2-s.jpg": "VG100 Remote Control Smart Identification Socket"
+                "p4-3-s.jpg": "Candidates and Classmates from My High School"
             },
             "hobbies": {
                 "ha1-s.jpg": "Partial Solar Eclipse (05/21/2012, Shanghai)",

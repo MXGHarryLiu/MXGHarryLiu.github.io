@@ -133,6 +133,15 @@
     "project": {
         "title": "项目",
         "summary": "",
+        "timelineTitle": "项目",
+        "timeline": {
+            "p1": "手机低成本SLAM",
+            "p2": "硬膜外导管拉力计",
+            "p3": "闭环神经阻滞建模",
+            "p4": "面部肌电交流辅助",
+            "p5": "肱二头肌电极位置",
+            "p6": "食用着色剂合成"
+        },
         "m1": {
             "more": "更多项目"
         }
@@ -200,9 +209,7 @@
                 "p3-3-s.jpg": "Lurie Biomedical Engineering Building",
                 "p4-1-s.jpg": "At The Innovation Fair 2011",
                 "p4-2-s.jpg": "Final Presentation",
-                "p4-3-s.jpg": "Candidates and Classmates from My High School",
-                "mp1-s.jpg": "VG100 Arduino Line Following Car",
-                "mp2-s.jpg": "VG100 Remote Control Smart Identification Socket"
+                "p4-3-s.jpg": "Candidates and Classmates from My High School"
             },
             "hobbies": {
                 "ha1-s.jpg": "Partial Solar Eclipse (05/21/2012, Shanghai)",

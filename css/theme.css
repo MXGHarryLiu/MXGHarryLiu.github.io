@@ -77,6 +77,16 @@
     border-color: rgba(245, 197, 66, 0.35);
 }
 
+.project-card {
+    border-color: rgba(192, 132, 252, 0.45);
+}
+
+.project-card .card-header,
+.project-card .card-footer {
+    background-color: rgba(192, 132, 252, 0.18);
+    border-color: rgba(192, 132, 252, 0.35);
+}
+
 .carousel-item img {
     width: 100%;
     max-height: 400px;

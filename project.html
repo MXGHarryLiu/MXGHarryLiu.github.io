@@ -9,8 +9,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/timeline.css">
     <script src="components/nav.js"></script>
     <script src="components/footer.js"></script>
+    <script src="js/timeline.js"></script>
     <script src="js/carousel.js"></script>
     <script src="js/i18n.js" defer></script>
     <script src="https://code.jquery.com/jquery-4.0.0.slim.min.js"></script>
@@ -30,11 +32,23 @@
         <h1 class="text-center" data-i18n="project/title"></h1>
         <p class="text-center" data-i18n="project/summary"></p>
 
-        <div class="card mt-4">
+        <script type="application/json" id="project-timeline">
+            [
+                { "labelKey": "project/timeline/p6", "href": "#p6", "start": "2010-12", "end": "2011-03", "position": "2" },
+                { "labelKey": "project/timeline/p5", "href": "#p5", "start": "2015-04", "end": "2015-04", "position": "1" },
+                { "labelKey": "project/timeline/p4", "href": "#p4", "start": "2015-12", "end": "2015-12", "position": "2" },
+                { "labelKey": "project/timeline/p2", "href": "#p2", "start": "2016-01", "end": "2016-04", "position": "1" },
+                { "labelKey": "project/timeline/p3", "href": "#p3", "start": "2016-04", "end": "2016-04", "position": "2" },
+                { "labelKey": "project/timeline/p1", "href": "#p1", "start": "2016-05", "end": "2016-08", "position": "1" }
+            ]
+        </script>
+        <timeline-component data-source="project-timeline" data-min="2010-01" data-max="2018-01" data-activate-animation="pulse" data-highlight-color="#c084fc" data-title-key="project/timelineTitle" data-toggle-title-key="timeline/toggleHint"></timeline-component>
+
+        <div class="card mt-4 project-card" id="p1">
+            <h5 class="card-header">Low Cost SLAM Realization on Smart Phone</h5>
             <div class="row">
                 <div class="col-md-6">
                     <div class="card-body">
-                        <h5 class="card-title">Low Cost SLAM Realization on Smart Phone</h5>
                         <ul class="card-list">
                             <li><i class="i-place"></i>Shanghai Jiao Tong University (Senior Capstone Design)</li>
                             <li><i class="i-team"></i><span title="Ordered alphabetically by the last name. ">Qinyue He, <b>Zhuohe Liu</b>, Shiyi Qian, Zhentao Xu, Shupeng Wei</span></li>
@@ -74,11 +88,11 @@
             </div>
         </div>
         
-        <div class="card mt-4">
+        <div class="card mt-4 project-card" id="p2">
+            <h5 class="card-header">Force Gauge for the Removal of Epidural Catheters</h5>
             <div class="row">
                 <div class="col-md-6">
                     <div class="card-body">
-                        <h5 class="card-title">Force Gauge for the Removal of Epidural Catheters</h5>
                         <ul class="card-list">
                             <li><i class="i-place"></i>University of Michigan (Senior Capstone Design)</li>
                             <li><i class="i-team"></i><span title="Ordered alphabetically by the last name. ">Changqi Dai, Adena Leibbrand, <b>Zhuohe Liu</b>, Jordan Sykes, Tsz Kwan Yim</span></li>
@@ -115,11 +129,11 @@
             </div>
         </div>
     
-        <div class="card mt-4">
+        <div class="card mt-4 project-card" id="p3">
+            <h5 class="card-header">Computational Modeling of Closed-loop Peripheral Nerve Block Based on Halorhodopsin (NpHR)</h5>
             <div class="row">
                 <div class="col-md-12">
                     <div class="card-body">
-                        <h5 class="card-title">Computational Modeling of Closed-loop Peripheral Nerve Block Based on Halorhodopsin (NpHR)</h5>
                         <ul class="card-list">
                             <li><i class="i-place"></i>University of Michigan (BME517 Neural Engineering Course Project)</li>
                             <li><i class="i-team"></i><span title="Ordered alphabetically by the last name. ">Suseendrakumar Duraivel, Joseph Letner, <b>Zhuohe Liu</b></span></li>
@@ -135,14 +149,14 @@
             </div>
         </div>
     
-        <div class="card mt-4">
+        <div class="card mt-4 project-card" id="p4">
+            <h5 class="card-header">Facial Electromyography as a Communication Aid and Method for Computer Interfacing</h5>
             <div class="row">
                 <div class="col-md-6">
                     <div class="card-body">
-                        <h5 class="card-title">Facial Electromyography as a Communication Aid and Method for Computer Interfacing</h5>
                         <ul class="card-list">
                             <li><i class="i-place"></i>University of Michigan (BME458/EECS458 Biomedical Instrumentation &amp; Design Course Project)</li>
-                            <li><i class="i-team"></i><span title="Ordered alphabetically by the last name. ">Zachary P. French, <b>Zhuohe Liu</b>, Danika J. Rodrigues, Walker L. Thompson</li>
+                            <li><i class="i-team"></i><span title="Ordered alphabetically by the last name. ">Zachary P. French, <b>Zhuohe Liu</b>, Danika J. Rodrigues, Walker L. Thompson</span></li>
                             <li><i class="i-date"></i>Dec. 2015</li>
                             <li><i class="i-dot"></i>Built a <b>LabVIEW</b> system capable of controlling the mouse cursor and selecting words/letters using only 3 channels of facial EMG signals, intended for people with speech and/or dexterity difficulties. </li>
                         </ul>
@@ -158,14 +172,14 @@
             </div>
         </div>
 
-        <div class="card mt-4">
+        <div class="card mt-4 project-card" id="p5">
+            <h5 class="card-header">The Effect of Electrode Position on Human Biceps EMG Amplitude</h5>
             <div class="row">
                 <div class="col-md-6">
                     <div class="card-body">
-                        <h5 class="card-title">The Effect of Electrode Position on Human Biceps EMG Amplitude</h5>
                         <ul class="card-list">
                             <li><i class="i-place"></i>University of Michigan (BME241 BiomedE Undergraduate Lab Course Project)</li>
-                            <li><i class="i-team"></i><span title="Ordered alphabetically by the last name. ">Melissa Lemke, <b>Zhuohe Liu</b>, Yiyang Lu, Yi Luan</li>
+                            <li><i class="i-team"></i><span title="Ordered alphabetically by the last name. ">Melissa Lemke, <b>Zhuohe Liu</b>, Yiyang Lu, Yi Luan</span></li>
                             <li><i class="i-date"></i>Apr. 2015</li>
                             <li><i class="i-dot"></i>Reassessed and cast doubt on the necessity of using the assigned electrode position to yield best signal.</li>
                         </ul>
@@ -194,11 +208,11 @@
             </div>
         </div>
 
-        <div class="card mt-4">
+        <div class="card mt-4 project-card" id="p6">
+            <h5 class="card-header">Synthesis of Physalien and Its Application to Food Coloring</h5>
             <div class="row">
                 <div class="col-md-6">
                     <div class="card-body">
-                        <h5 class="card-title">Synthesis of Physalien and Its Application to Food Coloring</h5>
                         <ul class="card-list">
                             <li><i class="i-place"></i>No.2 Secondary School Attached to East China Normal University</li>
                             <li><i class="i-team"></i>Mentors: Lan Ding<sup><span title="No.2 Secondary School Attached to East China Normal University">[1]</span></sup>, Huanxin Xu<sup><span title="East China University of Science and Technology">[2]</span></sup></li>
@@ -233,25 +247,129 @@
         </div>
     </div>
 
-    <div class="container mt-4">
-        <h2 class="text-center" data-i18n="project/m1/more"></h2>
-        <div class="row">
-            <div class="col-md-4">
-                <img class="card-img-top" src="img/project/mp1-s.jpg">
-                <p>Arduino Line Following Car (<a title="Introduction to Engineering">VG100</a>)</p>
-            </div>
-            <div class="col-md-4">
-                <img class="card-img-top" src="img/project/mp2-s.jpg">
-                <p>Remote Control Smart Identification Socket (<a title="Introduction to Engineering">VG100</a>)</p>
-            </div>
-            <div class="col-md-4">
-                <div class="ratio ratio-16x9">
-                    <iframe src="https://www.youtube.com/embed/aj8QIFiWtZ4" allowfullscreen></iframe>
-                </div>
-                <p>HP Models - Solving the Ebola Crisis (<a title="Quantitative Cell Biology">BME418</a>)</p>
-            </div>
-        </div>
-    </div>
+    <script>
+        (function () {
+            var allCards = Array.prototype.slice.call(document.querySelectorAll('.project-card'));
+            var hintTimeline = document.querySelector('timeline-component[data-source="project-timeline"]');
+            var syncingTimelineClick = false;
+            var setHintVisible = function (visible) {
+                if (hintTimeline && typeof hintTimeline.setHintVisible === 'function') {
+                    hintTimeline.setHintVisible(visible);
+                }
+            };
+            if (!allCards.length) {
+                return;
+            }
+
+            var hideAll = function () {
+                allCards.forEach(function (card) {
+                    card.classList.add('d-none');
+                });
+            };
+
+            var showCard = function (id) {
+                var target = document.getElementById(id);
+                if (!target || !target.classList.contains('project-card')) {
+                    return;
+                }
+                hideAll();
+                target.classList.remove('d-none');
+                setHintVisible(false);
+                if (!syncingTimelineClick) {
+                    syncingTimelineClick = true;
+                    document.querySelectorAll('timeline-component').forEach(function (timeline) {
+                        var link = timeline.querySelector('.timeline-callout a[href="#' + id + '"]');
+                        if (!link) {
+                            return;
+                        }
+                        link.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
+                    });
+                    syncingTimelineClick = false;
+                }
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                if (history && history.replaceState) {
+                    history.replaceState(null, '', '#' + id);
+                } else {
+                    location.hash = '#' + id;
+                }
+            };
+
+            hideAll();
+
+            var initialId = location.hash ? location.hash.replace('#', '') : '';
+            if (initialId) {
+                showCard(initialId);
+            } else {
+                setHintVisible(true);
+            }
+
+            var bindTimeline = function (selector) {
+                var timeline = document.querySelector(selector);
+                if (!timeline) {
+                    return;
+                }
+                timeline.addEventListener('click', function (event) {
+                    var link = event.target.closest('a');
+                    if (!link) {
+                        return;
+                    }
+                    var href = link.getAttribute('href') || '';
+                    if (href.charAt(0) !== '#') {
+                        return;
+                    }
+                    var targetId = href.slice(1);
+                    event.preventDefault();
+                    showCard(targetId);
+                });
+            };
+
+            bindTimeline('timeline-component[data-source="project-timeline"]');
+
+            window.addEventListener('hashchange', function () {
+                var nextId = location.hash ? location.hash.replace('#', '') : '';
+                if (nextId) {
+                    showCard(nextId);
+                }
+            });
+
+            document.addEventListener('click', function (event) {
+                var link = event.target.closest('a');
+                if (!link) {
+                    return;
+                }
+                if (link.closest('timeline-component')) {
+                    return;
+                }
+                var href = link.getAttribute('href') || '';
+                if (href.charAt(0) !== '#') {
+                    return;
+                }
+                var targetId = href.slice(1);
+                if (!targetId) {
+                    return;
+                }
+                var target = document.getElementById(targetId);
+                if (!target || !target.classList.contains('project-card')) {
+                    return;
+                }
+                event.preventDefault();
+                showCard(targetId);
+            });
+        })();
+    </script>
+
+    <script>
+        (function () {
+            var manager = new TimelineManager({
+                selectors: [
+                    'timeline-component[data-source="project-timeline"]'
+                ],
+                wideQuery: '(min-width: 960px)'
+            });
+            manager.init();
+            window.projectTimelineManager = manager;
+        })();
+    </script>
     
     <footer-component></footer-component>
 </body>
