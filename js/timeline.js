@@ -233,6 +233,7 @@ class Timeline extends HTMLElement {
 
             self.querySelectorAll('.timeline-item').forEach(function (item) {
                 var callout = item.querySelector('.timeline-callout a');
+                var dot = item.querySelector('.timeline-dot');
                 if (!callout) {
                     return;
                 }
@@ -256,6 +257,16 @@ class Timeline extends HTMLElement {
                     self._activeHref = callout.getAttribute('href') || '';
                     setActive(item, true);
                 });
+                if (dot) {
+                    dot.addEventListener('mouseenter', function () {
+                        item.classList.add('is-active');
+                    });
+                    dot.addEventListener('mouseleave', function () {
+                        if (!item.classList.contains('is-locked')) {
+                            item.classList.remove('is-active');
+                        }
+                    });
+                }
             });
 
             var positionCallouts = function () {

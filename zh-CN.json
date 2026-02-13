@@ -1,9 +1,6 @@
 {
     "menu": {
-        "home": "主页",
-        "research": {
-            "root": "学术"
-        }
+        "home": "主页"
     },
     "home": {
         "title": "",
@@ -132,7 +129,6 @@
     },
     "project": {
         "title": "项目",
-        "summary": "",
         "timelineTitle": "项目",
         "timeline": {
             "p1": "手机低成本SLAM",
@@ -141,9 +137,6 @@
             "p4": "面部肌电交流辅助",
             "p5": "肱二头肌电极位置",
             "p6": "食用着色剂合成"
-        },
-        "m1": {
-            "more": "更多项目"
         }
     },
     "idea": {

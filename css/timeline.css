@@ -108,6 +108,7 @@
     top: calc(var(--axis-y) - 4px);
     left: var(--mid);
     transform: translateX(-50%);
+    pointer-events: auto;
 }
 
 .timeline-item {
@@ -117,6 +118,7 @@
     right: 0;
     bottom: 0;
     pointer-events: none;
+    z-index: 1;
 }
 
 .timeline-range {
@@ -140,6 +142,7 @@
     --callout-shift: 0px;
     transform: translateX(calc(-50% + var(--callout-shift)));
     pointer-events: auto;
+    z-index: 1;
 }
 
 .timeline-callout::before {
@@ -188,6 +191,10 @@
     opacity: 0.85;
 }
 
+.timeline-item.is-active {
+    z-index: 10;
+}
+
 .timeline-item.is-active .timeline-dot {
     background: var(--timeline-highlight-strong, #f59e0b);
 }
@@ -208,6 +215,10 @@
     border-radius: inherit;
     z-index: -1;
     opacity: 1;
+}
+
+.timeline-item.is-active .timeline-callout {
+    z-index: 11;
 }
 
 .timeline-item.timeline-activate-pulse .timeline-dot {

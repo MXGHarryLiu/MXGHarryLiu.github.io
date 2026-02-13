@@ -1,9 +1,6 @@
 {
     "menu": {
-        "home": "Home",
-        "research": {
-            "root": "Research"   
-        }
+        "home": "Home"
     },
     "home": {
         "title": "",
@@ -132,7 +129,6 @@
     },
     "project": {
         "title": "Projects",
-        "summary": "",
         "timelineTitle": "Projects",
         "timeline": {
             "p1": "Smartphone SLAM",
@@ -141,9 +137,6 @@
             "p4": "Facial EMG Communication Aid",
             "p5": "Biceps EMG Electrode Position",
             "p6": "Physalien Food Coloring"
-        },
-        "m1": {
-            "more": "More Projects"
         }
     },
     "idea": {
