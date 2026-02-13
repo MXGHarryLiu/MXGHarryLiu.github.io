@@ -77,6 +77,7 @@
         }
     },
     "education": {
+        "title": "Education",
         "timelineTitle": "Education",
         "timeline": {
             "phd": "Ph.D. / M.S.",
@@ -138,7 +139,13 @@
     },
     "idea": {
         "title": "Ideas",
-        "summary": "I express my ideas through my personal projects, not to impress but to learn and explore. "
+        "summary": "I express my ideas through my personal projects, not to impress but to learn and explore. ",
+        "timelineTitle": "Ideas",
+        "timeline": {
+            "pw": "Personal Website",
+            "ee": "English Enhancer",
+            "psf": "Portable Semiconductor Fridge"
+        }
     },
     "passion": {
         "title": "Passions",

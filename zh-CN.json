@@ -77,6 +77,7 @@
         }
     },
     "education": {
+        "title": "学历",
         "timelineTitle": "学历",
         "timeline": {
             "phd": "博士 / 硕士",
@@ -138,7 +139,13 @@
     },
     "idea": {
         "title": "金点子",
-        "summary": "发挥想象，学习探索"
+        "summary": "发挥想象，学习探索",
+        "timelineTitle": "金点子",
+        "timeline": {
+            "pw": "个人网站",
+            "ee": "英语增强器",
+            "psf": "便携式半导体冰箱"
+        }
     },
     "passion": {
         "title": "兴趣",

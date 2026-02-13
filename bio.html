@@ -121,6 +121,13 @@
                     <script>decorateCarousel('carouselgs');</script>
                 </div>
             </div>
+            <div class="card-footer">
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#phd" data-i18n="education/title"></a>
+                    </li>
+                </ul>
+            </div>
         </div>
 
         <div class="card mt-4 experience-card" id="ta">
@@ -132,6 +139,13 @@
                     <li><i class="i-date"></i><span data-i18n="experience/ta/date"></span></li>
                     <li><i class="i-dot"></i>Graded lab reports and homework on <b>Verilog</b> from undergraduate students.</li>
                     <li><i class="i-dot"></i>Held lab sessions on <b>FPGA</b> board development.</li>
+                </ul>
+            </div>
+            <div class="card-footer">
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#phd" data-i18n="education/title"></a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -159,6 +173,13 @@
                     </a>
                 </div>
             </div>
+            <div class="card-footer">
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#bs1" data-i18n="education/title"></a>
+                    </li>
+                </ul>
+            </div>
         </div>
 
         <div class="card mt-4 experience-card" id="la">
@@ -169,6 +190,13 @@
                     <li><i class="i-date"></i><span data-i18n="experience/la/date"></span></li>
                     <li><i class="i-dot"></i>Answered electrical &amp; computer engineering related technical questions for lab users. </li>
                     <li><i class="i-dot"></i>Maintained lab environment, and managed equipment usage for 300 JI students. </li>
+                </ul>
+            </div>
+            <div class="card-footer">
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#bs2" data-i18n="education/title"></a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -203,6 +231,9 @@
             </div>
             <div class="card-footer">
                 <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#gs">Experience</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="publication.html#Liu2022" data-i18n="publication/title"></a>
                     </li>
@@ -474,6 +505,30 @@
                 if (nextId) {
                     showCard(nextId);
                 }
+            });
+
+            document.addEventListener('click', function (event) {
+                var link = event.target.closest('a');
+                if (!link) {
+                    return;
+                }
+                if (link.closest('timeline-component')) {
+                    return;
+                }
+                var href = link.getAttribute('href') || '';
+                if (href.charAt(0) !== '#') {
+                    return;
+                }
+                var targetId = href.slice(1);
+                if (!targetId) {
+                    return;
+                }
+                var target = document.getElementById(targetId);
+                if (!target || !target.classList.contains('experience-card') && !target.classList.contains('bio-card')) {
+                    return;
+                }
+                event.preventDefault();
+                showCard(targetId);
             });
         })();
     </script>
