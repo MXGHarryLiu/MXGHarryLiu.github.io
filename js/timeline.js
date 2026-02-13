@@ -377,5 +377,25 @@ class Timeline extends HTMLElement {
     getDataRange() {
         return this._computedRange || null;
     }
+
+    getHintElement() {
+        return this.querySelector('.timeline-hint');
+    }
+
+    setHintVisible(visible) {
+        var hint = this.getHintElement();
+        if (!hint) {
+            return;
+        }
+        hint.classList.toggle('d-none', !visible);
+    }
+
+    showHint() {
+        this.setHintVisible(true);
+    }
+
+    hideHint() {
+        this.setHintVisible(false);
+    }
 }
 customElements.define('timeline-component', Timeline);

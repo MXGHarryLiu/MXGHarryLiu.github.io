@@ -120,7 +120,7 @@
     "publication": {
         "title": "Endeavor",
         "summary": "Please visit my <a href=\"https://scholar.google.com/citations?user=A1aLmWIAAAAJ\">Google Scholar Profile</a> or <a href=\"https://orcid.org/0000-0002-1818-646X\">ORCID Profile</a> for a complete list of publications. ",
-        "timelineTitle": "Publications",
+        "timelineTitle": "Endeavor",
         "timeline": {
             "2023": "Lu et al., 2023 (Nat. Commun.)",
             "2022b": "Lee et al., 2022 (Biochemistry)",
@@ -138,7 +138,6 @@
         }
     },
     "idea": {
-        "title": "Ideas",
         "summary": "I express my ideas through my personal projects, not to impress but to learn and explore. ",
         "timelineTitle": "Ideas",
         "timeline": {

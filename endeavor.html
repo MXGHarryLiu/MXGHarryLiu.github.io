@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/timeline.css">
     <script src="components/nav.js"></script>
     <script src="components/footer.js"></script>
-    <script src="components/timeline.js"></script>
+    <script src="js/timeline.js"></script>
     <script src="js/i18n.js" defer></script>
     <script src="https://code.jquery.com/jquery-4.0.0.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
@@ -65,6 +65,15 @@
             ]
         </script>
         <timeline-component data-source="publication-timeline" data-min="2020-01" data-max="2026-02" data-activate-animation="pulse" data-highlight-color="#60a5fa" data-title-key="publication/timelineTitle" data-subtitle-key="publication/summary" data-hint-auto="click" data-toggle-title-key="timeline/toggleHint"></timeline-component>
+
+        <script type="application/json" id="ideas-timeline">
+            [
+                { "labelKey": "idea/timeline/pw", "href": "#pw", "start": "2016-09", "end": "2016-09", "position": "1" },
+                { "labelKey": "idea/timeline/ee", "href": "#ee", "start": "2015-08", "end": "2015-08", "position": "2" },
+                { "labelKey": "idea/timeline/psf", "href": "#psf", "start": "2012-06", "end": "2012-06", "position": "1" }
+            ]
+        </script>
+        <timeline-component data-source="ideas-timeline" data-min="2012-01" data-max="2017-01" data-activate-animation="pulse" data-highlight-color="#f5c542" data-title-key="idea/timelineTitle" data-subtitle-key="idea/summary" data-toggle-title-key="timeline/toggleHint"></timeline-component>
 
         
         
@@ -190,6 +199,64 @@
             </div>
         </div>
 
+        <div class="card mt-4 idea-card" id="pw">
+            <h5 class="card-header">Personal Website</h5>
+            <div class="row">
+                <div class="col-md-6 order-md-2">
+                    <img class="card-img-top" src="img/ideas/20231214 Index.png">
+                </div>
+                <div class="col-md-6 order-md-1">
+                    <div class="card-body">
+                        <ul class="card-list">
+                            <li><i class="i-date"></i>Sep. 2016</li>
+                            <li><i class="i-dot"></i>Implemented static internationalization in Oct. 2023. </li>
+                            <li><i class="i-dot"></i>Overhaul using Bootstrap framework in Dec. 2023. </li>
+                        </ul>
+                        <div class="badge bg-info">HTML/JavaScript/CSS</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mt-4 idea-card" id="ee">
+            <h5 class="card-header">English Enhancer</h5>
+            <div class="row">
+                <div class="col-md-6 order-md-2">
+                    <a href="https://github.com/MXGHarryLiu/EnglishEnhancer"><img alt="English Enhancer" class="card-img-top" title="English Enhancer" src="https://raw.githubusercontent.com/MXGHarryLiu/EnglishEnhancer/main/resource/welcome.png"></a>
+                </div>
+                <div class="col-md-6 order-md-1">
+                    <div class="card-body">
+                        <ul class="card-list">
+                            <li><i class="i-date"></i>Aug. 2015</li>
+                            <li><i class="i-dot"></i>This program helps you to improve your writing and reading skills by enlarging your vocabulary through synonyms. </li>
+                            <li><i class="i-dot"></i><a href="https://github.com/MXGHarryLiu/EnglishEnhancer/raw/main/zips/EnglishEnhancer%201.1.zip">Download the Latest Version</a> (zip, 221 KB, Windows 10+)</li>
+                        </ul>
+                        <div class="badge bg-info">.NET (Visual Basic)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mt-4 idea-card" id="psf">
+            <h5 class="card-header">Portable Semiconductor Fridge</h5>
+            <div class="row">
+                <div class="col-md-6 order-md-2">
+                    <img class="card-img-top" alt="Portable Semiconductor Fridge" title="Portable Semiconductor Fridge" src="img/ideas/fridge-s.png">
+                </div>
+                <div class="col-md-6 order-md-1">
+                    <div class="card-body">
+                        <ul class="card-list">
+                            <li><i class="i-date"></i>June 2012</li>
+                            <li><i class="i-dot"></i><b>DIY portable compressor-less fridge with built-in battery.</b></li>
+                            <li><i class="i-dot"></i>Cooling contents to 4°C from room temperature in 4 h. </li>
+                            <li><i class="i-dot"></i>Single charge lasts 2 h (25 W), 4 h to full charge while operation.</li>
+                            <li><i class="i-dot"></i>LED light and air circulation inside. </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <div class="modal fade" id="authorsModal" tabindex="-1" role="dialog" aria-labelledby="authorsModalLabel" aria-hidden="true">
@@ -211,31 +278,60 @@
 
     <script>
         (function () {
-            var cards = Array.prototype.slice.call(document.querySelectorAll('.publication-card'));
-            if (!cards.length) {
+            var pubCards = Array.prototype.slice.call(document.querySelectorAll('.publication-card'));
+            var ideaCards = Array.prototype.slice.call(document.querySelectorAll('.idea-card'));
+            var allCards = pubCards.concat(ideaCards);
+            if (!allCards.length) {
                 return;
             }
-            var getTimelineHint = function () {
-                return document.querySelector('timeline-component[data-source="publication-timeline"] .timeline-hint');
+
+            var hintTimeline = document.querySelector('timeline-component[data-source="publication-timeline"]');
+            var setHintVisible = function (visible) {
+                if (hintTimeline && typeof hintTimeline.setHintVisible === 'function') {
+                    hintTimeline.setHintVisible(visible);
+                }
             };
 
             var hideAll = function () {
-                cards.forEach(function (card) {
+                allCards.forEach(function (card) {
                     card.classList.add('d-none');
+                });
+            };
+
+            var activateTimelineCallout = function (id) {
+                document.querySelectorAll('timeline-component').forEach(function (timeline) {
+                    var link = timeline.querySelector('.timeline-callout a[href="#' + id + '"]');
+                    if (!link) {
+                        return;
+                    }
+                    link.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
+                });
+            };
+
+            var clearTimelineSelection = function (timeline) {
+                if (!timeline) {
+                    return;
+                }
+                timeline.querySelectorAll('.timeline-item').forEach(function (item) {
+                    item.classList.remove('is-active');
+                    item.classList.remove('is-locked');
+                    item.classList.forEach(function (cls) {
+                        if (cls.indexOf('timeline-activate-') === 0) {
+                            item.classList.remove(cls);
+                        }
+                    });
                 });
             };
 
             var showCard = function (id) {
                 var target = document.getElementById(id);
-                if (!target || !target.classList.contains('publication-card')) {
+                if (!target || !target.classList.contains('publication-card') && !target.classList.contains('idea-card')) {
                     return;
                 }
                 hideAll();
                 target.classList.remove('d-none');
-                var timelineHint = getTimelineHint();
-                if (timelineHint) {
-                    timelineHint.classList.add('d-none');
-                }
+                setHintVisible(false);
+                activateTimelineCallout(id);
                 target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 if (history && history.replaceState) {
                     history.replaceState(null, '', '#' + id);
@@ -250,19 +346,56 @@
             if (initialId) {
                 showCard(initialId);
             } else {
-                var timelineHint = getTimelineHint();
-                if (timelineHint) {
-                    timelineHint.classList.remove('d-none');
-                }
+                setHintVisible(true);
             }
 
-            var timeline = document.querySelector('timeline-component[data-source="publication-timeline"]');
-            if (!timeline) {
-                return;
-            }
-            timeline.addEventListener('click', function (event) {
+            var bindTimeline = function (selector) {
+                var timeline = document.querySelector(selector);
+                if (!timeline) {
+                    return;
+                }
+                timeline.addEventListener('click', function (event) {
+                    var link = event.target.closest('a');
+                    if (!link) {
+                        return;
+                    }
+                    var href = link.getAttribute('href') || '';
+                    if (href.charAt(0) !== '#') {
+                        return;
+                    }
+                    var targetId = href.slice(1);
+                    event.preventDefault();
+                    document.querySelectorAll('timeline-component').forEach(function (other) {
+                        if (other !== timeline) {
+                            clearTimelineSelection(other);
+                        }
+                    });
+                    showCard(targetId);
+                });
+            };
+
+            bindTimeline('timeline-component[data-source="publication-timeline"]');
+            bindTimeline('timeline-component[data-source="ideas-timeline"]');
+
+            window.addEventListener('hashchange', function () {
+                var nextId = location.hash ? location.hash.replace('#', '') : '';
+                if (!nextId) {
+                    hideAll();
+                    setHintVisible(true);
+                    return;
+                }
+                var target = document.getElementById(nextId);
+                if (target && (target.classList.contains('publication-card') || target.classList.contains('idea-card'))) {
+                    showCard(nextId);
+                }
+            });
+
+            document.addEventListener('click', function (event) {
                 var link = event.target.closest('a');
                 if (!link) {
+                    return;
+                }
+                if (link.closest('timeline-component')) {
                     return;
                 }
                 var href = link.getAttribute('href') || '';
@@ -270,8 +403,99 @@
                     return;
                 }
                 var targetId = href.slice(1);
-                event.preventDefault();
-                showCard(targetId);
+                if (!targetId) {
+                    return;
+                }
+                var target = document.getElementById(targetId);
+                if (!target) {
+                    return;
+                }
+                if (target.classList.contains('publication-card') || target.classList.contains('idea-card')) {
+                    event.preventDefault();
+                    showCard(targetId);
+                }
+            });
+        })();
+    </script>
+
+    <script>
+        (function () {
+            var publicationTimeline = document.querySelector('timeline-component[data-source="publication-timeline"]');
+            var ideasTimeline = document.querySelector('timeline-component[data-source="ideas-timeline"]');
+            if (!publicationTimeline || !ideasTimeline) {
+                return;
+            }
+
+            var wideQuery = window.matchMedia('(min-width: 960px)');
+            var computeWideRange = function () {
+                var pubRange = publicationTimeline.getDataRange ? publicationTimeline.getDataRange() : null;
+                var ideaRange = ideasTimeline.getDataRange ? ideasTimeline.getDataRange() : null;
+                if (!pubRange || !ideaRange || pubRange.min === null || pubRange.max === null || ideaRange.min === null || ideaRange.max === null) {
+                    return null;
+                }
+                return {
+                    min: Math.min(pubRange.min, ideaRange.min),
+                    max: Math.max(pubRange.max, ideaRange.max)
+                };
+            };
+
+            var applyWide = function () {
+                var wideRange = computeWideRange();
+                if (!wideRange) {
+                    return;
+                }
+                publicationTimeline.setWideRange(wideRange.min, wideRange.max);
+                ideasTimeline.setWideRange(wideRange.min, wideRange.max);
+                publicationTimeline.setRangeMode('wide');
+                ideasTimeline.setRangeMode('wide');
+            };
+
+            var applyData = function () {
+                publicationTimeline.setRangeMode('data');
+                ideasTimeline.setRangeMode('data');
+            };
+
+            var syncMode = function () {
+                if (wideQuery.matches) {
+                    applyWide();
+                } else {
+                    applyData();
+                }
+            };
+
+            window.setTimelineRangeMode = function (mode) {
+                if (mode === 'wide') {
+                    applyWide();
+                } else {
+                    applyData();
+                }
+            };
+
+            window.setTimelineWideRange = function (min, max) {
+                publicationTimeline.setWideRange(min, max);
+                ideasTimeline.setWideRange(min, max);
+                publicationTimeline.setRangeMode('wide');
+                ideasTimeline.setRangeMode('wide');
+            };
+
+            syncMode();
+            [publicationTimeline, ideasTimeline].forEach(function (timeline) {
+                timeline.addEventListener('click', function (event) {
+                    if (!event.target.closest('.timeline-toggle')) {
+                        return;
+                    }
+                    var currentMode = timeline.getAttribute('data-range-mode') || 'data';
+                    var nextMode = currentMode === 'wide' ? 'data' : 'wide';
+                    window.setTimelineRangeMode(nextMode);
+                });
+            });
+            if (wideQuery.addEventListener) {
+                wideQuery.addEventListener('change', syncMode);
+            } else if (wideQuery.addListener) {
+                wideQuery.addListener(syncMode);
+            }
+            document.addEventListener('i18n-ready', function () {
+                syncMode();
             });
         })();
     </script>
