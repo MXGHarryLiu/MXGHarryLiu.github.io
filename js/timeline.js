@@ -1,5 +1,8 @@
 class Timeline extends HTMLElement {
     connectedCallback() {
+        if (Timeline.instances) {
+            Timeline.instances.add(this);
+        }
         this._rangeMode = this._rangeMode || this.getAttribute('data-range-mode') || 'data';
         this._wideRange = this._wideRange || null;
         var sourceId = this.getAttribute('data-source');
@@ -17,17 +20,17 @@ class Timeline extends HTMLElement {
             console.error('Invalid timeline data:', e);
             return;
         }
-        var title = this.getAttribute('data-title') || '';
-        var titleKey = this.getAttribute('data-title-key') || '';
-        var subtitle = this.getAttribute('data-subtitle') || '';
-        var subtitleKey = this.getAttribute('data-subtitle-key') || '';
-        var hint = this.getAttribute('data-hint') || '';
-        var hintKey = this.getAttribute('data-hint-key') || '';
-        var hintAuto = this.getAttribute('data-hint-auto') || '';
-        var toggleTitle = this.getAttribute('data-toggle-title') || '';
-        var toggleTitleKey = this.getAttribute('data-toggle-title-key') || '';
         var self = this;
         var render = function () {
+            var title = self.getAttribute('data-title') || '';
+            var titleKey = self.getAttribute('data-title-key') || '';
+            var subtitle = self.getAttribute('data-subtitle') || '';
+            var subtitleKey = self.getAttribute('data-subtitle-key') || '';
+            var hint = self.getAttribute('data-hint') || '';
+            var hintKey = self.getAttribute('data-hint-key') || '';
+            var hintAuto = self.getAttribute('data-hint-auto') || '';
+            var toggleTitle = self.getAttribute('data-toggle-title') || '';
+            var toggleTitleKey = self.getAttribute('data-toggle-title-key') || '';
             var minValue = null;
             var maxValue = null;
             items.forEach(function (item) {
@@ -75,8 +78,13 @@ class Timeline extends HTMLElement {
             if (hintKey && typeof window.getContent === 'function') {
                 resolvedHint = window.getContent(hintKey) || resolvedHint;
             }
-            if (!resolvedHint && hintAuto && hintAuto.toLowerCase() === 'click' && typeof window.getContent === 'function') {
-                resolvedHint = window.getContent('timeline/clickHint') || resolvedHint;
+            if (!resolvedHint && hintAuto && hintAuto.toLowerCase() === 'click') {
+                if (typeof window.getContent === 'function') {
+                    resolvedHint = window.getContent('timeline/clickHint') || '';
+                }
+                if (!resolvedHint) {
+                    resolvedHint = 'Click item to view details';
+                }
             }
             var resolvedToggleTitle = toggleTitle;
             if (toggleTitleKey && typeof window.getContent === 'function') {
@@ -137,6 +145,12 @@ class Timeline extends HTMLElement {
             });
             html += '</div></div>';
             self.innerHTML = html;
+            if (typeof self._hintVisible === 'boolean') {
+                var renderedHint = self.querySelector('.timeline-hint');
+                if (renderedHint) {
+                    renderedHint.classList.toggle('d-none', !self._hintVisible);
+                }
+            }
 
             var track = self.querySelector('.timeline-track');
             var titleBlock = self.querySelector('.timeline-title');
@@ -178,7 +192,7 @@ class Timeline extends HTMLElement {
 
             var activationAnimation = (self.getAttribute('data-activate-animation') || '').trim();
             var activationClass = activationAnimation ? ('timeline-activate-' + activationAnimation) : '';
-            var setActive = function (activeItem) {
+            var clearSelection = function () {
                 self.querySelectorAll('.timeline-item').forEach(function (candidate) {
                     candidate.classList.remove('is-active');
                     candidate.classList.remove('is-locked');
@@ -186,6 +200,9 @@ class Timeline extends HTMLElement {
                         candidate.classList.remove(activationClass);
                     }
                 });
+            };
+            var setActive = function (activeItem, fireEvent) {
+                clearSelection();
                 activeItem.classList.add('is-active');
                 activeItem.classList.add('is-locked');
                 if (activationClass) {
@@ -193,6 +210,25 @@ class Timeline extends HTMLElement {
                     void activeItem.offsetWidth;
                     activeItem.classList.add(activationClass);
                 }
+                if (fireEvent) {
+                    document.dispatchEvent(new CustomEvent('timeline-activate', { detail: { source: self } }));
+                }
+            };
+
+            var activateByHref = function (href) {
+                if (!href) {
+                    return false;
+                }
+                var link = self.querySelector('.timeline-callout a[href="' + href + '"]');
+                if (!link) {
+                    return false;
+                }
+                var item = link.closest('.timeline-item');
+                if (!item) {
+                    return false;
+                }
+                setActive(item, false);
+                return true;
             };
 
             self.querySelectorAll('.timeline-item').forEach(function (item) {
@@ -217,7 +253,8 @@ class Timeline extends HTMLElement {
                     }
                 });
                 callout.addEventListener('click', function () {
-                    setActive(item);
+                    self._activeHref = callout.getAttribute('href') || '';
+                    setActive(item, true);
                 });
             });
 
@@ -313,6 +350,10 @@ class Timeline extends HTMLElement {
             };
             window.addEventListener('resize', self._layoutListener);
             scheduleLayout();
+
+            if (self._activeHref) {
+                activateByHref(self._activeHref);
+            }
         };
         var parseYearMonth = function (value) {
             if (!value) {
@@ -338,12 +379,38 @@ class Timeline extends HTMLElement {
             };
             document.addEventListener('i18n-ready', this._i18nListener);
         }
+        if (!this._externalActivateListener) {
+            this._externalActivateListener = function (event) {
+                if (!event || !event.detail || event.detail.source === this) {
+                    return;
+                }
+                this._activeHref = '';
+                var items = this.querySelectorAll('.timeline-item');
+                items.forEach(function (item) {
+                    item.classList.remove('is-active');
+                    item.classList.remove('is-locked');
+                    item.classList.forEach(function (cls) {
+                        if (cls.indexOf('timeline-activate-') === 0) {
+                            item.classList.remove(cls);
+                        }
+                    });
+                });
+            }.bind(this);
+            document.addEventListener('timeline-activate', this._externalActivateListener);
+        }
     }
 
     disconnectedCallback() {
+        if (Timeline.instances) {
+            Timeline.instances.delete(this);
+        }
         if (this._i18nListener) {
             document.removeEventListener('i18n-ready', this._i18nListener);
             this._i18nListener = null;
+        }
+        if (this._externalActivateListener) {
+            document.removeEventListener('timeline-activate', this._externalActivateListener);
+            this._externalActivateListener = null;
         }
         if (this._layoutListener) {
             window.removeEventListener('resize', this._layoutListener);
@@ -378,24 +445,282 @@ class Timeline extends HTMLElement {
         return this._computedRange || null;
     }
 
-    getHintElement() {
-        return this.querySelector('.timeline-hint');
+    clearSelection() {
+        if (!this._render) {
+            return;
+        }
+        this._activeHref = '';
+        this.querySelectorAll('.timeline-item').forEach(function (item) {
+            item.classList.remove('is-active');
+            item.classList.remove('is-locked');
+            item.classList.forEach(function (cls) {
+                if (cls.indexOf('timeline-activate-') === 0) {
+                    item.classList.remove(cls);
+                }
+            });
+        });
     }
 
+    hasSelection() {
+        if (this._activeHref) {
+            return true;
+        }
+        return !!this.querySelector('.timeline-item.is-locked');
+    }
+
+    /**
+     * @param {boolean} visible
+     */
     setHintVisible(visible) {
-        var hint = this.getHintElement();
+        this._hintVisible = !!visible;
+        var hint = this.#getHintElement();
         if (!hint) {
             return;
         }
-        hint.classList.toggle('d-none', !visible);
+        hint.classList.toggle('d-none', !this._hintVisible);
     }
 
-    showHint() {
-        this.setHintVisible(true);
+    #getHintElement() {
+        return this.querySelector('.timeline-hint');
     }
 
-    hideHint() {
-        this.setHintVisible(false);
+    setHintAuto(mode) {
+        if (mode) {
+            this.setAttribute('data-hint-auto', mode);
+        } else {
+            this.removeAttribute('data-hint-auto');
+        }
+        if (this._render) {
+            this._render();
+        }
     }
+
 }
 customElements.define('timeline-component', Timeline);
+Timeline.instances = new Set();
+
+class TimelineManager {
+    constructor(options) {
+        this._selectors = (options && options.selectors) ? options.selectors.slice() : [];
+        this._wideQuery = (options && options.wideQuery) ? options.wideQuery : '(min-width: 960px)';
+        this._toggleSelector = (options && options.toggleSelector) ? options.toggleSelector : '.timeline-toggle';
+        this._hintAuto = (options && typeof options.hintAuto !== 'undefined') ? options.hintAuto : 'click';
+        this._hintFirst = !(options && options.hintFirst === false);
+        this._timelines = [];
+        this._wideMedia = null;
+        this._primaryTimeline = null;
+        this._boundToggleHandler = this.#handleToggleClick.bind(this);
+        this._boundTimelineClickHandler = this.#handleTimelineClick.bind(this);
+        this._boundActivateHandler = this.#handleTimelineActivate.bind(this);
+        this._boundSyncHandler = this.syncMode.bind(this);
+        this._boundHintHandler = this.#applyHintDefaults.bind(this);
+    }
+
+    #resolveTimelines() {
+        var instances = Timeline.instances ? Array.from(Timeline.instances) : [];
+        if (!this._selectors.length) {
+            this._timelines = instances;
+            this._primaryTimeline = this._timelines.length ? this._timelines[0] : null;
+            return;
+        }
+        this._timelines = instances.filter(function (timeline) {
+            return this._selectors.some(function (selector) {
+                return timeline.matches(selector);
+            });
+        }, this);
+        this._primaryTimeline = this._timelines.length ? this._timelines[0] : null;
+    }
+
+    #computeWideRange() {
+        if (!this._timelines.length) {
+            return null;
+        }
+        var min = null;
+        var max = null;
+        this._timelines.forEach(function (timeline) {
+            var range = timeline.getDataRange ? timeline.getDataRange() : null;
+            if (!range || range.min === null || range.max === null) {
+                return;
+            }
+            min = min === null ? range.min : Math.min(min, range.min);
+            max = max === null ? range.max : Math.max(max, range.max);
+        });
+        if (min === null || max === null) {
+            return null;
+        }
+        return { min: min, max: max };
+    }
+
+    #applyWide() {
+        var wideRange = this.#computeWideRange();
+        if (!wideRange) {
+            return;
+        }
+        this._timelines.forEach(function (timeline) {
+            if (timeline.setWideRange) {
+                timeline.setWideRange(wideRange.min, wideRange.max);
+            }
+            if (timeline.setRangeMode) {
+                timeline.setRangeMode('wide');
+            }
+        });
+    }
+
+    #applyData() {
+        this._timelines.forEach(function (timeline) {
+            if (timeline.setRangeMode) {
+                timeline.setRangeMode('data');
+            }
+        });
+    }
+
+    #hasAnySelection() {
+        return this._timelines.some(function (timeline) {
+            if (!timeline) {
+                return false;
+            }
+            if (typeof timeline.hasSelection === 'function') {
+                return timeline.hasSelection();
+            }
+            return !!timeline.querySelector('.timeline-item.is-locked');
+        });
+    }
+
+    #hidePrimaryHint() {
+        if (this._primaryTimeline && this._primaryTimeline.setHintVisible) {
+            this._primaryTimeline.setHintVisible(false);
+        }
+    }
+
+    #applyHintDefaults() {
+        if (!this._hintFirst || !this._timelines.length) {
+            return;
+        }
+        var hasSelection = this.#hasAnySelection();
+        this._timelines.forEach(function (timeline, index) {
+            var explicitHint = !!timeline.getAttribute('data-hint') || !!timeline.getAttribute('data-hint-key');
+            if (index === 0 && !explicitHint && this._hintAuto) {
+                if (timeline.setHintAuto) {
+                    timeline.setHintAuto(this._hintAuto);
+                } else {
+                    timeline.setAttribute('data-hint-auto', this._hintAuto);
+                }
+            } else if (!explicitHint && timeline.getAttribute('data-hint-auto')) {
+                if (timeline.setHintAuto) {
+                    timeline.setHintAuto('');
+                } else {
+                    timeline.removeAttribute('data-hint-auto');
+                }
+            }
+            if (timeline.setHintVisible) {
+                timeline.setHintVisible(index === 0 && !hasSelection);
+            }
+        }, this);
+    }
+
+    #handleTimelineClick(event) {
+        if (event.target.closest('.timeline-callout a')) {
+            this.#hidePrimaryHint();
+        }
+    }
+
+    #handleTimelineActivate(event) {
+        if (!event || !event.detail || !event.detail.source) {
+            return;
+        }
+        if (this._timelines.indexOf(event.detail.source) === -1) {
+            return;
+        }
+        this.#hidePrimaryHint();
+    }
+
+    #handleToggleClick(event) {
+        if (!event.target.closest(this._toggleSelector)) {
+            return;
+        }
+        var currentMode = null;
+        if (this._timelines.length) {
+            currentMode = this._timelines[0].getAttribute('data-range-mode') || 'data';
+        }
+        var nextMode = currentMode === 'wide' ? 'data' : 'wide';
+        this.setRangeMode(nextMode);
+    }
+
+    init() {
+        this.#resolveTimelines();
+        if (!this._timelines.length) {
+            return;
+        }
+        this.#applyHintDefaults();
+        var self = this;
+        this._timelines.forEach(function (timeline) {
+            timeline.addEventListener('click', self._boundToggleHandler);
+            timeline.addEventListener('click', self._boundTimelineClickHandler);
+        });
+        document.addEventListener('timeline-activate', this._boundActivateHandler);
+        this._wideMedia = window.matchMedia(this._wideQuery);
+        this.syncMode();
+        document.addEventListener('i18n-ready', this._boundHintHandler);
+        if (this._wideMedia.addEventListener) {
+            this._wideMedia.addEventListener('change', this._boundSyncHandler);
+        } else if (this._wideMedia.addListener) {
+            this._wideMedia.addListener(this._boundSyncHandler);
+        }
+        document.addEventListener('i18n-ready', this._boundSyncHandler);
+    }
+
+    destroy() {
+        var self = this;
+        this._timelines.forEach(function (timeline) {
+            timeline.removeEventListener('click', self._boundToggleHandler);
+            timeline.removeEventListener('click', self._boundTimelineClickHandler);
+        });
+        document.removeEventListener('timeline-activate', this._boundActivateHandler);
+        if (this._wideMedia) {
+            if (this._wideMedia.removeEventListener) {
+                this._wideMedia.removeEventListener('change', this._boundSyncHandler);
+            } else if (this._wideMedia.removeListener) {
+                this._wideMedia.removeListener(this._boundSyncHandler);
+            }
+        }
+        document.removeEventListener('i18n-ready', this._boundHintHandler);
+        document.removeEventListener('i18n-ready', this._boundSyncHandler);
+        this._timelines = [];
+        this._primaryTimeline = null;
+    }
+
+    syncMode() {
+        if (this._wideMedia && this._wideMedia.matches) {
+            this.#applyWide();
+        } else {
+            this.#applyData();
+        }
+    }
+
+    setRangeMode(mode) {
+        if (mode === 'wide') {
+            this.#applyWide();
+        } else {
+            this.#applyData();
+        }
+    }
+
+    setWideRange(min, max) {
+        this._timelines.forEach(function (timeline) {
+            if (timeline.setWideRange) {
+                timeline.setWideRange(min, max);
+            }
+            if (timeline.setRangeMode) {
+                timeline.setRangeMode('wide');
+            }
+        });
+    }
+
+    refresh() {
+        this.#resolveTimelines();
+        this.#applyHintDefaults();
+        this.syncMode();
+    }
+}
+
+window.TimelineManager = TimelineManager;

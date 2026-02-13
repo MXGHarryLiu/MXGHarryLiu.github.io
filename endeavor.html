@@ -64,7 +64,7 @@
                 { "labelKey": "publication/timeline/2020", "href": "#Lee2020", "start": "2020-10", "end": "2020-10", "position": "2" }
             ]
         </script>
-        <timeline-component data-source="publication-timeline" data-min="2020-01" data-max="2026-02" data-activate-animation="pulse" data-highlight-color="#60a5fa" data-title-key="publication/timelineTitle" data-subtitle-key="publication/summary" data-hint-auto="click" data-toggle-title-key="timeline/toggleHint"></timeline-component>
+        <timeline-component data-source="publication-timeline" data-min="2020-01" data-max="2026-02" data-activate-animation="pulse" data-highlight-color="#60a5fa" data-title-key="publication/timelineTitle" data-subtitle-key="publication/summary" data-toggle-title-key="timeline/toggleHint"></timeline-component>
 
         <script type="application/json" id="ideas-timeline">
             [
@@ -420,83 +420,15 @@
 
     <script>
         (function () {
-            var publicationTimeline = document.querySelector('timeline-component[data-source="publication-timeline"]');
-            var ideasTimeline = document.querySelector('timeline-component[data-source="ideas-timeline"]');
-            if (!publicationTimeline || !ideasTimeline) {
-                return;
-            }
-
-            var wideQuery = window.matchMedia('(min-width: 960px)');
-            var computeWideRange = function () {
-                var pubRange = publicationTimeline.getDataRange ? publicationTimeline.getDataRange() : null;
-                var ideaRange = ideasTimeline.getDataRange ? ideasTimeline.getDataRange() : null;
-                if (!pubRange || !ideaRange || pubRange.min === null || pubRange.max === null || ideaRange.min === null || ideaRange.max === null) {
-                    return null;
-                }
-                return {
-                    min: Math.min(pubRange.min, ideaRange.min),
-                    max: Math.max(pubRange.max, ideaRange.max)
-                };
-            };
-
-            var applyWide = function () {
-                var wideRange = computeWideRange();
-                if (!wideRange) {
-                    return;
-                }
-                publicationTimeline.setWideRange(wideRange.min, wideRange.max);
-                ideasTimeline.setWideRange(wideRange.min, wideRange.max);
-                publicationTimeline.setRangeMode('wide');
-                ideasTimeline.setRangeMode('wide');
-            };
-
-            var applyData = function () {
-                publicationTimeline.setRangeMode('data');
-                ideasTimeline.setRangeMode('data');
-            };
-
-            var syncMode = function () {
-                if (wideQuery.matches) {
-                    applyWide();
-                } else {
-                    applyData();
-                }
-            };
-
-            window.setTimelineRangeMode = function (mode) {
-                if (mode === 'wide') {
-                    applyWide();
-                } else {
-                    applyData();
-                }
-            };
-
-            window.setTimelineWideRange = function (min, max) {
-                publicationTimeline.setWideRange(min, max);
-                ideasTimeline.setWideRange(min, max);
-                publicationTimeline.setRangeMode('wide');
-                ideasTimeline.setRangeMode('wide');
-            };
-
-            syncMode();
-            [publicationTimeline, ideasTimeline].forEach(function (timeline) {
-                timeline.addEventListener('click', function (event) {
-                    if (!event.target.closest('.timeline-toggle')) {
-                        return;
-                    }
-                    var currentMode = timeline.getAttribute('data-range-mode') || 'data';
-                    var nextMode = currentMode === 'wide' ? 'data' : 'wide';
-                    window.setTimelineRangeMode(nextMode);
-                });
+            var manager = new TimelineManager({
+                selectors: [
+                    'timeline-component[data-source="publication-timeline"]',
+                    'timeline-component[data-source="ideas-timeline"]'
+                ],
+                wideQuery: '(min-width: 960px)'
             });
-            if (wideQuery.addEventListener) {
-                wideQuery.addEventListener('change', syncMode);
-            } else if (wideQuery.addListener) {
-                wideQuery.addListener(syncMode);
-            }
-            document.addEventListener('i18n-ready', function () {
-                syncMode();
-            });
+            manager.init();
+            window.endeavorTimelineManager = manager;
         })();
     </script>
 
