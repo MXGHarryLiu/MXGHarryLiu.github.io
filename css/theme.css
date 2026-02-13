@@ -96,6 +96,15 @@
     gap: 8px;
 }
 
+.timeline-subtitle {
+    width: 100%;
+    max-width: 960px;
+    color: #6b7280;
+    font-size: 14px;
+    line-height: 1.4;
+    margin: 0 0 6px;
+}
+
 .timeline-title-left {
     display: inline-flex;
     align-items: baseline;
@@ -129,7 +138,7 @@
 
 .timeline-track {
     position: relative;
-    padding: 20px 12px 28px;
+    padding: var(--timeline-padding-top, 20px) 12px 28px;
     --axis-y: 50%;
     --callout-gap-up: 14px;
     --callout-gap-down: 28px;
@@ -202,24 +211,27 @@
 
 .timeline-callout {
     position: absolute;
-    max-width: 160px;
+    max-width: none;
+    white-space: nowrap;
     text-align: center;
-    font-size: 14px;
+    font-size: var(--callout-font-size, 14px);
     left: var(--mid);
-    transform: translateX(-50%);
+    --callout-shift: 0px;
+    transform: translateX(calc(-50% + var(--callout-shift)));
     pointer-events: auto;
 }
 
 .timeline-callout::before {
     content: "";
     position: absolute;
-    left: 50%;
+    left: calc(50% - var(--callout-shift));
     width: 2px;
     height: 0;
     background: #262626;
     opacity: 0.6;
     transform: translateX(-50%);
 }
+
 
 /* Horizontal: label above axis (position 1) */
 .timeline-item[data-position="1"] .timeline-callout {

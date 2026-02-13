@@ -19,6 +19,8 @@ class Timeline extends HTMLElement {
         }
         var title = this.getAttribute('data-title') || '';
         var titleKey = this.getAttribute('data-title-key') || '';
+        var subtitle = this.getAttribute('data-subtitle') || '';
+        var subtitleKey = this.getAttribute('data-subtitle-key') || '';
         var hint = this.getAttribute('data-hint') || '';
         var hintKey = this.getAttribute('data-hint-key') || '';
         var hintAuto = this.getAttribute('data-hint-auto') || '';
@@ -65,6 +67,10 @@ class Timeline extends HTMLElement {
             if (titleKey && typeof window.getContent === 'function') {
                 resolvedTitle = window.getContent(titleKey) || resolvedTitle;
             }
+            var resolvedSubtitle = subtitle;
+            if (subtitleKey && typeof window.getContent === 'function') {
+                resolvedSubtitle = window.getContent(subtitleKey) || resolvedSubtitle;
+            }
             var resolvedHint = hint;
             if (hintKey && typeof window.getContent === 'function') {
                 resolvedHint = window.getContent(hintKey) || resolvedHint;
@@ -89,6 +95,9 @@ class Timeline extends HTMLElement {
                         '<i class="fa-solid ' + toggleIcon + '"></i>' +
                     '</span>' +
                 '</div>';
+            }
+            if (resolvedSubtitle) {
+                titleHtml += '<div class="timeline-subtitle">' + resolvedSubtitle + '</div>';
             }
             var html = '<div class="timeline-section">' +
                 titleHtml +
@@ -130,6 +139,8 @@ class Timeline extends HTMLElement {
             self.innerHTML = html;
 
             var track = self.querySelector('.timeline-track');
+            var titleBlock = self.querySelector('.timeline-title');
+            var subtitleBlock = self.querySelector('.timeline-subtitle');
             var highlightColor = (self.getAttribute('data-highlight-color') || '').trim();
             if (track && highlightColor) {
                 var rgba = null;
@@ -150,6 +161,20 @@ class Timeline extends HTMLElement {
                 track.style.setProperty('--timeline-highlight', highlightColor);
                 track.style.setProperty('--timeline-highlight-strong', highlightColor);
             }
+
+            var updateSpacing = function () {
+                if (!track) {
+                    return;
+                }
+                var titleHeight = titleBlock ? titleBlock.offsetHeight : 0;
+                var subtitleHeight = subtitleBlock ? subtitleBlock.offsetHeight : 0;
+                if (!titleHeight && !subtitleHeight) {
+                    track.style.setProperty('--timeline-padding-top', '20px');
+                    return;
+                }
+                var extra = 12 + titleHeight + subtitleHeight;
+                track.style.setProperty('--timeline-padding-top', (20 + extra) + 'px');
+            };
 
             var activationAnimation = (self.getAttribute('data-activate-animation') || '').trim();
             var activationClass = activationAnimation ? ('timeline-activate-' + activationAnimation) : '';
@@ -195,6 +220,99 @@ class Timeline extends HTMLElement {
                     setActive(item);
                 });
             });
+
+            var positionCallouts = function () {
+                var callouts = Array.prototype.slice.call(self.querySelectorAll('.timeline-callout'));
+                if (!callouts.length) {
+                    return;
+                }
+
+                var parseMid = function (el) {
+                    var value = el.style.getPropertyValue('--mid') || '';
+                    var num = parseFloat(value.replace('%', ''));
+                    return isNaN(num) ? 0 : num;
+                };
+
+                callouts.forEach(function (el) {
+                    el.style.setProperty('--callout-shift', '0px');
+                });
+
+                var shifts = [0, -12, 12, -24, 24, -36, 36, -48, 48, -60, 60];
+                var trackRect = track ? track.getBoundingClientRect() : null;
+                var fontSizes = [14, 13, 12, 11, 10, 9, 8];
+
+                callouts.sort(function (a, b) {
+                    return parseMid(a) - parseMid(b);
+                });
+
+                var tryLayout = function (fontSize) {
+                    var placed = [];
+                    callouts.forEach(function (el) {
+                        el.style.setProperty('--callout-font-size', fontSize + 'px');
+                        el.style.setProperty('--callout-shift', '0px');
+                    });
+
+                    for (var c = 0; c < callouts.length; c++) {
+                        var el = callouts[c];
+                        var position = '1';
+                        var item = el.closest('.timeline-item');
+                        if (item && item.getAttribute('data-position')) {
+                            position = item.getAttribute('data-position');
+                        }
+                        var accepted = false;
+
+                        for (var i = 0; i < shifts.length; i++) {
+                            el.style.setProperty('--callout-shift', shifts[i] + 'px');
+                            var box = el.getBoundingClientRect();
+                            if (trackRect && (box.left < trackRect.left || box.right > trackRect.right)) {
+                                continue;
+                            }
+                            var collision = placed.some(function (p) {
+                                if (p.position !== position) {
+                                    return false;
+                                }
+                                return box.left < (p.box.right + 6) && box.right > (p.box.left - 6);
+                            });
+                            if (!collision) {
+                                placed.push({ position: position, box: box });
+                                accepted = true;
+                                break;
+                            }
+                        }
+
+                        if (!accepted) {
+                            return false;
+                        }
+                    }
+
+                    return true;
+                };
+
+                for (var f = 0; f < fontSizes.length; f++) {
+                    if (tryLayout(fontSizes[f])) {
+                        return;
+                    }
+                }
+            };
+
+            var scheduleLayout = function () {
+                if (self._layoutRaf) {
+                    cancelAnimationFrame(self._layoutRaf);
+                }
+                self._layoutRaf = requestAnimationFrame(function () {
+                    updateSpacing();
+                    positionCallouts();
+                });
+            };
+
+            if (self._layoutListener) {
+                window.removeEventListener('resize', self._layoutListener);
+            }
+            self._layoutListener = function () {
+                scheduleLayout();
+            };
+            window.addEventListener('resize', self._layoutListener);
+            scheduleLayout();
         };
         var parseYearMonth = function (value) {
             if (!value) {
@@ -226,6 +344,14 @@ class Timeline extends HTMLElement {
         if (this._i18nListener) {
             document.removeEventListener('i18n-ready', this._i18nListener);
             this._i18nListener = null;
+        }
+        if (this._layoutListener) {
+            window.removeEventListener('resize', this._layoutListener);
+            this._layoutListener = null;
+        }
+        if (this._layoutRaf) {
+            cancelAnimationFrame(this._layoutRaf);
+            this._layoutRaf = null;
         }
     }
 
