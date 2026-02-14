@@ -14,6 +14,10 @@ function clearTimelineItemSelection(root) {
 }
 
 class Timeline extends HTMLElement {
+    /**
+     * Initialize timeline markup and bind listeners when attached to the DOM.
+     * @returns {void}
+     */
     connectedCallback() {
         if (Timeline.instances) {
             Timeline.instances.add(this);
@@ -413,6 +417,10 @@ class Timeline extends HTMLElement {
         }
     }
 
+    /**
+     * Remove bound listeners and cleanup state when detached from the DOM.
+     * @returns {void}
+     */
     disconnectedCallback() {
         if (Timeline.instances) {
             Timeline.instances.delete(this);
@@ -435,6 +443,11 @@ class Timeline extends HTMLElement {
         }
     }
 
+    /**
+     * Set range mode and rerender timeline.
+     * @param {string} mode Range mode (`data` or `wide`).
+     * @returns {void}
+     */
     setRangeMode(mode) {
         this._rangeMode = mode || 'data';
         this.setAttribute('data-range-mode', this._rangeMode);
@@ -443,6 +456,12 @@ class Timeline extends HTMLElement {
         }
     }
 
+    /**
+     * Set explicit wide-mode range bounds and rerender timeline.
+     * @param {?number} min Minimum range value.
+     * @param {?number} max Maximum range value.
+     * @returns {void}
+     */
     setWideRange(min, max) {
         if (min === null || max === null || typeof min === 'undefined' || typeof max === 'undefined') {
             this._wideRange = null;
@@ -454,10 +473,18 @@ class Timeline extends HTMLElement {
         }
     }
 
+    /**
+     * Get computed range from timeline data.
+     * @returns {{min: (number|null), max: (number|null)}|null}
+     */
     getDataRange() {
         return this._computedRange || null;
     }
 
+    /**
+     * Clear current active and locked selection state.
+     * @returns {void}
+     */
     clearSelection() {
         if (!this._render) {
             return;
@@ -466,6 +493,12 @@ class Timeline extends HTMLElement {
         clearTimelineItemSelection(this);
     }
 
+    /**
+     * Select a timeline item by href and optionally emit activation event.
+     * @param {string} href Target callout href.
+     * @param {{fireEvent?: boolean}=} options Optional selection flags.
+     * @returns {boolean} True when a matching item is selected.
+     */
     selectByHref(href, options) {
         if (!this._render) {
             return false;
@@ -477,10 +510,10 @@ class Timeline extends HTMLElement {
         return false;
     }
 
-    activateByHref(href, options) {
-        return this.selectByHref(href, options);
-    }
-
+    /**
+     * Check whether timeline currently has a locked selection.
+     * @returns {boolean}
+     */
     hasSelection() {
         if (this._activeHref) {
             return true;
@@ -489,7 +522,9 @@ class Timeline extends HTMLElement {
     }
 
     /**
-     * @param {boolean} visible
+     * Toggle visibility of the timeline hint element.
+     * @param {boolean} visible Whether the hint should be visible.
+     * @returns {void}
      */
     setHintVisible(visible) {
         this._hintVisible = !!visible;
@@ -504,6 +539,11 @@ class Timeline extends HTMLElement {
         return this.querySelector('.timeline-hint');
     }
 
+    /**
+     * Set automatic hint mode and rerender timeline.
+     * @param {string} mode Hint mode value.
+     * @returns {void}
+     */
     setHintAuto(mode) {
         if (mode) {
             this.setAttribute('data-hint-auto', mode);
@@ -520,6 +560,10 @@ customElements.define('timeline-component', Timeline);
 Timeline.instances = new Set();
 
 class TimelineManager {
+    /**
+     * Create manager for timeline mode sync, hints, and optional card navigation.
+     * @param {{selectors?: string[], wideQuery?: string, toggleSelector?: string, hintAuto?: string, hintFirst?: boolean, cardSelector?: string}=} options Manager options.
+     */
     constructor(options) {
         this._selectors = (options && options.selectors) ? options.selectors.slice() : [];
         this._wideQuery = (options && options.wideQuery) ? options.wideQuery : '(min-width: 960px)';
@@ -670,10 +714,6 @@ class TimelineManager {
                 timeline.selectByHref('#' + id);
                 return;
             }
-            if (typeof timeline.activateByHref === 'function') {
-                timeline.activateByHref('#' + id);
-                return;
-            }
             var link = timeline.querySelector('.timeline-callout a[href="#' + id + '"]');
             if (link) {
                 link.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
@@ -816,6 +856,10 @@ class TimelineManager {
         this.#showManagedCard(targetId);
     }
 
+    /**
+     * Initialize timelines, bind listeners, and apply initial state.
+     * @returns {void}
+     */
     init() {
         this.#resolveTimelines();
         if (!this._timelines.length) {
@@ -852,6 +896,10 @@ class TimelineManager {
         }
     }
 
+    /**
+     * Remove listeners and clear manager references.
+     * @returns {void}
+     */
     destroy() {
         var self = this;
         this._timelines.forEach(function (timeline) {
@@ -877,6 +925,10 @@ class TimelineManager {
         this._cards = [];
     }
 
+    /**
+     * Sync range mode with configured media query.
+     * @returns {void}
+     */
     syncMode() {
         if (this._wideMedia && this._wideMedia.matches) {
             this.#applyWide();
@@ -885,6 +937,11 @@ class TimelineManager {
         }
     }
 
+    /**
+     * Set range mode for all managed timelines.
+     * @param {string} mode Range mode (`data` or `wide`).
+     * @returns {void}
+     */
     setRangeMode(mode) {
         if (mode === 'wide') {
             this.#applyWide();
@@ -893,6 +950,12 @@ class TimelineManager {
         }
     }
 
+    /**
+     * Set shared wide range for all managed timelines.
+     * @param {number} min Minimum range value.
+     * @param {number} max Maximum range value.
+     * @returns {void}
+     */
     setWideRange(min, max) {
         this._timelines.forEach(function (timeline) {
             if (timeline.setWideRange) {
@@ -904,6 +967,10 @@ class TimelineManager {
         });
     }
 
+    /**
+     * Re-resolve targets and reapply hints and mode state.
+     * @returns {void}
+     */
     refresh() {
         this.#resolveTimelines();
         this.#resolveCards();
