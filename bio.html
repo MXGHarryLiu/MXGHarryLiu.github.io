@@ -28,9 +28,9 @@
         </div>
     </div>
 
-    <div class="container my-4">
-        <h1 class="text-center" data-i18n="bio/title"></h1>
+    <h1 class="text-center" data-i18n="bio/title"></h1>
 
+    <div class="container my-4">
         <div class="row">
             <div class="col-lg-4 col-md-6">
                 <img class="img-fluid" src="img/20220916 Zhuohe Liu.jpg">
@@ -311,6 +311,7 @@
                 </ul>
             </div>
         </div>
+
         <div class="card mt-4 bio-card" id="high">
             <h5 class="card-header" data-i18n="bio/high/title"></h5>
             <div class="row">
@@ -347,6 +348,7 @@
                 </ul>
             </div>
         </div>
+        
         <div class="card mt-4 bio-card" id="middle">
             <h5 class="card-header" data-i18n="bio/middle/title"></h5>
             <div class="row">
@@ -363,6 +365,7 @@
                 </div>
             </div>
         </div>
+        
         <div class="card mt-4 bio-card" id="elem">
             <h5 class="card-header" data-i18n="bio/elem/title"></h5>    
             <div class="card-body">
@@ -403,148 +406,19 @@
 
     <script>
         (function () {
-            var allCards = Array.prototype.slice.call(
-                document.querySelectorAll('.experience-card, .bio-card')
-            );
-            var hintTimeline = document.querySelector('timeline-component[data-source="experience-timeline"]');
-            var setHintVisible = function (visible) {
-                if (hintTimeline && typeof hintTimeline.setHintVisible === 'function') {
-                    hintTimeline.setHintVisible(visible);
-                }
-            };
-            if (!allCards.length) {
-                return;
-            }
-
-            var hideAll = function () {
-                allCards.forEach(function (card) {
-                    card.classList.add('d-none');
-                });
-            };
-
-            var clearTimelineSelection = function (timeline) {
-                if (!timeline) {
-                    return;
-                }
-                timeline.querySelectorAll('.timeline-item').forEach(function (item) {
-                    item.classList.remove('is-active');
-                    item.classList.remove('is-locked');
-                    item.classList.forEach(function (cls) {
-                        if (cls.indexOf('timeline-activate-') === 0) {
-                            item.classList.remove(cls);
-                        }
-                    });
-                });
-            };
-
-            var showCard = function (id) {
-                var target = document.getElementById(id);
-                if (!target || !target.classList.contains('experience-card') && !target.classList.contains('bio-card')) {
-                    return;
-                }
-                hideAll();
-                target.classList.remove('d-none');
-                setHintVisible(false);
-                document.querySelectorAll('timeline-component').forEach(function (timeline) {
-                    var link = timeline.querySelector('.timeline-callout a[href="#' + id + '"]');
-                    if (!link) {
-                        return;
-                    }
-                    link.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
-                });
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                if (history && history.replaceState) {
-                    history.replaceState(null, '', '#' + id);
-                } else {
-                    location.hash = '#' + id;
-                }
-            };
-
-            hideAll();
-
-            var initialId = location.hash ? location.hash.replace('#', '') : '';
-            if (initialId) {
-                showCard(initialId);
-            } else {
-                setHintVisible(true);
-            }
-
-            var bindTimeline = function (selector) {
-                var timeline = document.querySelector(selector);
-                if (!timeline) {
-                    return;
-                }
-                timeline.addEventListener('click', function (event) {
-                    var link = event.target.closest('a');
-                    if (!link) {
-                        return;
-                    }
-                    var href = link.getAttribute('href') || '';
-                    if (href.charAt(0) !== '#') {
-                        return;
-                    }
-                    var targetId = href.slice(1);
-                    event.preventDefault();
-                    document.querySelectorAll('timeline-component').forEach(function (other) {
-                        if (other !== timeline) {
-                            clearTimelineSelection(other);
-                        }
-                    });
-                    showCard(targetId);
-                });
-            };
-
-            bindTimeline('timeline-component[data-source="experience-timeline"]');
-            bindTimeline('timeline-component[data-source="education-timeline"]');
-
-            window.addEventListener('hashchange', function () {
-                var nextId = location.hash ? location.hash.replace('#', '') : '';
-                if (nextId) {
-                    showCard(nextId);
-                }
-            });
-
-            document.addEventListener('click', function (event) {
-                var link = event.target.closest('a');
-                if (!link) {
-                    return;
-                }
-                if (link.closest('timeline-component')) {
-                    return;
-                }
-                var href = link.getAttribute('href') || '';
-                if (href.charAt(0) !== '#') {
-                    return;
-                }
-                var targetId = href.slice(1);
-                if (!targetId) {
-                    return;
-                }
-                var target = document.getElementById(targetId);
-                if (!target || !target.classList.contains('experience-card') && !target.classList.contains('bio-card')) {
-                    return;
-                }
-                event.preventDefault();
-                showCard(targetId);
-            });
-        })();
-    </script>
-
-    <script>
-        (function () {
             var manager = new TimelineManager({
                 selectors: [
                     'timeline-component[data-source="experience-timeline"]',
                     'timeline-component[data-source="education-timeline"]'
                 ],
-                wideQuery: '(min-width: 960px)'
+                wideQuery: '(min-width: 960px)',
+                cardSelector: '.experience-card, .bio-card'
             });
             manager.init();
-            window.bioTimelineManager = manager;
+            window.timelineManager = manager;
         })();
     </script>
 
     <footer-component></footer-component>
 </body>
 </html>
-

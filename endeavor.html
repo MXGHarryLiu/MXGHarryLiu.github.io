@@ -93,7 +93,9 @@
             ]
         </script>
         <timeline-component data-source="ideas-timeline" data-min="2012-01" data-max="2026-02" data-activate-animation="pulse" data-highlight-color="#f5c542" data-title-key="idea/timelineTitle" data-subtitle-key="idea/summary" data-toggle-title-key="timeline/toggleHint"></timeline-component>
+    </div>
 
+    <div class="container mt-4">
         <div class="card mt-4 publication-card" id="Lu2023">
             <h5 class="card-header">Widefield imaging of rapid pan-cortical voltage dynamics with an indicator evolved for one-photon microscopy</h5>
             <div class="row">
@@ -495,160 +497,17 @@
 
     <script>
         (function () {
-            var pubCards = Array.prototype.slice.call(document.querySelectorAll('.publication-card'));
-            var projectCards = Array.prototype.slice.call(document.querySelectorAll('.project-card'));
-            var ideaCards = Array.prototype.slice.call(document.querySelectorAll('.idea-card'));
-            var allCards = pubCards.concat(projectCards, ideaCards);
-            if (!allCards.length) {
-                return;
-            }
-
-            var hintTimeline = document.querySelector('timeline-component[data-source="publication-timeline"]');
-            var setHintVisible = function (visible) {
-                if (hintTimeline && typeof hintTimeline.setHintVisible === 'function') {
-                    hintTimeline.setHintVisible(visible);
-                }
-            };
-
-            var hideAll = function () {
-                allCards.forEach(function (card) {
-                    card.classList.add('d-none');
-                });
-            };
-
-            var activateTimelineCallout = function (id) {
-                document.querySelectorAll('timeline-component').forEach(function (timeline) {
-                    var link = timeline.querySelector('.timeline-callout a[href="#' + id + '"]');
-                    if (!link) {
-                        return;
-                    }
-                    link.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
-                });
-            };
-
-            var clearTimelineSelection = function (timeline) {
-                if (!timeline) {
-                    return;
-                }
-                timeline.querySelectorAll('.timeline-item').forEach(function (item) {
-                    item.classList.remove('is-active');
-                    item.classList.remove('is-locked');
-                    item.classList.forEach(function (cls) {
-                        if (cls.indexOf('timeline-activate-') === 0) {
-                            item.classList.remove(cls);
-                        }
-                    });
-                });
-            };
-
-            var showCard = function (id) {
-                var target = document.getElementById(id);
-                if (!target || !target.classList.contains('publication-card') && !target.classList.contains('idea-card') && !target.classList.contains('project-card')) {
-                    return;
-                }
-                hideAll();
-                target.classList.remove('d-none');
-                setHintVisible(false);
-                activateTimelineCallout(id);
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                if (history && history.replaceState) {
-                    history.replaceState(null, '', '#' + id);
-                } else {
-                    location.hash = '#' + id;
-                }
-            };
-
-            hideAll();
-
-            var initialId = location.hash ? location.hash.replace('#', '') : '';
-            if (initialId) {
-                showCard(initialId);
-            } else {
-                setHintVisible(true);
-            }
-
-            var bindTimeline = function (selector) {
-                var timeline = document.querySelector(selector);
-                if (!timeline) {
-                    return;
-                }
-                timeline.addEventListener('click', function (event) {
-                    var link = event.target.closest('a');
-                    if (!link) {
-                        return;
-                    }
-                    var href = link.getAttribute('href') || '';
-                    if (href.charAt(0) !== '#') {
-                        return;
-                    }
-                    var targetId = href.slice(1);
-                    event.preventDefault();
-                    document.querySelectorAll('timeline-component').forEach(function (other) {
-                        if (other !== timeline) {
-                            clearTimelineSelection(other);
-                        }
-                    });
-                    showCard(targetId);
-                });
-            };
-
-            bindTimeline('timeline-component[data-source="publication-timeline"]');
-            bindTimeline('timeline-component[data-source="project-timeline"]');
-            bindTimeline('timeline-component[data-source="ideas-timeline"]');
-
-            window.addEventListener('hashchange', function () {
-                var nextId = location.hash ? location.hash.replace('#', '') : '';
-                if (!nextId) {
-                    hideAll();
-                    setHintVisible(true);
-                    return;
-                }
-                var target = document.getElementById(nextId);
-                if (target && (target.classList.contains('publication-card') || target.classList.contains('idea-card') || target.classList.contains('project-card'))) {
-                    showCard(nextId);
-                }
-            });
-
-            document.addEventListener('click', function (event) {
-                var link = event.target.closest('a');
-                if (!link) {
-                    return;
-                }
-                if (link.closest('timeline-component')) {
-                    return;
-                }
-                var href = link.getAttribute('href') || '';
-                if (href.charAt(0) !== '#') {
-                    return;
-                }
-                var targetId = href.slice(1);
-                if (!targetId) {
-                    return;
-                }
-                var target = document.getElementById(targetId);
-                if (!target) {
-                    return;
-                }
-                if (target.classList.contains('publication-card') || target.classList.contains('idea-card') || target.classList.contains('project-card')) {
-                    event.preventDefault();
-                    showCard(targetId);
-                }
-            });
-        })();
-    </script>
-
-    <script>
-        (function () {
             var manager = new TimelineManager({
                 selectors: [
                     'timeline-component[data-source="publication-timeline"]',
                     'timeline-component[data-source="project-timeline"]',
                     'timeline-component[data-source="ideas-timeline"]'
                 ],
-                wideQuery: '(min-width: 960px)'
+                wideQuery: '(min-width: 960px)',
+                cardSelector: '.publication-card, .project-card, .idea-card'
             });
             manager.init();
-            window.endeavorTimelineManager = manager;
+            window.timelineManager = manager;
         })();
     </script>
 

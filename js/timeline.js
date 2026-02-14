@@ -1,3 +1,18 @@
+function clearTimelineItemSelection(root) {
+    if (!root || !root.querySelectorAll) {
+        return;
+    }
+    root.querySelectorAll('.timeline-item').forEach(function (item) {
+        item.classList.remove('is-active');
+        item.classList.remove('is-locked');
+        item.classList.forEach(function (cls) {
+            if (cls.indexOf('timeline-activate-') === 0) {
+                item.classList.remove(cls);
+            }
+        });
+    });
+}
+
 class Timeline extends HTMLElement {
     connectedCallback() {
         if (Timeline.instances) {
@@ -193,13 +208,7 @@ class Timeline extends HTMLElement {
             var activationAnimation = (self.getAttribute('data-activate-animation') || '').trim();
             var activationClass = activationAnimation ? ('timeline-activate-' + activationAnimation) : '';
             var clearSelection = function () {
-                self.querySelectorAll('.timeline-item').forEach(function (candidate) {
-                    candidate.classList.remove('is-active');
-                    candidate.classList.remove('is-locked');
-                    if (activationClass) {
-                        candidate.classList.remove(activationClass);
-                    }
-                });
+                clearTimelineItemSelection(self);
             };
             var setActive = function (activeItem, fireEvent) {
                 clearSelection();
@@ -215,7 +224,7 @@ class Timeline extends HTMLElement {
                 }
             };
 
-            var activateByHref = function (href) {
+            var selectByHref = function (href, fireEvent) {
                 if (!href) {
                     return false;
                 }
@@ -227,9 +236,11 @@ class Timeline extends HTMLElement {
                 if (!item) {
                     return false;
                 }
-                setActive(item, false);
+                self._activeHref = href;
+                setActive(item, !!fireEvent);
                 return true;
             };
+            self._selectByHref = selectByHref;
 
             self.querySelectorAll('.timeline-item').forEach(function (item) {
                 var callout = item.querySelector('.timeline-callout a');
@@ -363,7 +374,7 @@ class Timeline extends HTMLElement {
             scheduleLayout();
 
             if (self._activeHref) {
-                activateByHref(self._activeHref);
+                selectByHref(self._activeHref);
             }
         };
         var parseYearMonth = function (value) {
@@ -396,16 +407,7 @@ class Timeline extends HTMLElement {
                     return;
                 }
                 this._activeHref = '';
-                var items = this.querySelectorAll('.timeline-item');
-                items.forEach(function (item) {
-                    item.classList.remove('is-active');
-                    item.classList.remove('is-locked');
-                    item.classList.forEach(function (cls) {
-                        if (cls.indexOf('timeline-activate-') === 0) {
-                            item.classList.remove(cls);
-                        }
-                    });
-                });
+                clearTimelineItemSelection(this);
             }.bind(this);
             document.addEventListener('timeline-activate', this._externalActivateListener);
         }
@@ -461,15 +463,22 @@ class Timeline extends HTMLElement {
             return;
         }
         this._activeHref = '';
-        this.querySelectorAll('.timeline-item').forEach(function (item) {
-            item.classList.remove('is-active');
-            item.classList.remove('is-locked');
-            item.classList.forEach(function (cls) {
-                if (cls.indexOf('timeline-activate-') === 0) {
-                    item.classList.remove(cls);
-                }
-            });
-        });
+        clearTimelineItemSelection(this);
+    }
+
+    selectByHref(href, options) {
+        if (!this._render) {
+            return false;
+        }
+        var fireEvent = !!(options && options.fireEvent);
+        if (typeof this._selectByHref === 'function') {
+            return this._selectByHref(href, fireEvent);
+        }
+        return false;
+    }
+
+    activateByHref(href, options) {
+        return this.selectByHref(href, options);
     }
 
     hasSelection() {
@@ -517,12 +526,17 @@ class TimelineManager {
         this._toggleSelector = (options && options.toggleSelector) ? options.toggleSelector : '.timeline-toggle';
         this._hintAuto = (options && typeof options.hintAuto !== 'undefined') ? options.hintAuto : 'click';
         this._hintFirst = !(options && options.hintFirst === false);
+        this._cardSelector = (options && options.cardSelector) ? options.cardSelector : '';
+        this._manageCardNavigation = !!this._cardSelector;
+        this._cards = [];
         this._timelines = [];
         this._wideMedia = null;
         this._primaryTimeline = null;
         this._boundToggleHandler = this.#handleToggleClick.bind(this);
         this._boundTimelineClickHandler = this.#handleTimelineClick.bind(this);
         this._boundActivateHandler = this.#handleTimelineActivate.bind(this);
+        this._boundHashChangeHandler = this.#handleHashChange.bind(this);
+        this._boundDocumentLinkHandler = this.#handleDocumentHashLinkClick.bind(this);
         this._boundSyncHandler = this.syncMode.bind(this);
         this._boundHintHandler = this.#applyHintDefaults.bind(this);
     }
@@ -603,6 +617,97 @@ class TimelineManager {
         }
     }
 
+    #setPrimaryHintVisible(visible) {
+        if (this._primaryTimeline && this._primaryTimeline.setHintVisible) {
+            this._primaryTimeline.setHintVisible(visible);
+        }
+    }
+
+    #resolveCards() {
+        if (!this._manageCardNavigation) {
+            this._cards = [];
+            return;
+        }
+        this._cards = Array.prototype.slice.call(document.querySelectorAll(this._cardSelector));
+    }
+
+    #isManagedCard(target) {
+        if (!target || !this._manageCardNavigation) {
+            return false;
+        }
+        if (!this._cards.length) {
+            return false;
+        }
+        return this._cards.indexOf(target) !== -1;
+    }
+
+    #hideAllCards() {
+        if (!this._cards.length) {
+            return;
+        }
+        this._cards.forEach(function (card) {
+            card.classList.add('d-none');
+        });
+    }
+
+    #clearTimelineSelection(timeline) {
+        if (!timeline) {
+            return;
+        }
+        if (typeof timeline.clearSelection === 'function') {
+            timeline.clearSelection();
+            return;
+        }
+        clearTimelineItemSelection(timeline);
+    }
+
+    #activateTimelineCallout(id) {
+        if (!id) {
+            return;
+        }
+        this._timelines.forEach(function (timeline) {
+            if (typeof timeline.selectByHref === 'function') {
+                timeline.selectByHref('#' + id);
+                return;
+            }
+            if (typeof timeline.activateByHref === 'function') {
+                timeline.activateByHref('#' + id);
+                return;
+            }
+            var link = timeline.querySelector('.timeline-callout a[href="#' + id + '"]');
+            if (link) {
+                link.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
+            }
+        });
+    }
+
+    #showManagedCard(id, options) {
+        if (!this._manageCardNavigation) {
+            return false;
+        }
+        var target = document.getElementById(id);
+        if (!this.#isManagedCard(target)) {
+            return false;
+        }
+        var shouldScroll = !(options && options.scroll === false);
+        var shouldUpdateHash = !(options && options.updateHash === false);
+        this.#hideAllCards();
+        target.classList.remove('d-none');
+        this.#hidePrimaryHint();
+        this.#activateTimelineCallout(id);
+        if (shouldScroll) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        if (shouldUpdateHash) {
+            if (history && history.replaceState) {
+                history.replaceState(null, '', '#' + id);
+            } else {
+                location.hash = '#' + id;
+            }
+        }
+        return true;
+    }
+
     #applyHintDefaults() {
         if (!this._hintFirst || !this._timelines.length) {
             return;
@@ -630,9 +735,23 @@ class TimelineManager {
     }
 
     #handleTimelineClick(event) {
-        if (event.target.closest('.timeline-callout a')) {
-            this.#hidePrimaryHint();
+        var link = event.target.closest('.timeline-callout a');
+        if (!link) {
+            return;
         }
+        var href = link.getAttribute('href') || '';
+        if (this._manageCardNavigation && href.charAt(0) === '#') {
+            var targetId = href.slice(1);
+            event.preventDefault();
+            this._timelines.forEach(function (other) {
+                if (!other.contains(link)) {
+                    this.#clearTimelineSelection(other);
+                }
+            }, this);
+            this.#showManagedCard(targetId);
+            return;
+        }
+        this.#hidePrimaryHint();
     }
 
     #handleTimelineActivate(event) {
@@ -657,11 +776,52 @@ class TimelineManager {
         this.setRangeMode(nextMode);
     }
 
+    #handleHashChange() {
+        if (!this._manageCardNavigation) {
+            return;
+        }
+        var nextId = location.hash ? location.hash.replace('#', '') : '';
+        if (!nextId) {
+            this.#hideAllCards();
+            this.#setPrimaryHintVisible(true);
+            return;
+        }
+        this.#showManagedCard(nextId, { scroll: false, updateHash: false });
+    }
+
+    #handleDocumentHashLinkClick(event) {
+        if (!this._manageCardNavigation) {
+            return;
+        }
+        var link = event.target.closest('a');
+        if (!link) {
+            return;
+        }
+        if (link.closest('timeline-component')) {
+            return;
+        }
+        var href = link.getAttribute('href') || '';
+        if (href.charAt(0) !== '#') {
+            return;
+        }
+        var targetId = href.slice(1);
+        if (!targetId) {
+            return;
+        }
+        var target = document.getElementById(targetId);
+        if (!this.#isManagedCard(target)) {
+            return;
+        }
+        event.preventDefault();
+        this.#showManagedCard(targetId);
+    }
+
     init() {
         this.#resolveTimelines();
         if (!this._timelines.length) {
             return;
         }
+        this.#resolveCards();
         this.#applyHintDefaults();
         var self = this;
         this._timelines.forEach(function (timeline) {
@@ -678,6 +838,18 @@ class TimelineManager {
             this._wideMedia.addListener(this._boundSyncHandler);
         }
         document.addEventListener('i18n-ready', this._boundSyncHandler);
+
+        if (this._manageCardNavigation && this._cards.length) {
+            this.#hideAllCards();
+            var initialId = location.hash ? location.hash.replace('#', '') : '';
+            if (initialId) {
+                this.#showManagedCard(initialId, { scroll: false });
+            } else {
+                this.#setPrimaryHintVisible(true);
+            }
+            window.addEventListener('hashchange', this._boundHashChangeHandler);
+            document.addEventListener('click', this._boundDocumentLinkHandler);
+        }
     }
 
     destroy() {
@@ -696,8 +868,13 @@ class TimelineManager {
         }
         document.removeEventListener('i18n-ready', this._boundHintHandler);
         document.removeEventListener('i18n-ready', this._boundSyncHandler);
+        if (this._manageCardNavigation) {
+            window.removeEventListener('hashchange', this._boundHashChangeHandler);
+            document.removeEventListener('click', this._boundDocumentLinkHandler);
+        }
         this._timelines = [];
         this._primaryTimeline = null;
+        this._cards = [];
     }
 
     syncMode() {
@@ -729,6 +906,7 @@ class TimelineManager {
 
     refresh() {
         this.#resolveTimelines();
+        this.#resolveCards();
         this.#applyHintDefaults();
         this.syncMode();
     }
