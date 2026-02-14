@@ -88,36 +88,49 @@
     "experience": {
         "timelineTitle": "履历",
         "timeline": {
-            "gs": "研究生",
-            "ta": "助教",
-            "us": "本科科研",
-            "la": "实验室助手"
+            "e1": "研究生",
+            "e2": "助教",
+            "e3": "本科科研",
+            "e4": "实验室助手",
+            "e5": "博士后研究员"
         },
-        "gs": {
+        "e1": {
             "title": "研究生",
             "place": "贝勒医学院神经科学系<a href=\"https://www.stpierrelab.com/\">St-Pierre实验室</a>",
+            "teams": "<a href=\"https://www.bcm.edu/people/view/francois-st-pierre/ce5139a8-20f1-11e5-8d53-005056b104be\" title=\"Dr. St-Pierre BCM profile\">Dr. François St-Pierre</a>（导师）",
             "date": "2017年1月至2022年12月"
         },
-        "ta": {
+        "e2": {
             "title": "助教",
             "place": "莱斯大学电子和计算机工程系",
+            "teams": "<a href=\"http://varman.rice.edu/\">Dr. Peter J. Varman</a>（<span style=\"font-style:italic\">ELEC326 Digital Logic Design</span> 课程教师）",
             "date": "2017，2018，2021秋季学期"
         },
-        "us": {
+        "e3": {
             "title": "本科科研助理",
             "place": "密西根大学生物医学工程系<a href=\"http://shearesearch.engin.umich.edu/\">Shea实验室</a>",
+            "teams": "<a href=\"https://www.linkedin.com/in/joe-decker-90474647/\" title=\"LinkedIn profile\">Dr. Joseph Decker</a>（导师）",
             "date": "2015年5月至2016年3月"
         },
-        "la": {
+        "e4": {
             "title": "实验室助手",
             "place": "交大密西根联合学院学生创新中心,",
             "date": "2012年9月至2013年8月"
+        },
+        "e5": {
+            "title": "博士后研究员",
+            "place": "贝勒医学院神经科学系<a href=\"https://www.stpierrelab.com/\">St-Pierre实验室</a>，美国德克萨斯州休斯顿",
+            "teams": "<a href=\"https://www.bcm.edu/people/view/francois-st-pierre/ce5139a8-20f1-11e5-8d53-005056b104be\" title=\"Dr. St-Pierre BCM profile\">Dr. François St-Pierre</a>（研究员）",
+            "date": "2023年1月 - 2023年7月"
         }
     },
+    "endeavor": {
+        "title": "奋进"
+    },
     "publication": {
-        "title": "奋进",
+        "title": "发表",
         "summary": "请参考<a href=\"https://scholar.google.com/citations?user=A1aLmWIAAAAJ\">谷歌个人学术档案</a>或<a href=\"https://orcid.org/0000-0002-1818-646X\">ORCID个人页面</a>以获取我的完整著作信息。",
-        "timelineTitle": "奋进",
+        "timelineTitle": "发表",
         "timeline": {
             "2025": "Lee et al., 2025《自然·通讯》",
             "2023": "Lu et al., 2023《自然·通讯》",
@@ -132,12 +145,12 @@
         "title": "项目",
         "timelineTitle": "项目",
         "timeline": {
-            "p1": "手机低成本SLAM",
-            "p2": "硬膜外导管拉力计",
-            "p3": "闭环神经阻滞建模",
-            "p4": "面部肌电交流辅助",
-            "p5": "肱二头肌电极位置",
-            "p6": "食用着色剂合成"
+            "p1": "食用着色剂合成",
+            "p2": "肱二头肌电极位置",
+            "p3": "面部肌电交流辅助",
+            "p4": "硬膜外导管拉力计",
+            "p5": "闭环神经阻滞建模",
+            "p6": "手机低成本SLAM"
         }
     },
     "idea": {

@@ -44,10 +44,11 @@
     <div class="container my-4">
         <script type="application/json" id="experience-timeline">
             [
-                { "labelKey": "experience/timeline/gs", "href": "#gs", "start": "2017-01", "end": "2022-12", "position": "1" },
-                { "labelKey": "experience/timeline/ta", "href": "#ta", "start": "2017-09", "end": "2021-12", "position": "2" },
-                { "labelKey": "experience/timeline/us", "href": "#us", "start": "2015-05", "end": "2016-03", "position": "1" },
-                { "labelKey": "experience/timeline/la", "href": "#la", "start": "2012-09", "end": "2013-08", "position": "2" }
+                { "labelKey": "experience/timeline/e5", "href": "#e5", "start": "2023-01", "end": "2023-07", "position": "2" },
+                { "labelKey": "experience/timeline/e1", "href": "#e1", "start": "2017-01", "end": "2022-12", "position": "1" },
+                { "labelKey": "experience/timeline/e2", "href": "#e2", "start": "2017-09", "end": "2021-12", "position": "2" },
+                { "labelKey": "experience/timeline/e3", "href": "#e3", "start": "2015-05", "end": "2016-03", "position": "1" },
+                { "labelKey": "experience/timeline/e4", "href": "#e4", "start": "2012-09", "end": "2013-08", "position": "2" }
             ]
         </script>
         <timeline-component data-source="experience-timeline" data-min="2012-01" data-max="2026-01" data-activate-animation="pulse" data-title-key="experience/timelineTitle" data-toggle-title-key="timeline/toggleHint"></timeline-component>
@@ -67,15 +68,15 @@
     </div>
 
     <div class="container mt-4">
-        <div class="card mt-4 experience-card" id="gs">
-            <h5 class="card-header" data-i18n="experience/gs/title"></h5>
+        <div class="card mt-4 experience-card" id="e1">
+            <h5 class="card-header" data-i18n="experience/e1/title"></h5>
             <div class="row">
                 <div class="col-md-8">
                     <div class="card-body">
                         <ul class="card-list">
-                            <li><i class="i-place"></i><span data-i18n="experience/gs/place"></span></li>
-                            <li><i class="i-team"></i><a href="https://www.bcm.edu/people/view/francois-st-pierre/ce5139a8-20f1-11e5-8d53-005056b104be" title="Dr. St-Pierre BCM profile">Dr. François St-Pierre</a> (advisor)</li>
-                            <li><i class="i-date"></i><span data-i18n="experience/gs/date"></span></li>
+                            <li><i class="i-place"></i><span data-i18n="experience/e1/place"></span></li>
+                            <li><i class="i-team"></i><span data-i18n="experience/e1/teams"></span></li>
+                            <li><i class="i-date"></i><span data-i18n="experience/e1/date"></span></li>
                             <li><i class="i-arrow"></i><b>High-throughput Microscopy Screening Platform for Fluorescent Voltage Biosensor</b>
                                 <ul class="card-list">
                                     <li><i class="i-dot"></i>Built image analysis pipelines in <b>MATLAB</b> to automate analysis of fluorescence microscopy recordings. </li>
@@ -126,17 +127,34 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#phd" data-i18n="education/title"></a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="endeavor.html#Liu2022" data-i18n="publication/title"></a>
+                    </li>
                 </ul>
             </div>
         </div>
 
-        <div class="card mt-4 experience-card" id="ta">
-            <h5 class="card-header" data-i18n="experience/ta/title"></h5>
+        <div class="card mt-4 experience-card" id="e5">
+            <h5 class="card-header" data-i18n="experience/e5/title"></h5>
             <div class="card-body">
                 <ul class="card-list">
-                    <li><i class="i-place"></i><span data-i18n="experience/ta/place"></span></li>
-                    <li><i class="i-team"></i><a href="http://varman.rice.edu/">Dr. Peter J. Varman</a> (instructor of <span style="font-style:italic">ELEC326 Digital Logic Design</span>)</li>
-                    <li><i class="i-date"></i><span data-i18n="experience/ta/date"></span></li>
+                    <li><i class="i-place"></i><span data-i18n="experience/e5/place"></span></li>
+                    <li><i class="i-team"></i><span data-i18n="experience/e5/teams"></span></li>
+                    <li><i class="i-date"></i><span data-i18n="experience/e5/date"></span></li>
+                    <li><i class="i-dot"></i>Developed hardware control API to C++ device adapters to enable real-time adaptive microscopy.</li>
+                    <li><i class="i-dot"></i>Adapted computer vision algorithms (e.g. instance segmentation) in Python to accelerate analysis.</li>
+                    <li><i class="i-dot"></i>Assembled a modular microscope and did BOM analysis for commercialization of SPOTlight.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card mt-4 experience-card" id="e2">
+            <h5 class="card-header" data-i18n="experience/e2/title"></h5>
+            <div class="card-body">
+                <ul class="card-list">
+                    <li><i class="i-place"></i><span data-i18n="experience/e2/place"></span></li>
+                    <li><i class="i-team"></i><span data-i18n="experience/e2/teams"></span></li>
+                    <li><i class="i-date"></i><span data-i18n="experience/e2/date"></span></li>
                     <li><i class="i-dot"></i>Graded lab reports and homework on <b>Verilog</b> from undergraduate students.</li>
                     <li><i class="i-dot"></i>Held lab sessions on <b>FPGA</b> board development.</li>
                 </ul>
@@ -150,15 +168,15 @@
             </div>
         </div>
 
-        <div class="card mt-4 experience-card" id="us">
-            <h5 class="card-header" data-i18n="experience/us/title"></h5>
+        <div class="card mt-4 experience-card" id="e3">
+            <h5 class="card-header" data-i18n="experience/e3/title"></h5>
             <div class="row">
                 <div class="col-md-8">
                     <div class="card-body">
                         <ul class="card-list">
-                            <li><i class="i-place"></i><span data-i18n="experience/us/place"></span></li>
-                            <li><i class="i-team"></i><a href="https://www.linkedin.com/in/joe-decker-90474647/" title="LinkedIn profile">Dr. Joseph Decker</a> (advisor)</li>
-                            <li><i class="i-date"></i><span data-i18n="experience/us/date"></span></li>
+                            <li><i class="i-place"></i><span data-i18n="experience/e3/place"></span></li>
+                            <li><i class="i-team"></i><span data-i18n="experience/e3/teams"></span></li>
+                            <li><i class="i-date"></i><span data-i18n="experience/e3/date"></span></li>
                             <li><i class="i-dot"></i>Developed techniques of bioluminescence living cell microarrays.</li>
                             <li><i class="i-dot"></i>Studied the time-dependent transcription factor / microRNA activity using R for statistical analysis.</li>
                             <li><i class="i-dot"></i>Performed plasmid cloning of 110 microRNA to make luciferase reporters. </li>
@@ -182,12 +200,12 @@
             </div>
         </div>
 
-        <div class="card mt-4 experience-card" id="la">
-            <h5 class="card-header" data-i18n="experience/la/title"></h5>
+        <div class="card mt-4 experience-card" id="e4">
+            <h5 class="card-header" data-i18n="experience/e4/title"></h5>
             <div class="card-body">
                 <ul class="card-list">
-                    <li><i class="i-place"></i><span data-i18n="experience/la/place"></span></li>
-                    <li><i class="i-date"></i><span data-i18n="experience/la/date"></span></li>
+                    <li><i class="i-place"></i><span data-i18n="experience/e4/place"></span></li>
+                    <li><i class="i-date"></i><span data-i18n="experience/e4/date"></span></li>
                     <li><i class="i-dot"></i>Answered electrical &amp; computer engineering related technical questions for lab users. </li>
                     <li><i class="i-dot"></i>Maintained lab environment, and managed equipment usage for 300 JI students. </li>
                 </ul>
@@ -232,7 +250,7 @@
             <div class="card-footer">
                 <ul class="nav nav-pills">
                     <li class="nav-item">
-                        <a class="nav-link" href="#gs">Experience</a>
+                        <a class="nav-link" href="#e1">Experience</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="endeavor.html#Liu2022" data-i18n="publication/title"></a>
@@ -271,7 +289,7 @@
                         <a class="nav-link" href="endeavor.html#p1" data-i18n="project/title"></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#us">Experience</a>
+                        <a class="nav-link" href="#e3">Experience</a>
                     </li>
                 </ul>
             </div>
@@ -306,7 +324,7 @@
                         <a class="nav-link" href="endeavor.html#p1" data-i18n="project/title"></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#la">Experience</a>
+                        <a class="nav-link" href="#e4">Experience</a>
                     </li>
                 </ul>
             </div>
