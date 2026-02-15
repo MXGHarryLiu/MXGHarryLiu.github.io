@@ -1,7 +1,4 @@
 {
-    "menu": {
-        "home": "Home"
-    },
     "home": {
         "title": "",
         "motto": "Know thyself",
@@ -87,38 +84,36 @@
     },
     "experience": {
         "timelineTitle": "Experience",
-        "timeline": {
-            "e1": "Grad Research",
-            "e2": "Teaching Assistant",
-            "e3": "Undergrad Research",
-            "e4": "Lab Assistant",
-            "e5": "Postdoctoral Researcher"
-        },
         "e1": {
             "title": "Guaduate Research Assistant",
+            "shortTitle": "Grad Research",
             "place": "<a href=\"https://www.stpierrelab.com/\">St-Pierre Lab</a>, Department of Neurosciece, Baylor College of Medicine",
             "teams": "<a href=\"https://www.bcm.edu/people/view/francois-st-pierre/ce5139a8-20f1-11e5-8d53-005056b104be\" title=\"Dr. St-Pierre BCM profile\">Dr. François St-Pierre</a> (advisor)",
             "date": "Jan. 2017 - Dec. 2022"
         },
         "e2": {
             "title": "Teaching Assistant",
+            "shortTitle": "Teaching Assistant",
             "place": "Department of Electrical and Computer Engineering, Rice University",
             "teams": "<a href=\"http://varman.rice.edu/\">Dr. Peter J. Varman</a> (instructor of <span style=\"font-style:italic\">ELEC326 Digital Logic Design</span>)",
             "date": "Fall 2017, Fall 2018, Fall 2021"
         },
         "e3": {
             "title": "Undergraduate Research Assistant",
+            "shortTitle": "Undergrad Research",
             "place": "<a href=\"http://shearesearch.engin.umich.edu/\">Shea Lab</a>, Department of Biomedical Engineering, University of Michigan",
             "teams": "<a href=\"https://www.linkedin.com/in/joe-decker-90474647/\" title=\"LinkedIn profile\">Dr. Joseph Decker</a> (advisor)",
             "date": "May 2015 - Mar. 2016"
         },
         "e4": {
             "title": "Laboratory Assistant",
+            "shortTitle": "Lab Assistant",
             "place": "Student Innovation Center, UM-SJTU Joint Institute, Shanghai Jiao Tong University",
             "date": "Sep. 2012 - Aug. 2013"
         },
         "e5": {
             "title": "Postdoctoral Researcher",
+            "shortTitle": "Postdoctoral",
             "place": "<a href=\"https://www.stpierrelab.com/\">St-Pierre Lab</a>, Department of Neuroscience, Baylor College of Medicine, Houston, Texas",
             "teams": "<a href=\"https://www.bcm.edu/people/view/francois-st-pierre/ce5139a8-20f1-11e5-8d53-005056b104be\" title=\"Dr. St-Pierre BCM profile\">Dr. François St-Pierre</a> (principal investigator)",
             "date": "Jan. 2023 - Jul. 2023"
@@ -144,22 +139,45 @@
     "project": {
         "title": "Projects",
         "timelineTitle": "Projects",
-        "timeline": {
-            "p1": "Physalien Food Coloring",
-            "p2": "Biceps EMG Electrode Position",
-            "p3": "Facial EMG Communication Aid",
-            "p4": "Epidural Catheter Force Gauge",
-            "p5": "Closed-loop Nerve Block Model",
-            "p6": "Smartphone SLAM"
+        "p1": {
+            "title": "Synthesis of Physalien and Its Application to Food Coloring",
+            "shortTitle": "Synthesize Food Coloring"
+        },
+        "p2": {
+            "title": "The Effect of Electrode Position on Human Biceps EMG Amplitude",
+            "shortTitle": "Biceps EMG"
+        },
+        "p3": {
+            "title": "Facial Electromyography as a Communication Aid and Method for Computer Interfacing",
+            "shortTitle": "Facial EMG Communication Aid"
+        },
+        "p4": {
+            "title": "Force Gauge for the Removal of Epidural Catheters",
+            "shortTitle": "Epidural Catheter Gauge"
+        },
+        "p5": {
+            "title": "Computational Modeling of Closed-loop Peripheral Nerve Block Based on Halorhodopsin (NpHR)",
+            "shortTitle": "Closed-loop Nerve Block Model"
+        },
+        "p6": {
+            "title": "Low Cost SLAM Realization on Smart Phone",
+            "shortTitle": "Smartphone SLAM"
         }
     },
     "idea": {
         "summary": "I express my ideas through my personal projects, not to impress but to learn and explore. ",
         "timelineTitle": "Ideas",
-        "timeline": {
-            "pw": "Personal Website",
-            "ee": "English Enhancer",
-            "psf": "Portable Semiconductor Fridge"
+        "i1": {
+            "title": "Portable Fridge",
+            "shortTitle": "Portable Semiconductor Fridge"
+        },
+        "i2": {
+            "title": "English Enhancer",
+            "shortTitle": "English Enhancer"
+        },
+        "i3": {
+            "title": "Personal Website",
+            "shortTitle": "Personal Website"
         }
     },
     "passion": {
@@ -170,9 +188,6 @@
             "place": "Places I've Been",
             "trivia": "Trivia"
         }
-    },
-    "contact": {
-        "follow": "Please follow me on: "
     },
     "timeline": {
         "clickHint": "Click item to view details",
@@ -271,6 +286,7 @@
     },
     "basic": {
         "brand": "Zhuohe Liu", 
+        "follow": "Please follow me on: ",
         "copyright": "Copyright &copy; 2016 - 2026 Zhuohe Liu"
     }
 }

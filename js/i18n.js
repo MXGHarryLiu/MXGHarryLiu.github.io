@@ -47,7 +47,10 @@ function setLanguagePreference(lang) {
     localStorage.setItem('language', lang);
 }
 
-async function toggleLanguage() {
+async function toggleLanguage(event) {
+    if (event) {
+        event.preventDefault();
+    }
     const currentLang = localStorage.getItem('language') || 'en-US';
     const newLang = currentLang === 'en-US' ? 'zh-CN' : 'en-US';
     setLanguagePreference(newLang);

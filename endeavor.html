@@ -76,21 +76,21 @@
 
         <script type="application/json" id="project-timeline">
             [
-                { "labelKey": "project/timeline/p1", "href": "#p1", "start": "2010-12", "end": "2011-03", "position": "2" },
-                { "labelKey": "project/timeline/p2", "href": "#p2", "start": "2015-04", "end": "2015-04", "position": "1" },
-                { "labelKey": "project/timeline/p3", "href": "#p3", "start": "2015-12", "end": "2015-12", "position": "2" },
-                { "labelKey": "project/timeline/p4", "href": "#p4", "start": "2016-01", "end": "2016-04", "position": "1" },
-                { "labelKey": "project/timeline/p5", "href": "#p5", "start": "2016-04", "end": "2016-04", "position": "2" },
-                { "labelKey": "project/timeline/p6", "href": "#p6", "start": "2016-05", "end": "2016-08", "position": "1" }
+                { "labelKey": "project/p1/shortTitle", "href": "#p1", "start": "2010-12", "end": "2011-03", "position": "2" },
+                { "labelKey": "project/p2/shortTitle", "href": "#p2", "start": "2015-04", "end": "2015-04", "position": "1" },
+                { "labelKey": "project/p3/shortTitle", "href": "#p3", "start": "2015-12", "end": "2015-12", "position": "2" },
+                { "labelKey": "project/p4/shortTitle", "href": "#p4", "start": "2016-01", "end": "2016-04", "position": "1" },
+                { "labelKey": "project/p5/shortTitle", "href": "#p5", "start": "2016-04", "end": "2016-04", "position": "2" },
+                { "labelKey": "project/p6/shortTitle", "href": "#p6", "start": "2016-05", "end": "2016-08", "position": "1" }
             ]
         </script>
         <timeline-component data-source="project-timeline" data-min="2010-01" data-max="2018-01" data-activate-animation="pulse" data-highlight-color="#c084fc" data-title-key="project/timelineTitle" data-toggle-title-key="timeline/toggleHint"></timeline-component>
 
         <script type="application/json" id="ideas-timeline">
             [
-                { "labelKey": "idea/timeline/pw", "href": "#pw", "start": "2016-09", "end": "2026-02", "position": "1" },
-                { "labelKey": "idea/timeline/ee", "href": "#ee", "start": "2015-08", "end": "2015-08", "position": "2" },
-                { "labelKey": "idea/timeline/psf", "href": "#psf", "start": "2012-06", "end": "2012-08", "position": "1" }
+                { "labelKey": "idea/i1/shortTitle", "href": "#psf", "start": "2012-06", "end": "2012-08", "position": "1" },
+                { "labelKey": "idea/i2/shortTitle", "href": "#ee", "start": "2015-08", "end": "2015-08", "position": "2" },
+                { "labelKey": "idea/i3/shortTitle", "href": "#pw", "start": "2016-09", "end": "2026-02", "position": "1" }
             ]
         </script>
         <timeline-component data-source="ideas-timeline" data-min="2012-01" data-max="2026-02" data-activate-animation="pulse" data-highlight-color="#f5c542" data-title-key="idea/timelineTitle" data-subtitle-key="idea/summary" data-toggle-title-key="timeline/toggleHint"></timeline-component>
@@ -238,7 +238,7 @@
         </div>
 
         <div class="card mt-4 project-card" id="p6">
-            <h5 class="card-header">Low Cost SLAM Realization on Smart Phone</h5>
+            <h5 class="card-header" data-i18n="project/p6/title"></h5>
             <div class="row">
                 <div class="col-md-6">
                     <div class="card-body">
@@ -282,7 +282,7 @@
         </div>
         
         <div class="card mt-4 project-card" id="p4">
-            <h5 class="card-header">Force Gauge for the Removal of Epidural Catheters</h5>
+            <h5 class="card-header" data-i18n="project/p4/title"></h5>
             <div class="row">
                 <div class="col-md-6">
                     <div class="card-body">
@@ -323,7 +323,7 @@
         </div>
     
         <div class="card mt-4 project-card" id="p5">
-            <h5 class="card-header">Computational Modeling of Closed-loop Peripheral Nerve Block Based on Halorhodopsin (NpHR)</h5>
+            <h5 class="card-header" data-i18n="project/p5/title"></h5>
             <div class="row">
                 <div class="col-md-12">
                     <div class="card-body">
@@ -343,7 +343,7 @@
         </div>
     
         <div class="card mt-4 project-card" id="p3">
-            <h5 class="card-header">Facial Electromyography as a Communication Aid and Method for Computer Interfacing</h5>
+            <h5 class="card-header" data-i18n="project/p3/title"></h5>
             <div class="row">
                 <div class="col-md-6">
                     <div class="card-body">
@@ -366,7 +366,7 @@
         </div>
 
         <div class="card mt-4 project-card" id="p2">
-            <h5 class="card-header">The Effect of Electrode Position on Human Biceps EMG Amplitude</h5>
+            <h5 class="card-header" data-i18n="project/p2/title"></h5>
             <div class="row">
                 <div class="col-md-6">
                     <div class="card-body">
@@ -402,7 +402,7 @@
         </div>
 
         <div class="card mt-4 project-card" id="p1">
-            <h5 class="card-header">Synthesis of Physalien and Its Application to Food Coloring</h5>
+            <h5 class="card-header" data-i18n="project/p1/title"></h5>
             <div class="row">
                 <div class="col-md-6">
                     <div class="card-body">
@@ -440,7 +440,7 @@
         </div>
 
         <div class="card mt-4 idea-card" id="pw">
-            <h5 class="card-header">Personal Website</h5>
+            <h5 class="card-header" data-i18n="idea/i3/title"></h5>
             <div class="row">
                 <div class="col-md-6 order-md-2">
                     <img class="card-img-top" src="img/ideas/20231214 Index.png">
@@ -462,7 +462,7 @@
         </div>
 
         <div class="card mt-4 idea-card" id="ee">
-            <h5 class="card-header">English Enhancer</h5>
+            <h5 class="card-header" data-i18n="idea/i2/title"></h5>
             <div class="row">
                 <div class="col-md-6 order-md-2">
                     <img alt="English Enhancer" class="card-img-top" title="English Enhancer" src="https://raw.githubusercontent.com/MXGHarryLiu/EnglishEnhancer/main/resource/welcome.png">
@@ -484,7 +484,7 @@
         </div>
 
         <div class="card mt-4 idea-card" id="psf">
-            <h5 class="card-header">Portable Semiconductor Fridge</h5>
+            <h5 class="card-header" data-i18n="idea/i1/title"></h5>
             <div class="row">
                 <div class="col-md-6 order-md-2">
                     <img class="card-img-top" alt="Portable Semiconductor Fridge" title="Portable Semiconductor Fridge" src="img/ideas/fridge-s.png">
