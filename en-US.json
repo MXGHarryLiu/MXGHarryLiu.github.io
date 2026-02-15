@@ -9,10 +9,15 @@
     },
     "bio": {
         "title": "Bio",
-        "intro": "My name is <b>Zhuohe Liu</b>, and I go by <b>Harry</b> if it's easier for you to pronounce my first name as /JOO-oh-her/ instead. <br>I received the B. S. E. in biomedical engineering from <a href=\"#bs1\">University of Michigan</a> in 2016, and had my second B. S. E. degree in electrical and computer engineering from Shanghai Jiao Tong University (<a href=\"#bs2\">UM-SJTU Joint Institute</a>). Later in 2016, I moved to Houston, TX to study at <a href=\"#phd\">Rice University</a>, and got my M.S. in 2020, and Ph.D. in 2022, both in electrical and computer engineering.",
+        "intro": "My name is <b>Zhuohe Liu</b>, and I go by <b>Harry</b> if it's easier for you to pronounce my first name as /JOO-oh-her/ instead. <br>I received the B. S. E. in biomedical engineering from <a href=\"#bs1\">University of Michigan</a> in 2016, and had my second B. S. E. degree in electrical and computer engineering from Shanghai Jiao Tong University (<a href=\"#bs2\">UM-SJTU Joint Institute</a>). Later in 2016, I moved to Houston, TX to study at <a href=\"#phd\">Rice University</a>, and got my M.S. in 2020, and Ph.D. in 2022, both in electrical and computer engineering."
+    },
+    "education": {
+        "title": "Education",
+        "timelineTitle": "Education",
         "phd": {
             "title": "Doctor of Philosophy",
-            "place": "<a href=\"http://www.rice.edu/\">Rice University</a>, George R. Brown School of Engineering, Houston, Texas, USA",
+            "shortTitle": "Ph.D. / M.S.",
+            "place": "<a href=\"http://www.rice.edu/\" target=\"_blank\" rel=\"noopener noreferrer\">Rice University</a>, George R. Brown School of Engineering, Houston, Texas, USA",
             "focus": "Electrical and Computer Engineering (GPA: 4.05/4)",
             "date": "Dec. 2022"
         },
@@ -27,28 +32,31 @@
         },
         "bs2": {
             "title": "Bachelor of Science in Engineering",
-            "place": "<a href=\"https://umich.edu/\">University of Michigan</a>, College of Engineering, Ann Arbor, Michigan, USA",
+            "shortTitle": "B.S.E. (UM)",
+            "place": "<a href=\"https://umich.edu/\" target=\"_blank\" rel=\"noopener noreferrer\">University of Michigan</a>, College of Engineering, Ann Arbor, Michigan, USA",
             "focus": "Biomedical Engineering (Bioelectrical Concentration) (GPA: 3.99/4)",
             "date": "May 2016",
             "awards": "Honors &amp; Awards: ",
-            "award1": "<b>Summa Cum Laude</b>", 
-            "award2": "<b><a href=\"http://honors.umich.edu/awards.php#angells\">James B. Angell Scholar</a></b>: Mar. 2016. Awarded to students with four or more consecutive terms of all A's. ",
+            "award1": "<b>Summa Cum Laude</b>",
+            "award2": "<b><a href=\"http://honors.umich.edu/awards.php#angells\" target=\"_blank\" rel=\"noopener noreferrer\">James B. Angell Scholar</a></b>: Mar. 2016. Awarded to students with four or more consecutive terms of all A's. ",
             "award3": "<b>University Honors (4x) and Dean's Honor List (4x)</b>: Fall 2014, Winter 2015, Fall 2015, and Winter 2016. Awarded to students with CGPA &gt; 3.5. ",
             "course": "Biochemistry, Biomechanics, Quant. Physiology, Quant. Cell Biology, Optoelectronics, Semiconductor Devices, etc. "
         },
         "bs1": {
             "title": "Bachelor of Science in Engineering",
-            "place": "Shanghai Jiao Tong University, <a href=\"https://www.ji.sjtu.edu.cn/\">UM-SJTU Joint Institute</a>",
+            "shortTitle": "B.S.E. (SJTU)",
+            "place": "Shanghai Jiao Tong University, <a href=\"https://www.ji.sjtu.edu.cn/\" target=\"_blank\" rel=\"noopener noreferrer\">UM-SJTU Joint Institute</a>",
             "city": ", Shanghai, China",
             "focus": "Electrical and Computer Engineering (GPA: 3.63/4)",
             "date": "Aug. 2016",
-            "awards":"Honors &amp; Awards: ",
+            "awards": "Honors &amp; Awards: ",
             "award1": "<b>Excellent Student Scholarship (Level C)</b> (2x): Academic year 2012-2013 and 2013-2014. ￥500 stipend. ",
             "award2": "<b>Dean's List (3x)</b>: Fall 2012, Summer 2013, and Fall 2013. Awarded to students with term GPA &gt; 3.5. ",
             "course": "Signals and Systems, Logic Design, Engineering Materials, Modern Physics, Data Mining, etc. "
         },
         "high": {
             "title": "High School",
+            "shortTitle": "High School",
             "place": "No.2 Secondary School Attached to East China Normal University",
             "city": ", Shanghai, China",
             "focus": "Chemistry Concentration in College Entrance Examination",
@@ -61,25 +69,15 @@
         },
         "middle": {
             "title": "Middle School",
+            "shortTitle": "Middle School",
             "place": "Shanghai Huayu Private Middle School",
             "city": ", Shanghai, China"
         },
         "elem": {
             "title": "Elementry School",
+            "shortTitle": "Elementary",
             "place": "Shanghai Xuhui Xiangyang Elementry School",
             "city": ", Shanghai, China"
-        }
-    },
-    "education": {
-        "title": "Education",
-        "timelineTitle": "Education",
-        "timeline": {
-            "phd": "Ph.D. / M.S.",
-            "bs2": "B.S.E. (UM)",
-            "bs1": "B.S.E. (SJTU)",
-            "high": "High School",
-            "middle": "Middle School",
-            "elem": "Elementary"
         }
     },
     "experience": {
@@ -87,36 +85,55 @@
         "e1": {
             "title": "Guaduate Research Assistant",
             "shortTitle": "Grad Research",
-            "place": "<a href=\"https://www.stpierrelab.com/\">St-Pierre Lab</a>, Department of Neurosciece, Baylor College of Medicine",
-            "teams": "<a href=\"https://www.bcm.edu/people/view/francois-st-pierre/ce5139a8-20f1-11e5-8d53-005056b104be\" title=\"Dr. St-Pierre BCM profile\">Dr. François St-Pierre</a> (advisor)",
-            "date": "Jan. 2017 - Dec. 2022"
+            "place": "<a href=\"https://www.stpierrelab.com/\" target=\"_blank\" rel=\"noopener noreferrer\">St-Pierre Lab</a>, Department of Neurosciece, Baylor College of Medicine",
+            "teams": "<a href=\"https://www.bcm.edu/people/view/francois-st-pierre/ce5139a8-20f1-11e5-8d53-005056b104be\" title=\"Dr. St-Pierre BCM profile\" target=\"_blank\" rel=\"noopener noreferrer\">Dr. François St-Pierre</a> (advisor)",
+            "date": "Jan. 2017 - Dec. 2022",
+            "bullet1": "High-throughput Microscopy Screening Platform for Fluorescent Voltage Biosensor",
+            "bullet1-1": "Built image analysis pipelines in <b>MATLAB</b> to automate analysis of fluorescence microscopy recordings.",
+            "bullet1-2": "Designed parallel computing framework to process TBs of data and upload to <b>MongoDB</b> database.",
+            "bullet1-3": "Crafted advanced <b>UI</b> to visualize high-dimensional data and display statistical analysis results.",
+            "bullet1-4": "Documented 100+ custom functions and classes in HTML integrated to MATLAB and wrote tutorials.",
+            "bullet2": "Electrode Motor Assembly as a Microscope Add-on for Electric Field Stimulation",
+            "bullet2-1": "Built a prototype controlled by a <b>Raspberry Pi</b> to position Pt electrodes to provide stimulation to cells.",
+            "bullet2-2": "Improved sturdiness and precision using off-the-shelf optomechanical parts and <b>SolidWorks</b> modeling.",
+            "bullet2-3": "Deployed the redesigned assembly to 2 inverted microscopes and trained 10+ lab members.",
+            "bullet3": "SPOTlight: A Versatile Single-cell Microscope-based Bioproduct Engineering Platform",
+            "bullet3-1": "Streamlined automated workflow to control stage position with single-cell precision.",
+            "bullet3-2": "Achieved at least 1 million fold throughput improvement over well-based screening approaches."
         },
         "e2": {
             "title": "Teaching Assistant",
             "shortTitle": "Teaching Assistant",
-            "place": "Department of Electrical and Computer Engineering, Rice University",
-            "teams": "<a href=\"http://varman.rice.edu/\">Dr. Peter J. Varman</a> (instructor of <span style=\"font-style:italic\">ELEC326 Digital Logic Design</span>)",
-            "date": "Fall 2017, Fall 2018, Fall 2021"
+            "place": "Department of Electrical and Computer Engineering, <a href=\"http://www.rice.edu/\" target=\"_blank\" rel=\"noopener noreferrer\">Rice University</a>",
+            "teams": "<a href=\"http://varman.rice.edu/\" target=\"_blank\" rel=\"noopener noreferrer\">Dr. Peter J. Varman</a> (instructor of <span style=\"font-style:italic\">ELEC326 Digital Logic Design</span>)",
+            "date": "Fall 2017, Fall 2018, Fall 2021",
+            "bullet1": "Graded lab reports and homework on <b>Verilog</b> from undergraduate students.",
+            "bullet2": "Held lab sessions on <b>FPGA</b> board development."
         },
         "e3": {
             "title": "Undergraduate Research Assistant",
             "shortTitle": "Undergrad Research",
-            "place": "<a href=\"http://shearesearch.engin.umich.edu/\">Shea Lab</a>, Department of Biomedical Engineering, University of Michigan",
-            "teams": "<a href=\"https://www.linkedin.com/in/joe-decker-90474647/\" title=\"LinkedIn profile\">Dr. Joseph Decker</a> (advisor)",
+            "place": "<a href=\"http://shearesearch.engin.umich.edu/\" target=\"_blank\" rel=\"noopener noreferrer\">Shea Lab</a>, Department of Biomedical Engineering, <a href=\"https://umich.edu/\" target=\"_blank\" rel=\"noopener noreferrer\">University of Michigan</a>",
+            "teams": "<a href=\"https://www.linkedin.com/in/joe-decker-90474647/\" title=\"LinkedIn profile\" target=\"_blank\" rel=\"noopener noreferrer\">Dr. Joseph Decker</a> (advisor)",
             "date": "May 2015 - Mar. 2016"
         },
         "e4": {
             "title": "Laboratory Assistant",
             "shortTitle": "Lab Assistant",
-            "place": "Student Innovation Center, UM-SJTU Joint Institute, Shanghai Jiao Tong University",
-            "date": "Sep. 2012 - Aug. 2013"
+            "place": "Student Innovation Center, <a href=\"https://www.ji.sjtu.edu.cn/\" target=\"_blank\" rel=\"noopener noreferrer\">UM-SJTU Joint Institute</a>, Shanghai Jiao Tong University",
+            "date": "Sep. 2012 - Aug. 2013",
+            "bullet1": "Answered electrical &amp; computer engineering related technical questions for lab users.",
+            "bullet2": "Maintained lab environment, and managed equipment usage for 300 JI students."
         },
         "e5": {
             "title": "Postdoctoral Researcher",
             "shortTitle": "Postdoctoral",
-            "place": "<a href=\"https://www.stpierrelab.com/\">St-Pierre Lab</a>, Department of Neuroscience, Baylor College of Medicine, Houston, Texas",
-            "teams": "<a href=\"https://www.bcm.edu/people/view/francois-st-pierre/ce5139a8-20f1-11e5-8d53-005056b104be\" title=\"Dr. St-Pierre BCM profile\">Dr. François St-Pierre</a> (principal investigator)",
-            "date": "Jan. 2023 - Jul. 2023"
+            "place": "<a href=\"https://www.stpierrelab.com/\" target=\"_blank\" rel=\"noopener noreferrer\">St-Pierre Lab</a>, Department of Neuroscience, Baylor College of Medicine, Houston, Texas",
+            "teams": "<a href=\"https://www.bcm.edu/people/view/francois-st-pierre/ce5139a8-20f1-11e5-8d53-005056b104be\" title=\"Dr. St-Pierre BCM profile\" target=\"_blank\" rel=\"noopener noreferrer\">Dr. François St-Pierre</a> (principal investigator)",
+            "date": "Jan. 2023 - Jul. 2023",
+            "bullet1": "Developed hardware control API to C++ device adapters to enable real-time adaptive microscopy.",
+            "bullet2": "Adapted computer vision algorithms (e.g. instance segmentation) in Python to accelerate analysis.",
+            "bullet3": "Assembled a modular microscope and did BOM analysis for commercialization of SPOTlight."
         }
     },
     "endeavor": {
@@ -124,7 +141,7 @@
     },
     "publication": {
         "title": "Publication",
-        "summary": "Please visit my <a href=\"https://scholar.google.com/citations?user=A1aLmWIAAAAJ\">Google Scholar Profile</a> or <a href=\"https://orcid.org/0000-0002-1818-646X\">ORCID Profile</a> for a complete list of publications. ",
+        "summary": "Please visit my <a href=\"https://scholar.google.com/citations?user=A1aLmWIAAAAJ\" target=\"_blank\" rel=\"noopener noreferrer\">Google Scholar Profile</a> or <a href=\"https://orcid.org/0000-0002-1818-646X\" target=\"_blank\" rel=\"noopener noreferrer\">ORCID Profile</a> for a complete list of publications. ",
         "timelineTitle": "Publication",
         "timeline": {
             "2025": "Lee et al., 2025 (Nat. Commun.)",
@@ -290,3 +307,4 @@
         "copyright": "Copyright &copy; 2016 - 2026 Zhuohe Liu"
     }
 }
+

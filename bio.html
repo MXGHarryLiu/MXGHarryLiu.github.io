@@ -55,12 +55,12 @@
 
         <script type="application/json" id="education-timeline">
             [
-                { "labelKey": "education/timeline/elem", "href": "#elem", "start": "2000-09", "end": "2005-06", "position": "2" },
-                { "labelKey": "education/timeline/middle", "href": "#middle", "start": "2005-09", "end": "2009-06", "position": "1" },
-                { "labelKey": "education/timeline/high", "href": "#high", "start": "2009-09", "end": "2012-06", "position": "2" },
-                { "labelKey": "education/timeline/bs1", "href": "#bs1", "start": "2012-09", "end": "2016-08", "position": "1" },
-                { "labelKey": "education/timeline/bs2", "href": "#bs2", "start": "2014-08", "end": "2016-05", "position": "2" },
-                { "labelKey": "education/timeline/phd", "href": "#phd", "start": "2016-08", "end": "2022-12", "position": "1" }
+                { "labelKey": "education/elem/shortTitle", "href": "#elem", "start": "2000-09", "end": "2005-06", "position": "2" },
+                { "labelKey": "education/middle/shortTitle", "href": "#middle", "start": "2005-09", "end": "2009-06", "position": "1" },
+                { "labelKey": "education/high/shortTitle", "href": "#high", "start": "2009-09", "end": "2012-06", "position": "2" },
+                { "labelKey": "education/bs1/shortTitle", "href": "#bs1", "start": "2012-09", "end": "2016-08", "position": "1" },
+                { "labelKey": "education/bs2/shortTitle", "href": "#bs2", "start": "2014-08", "end": "2016-05", "position": "2" },
+                { "labelKey": "education/phd/shortTitle", "href": "#phd", "start": "2016-08", "end": "2022-12", "position": "1" }
             ]
         </script>
         <timeline-component data-source="education-timeline" data-min="2000-01" data-max="2024-01" data-activate-animation="pulse" data-highlight-color="#d9f99d" data-title-key="education/timelineTitle" data-toggle-title-key="timeline/toggleHint"></timeline-component>
@@ -77,29 +77,29 @@
                             <li><i class="i-place"></i><span data-i18n="experience/e1/place"></span></li>
                             <li><i class="i-team"></i><span data-i18n="experience/e1/teams"></span></li>
                             <li><i class="i-date"></i><span data-i18n="experience/e1/date"></span></li>
-                            <li><i class="i-arrow"></i><b>High-throughput Microscopy Screening Platform for Fluorescent Voltage Biosensor</b>
+                            <li><i class="i-arrow"></i><b data-i18n="experience/e1/bullet1"></b>
                                 <ul class="card-list">
-                                    <li><i class="i-dot"></i>Built image analysis pipelines in <b>MATLAB</b> to automate analysis of fluorescence microscopy recordings. </li>
-                                    <li><i class="i-dot"></i>Designed parallel computing framework to process TBs of data and upload to <b>MongoDB</b> database.</li>
-                                    <li><i class="i-dot"></i>Crafted advanced <b>UI</b> to visualize high-dimensional data and display statistical analysis results.</li>
-                                    <li><i class="i-dot"></i>Documented 100+ custom functions and classes in HTML integrated to MATLAB and wrote tutorials.</li>
+                                    <li><i class="i-dot"></i><span data-i18n="experience/e1/bullet1-1"></span></li>
+                                    <li><i class="i-dot"></i><span data-i18n="experience/e1/bullet1-2"></span></li>
+                                    <li><i class="i-dot"></i><span data-i18n="experience/e1/bullet1-3"></span></li>
+                                    <li><i class="i-dot"></i><span data-i18n="experience/e1/bullet1-4"></span></li>
                                 </ul>
                             </li>
-                            <li><i class="i-arrow"></i><b>Electrode Motor Assembly as a Microscope Add-on for Electric Field Stimulation</b>
+                            <li><i class="i-arrow"></i><b data-i18n="experience/e1/bullet2"></b>
                                 <ul class="card-list">
-                                    <li><i class="i-dot"></i>Built a prototype controlled by a <b>Raspberry Pi</b> to position Pt electrodes to provide stimulation to cells.</li>
-                                    <li><i class="i-dot"></i>Improved sturdiness and precision using off-the-shelf optomechanical parts and <b>SolidWorks</b> modeling.</li>
-                                    <li><i class="i-dot"></i>Deployed the redesigned assembly to 2 inverted microscopes and trained 10+ lab members.</li>
+                                    <li><i class="i-dot"></i><span data-i18n="experience/e1/bullet2-1"></span></li>
+                                    <li><i class="i-dot"></i><span data-i18n="experience/e1/bullet2-2"></span></li>
+                                    <li><i class="i-dot"></i><span data-i18n="experience/e1/bullet2-3"></span></li>
                                 </ul>
                             </li>
-                            <li><i class="i-arrow"></i><b>SPOTlight: A Versatile Single-cell Microscope-based Bioproduct Engineering Platform</b>
+                            <li><i class="i-arrow"></i><b data-i18n="experience/e1/bullet3"></b>
                                 <ul class="card-list">
-                                    <li><i class="i-dot"></i>Streamlined automated workflow to control stage position with single-cell precision.</li>
-                                    <li><i class="i-dot"></i>Achieved at least 1 million fold throughput improvement over well-based screening approaches.</li>
+                                    <li><i class="i-dot"></i><span data-i18n="experience/e1/bullet3-1"></span></li>
+                                    <li><i class="i-dot"></i><span data-i18n="experience/e1/bullet3-2"></span></li>
                                 </ul>
                             </li>
                         </ul>
-                        <p><span title="References">🔗</span> <a href="https://en.wikipedia.org/wiki/Genetically_encoded_voltage_indicator" title="Genetically encoded voltage indicator">GEVI (Wikipedia page I created)</a></p>
+                        <p><span title="References">🔗</span> <a href="https://en.wikipedia.org/wiki/Genetically_encoded_voltage_indicator" title="Genetically encoded voltage indicator" target="_blank" rel="noopener noreferrer">GEVI (Wikipedia page I created)</a></p>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -141,9 +141,9 @@
                     <li><i class="i-place"></i><span data-i18n="experience/e5/place"></span></li>
                     <li><i class="i-team"></i><span data-i18n="experience/e5/teams"></span></li>
                     <li><i class="i-date"></i><span data-i18n="experience/e5/date"></span></li>
-                    <li><i class="i-dot"></i>Developed hardware control API to C++ device adapters to enable real-time adaptive microscopy.</li>
-                    <li><i class="i-dot"></i>Adapted computer vision algorithms (e.g. instance segmentation) in Python to accelerate analysis.</li>
-                    <li><i class="i-dot"></i>Assembled a modular microscope and did BOM analysis for commercialization of SPOTlight.</li>
+                    <li><i class="i-dot"></i><span data-i18n="experience/e5/bullet1"></span></li>
+                    <li><i class="i-dot"></i><span data-i18n="experience/e5/bullet2"></span></li>
+                    <li><i class="i-dot"></i><span data-i18n="experience/e5/bullet3"></span></li>
                 </ul>
             </div>
         </div>
@@ -155,8 +155,8 @@
                     <li><i class="i-place"></i><span data-i18n="experience/e2/place"></span></li>
                     <li><i class="i-team"></i><span data-i18n="experience/e2/teams"></span></li>
                     <li><i class="i-date"></i><span data-i18n="experience/e2/date"></span></li>
-                    <li><i class="i-dot"></i>Graded lab reports and homework on <b>Verilog</b> from undergraduate students.</li>
-                    <li><i class="i-dot"></i>Held lab sessions on <b>FPGA</b> board development.</li>
+                    <li><i class="i-dot"></i><span data-i18n="experience/e2/bullet1"></span></li>
+                    <li><i class="i-dot"></i><span data-i18n="experience/e2/bullet2"></span></li>
                 </ul>
             </div>
             <div class="card-footer">
@@ -206,8 +206,8 @@
                 <ul class="card-list">
                     <li><i class="i-place"></i><span data-i18n="experience/e4/place"></span></li>
                     <li><i class="i-date"></i><span data-i18n="experience/e4/date"></span></li>
-                    <li><i class="i-dot"></i>Answered electrical &amp; computer engineering related technical questions for lab users. </li>
-                    <li><i class="i-dot"></i>Maintained lab environment, and managed equipment usage for 300 JI students. </li>
+                    <li><i class="i-dot"></i><span data-i18n="experience/e4/bullet1"></span></li>
+                    <li><i class="i-dot"></i><span data-i18n="experience/e4/bullet2"></span></li>
                 </ul>
             </div>
             <div class="card-footer">
@@ -220,7 +220,7 @@
         </div>
 
         <div class="card mt-4 bio-card" id="phd">
-            <h5 class="card-header" data-i18n="bio/phd/title"></h5>
+            <h5 class="card-header" data-i18n="education/phd/title"></h5>
             <div class="row">
                 <div class="col-md-4 order-md-2">
                     <a href="#" data-bs-toggle="modal" data-bs-target="#lightboxModal" data-bs-img="img/education/stpierrelab.png"><img class="card-img-top" src="img/education/stpierrelab.png"></a>
@@ -228,21 +228,21 @@
                 <div class="col-md-8 order-md-1">
                     <div class="card-body">
                         <ul class="card-list">
-                            <li><i class="i-place"></i><span data-i18n="bio/phd/place"></span></li>
-                            <li><i class="i-focus"></i><span data-i18n="bio/phd/focus"></span></li>
-                            <li><i class="i-date"></i><span data-i18n="bio/phd/date"></span></li>
+                            <li><i class="i-place"></i><span data-i18n="education/phd/place"></span></li>
+                            <li><i class="i-focus"></i><span data-i18n="education/phd/focus"></span></li>
+                            <li><i class="i-date"></i><span data-i18n="education/phd/date"></span></li>
                         </ul>
-                        <h5 class="card-title" data-i18n="bio/ms/title"></h5>
+                        <h5 class="card-title" data-i18n="education/ms/title"></h5>
                         <ul class="card-list">
-                            <li><i class="i-place"></i><span data-i18n="bio/ms/place"></span></li>
-                            <li><i class="i-focus"></i><span data-i18n="bio/ms/focus"></span></li>
-                            <li><i class="i-date"></i><span data-i18n="bio/ms/date"></span></li>
-                            <li><i class="i-award"></i><span data-i18n="bio/ms/awards"></span>
+                            <li><i class="i-place"></i><span data-i18n="education/ms/place"></span></li>
+                            <li><i class="i-focus"></i><span data-i18n="education/ms/focus"></span></li>
+                            <li><i class="i-date"></i><span data-i18n="education/ms/date"></span></li>
+                            <li><i class="i-award"></i><span data-i18n="education/ms/awards"></span>
                                 <ul class="card-list">
-                                    <li><i class="i-dot"></i><span data-i18n="bio/ms/award1"></span></li>
+                                    <li><i class="i-dot"></i><span data-i18n="education/ms/award1"></span></li>
                                 </ul>
                             </li>
-                            <li><i class="i-course"></i><span data-i18n="bio/ms/course"></span></li>
+                            <li><i class="i-course"></i><span data-i18n="education/ms/course"></span></li>
                         </ul>
                     </div>
                 </div>
@@ -250,7 +250,7 @@
             <div class="card-footer">
                 <ul class="nav nav-pills">
                     <li class="nav-item">
-                        <a class="nav-link" href="#e1">Experience</a>
+                        <a class="nav-link" href="#e1" data-i18n="experience/timelineTitle"></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="endeavor.html#Liu2022" data-i18n="publication/title"></a>
@@ -260,7 +260,7 @@
         </div>
 
         <div class="card mt-4 bio-card" id="bs2">
-            <h5 class="card-header" data-i18n="bio/bs2/title"></h5>
+            <h5 class="card-header" data-i18n="education/bs2/title"></h5>
             <div class="row">
                 <div class="col-md-4 order-md-2">
                     <a href="#" data-bs-toggle="modal" data-bs-target="#lightboxModal" data-bs-img="img/education/umich-s.jpg"><img class="card-img-top" src="img/education/umich-s.jpg"></a>
@@ -268,17 +268,17 @@
                 <div class="col-md-8 order-md-1">
                     <div class="card-body">
                         <ul class="card-list">
-                            <li><i class="i-place"></i><span data-i18n="bio/bs2/place"></span></li>
-                            <li><i class="i-focus"></i><span data-i18n="bio/bs2/focus"></span></li>
-                            <li><i class="i-date"></i><span data-i18n="bio/bs2/date"></span></li>
-                            <li><i class="i-award"></i><span data-i18n="bio/bs2/awards"></span>
+                            <li><i class="i-place"></i><span data-i18n="education/bs2/place"></span></li>
+                            <li><i class="i-focus"></i><span data-i18n="education/bs2/focus"></span></li>
+                            <li><i class="i-date"></i><span data-i18n="education/bs2/date"></span></li>
+                            <li><i class="i-award"></i><span data-i18n="education/bs2/awards"></span>
                                 <ul class="card-list">
-                                    <li><i class="i-dot"></i><span data-i18n="bio/bs2/award1"></span></li>
-                                    <li><i class="i-dot"></i><span data-i18n="bio/bs2/award2"></span></li>
-                                    <li><i class="i-dot"></i><span data-i18n="bio/bs2/award3"></span></li>
+                                    <li><i class="i-dot"></i><span data-i18n="education/bs2/award1"></span></li>
+                                    <li><i class="i-dot"></i><span data-i18n="education/bs2/award2"></span></li>
+                                    <li><i class="i-dot"></i><span data-i18n="education/bs2/award3"></span></li>
                                 </ul>
                             </li>
-                            <li><i class="i-course"></i><span data-i18n="bio/bs2/course"></span></li>
+                            <li><i class="i-course"></i><span data-i18n="education/bs2/course"></span></li>
                         </ul>
                     </div>
                 </div>
@@ -289,14 +289,14 @@
                         <a class="nav-link" href="endeavor.html#p1" data-i18n="project/title"></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#e3">Experience</a>
+                        <a class="nav-link" href="#e3" data-i18n="experience/timelineTitle"></a>
                     </li>
                 </ul>
             </div>
         </div>
 
         <div class="card mt-4 bio-card" id="bs1">
-            <h5 class="card-header" data-i18n="bio/bs1/title"></h5>
+            <h5 class="card-header" data-i18n="education/bs1/title"></h5>
             <div class="row">
                 <div class="col-md-4 order-md-2">
                     <a href="#" data-bs-toggle="modal" data-bs-target="#lightboxModal" data-bs-img="img/education/umsjtuji-expo-s.jpg"><img class="card-img-top" src="img/education/umsjtuji-expo-s.jpg"></a>
@@ -304,16 +304,16 @@
                 <div class="col-md-8 order-md-1">
                     <div class="card-body">
                         <ul class="card-list">
-                            <li><i class="i-place"></i><span data-i18n="bio/bs1/place"></span><span data-i18n="bio/bs1/city"></span></li>
-                            <li><i class="i-focus"></i><span data-i18n="bio/bs1/focus"></span></li>
-                            <li><i class="i-date"></i><span data-i18n="bio/bs1/date"></span></li>
-                            <li><i class="i-award"></i><span data-i18n="bio/bs1/awards"></span>
+                            <li><i class="i-place"></i><span data-i18n="education/bs1/place"></span><span data-i18n="education/bs1/city"></span></li>
+                            <li><i class="i-focus"></i><span data-i18n="education/bs1/focus"></span></li>
+                            <li><i class="i-date"></i><span data-i18n="education/bs1/date"></span></li>
+                            <li><i class="i-award"></i><span data-i18n="education/bs1/awards"></span>
                                 <ul class="card-list">
-                                    <li><i class="i-dot"></i><span data-i18n="bio/bs1/award1"></span></li>
-                                    <li><i class="i-dot"></i><span data-i18n="bio/bs1/award2"></span></li>
+                                    <li><i class="i-dot"></i><span data-i18n="education/bs1/award1"></span></li>
+                                    <li><i class="i-dot"></i><span data-i18n="education/bs1/award2"></span></li>
                                 </ul>
                             </li>
-                            <li><i class="i-course"></i><span data-i18n="bio/bs1/course"></span></li>
+                            <li><i class="i-course"></i><span data-i18n="education/bs1/course"></span></li>
                         </ul>
                     </div>
                 </div>
@@ -324,14 +324,14 @@
                         <a class="nav-link" href="endeavor.html#p1" data-i18n="project/title"></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#e4">Experience</a>
+                        <a class="nav-link" href="#e4" data-i18n="experience/timelineTitle"></a>
                     </li>
                 </ul>
             </div>
         </div>
 
         <div class="card mt-4 bio-card" id="high">
-            <h5 class="card-header" data-i18n="bio/high/title"></h5>
+            <h5 class="card-header" data-i18n="education/high/title"></h5>
             <div class="row">
                 <div class="col-md-4 order-md-2">
                     <img class="card-img-top" src="img/education/efz.jpg">
@@ -339,19 +339,19 @@
                 <div class="col-md-8 order-md-1">
                     <div class="card-body">
                         <ul class="card-list">
-                            <li><i class="i-place"></i><a href="http://www.hsefz.cn/" data-i18n="bio/high/place"></a><span data-i18n="bio/high/city"></span></li>
-                            <li><i class="i-focus"></i><span data-i18n="bio/high/focus"></span></li>
+                            <li><i class="i-place"></i><a href="http://www.hsefz.cn/" data-i18n="education/high/place" target="_blank" rel="noopener noreferrer"></a><span data-i18n="education/high/city"></span></li>
+                            <li><i class="i-focus"></i><span data-i18n="education/high/focus"></span></li>
                             <li><i class="i-date"></i>2009 - 2012</li>
-                            <li><i class="i-award"></i><span data-i18n="bio/high/awards"></span>
+                            <li><i class="i-award"></i><span data-i18n="education/high/awards"></span>
                                 <ul class="card-list">
-                                    <li><i class="i-dot"></i><span data-i18n="bio/high/award1"></span></li>
-                                    <li><i class="i-dot"></i><span data-i18n="bio/high/award2"></span></li>
+                                    <li><i class="i-dot"></i><span data-i18n="education/high/award1"></span></li>
+                                    <li><i class="i-dot"></i><span data-i18n="education/high/award2"></span></li>
                                 </ul>
                             </li>
-                            <li><i class="i-arrow"></i><span data-i18n="bio/high/leadership"></span>
+                            <li><i class="i-arrow"></i><span data-i18n="education/high/leadership"></span>
                                 <ul class="card-list">
-                                    <li><i class="i-dot"></i><span data-i18n="bio/high/award3"></span></li>
-                                    <li><i class="i-dot"></i><span data-i18n="bio/high/award4"></span></li>
+                                    <li><i class="i-dot"></i><span data-i18n="education/high/award3"></span></li>
+                                    <li><i class="i-dot"></i><span data-i18n="education/high/award4"></span></li>
                                 </ul>
                             </li>
                         </ul>
@@ -368,7 +368,7 @@
         </div>
         
         <div class="card mt-4 bio-card" id="middle">
-            <h5 class="card-header" data-i18n="bio/middle/title"></h5>
+            <h5 class="card-header" data-i18n="education/middle/title"></h5>
             <div class="row">
                 <div class="col-md-4 order-md-2">
                     <img class="card-img-top" src="img/education/hy.png">
@@ -376,7 +376,7 @@
                 <div class="col-md-8 order-md-1">
                     <div class="card-body">
                         <ul class="card-list">
-                            <li><i class="i-place"></i><a href="http://www.hy.sh.cn/" data-i18n="bio/middle/place"></a><span data-i18n="bio/middle/city"></span></li>
+                            <li><i class="i-place"></i><a href="http://www.hy.sh.cn/" data-i18n="education/middle/place" target="_blank" rel="noopener noreferrer"></a><span data-i18n="education/middle/city"></span></li>
                             <li><i class="i-date"></i>2005 - 2009</li>
                         </ul>
                     </div>
@@ -385,10 +385,10 @@
         </div>
         
         <div class="card mt-4 bio-card" id="elem">
-            <h5 class="card-header" data-i18n="bio/elem/title"></h5>    
+            <h5 class="card-header" data-i18n="education/elem/title"></h5>    
             <div class="card-body">
                 <ul class="card-list">
-                    <li><i class="i-place"></i><a href="http://xyxx.xhedu.sh.cn/cms/" data-i18n="bio/elem/place"></a><span data-i18n="bio/elem/city"></span></li>
+                    <li><i class="i-place"></i><a href="http://xyxx.xhedu.sh.cn/cms/" data-i18n="education/elem/place" target="_blank" rel="noopener noreferrer"></a><span data-i18n="education/elem/city"></span></li>
                     <li><i class="i-date"></i>2000 - 2005</li>
                 </ul>
             </div>
@@ -440,3 +440,5 @@
     <footer-component></footer-component>
 </body>
 </html>
+
+

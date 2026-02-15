@@ -37,6 +37,28 @@
     text-indent: -1.5em;
 }
 
+/* Reduce extra space before card footers */
+.card-body {
+    padding-bottom: 0.75rem;
+}
+
+.card-body > .card-list:last-child,
+.card-body > p:last-child,
+.card-body > div:last-child {
+    margin-bottom: 0;
+}
+
+.card-footer .nav-pills {
+    margin-bottom: 0;
+}
+
+/* Footer height is mostly driven by Bootstrap nav-link padding */
+.card-footer .nav-link {
+    padding-top: 0.125rem;
+    padding-bottom: 0.125rem;
+    line-height: 1.2;
+}
+
 .bio-card {
     border-color: rgba(217, 249, 157, 0.45);
 }
