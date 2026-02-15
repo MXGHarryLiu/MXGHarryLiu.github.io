@@ -17,7 +17,7 @@
         "phd": {
             "title": "博士",
             "shortTitle": "硕博连读",
-            "place": "[莱斯大学](http://www.rice.edu/)乔治布朗工程学院，美国德克萨斯州休斯顿",
+            "place": "[莱斯大学](https://www.rice.edu/)乔治布朗工程学院，美国德克萨斯州休斯顿",
             "focus": "电子和计算机工程（平均积点：4.05/4）",
             "date": "2022年12月"
         },
@@ -38,7 +38,7 @@
             "date": "2016年5月",
             "awards": "荣誉和奖项：",
             "award1": "<b>最优等生</b>（Summa Cum Laude）",
-            "award2": "<b>[詹姆斯·B·安格尔学者称号](http://honors.umich.edu/awards.php#angells)</b>（2016年3月）：颁发给四学期及以上成绩全A的学生。",
+            "award2": "<b>[詹姆斯·B·安格尔学者称号](https://honors.umich.edu/awards.php#angells)</b>（2016年3月）：颁发给四学期及以上成绩全A的学生。",
             "award3": "<b>校荣誉</b>（四次）和 <b>院长嘉奖</b>名单（四次）（2014学年秋季、2015学年冬季、2015学年秋季和2016学年冬季）：颁发给学期累计积点大于3.5的学生。",
             "course": "生物化学、生物力学、定量生理学、定量细胞生物学、光电子导论、半导体设备导论等"
         },
@@ -84,6 +84,7 @@
             "place": "贝勒医学院神经科学系 [St-Pierre 实验室](https://www.stpierrelab.com/)",
             "teams": "[Dr. François St-Pierre](https://www.bcm.edu/people/view/francois-st-pierre/ce5139a8-20f1-11e5-8d53-005056b104be)（导师）",
             "date": "2017年1月至2022年12月",
+            "reference": "[GEVI（我创建的维基百科词条）](https://en.wikipedia.org/wiki/Genetically_encoded_voltage_indicator)",
             "bullet1": "优化荧光电压探针的高通量显微筛选平台",
             "bullet1-1": "基于 <b>MATLAB</b> 构建图像分析流程，实现荧光显微图像的自动化分析。",
             "bullet1-2": "设计并行计算框架，处理 TB 级数据并上传至 <b>MongoDB</b> 数据库。",
@@ -100,8 +101,8 @@
         "e2": {
             "title": "助教",
             "shortTitle": "助教",
-            "place": "[莱斯大学](http://www.rice.edu/)电子和计算机工程系",
-            "teams": "[Dr. Peter J. Varman](http://varman.rice.edu/)（<span style=\"font-style:italic\">ELEC326 Digital Logic Design</span> 课程教师）",
+            "place": "[莱斯大学](https://www.rice.edu/)电子和计算机工程系",
+            "teams": "[Dr. Peter J. Varman](https://varman.rice.edu/)（<span style=\"font-style:italic\">ELEC326 Digital Logic Design</span> 课程教师）",
             "date": "2017，2018，2021秋季学期",
             "bullet1": "批改本科生关于 <b>Verilog</b> 的实验报告和作业。",
             "bullet2": "带领 <b>FPGA</b> 开发板实验课程。"
@@ -109,9 +110,14 @@
         "e3": {
             "title": "本科科研助理",
             "shortTitle": "本科科研",
-            "place": "[密西根大学](https://umich.edu/)生物医学工程系 [Shea 实验室](http://shearesearch.engin.umich.edu/)",
+            "place": "[密西根大学](https://umich.edu/)生物医学工程系 [Shea 实验室](https://shearesearch.engin.umich.edu/)",
             "teams": "[Dr. Joseph Decker](https://www.linkedin.com/in/joe-decker-90474647/)（导师）",
-            "date": "2015年5月至2016年3月"
+            "date": "2015年5月至2016年3月",
+            "bullet1": "开发生物发光活细胞微阵列相关技术。",
+            "bullet2": "使用 R 进行统计分析，研究转录因子 / microRNA 活性的时间依赖性变化。",
+            "bullet3": "完成 110 个 microRNA 的质粒克隆，用于构建荧光素酶报告载体。",
+            "bullet4": "开展慢病毒制备，并对目标人类细胞进行转染。",
+            "skill": "质粒克隆、细菌转化、病毒制备、慢病毒转染、DNA 微阵列分析、生物发光与生物荧光成像。"
         },
         "e4": {
             "title": "实验助理",

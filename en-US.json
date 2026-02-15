@@ -17,7 +17,7 @@
         "phd": {
             "title": "Doctor of Philosophy",
             "shortTitle": "Ph.D. / M.S.",
-            "place": "[Rice University](http://www.rice.edu/), George R. Brown School of Engineering, Houston, Texas, USA",
+            "place": "[Rice University](https://www.rice.edu/), George R. Brown School of Engineering, Houston, Texas, USA",
             "focus": "Electrical and Computer Engineering (GPA: 4.05/4)",
             "date": "Dec. 2022"
         },
@@ -38,7 +38,7 @@
             "date": "May 2016",
             "awards": "Honors &amp; Awards: ",
             "award1": "<b>Summa Cum Laude</b>",
-            "award2": "<b>[James B. Angell Scholar](http://honors.umich.edu/awards.php#angells)</b>: Mar. 2016. Awarded to students with four or more consecutive terms of all A's. ",
+            "award2": "<b>[James B. Angell Scholar](https://honors.umich.edu/awards.php#angells)</b>: Mar. 2016. Awarded to students with four or more consecutive terms of all A's. ",
             "award3": "<b>University Honors (4x) and Dean's Honor List (4x)</b>: Fall 2014, Winter 2015, Fall 2015, and Winter 2016. Awarded to students with CGPA &gt; 3.5. ",
             "course": "Biochemistry, Biomechanics, Quant. Physiology, Quant. Cell Biology, Optoelectronics, Semiconductor Devices, etc. "
         },
@@ -84,6 +84,7 @@
             "place": "[St-Pierre Lab](https://www.stpierrelab.com/), Department of Neurosciece, Baylor College of Medicine",
             "teams": "[Dr. François St-Pierre](https://www.bcm.edu/people/view/francois-st-pierre/ce5139a8-20f1-11e5-8d53-005056b104be) (advisor)",
             "date": "Jan. 2017 - Dec. 2022",
+            "reference": "[GEVI (Wikipedia page I created)](https://en.wikipedia.org/wiki/Genetically_encoded_voltage_indicator)",
             "bullet1": "High-throughput Microscopy Screening Platform for Fluorescent Voltage Biosensor",
             "bullet1-1": "Built image analysis pipelines in <b>MATLAB</b> to automate analysis of fluorescence microscopy recordings.",
             "bullet1-2": "Designed parallel computing framework to process TBs of data and upload to <b>MongoDB</b> database.",
@@ -100,8 +101,8 @@
         "e2": {
             "title": "Teaching Assistant",
             "shortTitle": "Teaching Assistant",
-            "place": "Department of Electrical and Computer Engineering, [Rice University](http://www.rice.edu/)",
-            "teams": "[Dr. Peter J. Varman](http://varman.rice.edu/) (instructor of <span style=\"font-style:italic\">ELEC326 Digital Logic Design</span>)",
+            "place": "Department of Electrical and Computer Engineering, [Rice University](https://www.rice.edu/)",
+            "teams": "[Dr. Peter J. Varman](https://varman.rice.edu/) (instructor of <span style=\"font-style:italic\">ELEC326 Digital Logic Design</span>)",
             "date": "Fall 2017, Fall 2018, Fall 2021",
             "bullet1": "Graded lab reports and homework on <b>Verilog</b> from undergraduate students.",
             "bullet2": "Held lab sessions on <b>FPGA</b> board development."
@@ -109,9 +110,14 @@
         "e3": {
             "title": "Undergraduate Research Assistant",
             "shortTitle": "Undergrad Research",
-            "place": "[Shea Lab](http://shearesearch.engin.umich.edu/), Department of Biomedical Engineering, [University of Michigan](https://umich.edu/)",
+            "place": "[Shea Lab](https://shearesearch.engin.umich.edu/), Department of Biomedical Engineering, [University of Michigan](https://umich.edu/)",
             "teams": "[Dr. Joseph Decker](https://www.linkedin.com/in/joe-decker-90474647/) (advisor)",
-            "date": "May 2015 - Mar. 2016"
+            "date": "May 2015 - Mar. 2016",
+            "bullet1": "Developed techniques of bioluminescence living cell microarrays.",
+            "bullet2": "Studied the time-dependent transcription factor / microRNA activity using R for statistical analysis.",
+            "bullet3": "Performed plasmid cloning of 110 microRNA to make luciferase reporters.",
+            "bullet4": "Conducted lentiviruses production and the transfection on target human cells.",
+            "skill": "Plasmid cloning, Bacterial transformation, Virus production, Lentiviral transfection, DNA Microarray analysis, Bioluminescence and biofluorescence imaging."
         },
         "e4": {
             "title": "Laboratory Assistant",
@@ -303,6 +309,3 @@
         "copyright": "Copyright &copy; 2016 - 2026 Zhuohe Liu"
     }
 }
-
-
-
