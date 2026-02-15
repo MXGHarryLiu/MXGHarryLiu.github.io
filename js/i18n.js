@@ -9,6 +9,27 @@ async function fetchLanguageData(lang) {
     );
     return response.json();
 }
+function renderInlineLinks(content) {
+    if (typeof content !== 'string') {
+        return content;
+    }
+    // Minimal markdown-style inline links: [text](url)
+    return content.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, function (_, text, url) {
+        return '<a href="' + url + '">' + text + '</a>';
+    });
+}
+function normalizeExternalLinks(root) {
+    if (!root || !root.querySelectorAll) {
+        return;
+    }
+    root.querySelectorAll('a[href]').forEach(anchor => {
+        const href = anchor.getAttribute('href') || '';
+        if (/^https?:\/\//i.test(href)) {
+            anchor.setAttribute('target', '_blank');
+            anchor.setAttribute('rel', 'noopener noreferrer');
+        }
+    });
+}
 function updateContent(langData, lang) {
     // main text
     document.querySelectorAll('[data-i18n]').forEach(element => {
@@ -19,7 +40,8 @@ function updateContent(langData, lang) {
             if (!content) break;
         }
         if (content) {
-            element.innerHTML = content;
+            element.innerHTML = renderInlineLinks(content);
+            normalizeExternalLinks(element);
         }
     });
     // alt text

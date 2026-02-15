@@ -9,7 +9,7 @@
     },
     "bio": {
         "title": "简介",
-        "intro": "我是<b>刘卓和</b>，也可以叫我<b>Harry</b>。<br>2016年，我在<a href=\"#bs1\">密歇根大学</a>获得生物医学工程工学学士，同时在上海交通大学（<a href=\"#bs2\">交大密西根联合学院</a>）完成电气与计算机工程第二学位。同年我来到美国休斯顿，在<a href=\"#phd\">莱斯大学</a>继续深造，先后获得电气与计算机工程硕士（2020）和博士（2022）学位。"
+        "intro": "我是<b>刘卓和</b>，也可以叫我<b>Harry</b>。<br>2016年，我在[密歇根大学](#bs1)获得生物医学工程工学学士，同时在上海交通大学（[交大密西根联合学院](#bs2)）完成电气与计算机工程第二学位。同年我来到美国休斯顿，在[莱斯大学](#phd)继续深造，先后获得电气与计算机工程硕士（2020）和博士（2022）学位。"
     },
     "education": {
         "title": "学历",
@@ -17,7 +17,7 @@
         "phd": {
             "title": "博士",
             "shortTitle": "硕博连读",
-            "place": "<a href=\"http://www.rice.edu/\" target=\"_blank\" rel=\"noopener noreferrer\">莱斯大学</a>乔治布朗工程学院，美国德克萨斯州休斯顿",
+            "place": "[莱斯大学](http://www.rice.edu/)乔治布朗工程学院，美国德克萨斯州休斯顿",
             "focus": "电子和计算机工程（平均积点：4.05/4）",
             "date": "2022年12月"
         },
@@ -33,20 +33,19 @@
         "bs2": {
             "title": "工学学士",
             "shortTitle": "密大本科",
-            "place": "<a href=\"https://umich.edu/\" target=\"_blank\" rel=\"noopener noreferrer\">密西根大学</a>工程学院，美国密歇根州安娜堡",
+            "place": "[密西根大学](https://umich.edu/)工程学院，美国密歇根州安娜堡",
             "focus": "生物医学工程（生物电子）（平均积点：3.99/4）",
             "date": "2016年5月",
             "awards": "荣誉和奖项：",
             "award1": "<b>最优等生</b>（Summa Cum Laude）",
-            "award2": "<b><a href=\"http://honors.umich.edu/awards.php#angells\" target=\"_blank\" rel=\"noopener noreferrer\">詹姆斯·B·安格尔学者称号</a></b>（2016年3月）：颁发给四学期及以上成绩全A的学生。",
+            "award2": "<b>[詹姆斯·B·安格尔学者称号](http://honors.umich.edu/awards.php#angells)</b>（2016年3月）：颁发给四学期及以上成绩全A的学生。",
             "award3": "<b>校荣誉</b>（四次）和 <b>院长嘉奖</b>名单（四次）（2014学年秋季、2015学年冬季、2015学年秋季和2016学年冬季）：颁发给学期累计积点大于3.5的学生。",
             "course": "生物化学、生物力学、定量生理学、定量细胞生物学、光电子导论、半导体设备导论等"
         },
         "bs1": {
             "title": "工学学士",
             "shortTitle": "交大本科",
-            "place": "上海交通大学，<a href=\"https://www.ji.sjtu.edu.cn/\" target=\"_blank\" rel=\"noopener noreferrer\">交大密西根联合学院</a>",
-            "city": "",
+            "place": "上海交通大学，[交大密西根联合学院](https://www.ji.sjtu.edu.cn/)",
             "focus": "电子与计算机工程（平均积点：3.63/4）",
             "date": "2016年8月",
             "awards": "荣誉和奖项：",
@@ -57,8 +56,7 @@
         "high": {
             "title": "高中",
             "shortTitle": "高中",
-            "place": "华东师范大学第二附属中学",
-            "city": "（上海）",
+            "place": "[华东师范大学第二附属中学](http://www.hsefz.cn/)（上海）",
             "focus": "高考化学学科",
             "awards": "荣誉和奖项：",
             "award1": "<b>上海市明日科技之星</b>：共十名获奖者，一万元奖学金。",
@@ -70,14 +68,12 @@
         "middle": {
             "title": "初中",
             "shortTitle": "初中",
-            "place": "上海市民办华育中学",
-            "city": ""
+            "place": "[上海市民办华育中学](http://www.hy.sh.cn/)"
         },
         "elem": {
             "title": "小学",
             "shortTitle": "小学",
-            "place":  "上海市徐汇区向阳小学",
-            "city": ""
+            "place":  "[上海市徐汇区向阳小学](http://xyxx.xhedu.sh.cn/cms/)"
         }
     },
     "experience": {
@@ -85,8 +81,8 @@
         "e1": {
             "title": "研究生",
             "shortTitle": "研究生",
-            "place": "贝勒医学院神经科学系 <a href=\"https://www.stpierrelab.com/\" target=\"_blank\" rel=\"noopener noreferrer\">St-Pierre 实验室</a>",
-            "teams": "<a href=\"https://www.bcm.edu/people/view/francois-st-pierre/ce5139a8-20f1-11e5-8d53-005056b104be\" title=\"Dr. St-Pierre BCM profile\" target=\"_blank\" rel=\"noopener noreferrer\">Dr. François St-Pierre</a>（导师）",
+            "place": "贝勒医学院神经科学系 [St-Pierre 实验室](https://www.stpierrelab.com/)",
+            "teams": "[Dr. François St-Pierre](https://www.bcm.edu/people/view/francois-st-pierre/ce5139a8-20f1-11e5-8d53-005056b104be)（导师）",
             "date": "2017年1月至2022年12月",
             "bullet1": "优化荧光电压探针的高通量显微筛选平台",
             "bullet1-1": "基于 <b>MATLAB</b> 构建图像分析流程，实现荧光显微图像的自动化分析。",
@@ -104,8 +100,8 @@
         "e2": {
             "title": "助教",
             "shortTitle": "助教",
-            "place": "<a href=\"http://www.rice.edu/\" target=\"_blank\" rel=\"noopener noreferrer\">莱斯大学</a>电子和计算机工程系",
-            "teams": "<a href=\"http://varman.rice.edu/\" target=\"_blank\" rel=\"noopener noreferrer\">Dr. Peter J. Varman</a>（<span style=\"font-style:italic\">ELEC326 Digital Logic Design</span> 课程教师）",
+            "place": "[莱斯大学](http://www.rice.edu/)电子和计算机工程系",
+            "teams": "[Dr. Peter J. Varman](http://varman.rice.edu/)（<span style=\"font-style:italic\">ELEC326 Digital Logic Design</span> 课程教师）",
             "date": "2017，2018，2021秋季学期",
             "bullet1": "批改本科生关于 <b>Verilog</b> 的实验报告和作业。",
             "bullet2": "带领 <b>FPGA</b> 开发板实验课程。"
@@ -113,14 +109,14 @@
         "e3": {
             "title": "本科科研助理",
             "shortTitle": "本科科研",
-            "place": "<a href=\"https://umich.edu/\" target=\"_blank\" rel=\"noopener noreferrer\">密西根大学</a>生物医学工程系 <a href=\"http://shearesearch.engin.umich.edu/\" target=\"_blank\" rel=\"noopener noreferrer\">Shea 实验室</a>",
-            "teams": "<a href=\"https://www.linkedin.com/in/joe-decker-90474647/\" title=\"LinkedIn profile\" target=\"_blank\" rel=\"noopener noreferrer\">Dr. Joseph Decker</a>（导师）",
+            "place": "[密西根大学](https://umich.edu/)生物医学工程系 [Shea 实验室](http://shearesearch.engin.umich.edu/)",
+            "teams": "[Dr. Joseph Decker](https://www.linkedin.com/in/joe-decker-90474647/)（导师）",
             "date": "2015年5月至2016年3月"
         },
         "e4": {
             "title": "实验助理",
             "shortTitle": "实验助理",
-            "place": "<a href=\"https://www.ji.sjtu.edu.cn/\" target=\"_blank\" rel=\"noopener noreferrer\">交大密西根联合学院</a>学生创新中心",
+            "place": "[交大密西根联合学院](https://www.ji.sjtu.edu.cn/)学生创新中心",
             "date": "2012年9月至2013年8月",
             "bullet1": "为学生解答专业相关技术问题。",
             "bullet2": "维护实验室环境，并管理提供300名交大密院学生使用的设备。"
@@ -128,8 +124,8 @@
         "e5": {
             "title": "博士后研究员",
             "shortTitle": "博后",
-            "place": "贝勒医学院神经科学系 <a href=\"https://www.stpierrelab.com/\" target=\"_blank\" rel=\"noopener noreferrer\">St-Pierre 实验室</a>，美国德克萨斯州休斯顿",
-            "teams": "<a href=\"https://www.bcm.edu/people/view/francois-st-pierre/ce5139a8-20f1-11e5-8d53-005056b104be\" title=\"Dr. St-Pierre BCM profile\" target=\"_blank\" rel=\"noopener noreferrer\">Dr. François St-Pierre</a>（研究员）",
+            "place": "贝勒医学院神经科学系 [St-Pierre 实验室](https://www.stpierrelab.com/)，美国德克萨斯州休斯顿",
+            "teams": "[Dr. François St-Pierre](https://www.bcm.edu/people/view/francois-st-pierre/ce5139a8-20f1-11e5-8d53-005056b104be)（研究员）",
             "date": "2023年1月至2023年7月",
             "bullet1": "开发面向 C++ 设备适配器的硬件控制 API，实现实时自适应显微成像。",
             "bullet2": "在 Python 中改造计算机视觉算法（如实例分割），以加速分析流程。",
@@ -141,7 +137,7 @@
     },
     "publication": {
         "title": "发表",
-        "summary": "请参考<a href=\"https://scholar.google.com/citations?user=A1aLmWIAAAAJ\" target=\"_blank\" rel=\"noopener noreferrer\">谷歌个人学术档案</a>或<a href=\"https://orcid.org/0000-0002-1818-646X\" target=\"_blank\" rel=\"noopener noreferrer\">ORCID个人页面</a>以获取我的完整著作信息。",
+        "summary": "请参考[谷歌个人学术档案](https://scholar.google.com/citations?user=A1aLmWIAAAAJ)或[ORCID个人页面](https://orcid.org/0000-0002-1818-646X)以获取我的完整著作信息。",
         "timelineTitle": "发表",
         "timeline": {
             "2025": "Lee et al., 2025《自然·通讯》",
@@ -307,4 +303,6 @@
         "copyright": "版权所有 &copy; 2016 - 2026 刘卓和"
     }
 }
+
+
 
