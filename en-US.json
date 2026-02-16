@@ -301,7 +301,8 @@
         "award": "Award",
         "course": "Courses",
         "skill": "Skills",
-        "team": "Teams and advisors"
+        "team": "Teams and advisors",
+        "reference": "References"
     },
     "basic": {
         "brand": "Zhuohe Liu", 

@@ -99,7 +99,7 @@
                                 </ul>
                             </li>
                         </ul>
-                        <p><span title="References">🔗</span> <span data-i18n="experience/e1/reference"></span></p>
+                        <p><i class="i-reference"></i> <span data-i18n="experience/e1/reference"></span></p>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -413,7 +413,7 @@
                 var button = event.relatedTarget;
                 var recipient = button.getAttribute('data-bs-img');
                 var modalTitle = lightboxModal.querySelector('.modal-title');
-                modalTitle.textContent = getContent("alt/" + recipient);
+                modalTitle.textContent = window.i18nManager.getContent("alt/" + recipient);
                 var modalImage = lightboxModal.querySelector('.modal-body img');
                 // remove "-s" from recipient to display full size image
                 recipient = recipient.replace(/-s\./, ".");
