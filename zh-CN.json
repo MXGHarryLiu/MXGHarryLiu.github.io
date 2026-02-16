@@ -160,27 +160,33 @@
         "timelineTitle": "项目",
         "p1": {
             "title": "酸浆红素合成及其在食用色素中的应用",
-            "shortTitle": "合成食用色素"
+            "shortTitle": "合成食用色素",
+            "place": "华东师范大学第二附属中学"
         },
         "p2": {
             "title": "电极位置对人体肱二头肌肌电信号幅值的影响",
-            "shortTitle": "肱二头肌电极"
+            "shortTitle": "肱二头肌电极",
+            "place": "密西根大学（BME241 生物医学工程本科实验课程项目）"
         },
         "p3": {
             "title": "将面部肌电作为交流辅助与人机交互手段",
-            "shortTitle": "面部肌电交流辅助"
+            "shortTitle": "面部肌电交流辅助",
+            "place": "密西根大学（BME458/EECS458 生物医学仪器与设计课程项目）"
         },
         "p4": {
             "title": "用于硬膜外导管拔除的拉力计",
-            "shortTitle": "硬膜外导管拉力计"
+            "shortTitle": "硬膜外导管拉力计",
+            "place": "密西根大学（本科毕业设计）"
         },
         "p5": {
             "title": "基于 Halorhodopsin (NpHR) 的闭环外周神经阻滞计算建模",
-            "shortTitle": "闭环神经阻滞建模"
+            "shortTitle": "闭环神经阻滞建模",
+            "place": "密西根大学（BME517 神经工程课程项目）"
         },
         "p6": {
             "title": "基于智能手机的低成本 SLAM 实现",
-            "shortTitle": "手机 SLAM"
+            "shortTitle": "手机 SLAM",
+            "place": "上海交通大学（本科毕业设计）"
         }
     },
     "idea": {

@@ -160,27 +160,33 @@
         "timelineTitle": "Projects",
         "p1": {
             "title": "Synthesis of Physalien and Its Application to Food Coloring",
-            "shortTitle": "Synthesize Food Coloring"
+            "shortTitle": "Synthesize Food Coloring",
+            "place": "No.2 Secondary School Attached to East China Normal University"
         },
         "p2": {
             "title": "The Effect of Electrode Position on Human Biceps EMG Amplitude",
-            "shortTitle": "Biceps EMG"
+            "shortTitle": "Biceps EMG",
+            "place": "University of Michigan (BME241 BiomedE Undergraduate Lab Course Project)"
         },
         "p3": {
             "title": "Facial Electromyography as a Communication Aid and Method for Computer Interfacing",
-            "shortTitle": "Facial EMG Communication Aid"
+            "shortTitle": "Facial EMG Communication Aid",
+            "place": "University of Michigan (BME458/EECS458 Biomedical Instrumentation & Design Course Project)"
         },
         "p4": {
             "title": "Force Gauge for the Removal of Epidural Catheters",
-            "shortTitle": "Epidural Catheter Gauge"
+            "shortTitle": "Epidural Catheter Gauge",
+            "place": "University of Michigan (Senior Capstone Design)"
         },
         "p5": {
             "title": "Computational Modeling of Closed-loop Peripheral Nerve Block Based on Halorhodopsin (NpHR)",
-            "shortTitle": "Closed-loop Nerve Block Model"
+            "shortTitle": "Closed-loop Nerve Block Model",
+            "place": "University of Michigan (BME517 Neural Engineering Course Project)"
         },
         "p6": {
             "title": "Low Cost SLAM Realization on Smart Phone",
-            "shortTitle": "Smartphone SLAM"
+            "shortTitle": "Smartphone SLAM",
+            "place": "Shanghai Jiao Tong University (Senior Capstone Design)"
         }
     },
     "idea": {
