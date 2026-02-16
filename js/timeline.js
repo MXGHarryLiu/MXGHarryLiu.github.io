@@ -43,6 +43,10 @@ class Timeline extends HTMLElement {
         }
         var self = this;
         var render = function () {
+            if (self._revealTimer) {
+                clearTimeout(self._revealTimer);
+                self._revealTimer = null;
+            }
             var title = self.getAttribute('data-title') || '';
             var titleKey = self.getAttribute('data-title-key') || '';
             var subtitle = self.getAttribute('data-subtitle') || '';
@@ -378,13 +382,63 @@ class Timeline extends HTMLElement {
                 }
             };
 
-            var scheduleLayout = function () {
+            var applySequentialReveal = function () {
+                if (!track) {
+                    return;
+                }
+                var timelineItems = Array.prototype.slice.call(self.querySelectorAll('.timeline-item'));
+                if (!timelineItems.length) {
+                    track.classList.remove('timeline-reveal');
+                    return;
+                }
+                var parseMid = function (item) {
+                    var dot = item.querySelector('.timeline-dot');
+                    if (!dot) {
+                        return 0;
+                    }
+                    var value = dot.style.getPropertyValue('--mid') || '';
+                    var number = parseFloat(value.replace('%', ''));
+                    return isNaN(number) ? 0 : number;
+                };
+                timelineItems
+                    .slice()
+                    .sort(function (a, b) { return parseMid(a) - parseMid(b); })
+                    .forEach(function (item, index) {
+                        item.style.setProperty('--reveal-order', String(index));
+                    });
+                if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                    track.classList.remove('timeline-reveal');
+                    return;
+                }
+                var revealStep = parseInt(self.getAttribute('data-reveal-step'), 10);
+                var revealDuration = parseInt(self.getAttribute('data-reveal-duration'), 10);
+                if (isNaN(revealStep) || revealStep < 0) {
+                    revealStep = 120;
+                }
+                if (isNaN(revealDuration) || revealDuration < 0) {
+                    revealDuration = 320;
+                }
+                track.style.setProperty('--timeline-reveal-step', revealStep + 'ms');
+                track.style.setProperty('--timeline-reveal-duration', revealDuration + 'ms');
+                track.classList.remove('timeline-reveal');
+                void track.offsetWidth;
+                track.classList.add('timeline-reveal');
+                self._revealTimer = setTimeout(function () {
+                    track.classList.remove('timeline-reveal');
+                    self._revealTimer = null;
+                }, (timelineItems.length * revealStep) + revealDuration + 80);
+            };
+
+            var scheduleLayout = function (withReveal) {
                 if (self._layoutRaf) {
                     cancelAnimationFrame(self._layoutRaf);
                 }
                 self._layoutRaf = requestAnimationFrame(function () {
                     updateSpacing();
                     positionCallouts();
+                    if (withReveal) {
+                        applySequentialReveal();
+                    }
                 });
             };
 
@@ -392,10 +446,10 @@ class Timeline extends HTMLElement {
                 window.removeEventListener('resize', self._layoutListener);
             }
             self._layoutListener = function () {
-                scheduleLayout();
+                scheduleLayout(false);
             };
             window.addEventListener('resize', self._layoutListener);
-            scheduleLayout();
+            scheduleLayout(true);
 
             if (self._activeHref) {
                 selectByHref(self._activeHref);
@@ -460,6 +514,10 @@ class Timeline extends HTMLElement {
         if (this._layoutRaf) {
             cancelAnimationFrame(this._layoutRaf);
             this._layoutRaf = null;
+        }
+        if (this._revealTimer) {
+            clearTimeout(this._revealTimer);
+            this._revealTimer = null;
         }
     }
 
