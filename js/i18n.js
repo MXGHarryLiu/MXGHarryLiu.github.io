@@ -11,6 +11,13 @@ const MARKER_CONFIG = [
     { key: 'dot', icon: 'bi-dot', color: '#808080' }
 ];
 
+const LOCALE_CONFIG = [
+    { code: 'en-US', switchLabel: '中文' },
+    { code: 'zh-CN', switchLabel: 'English' }
+];
+const LOCALE_STORAGE_KEY = 'locale';
+const I18N_READY_EVENT = 'i18n-ready';
+
 /**
  * i18n manager responsible for fetching locale data and applying localized content.
  */
@@ -18,17 +25,24 @@ class I18nManager {
     /**
      * Creates an i18n manager.
      * @param {object} [options] Optional manager settings.
-     * @param {Array<{key: string, icon: string, color: string}>} [options.markerConfig] Marker style config.
+     * @param {Array<{code: string, switchLabel: string}>} [options.locales] Supported locale options.
      */
     constructor(options = {}) {
-        this.markerConfig = options.markerConfig || MARKER_CONFIG;
-        this.langData = {};
+        this.locales = options.locales || LOCALE_CONFIG;
+        this.defaultLocale = this.locales.length > 0 ? this.locales[0].code : 'en-US';
+        this.currentLocale = this.defaultLocale;
+        this.localeData = {};
+        this._localeToggleElement = null;
+        this._boundLocaleToggle = this.toggleLocale.bind(this);
     }
 
-    #dispatchI18nReady() {
-        document.dispatchEvent(new CustomEvent('i18n-ready'));
-    }
-
+    /**
+     * Applies icon class, color, and localized tooltip to marker elements.
+     * @param {string} className Marker class suffix (without `i-` prefix).
+     * @param {string} icon Bootstrap icon class.
+     * @param {string} color CSS color value.
+     * @returns {void}
+     */
     #insertListMarker(className, icon, color) {
         const is = document.querySelectorAll('.i-' + className);
         is.forEach(i => {
@@ -38,6 +52,10 @@ class I18nManager {
         });
     }
 
+    /**
+     * Updates document title with localized brand suffix.
+     * @returns {void}
+     */
     #applyBrandTitle() {
         if (document.title === '') {
             document.title = this.getContent('basic/brand');
@@ -47,24 +65,86 @@ class I18nManager {
     }
 
     /**
-     * Fetches i18n JSON payload for a language.
-     * @param {string} lang Language code (for example: en-US, zh-CN).
-     * @returns {Promise<object>} Parsed language dictionary.
+     * Resolves a locale to a supported locale code.
+     * @param {string} locale Requested locale code.
+     * @returns {string} Supported locale code.
      */
-    async fetchLanguageData(lang) {
-        const response = await fetch(`${lang}.json`, {
+    #resolveLocale(locale) {
+        if (!locale) {
+            return this.defaultLocale;
+        }
+        const found = this.locales.find(item => item.code === locale);
+        return found ? found.code : this.defaultLocale;
+    }
+
+    /**
+     * Returns the next locale in configured locale cycle order.
+     * @param {string} locale Current locale code.
+     * @returns {string} Next locale code.
+     */
+    #getNextLocale(locale) {
+        const active = this.#resolveLocale(locale);
+        const idx = this.locales.findIndex(item => item.code === active);
+        if (idx < 0 || this.locales.length <= 1) {
+            return active;
+        }
+        return this.locales[(idx + 1) % this.locales.length].code;
+    }
+
+    /**
+     * Updates locale switch button label to display the next locale text.
+     * @param {string} activeLocale Currently active locale code.
+     * @returns {void}
+     */
+    #updateLocaleToggleLabel(activeLocale) {
+        const localeSelector = document.getElementById('localeSelector');
+        if (!localeSelector) {
+            return;
+        }
+        this.#bindLocaleToggle(localeSelector);
+        const nextLocale = this.#getNextLocale(activeLocale);
+        const nextLocaleConfig = this.locales.find(item => item.code === nextLocale);
+        localeSelector.innerHTML = nextLocaleConfig ? nextLocaleConfig.switchLabel : nextLocale;
+    }
+
+    /**
+     * Binds locale toggle click handler to selector element and replaces prior binding if needed.
+     * @param {Element} localeSelector Locale toggle element.
+     * @returns {void}
+     */
+    #bindLocaleToggle(localeSelector) {
+        if (!localeSelector) {
+            return;
+        }
+        if (this._localeToggleElement === localeSelector) {
+            return;
+        }
+        if (this._localeToggleElement) {
+            this._localeToggleElement.removeEventListener('click', this._boundLocaleToggle);
+        }
+        localeSelector.addEventListener('click', this._boundLocaleToggle);
+        this._localeToggleElement = localeSelector;
+    }
+
+    /**
+     * Fetches i18n JSON payload for a locale.
+     * @param {string} locale Locale code (for example: en-US, zh-CN).
+     * @returns {Promise<object>} Parsed locale dictionary.
+     */
+    async #fetchLocaleData(locale) {
+        const response = await fetch(`${locale}.json`, {
             method: 'GET',
             headers: {
                 accept: 'application/json',
             }
         });
         if (!response.ok) {
-            throw new Error(`Failed to fetch language file: ${lang}.json (${response.status})`);
+            throw new Error(`Failed to fetch locale file: ${locale}.json (${response.status})`);
         }
         try {
             return await response.json();
         } catch (error) {
-            throw new Error(`Invalid JSON in language file: ${lang}.json`);
+            throw new Error(`Invalid JSON in locale file: ${locale}.json`);
         }
     }
 
@@ -74,7 +154,7 @@ class I18nManager {
      * @param {string} path Slash-delimited path (for example: education/phd/title).
      * @returns {*} Resolved value, or undefined if not found.
      */
-    getByPath(root, path) {
+    #getByPath(root, path) {
         if (!root || typeof path !== 'string' || path.length === 0) {
             return undefined;
         }
@@ -87,13 +167,13 @@ class I18nManager {
     }
 
     /**
-     * Resolves localized value by slash path from current language dictionary.
+     * Resolves localized value by slash path from current locale dictionary.
      * @param {string} query Slash-delimited i18n key path.
      * @param {string} [defaultValue=''] Fallback value when key is missing.
      * @returns {string} Localized string or fallback value.
      */
     getContent(query, defaultValue = '') {
-        const content = this.getByPath(this.langData, query);
+        const content = this.#getByPath(this.localeData, query);
         if (content === undefined || content === null || content === '') {
             return defaultValue;
         }
@@ -105,7 +185,7 @@ class I18nManager {
      * @param {*} content Localized content value.
      * @returns {*} HTML string when input is a string; otherwise the original value.
      */
-    renderInlineLinks(content) {
+    #renderInlineLinks(content) {
         if (typeof content !== 'string') {
             return content;
         }
@@ -119,7 +199,7 @@ class I18nManager {
      * @param {Element} root Root element to scan.
      * @returns {void}
      */
-    normalizeExternalLinks(root) {
+    #normalizeExternalLinks(root) {
         if (!root || !root.querySelectorAll) {
             return;
         }
@@ -133,194 +213,118 @@ class I18nManager {
     }
 
     /**
-     * Updates DOM content, image alt/title text, and language switcher label.
-     * @param {object} langData Language dictionary.
-     * @param {string} lang Active language code.
+     * Updates DOM content and image alt/title text.
+     * @param {object} localeData Locale dictionary.
      * @returns {void}
      */
-    updateContent(langData, lang) {
+    #updateContent(localeData) {
         document.querySelectorAll('[data-i18n]').forEach(element => {
             const keyPath = element.getAttribute('data-i18n');
-            const content = this.getByPath(langData, keyPath);
+            const content = this.#getByPath(localeData, keyPath);
             if (content !== undefined && content !== null) {
-                element.innerHTML = this.renderInlineLinks(content);
-                this.normalizeExternalLinks(element);
+                element.innerHTML = this.#renderInlineLinks(content);
             }
         });
+        this.#normalizeExternalLinks(document);
 
         document.querySelectorAll('img').forEach(image => {
             const src = image.getAttribute('src');
             const altPath = src ? `alt/${src}` : '';
-            const content = this.getByPath(langData, altPath);
+            const content = this.#getByPath(localeData, altPath);
             if (content !== undefined && content !== null) {
                 image.setAttribute('alt', content);
                 image.setAttribute('title', content);
             }
         });
+    }
 
-        const langSelector = document.getElementById('lanSelector');
-        if (langSelector) {
-            if (lang === 'en-US') {
-                langSelector.innerHTML = '中文';
-            } else {
-                langSelector.innerHTML = 'English';
+    /**
+     * Applies post-i18n UI side effects (icon markers, document title, global getter).
+     * @param {object} localeData Locale dictionary.
+     * @returns {void}
+     */
+    #applyI18nSideEffects(localeData) {
+        this.localeData = localeData || this.localeData;
+        MARKER_CONFIG.forEach(marker => {
+            this.#insertListMarker(marker.key, marker.icon, marker.color);
+        });
+        this.#applyBrandTitle();
+        this.#updateLocaleToggleLabel(this.currentLocale);
+    }
+
+    /**
+     * Applies resolved locale payload to state and UI, with optional persistence.
+     * @param {string} locale Active locale code.
+     * @param {object} localeData Resolved locale dictionary payload.
+     * @param {object} options Locale application options.
+     * @param {boolean} [options.persist=true] Persist locale selection in localStorage.
+     * @returns {void}
+     */
+    #applyLocalePayload(locale, localeData, options) {
+        const persist = options.persist !== false;
+        this.currentLocale = locale;
+        this.localeData = localeData;
+        if (persist) {
+            localStorage.setItem(LOCALE_STORAGE_KEY, locale);
+        }
+        this.#updateContent(localeData);
+        this.#applyI18nSideEffects(localeData);
+        document.dispatchEvent(new CustomEvent(I18N_READY_EVENT));
+    }
+
+    /**
+     * Sets a specific locale and applies localized content.
+     * @param {string} locale Locale code to activate.
+     * @param {object} [options] Optional behavior controls.
+     * @param {boolean} [options.persist=true] Persist preference to localStorage.
+     * @returns {Promise<void>}
+     */
+    async setLocale(locale, options = {}) {
+        const resolvedLocale = this.#resolveLocale(locale);
+        try {
+            // Intentionally refetch on each locale set so updated JSON content is picked up without hard-refresh.
+            const localeData = await this.#fetchLocaleData(resolvedLocale);
+            this.#applyLocalePayload(resolvedLocale, localeData, options);
+        } catch (error) {
+            console.error(`[I18nManager] Failed to set locale "${resolvedLocale}".`, error);
+            if (resolvedLocale === this.defaultLocale) {
+                return;
+            }
+            try {
+                const fallbackData = await this.#fetchLocaleData(this.defaultLocale);
+                this.#applyLocalePayload(this.defaultLocale, fallbackData, options);
+                console.warn(`[I18nManager] Falling back to default locale "${this.defaultLocale}".`);
+            } catch (fallbackError) {
+                console.error(`[I18nManager] Failed to load default locale "${this.defaultLocale}".`, fallbackError);
             }
         }
     }
 
     /**
-     * Persists user language preference.
-     * @param {string} lang Language code.
-     * @returns {void}
-     */
-    setLanguagePreference(lang) {
-        localStorage.setItem('language', lang);
-    }
-
-    /**
-     * Applies post-i18n UI side effects (icon markers, document title, global getter).
-     * @param {object} langData Language dictionary.
-     * @param {string} lang Active language code.
-     * @returns {void}
-     */
-    applyI18nSideEffects(langData, lang) {
-        this.langData = langData || this.langData;
-        this.markerConfig.forEach(marker => {
-            this.#insertListMarker(marker.key, marker.icon, marker.color);
-        });
-        this.#applyBrandTitle();
-    }
-
-    /**
-     * Toggles between supported languages and refreshes localized content.
+     * Toggles between supported locales and refreshes localized content.
      * @param {Event} [event] Optional click event from language toggle UI.
      * @returns {Promise<void>}
      */
-    async toggleLanguage(event) {
+    async toggleLocale(event) {
         if (event) {
             event.preventDefault();
         }
-        const currentLang = localStorage.getItem('language') || 'en-US';
-        const newLang = currentLang === 'en-US' ? 'zh-CN' : 'en-US';
-        this.setLanguagePreference(newLang);
-        // Intentionally refetch on each toggle so updated JSON content is picked up without hard-refresh.
-        const langData = await this.fetchLanguageData(newLang);
-        this.langData = langData;
-        this.updateContent(langData, newLang);
-        this.applyI18nSideEffects(langData, newLang);
-        this.#dispatchI18nReady();
+        const nextLocale = this.#getNextLocale(this.currentLocale);
+        await this.setLocale(nextLocale, { persist: true });
     }
 
     /**
      * Initializes i18n on page load.
      * @returns {Promise<void>}
      */
-    async initializeI18n() {
-        const userPreferredLanguage = localStorage.getItem('language') || 'en-US';
-        // Intentionally refetch on load so deployment-side JSON updates are reflected immediately.
-        const langData = await this.fetchLanguageData(userPreferredLanguage);
-        this.langData = langData;
-        this.updateContent(langData, userPreferredLanguage);
-        this.applyI18nSideEffects(langData, userPreferredLanguage);
-        this.#dispatchI18nReady();
+    async initialize() {
+        const userPreferredLocale = localStorage.getItem(LOCALE_STORAGE_KEY) || this.defaultLocale;
+        await this.setLocale(userPreferredLocale, { persist: false });
     }
 }
 
 window.i18nManager = new I18nManager();
-
-/**
- * Fetches i18n JSON payload for a language.
- * @param {string} lang Language code (for example: en-US, zh-CN).
- * @returns {Promise<object>} Parsed language dictionary.
- */
-function fetchLanguageData(lang) {
-    return window.i18nManager.fetchLanguageData(lang);
-}
-
-/**
- * Resolves a slash-delimited key path from an object.
- * @param {object} root Source object.
- * @param {string} path Slash-delimited path (for example: education/phd/title).
- * @returns {*} Resolved value, or undefined if not found.
- */
-function getByPath(root, path) {
-    return window.i18nManager.getByPath(root, path);
-}
-
-/**
- * Resolves localized value by slash path from current language dictionary.
- * @param {string} query Slash-delimited i18n key path.
- * @param {string} [defaultValue=''] Fallback value when key is missing.
- * @returns {string} Localized string or fallback value.
- */
-function getContent(query, defaultValue = '') {
-    return window.i18nManager.getContent(query, defaultValue);
-}
-
-/**
- * Converts minimal markdown links ([text](url)) to anchor tags.
- * @param {*} content Localized content value.
- * @returns {*} HTML string when input is a string; otherwise the original value.
- */
-function renderInlineLinks(content) {
-    return window.i18nManager.renderInlineLinks(content);
-}
-
-/**
- * Applies safe external-link attributes under a root element.
- * @param {Element} root Root element to scan.
- * @returns {void}
- */
-function normalizeExternalLinks(root) {
-    return window.i18nManager.normalizeExternalLinks(root);
-}
-
-/**
- * Updates DOM content, image alt/title text, and language switcher label.
- * @param {object} langData Language dictionary.
- * @param {string} lang Active language code.
- * @returns {void}
- */
-function updateContent(langData, lang) {
-    return window.i18nManager.updateContent(langData, lang);
-}
-
-/**
- * Persists user language preference.
- * @param {string} lang Language code.
- * @returns {void}
- */
-function setLanguagePreference(lang) {
-    return window.i18nManager.setLanguagePreference(lang);
-}
-
-/**
- * Toggles between supported languages and refreshes localized content.
- * @param {Event} [event] Optional click event from language toggle UI.
- * @returns {Promise<void>}
- */
-async function toggleLanguage(event) {
-    return window.i18nManager.toggleLanguage(event);
-}
-
-/**
- * Applies post-i18n UI side effects (icon markers, document title, global getter).
- * @param {object} langData Language dictionary.
- * @param {string} lang Active language code.
- * @returns {void}
- */
-function applyI18nSideEffects(langData, lang) {
-    return window.i18nManager.applyI18nSideEffects(langData, lang);
-}
-
-/**
- * Initializes i18n on page load.
- * @returns {Promise<void>}
- */
-async function initializeI18n() {
-    return window.i18nManager.initializeI18n();
-}
-
-window.getContent = getContent;
-window.toggleLanguage = toggleLanguage;
-window.addEventListener('DOMContentLoaded', initializeI18n);
+window.I18N_READY_EVENT = I18N_READY_EVENT;
+window.addEventListener('DOMContentLoaded', function () {
+    window.i18nManager.initialize();
+});

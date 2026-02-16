@@ -13,6 +13,8 @@ function clearTimelineItemSelection(root) {
     });
 }
 
+const I18N_READY_EVENT_NAME = window.I18N_READY_EVENT || 'i18n-ready';
+
 class Timeline extends HTMLElement {
     /**
      * Initialize timeline markup and bind listeners when attached to the DOM.
@@ -86,37 +88,55 @@ class Timeline extends HTMLElement {
                 ticks.push(y);
             }
             var resolvedTitle = title;
-            if (titleKey && typeof window.getContent === 'function') {
-                resolvedTitle = window.getContent(titleKey) || resolvedTitle;
+            var i18nManager = window.i18nManager;
+            var hasI18nGet = i18nManager && typeof i18nManager.getContent === 'function';
+            var i18nGet = function (key, fallback) {
+                if (!hasI18nGet || !key) {
+                    return fallback || '';
+                }
+                return i18nManager.getContent(key, fallback || '');
+            };
+            var renderInlineLinks = function (content) {
+                if (typeof content !== 'string') {
+                    return content || '';
+                }
+                return content.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, function (_, text, url) {
+                    var externalAttrs = /^https?:\/\//i.test(url) ? ' target="_blank" rel="noopener noreferrer"' : '';
+                    return '<a href="' + url + '"' + externalAttrs + '>' + text + '</a>';
+                });
+            };
+            if (titleKey) {
+                resolvedTitle = i18nGet(titleKey, resolvedTitle);
             }
             var resolvedSubtitle = subtitle;
-            if (subtitleKey && typeof window.getContent === 'function') {
-                resolvedSubtitle = window.getContent(subtitleKey) || resolvedSubtitle;
+            if (subtitleKey) {
+                resolvedSubtitle = i18nGet(subtitleKey, resolvedSubtitle);
             }
             var resolvedHint = hint;
-            if (hintKey && typeof window.getContent === 'function') {
-                resolvedHint = window.getContent(hintKey) || resolvedHint;
+            if (hintKey) {
+                resolvedHint = i18nGet(hintKey, resolvedHint);
             }
             if (!resolvedHint && hintAuto && hintAuto.toLowerCase() === 'click') {
-                if (typeof window.getContent === 'function') {
-                    resolvedHint = window.getContent('timeline/clickHint') || '';
-                }
+                resolvedHint = i18nGet('timeline/clickHint', '');
                 if (!resolvedHint) {
                     resolvedHint = 'Click item to view details';
                 }
             }
             var resolvedToggleTitle = toggleTitle;
-            if (toggleTitleKey && typeof window.getContent === 'function') {
-                resolvedToggleTitle = window.getContent(toggleTitleKey) || resolvedToggleTitle;
+            if (toggleTitleKey) {
+                resolvedToggleTitle = i18nGet(toggleTitleKey, resolvedToggleTitle);
             }
+            var resolvedTitleHtml = renderInlineLinks(resolvedTitle);
+            var resolvedHintHtml = renderInlineLinks(resolvedHint);
+            var resolvedSubtitleHtml = renderInlineLinks(resolvedSubtitle);
             var rangeMode = self._rangeMode || self.getAttribute('data-range-mode') || 'data';
             var toggleIcon = rangeMode === 'wide' ? 'fa-link' : 'fa-link-slash';
             var titleHtml = '';
             if (resolvedTitle || resolvedHint) {
                 titleHtml = '<div class="timeline-title">' +
                     '<span class="timeline-title-left">' +
-                        (resolvedTitle ? '<span class="timeline-title-text">' + resolvedTitle + '</span>' : '') +
-                        (resolvedHint ? '<span class="timeline-hint">' + resolvedHint + '</span>' : '') +
+                        (resolvedTitle ? '<span class="timeline-title-text">' + resolvedTitleHtml + '</span>' : '') +
+                        (resolvedHint ? '<span class="timeline-hint">' + resolvedHintHtml + '</span>' : '') +
                     '</span>' +
                     '<span class="timeline-toggle" title="' + resolvedToggleTitle + '" aria-label="' + resolvedToggleTitle + '">' +
                         '<i class="fa-solid ' + toggleIcon + '"></i>' +
@@ -124,7 +144,7 @@ class Timeline extends HTMLElement {
                 '</div>';
             }
             if (resolvedSubtitle) {
-                titleHtml += '<div class="timeline-subtitle">' + resolvedSubtitle + '</div>';
+                titleHtml += '<div class="timeline-subtitle">' + resolvedSubtitleHtml + '</div>';
             }
             var html = '<div class="timeline-section">' +
                 titleHtml +
@@ -140,8 +160,8 @@ class Timeline extends HTMLElement {
             items.forEach(function (item, index) {
                 var position = item.position || (index % 2 === 0 ? '1' : '2');
                 var label = '';
-                if (item.labelKey && typeof window.getContent === 'function') {
-                    label = window.getContent(item.labelKey) || '';
+                if (item.labelKey) {
+                    label = i18nGet(item.labelKey, '');
                 }
                 if (!label) {
                     label = item.label || '';
@@ -403,7 +423,7 @@ class Timeline extends HTMLElement {
             this._i18nListener = function () {
                 render();
             };
-            document.addEventListener('i18n-ready', this._i18nListener);
+            document.addEventListener(I18N_READY_EVENT_NAME, this._i18nListener);
         }
         if (!this._externalActivateListener) {
             this._externalActivateListener = function (event) {
@@ -426,7 +446,7 @@ class Timeline extends HTMLElement {
             Timeline.instances.delete(this);
         }
         if (this._i18nListener) {
-            document.removeEventListener('i18n-ready', this._i18nListener);
+            document.removeEventListener(I18N_READY_EVENT_NAME, this._i18nListener);
             this._i18nListener = null;
         }
         if (this._externalActivateListener) {
@@ -875,13 +895,13 @@ class TimelineManager {
         document.addEventListener('timeline-activate', this._boundActivateHandler);
         this._wideMedia = window.matchMedia(this._wideQuery);
         this.syncMode();
-        document.addEventListener('i18n-ready', this._boundHintHandler);
+        document.addEventListener(I18N_READY_EVENT_NAME, this._boundHintHandler);
         if (this._wideMedia.addEventListener) {
             this._wideMedia.addEventListener('change', this._boundSyncHandler);
         } else if (this._wideMedia.addListener) {
             this._wideMedia.addListener(this._boundSyncHandler);
         }
-        document.addEventListener('i18n-ready', this._boundSyncHandler);
+        document.addEventListener(I18N_READY_EVENT_NAME, this._boundSyncHandler);
 
         if (this._manageCardNavigation && this._cards.length) {
             this.#hideAllCards();
@@ -914,8 +934,8 @@ class TimelineManager {
                 this._wideMedia.removeListener(this._boundSyncHandler);
             }
         }
-        document.removeEventListener('i18n-ready', this._boundHintHandler);
-        document.removeEventListener('i18n-ready', this._boundSyncHandler);
+        document.removeEventListener(I18N_READY_EVENT_NAME, this._boundHintHandler);
+        document.removeEventListener(I18N_READY_EVENT_NAME, this._boundSyncHandler);
         if (this._manageCardNavigation) {
             window.removeEventListener('hashchange', this._boundHashChangeHandler);
             document.removeEventListener('click', this._boundDocumentLinkHandler);
