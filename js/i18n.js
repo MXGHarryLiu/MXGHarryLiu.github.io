@@ -20,6 +20,18 @@ async function fetchLanguageData(lang) {
     }
 }
 
+const MARKER_CONFIG = [
+    { key: 'place', icon: 'bi-geo-alt', color: '#3498db' },
+    { key: 'focus', icon: 'bi-mortarboard', color: '#333' },
+    { key: 'date', icon: 'bi-calendar2-check', color: '#e74c3c' },
+    { key: 'award', icon: 'bi-trophy', color: '#ffd700' },
+    { key: 'course', icon: 'bi-book', color: '#4caf50' },
+    { key: 'skill', icon: 'bi-rocket', color: '#c8a2c8' },
+    { key: 'team', icon: 'bi-people', color: '#ffa500' },
+    { key: 'arrow', icon: 'bi-arrow-right-short', color: '#808080' },
+    { key: 'dot', icon: 'bi-dot', color: '#808080' }
+];
+
 /**
  * Resolves a slash-delimited key path from an object.
  * @param {object} root Source object.
@@ -37,6 +49,21 @@ function getByPath(root, path) {
         return value[key];
     }, root);
 }
+
+/**
+ * Resolves localized value from global language data by slash path.
+ * @param {string} query Slash-delimited i18n key path.
+ * @param {string} [defaultValue=''] Fallback value when key is missing.
+ * @returns {string} Localized string or fallback value.
+ */
+function getContent(query, defaultValue = '') {
+    const content = getByPath(window.__langData, query);
+    if (content === undefined || content === null || content === '') {
+        return defaultValue;
+    }
+    return content;
+}
+window.getContent = getContent;
 
 /**
  * Converts minimal markdown links ([text](url)) to anchor tags.
@@ -137,37 +164,12 @@ async function toggleLanguage(event) {
 }
 
 /**
- * Inserts icon glyph into matching spans.
- * @param {string} className CSS class (without dot).
- * @param {string} emoji Text/icon content to insert.
- * @returns {void}
- */
-function insertIcon(className, emoji) {
-    const spans = document.querySelectorAll('.' + className);
-    spans.forEach(span => {
-        span.title = getContent(className);
-        span.innerHTML = emoji;
-    });
-}
-
-/**
  * Applies post-i18n UI side effects (icon markers, document title, global getter).
  * @param {object} langData Language dictionary.
  * @param {string} lang Active language code.
  * @returns {void}
  */
 function applyI18nSideEffects(langData, lang) {
-    /**
-     * Resolves localized value from global language data by slash path.
-     * @param {string} query Slash-delimited i18n key path.
-     * @returns {string} Localized string or empty string.
-     */
-    function getContent(query) {
-        const content = getByPath(langData, query);
-        return content || '';
-    }
-    window.getContent = getContent;
-
     function insertListMarker(className, icon, color) {
         const is = document.querySelectorAll('.i-' + className);
         is.forEach(i => {
@@ -176,16 +178,9 @@ function applyI18nSideEffects(langData, lang) {
             i.style.color = color;
         });
     }
-    insertListMarker('place', 'bi-geo-alt', '#3498db') //blue
-    insertListMarker('focus', 'bi-mortarboard', '#333') //gray
-    insertListMarker('date', 'bi-calendar2-check', '#e74c3c') //red
-    insertListMarker('award', 'bi-trophy', '#ffd700') //yellow/gold
-    insertListMarker('course', 'bi-book', '#4caf50') //green
-    insertListMarker('skill', 'bi-rocket', '#c8a2c8') //purple
-    insertListMarker('team', 'bi-people', '#ffa500') //orange
-
-    insertListMarker('arrow', 'bi-arrow-right-short', '#808080')
-    insertListMarker('dot', 'bi-dot', '#808080')
+    MARKER_CONFIG.forEach(marker => {
+        insertListMarker(marker.key, marker.icon, marker.color);
+    });
 
     if (document.title === '') {
         document.title = getContent('basic/brand');
