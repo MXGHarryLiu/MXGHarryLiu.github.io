@@ -13,10 +13,12 @@
     <script src="components/footer.js"></script>
     <script src="js/carousel.js"></script>
     <script src="js/i18n.js" defer></script>
+    <script src="js/workspace-cloud.js"></script>
     <script src="https://code.jquery.com/jquery-4.0.0.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <!-- Plotly map -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3-cloud@1/build/d3.layout.cloud.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-3.3.0.min.js" charset="utf-8"></script>
 </head>
 <body class="grid-1">
@@ -36,52 +38,11 @@
         <h2 class="text-center" data-i18n="passion/m1/workspace"></h2>
         <div class="row">
             <div class="col-md-6">
-                <style>
-                    a.p { cursor:pointer;}
-                    a.p.a { color: rgba(225,0,150,1.00);}
-                    a.p.b { color: rgba(150,0,150,0.80);}
-                    a.p.c { color: rgba(100,0,255,0.60);}
-                </style> 
-                <!--a:proficient  c:seldom-->
-                <!-- placeholder = 21 -->
-                <p style="color:rgba(60,60,60,0.50)">Click on the link to reveal comments &gt;&gt;&gt;</p>
-                <p><b>Productivity and Design</b>: 
-                    <a class="p a" onclick="goToSlideW(20, 'Illustrator')">Adobe Illustrator</a> | 
-                    <a class="p b" onclick="goToSlideW(12, 'Premiere')">Adobe Premiere</a> |
-                    <a class="p b" onclick="goToSlideW(21, 'Powerpoint')">Microsoft Powerpoint</a> | 
-                    <a class="p b" onclick="goToSlideW(21, 'Excel')">Microsoft Excel</a> | 
-                    <a class="p b" onclick="goToSlideW(21, 'Word')">Microsoft Word</a> | 
-                    <a class="p c" onclick="goToSlideW(19, 'Photoshop')">Adobe Photoshop</a> | 
-                    <a class="p c" onclick="goToSlideW(6, 'Project')">Microsoft Project</a> | 
-                    <a class="p c" onclick="goToSlideW(16, 'Publisher')">Microsoft Publisher</a>
-                </p>
-                <p><b>Programming</b>: 
-                    <a class="p a" onclick="goToSlideW(2, 'MATLAB')">MATLAB</a> | 
-                    <a class="p a" onclick="goToSlideW(14, 'Mathematica')">Wolfram Mathematica</a> | 
-                    <a class="p b" onclick="goToSlideW(17, 'Dreamweaver')">Adobe Dreamweaver</a> | 
-                    <a class="p b" onclick="goToSlideW(18, 'Python')">Python</a> | 
-                    <a class="p b" onclick="goToSlideW(11, 'VisualStudio')">Microsoft Visual Studio (VB)</a> |
-                    <a class="p c" onclick="goToSlideW(21, 'Latex')">LaTeX</a> | 
-                    <a class="p c" onclick="goToSlideW(21, 'Arduino')">Arduino (C++)</a> | 
-                    <a class="p c" onclick="goToSlideW(13, 'Eclipse')">Eclipse IDE (Java)</a>
-                </p>
-                <p><b>Research</b>: 
-                    <a class="p b" onclick="goToSlideW(3, 'SolidWorks')">SolidWorks</a> | 
-                    <a class="p b" onclick="goToSlideW(9, 'LabVIEW')">LabVIEW</a> | 
-                    <a class="p c" onclick="goToSlideW(1, 'Lumerical')">Lumerical FDTD Solutions</a> | 
-                    <a class="p c" onclick="goToSlideW(4, 'Visio')">Microsoft Visio</a> | 
-                    <a class="p c" onclick="goToSlideW(5, 'EndNote')">EndNote</a> | 
-                    <a class="p c" onclick="goToSlideW(7, 'COMSOL')">COMSOL Multiphysics</a> | 
-                    <a class="p c" onclick="goToSlideW(8, 'NEURON')">NEURON</a> | 
-                    <a class="p c" onclick="goToSlideW(21, 'Xilinx')">Xilinx ISE</a> | 
-                    <a class="p c" onclick="goToSlideW(15, 'MeshLab')">MeshLab</a> | 
-                    <a class="p c" onclick="goToSlideW(10, 'Cadence')">Cadence Virtuoso</a>
-                </p>
-                <style>
-                    a.t {
-                        color: rgba(30, 30, 30, .8);
-                    }
-                </style>
+                <div class="workspace-cloud-wrap">
+                    <div id="workspace-cloud-hint" class="workspace-cloud-hint">Click on a word to reveal comments</div>
+                    <div id="workspace-cloud" class="workspace-cloud"></div>
+                </div>
+                <div id="workspace-cloud-legend" class="workspace-cloud-legend"></div>
                 <p class="wCaption">
                     <span id="Lumerical">EECS429 Semiconductor Optoelectronic Devices - Homework and final project simulation</span>
                     <span id="MATLAB">BME517 Neural Engineering - Homework and final project simulation</span>
@@ -182,11 +143,30 @@
                 <script>
                     decorateCarousel('carouselw');
                     $('.wCaption span').hide();
-                    function goToSlideW(id, name) {
-                        $('#carouselw').carousel(id - 1);
+                    function showWorkspaceCaption(name) {
                         $('.wCaption span').hide();
                         $('.wCaption #' + name).show();
                     }
+                    window.goToSlideW = function(id, name) {
+                        $('#carouselw').carousel(id - 1);
+                        showWorkspaceCaption(name);
+                    };
+                    var workspaceCloudApi = initWorkspaceWordCloud({
+                        containerId: 'workspace-cloud',
+                        legendId: 'workspace-cloud-legend',
+                        onWordClick: function(word) {
+                            goToSlideW(word.slide, word.commentId);
+                        }
+                    });
+                    document.getElementById('carouselw').addEventListener('slid.bs.carousel', function (event) {
+                        if (!workspaceCloudApi) return;
+                        var word = workspaceCloudApi.setActiveBySlide(event.to + 1);
+                        if (word) {
+                            showWorkspaceCaption(word.commentId);
+                        } else {
+                            $('.wCaption span').hide();
+                        }
+                    });
                 </script>
             </div>
         </div>

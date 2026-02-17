@@ -1,0 +1,27 @@
+text,category,familiarity,slide,commentId
+Adobe Illustrator,Productivity and Design,a,20,Illustrator
+Adobe Premiere,Productivity and Design,b,12,Premiere
+Microsoft Powerpoint,Productivity and Design,b,21,Powerpoint
+Microsoft Excel,Productivity and Design,b,21,Excel
+Microsoft Word,Productivity and Design,b,21,Word
+Adobe Photoshop,Productivity and Design,c,19,Photoshop
+Microsoft Project,Productivity and Design,c,6,Project
+Microsoft Publisher,Productivity and Design,c,16,Publisher
+MATLAB,Programming,a,2,MATLAB
+Wolfram Mathematica,Programming,a,14,Mathematica
+Adobe Dreamweaver,Programming,b,17,Dreamweaver
+Python,Programming,b,18,Python
+Microsoft Visual Studio,Programming,b,11,VisualStudio
+LaTeX,Programming,c,21,Latex
+Arduino (C++),Programming,c,21,Arduino
+Eclipse IDE,Programming,c,13,Eclipse
+SolidWorks,Research,b,3,SolidWorks
+LabVIEW,Research,b,9,LabVIEW
+Lumerical FDTD Solutions,Research,c,1,Lumerical
+Microsoft Visio,Research,c,4,Visio
+EndNote,Research,c,5,EndNote
+COMSOL Multiphysics,Research,c,7,COMSOL
+NEURON,Research,c,8,NEURON
+Xilinx ISE,Research,c,21,Xilinx
+MeshLab,Research,c,15,MeshLab
+Cadence Virtuoso,Research,c,10,Cadence
