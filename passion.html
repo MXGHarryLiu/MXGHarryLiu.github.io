@@ -14,32 +14,83 @@
     <script src="js/carousel.js"></script>
     <script src="js/i18n.js" defer></script>
     <script src="js/workspace-cloud.js"></script>
+    <script src="js/places-map.js"></script>
     <script src="https://code.jquery.com/jquery-4.0.0.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <!-- Plotly map -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js'></script>
     <script src="https://cdn.jsdelivr.net/npm/d3-cloud@1/build/d3.layout.cloud.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-3.3.1.min.js" charset="utf-8"></script>
+    <style>
+        .passion-section-nav .btn {
+            width: 100%;
+            font-weight: 600;
+            white-space: nowrap;
+            border-color: #6c757d;
+            color: #495057;
+            background-color: #ffffff;
+        }
+        .passion-section-nav .btn.active {
+            color: #ffffff;
+            background-color: #495057;
+            border-color: #495057;
+            box-shadow: 0 0 0 0 rgba(73, 80, 87, 0.22);
+            animation: passionTabBreath 1.8s ease-in-out infinite;
+        }
+        .passion-section-nav .btn:hover {
+            border-color: #495057;
+            color: #343a40;
+        }
+        .passion-panel {
+            display: none;
+        }
+        .passion-panel.is-active {
+            display: block;
+        }
+        @keyframes passionTabBreath {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(73, 80, 87, 0.2);
+            }
+            50% {
+                transform: scale(1.02);
+                box-shadow: 0 0 0 8px rgba(73, 80, 87, 0.05);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(73, 80, 87, 0);
+            }
+        }
+    </style>
 </head>
 <body class="grid-1">
     <nav-component></nav-component>
     
     <div class="container mt-4">
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            <i class="bi bi-tools"></i> This page is under construction. More will be added soon.
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    </div>
-
-    <div class="container mt-4">
         <h1 class="text-center" data-i18n="passion/title"></h1>
-        <p class="text-center" data-i18n="passion/summary">The screenshots of my computer witness my academic endeavor. The work and collections from my hobbies illustrate my pursuit of knowledge outside the classroom. The scattered pins over the world map along with the photos of me show my joy of experiencing exotic custom and culture. MY PASSION is what I talk about with thrill and happiness. </p>
+        <p class="text-center" data-i18n="passion/summary"></p>
 
+        <div id="passion-section-nav" class="row g-2 mt-3 passion-section-nav">
+            <div class="col-3">
+                <button type="button" class="btn btn-outline-secondary active" data-panel="workspace" data-i18n="passion/m1/workspace"></button>
+            </div>
+            <div class="col-3">
+                <button type="button" class="btn btn-outline-secondary" data-panel="hobbies" data-i18n="passion/m1/hobby"></button>
+            </div>
+            <div class="col-3">
+                <button type="button" class="btn btn-outline-secondary" data-panel="places" data-i18n="passion/m1/place"></button>
+            </div>
+            <div class="col-3">
+                <button type="button" class="btn btn-outline-secondary" data-panel="trivia" data-i18n="passion/m1/trivia"></button>
+            </div>
+        </div>
+
+        <section id="passion-panel-workspace" class="passion-panel is-active">
         <h2 class="text-center" data-i18n="passion/m1/workspace"></h2>
         <div class="row">
             <div class="col-md-6">
                 <div class="workspace-cloud-wrap">
-                    <div id="workspace-cloud-hint" class="workspace-cloud-hint" data-i18n="workspace/hint">Click on a word to reveal comments</div>
+                    <div id="workspace-cloud-hint" class="workspace-cloud-hint" data-i18n="workspace/hint"></div>
                     <div id="workspace-cloud" class="workspace-cloud"></div>
                 </div>
                 <div id="workspace-cloud-legend" class="workspace-cloud-legend"></div>
@@ -158,213 +209,67 @@
                 </script>
             </div>
         </div>
+        </section>
     </div>
     
-    <div class="container mt-4">
+    <div id="passion-panel-hobbies" class="container mt-4 passion-panel">
         <h2 class="text-center" data-i18n="passion/m1/hobby"></h2>
-        <p class="text-center">My hobbies span a vast field of disciplines. Happiness from gaining knowledge despite being esoteric is the incentive. </p>
+        <p class="text-center" data-i18n="hobbies/summary"></p>
         <div class="row">
             <div class="col-md-4">
-                <h5 class="text-center">Astrophotography</h5>
+                <h5 class="text-center" data-i18n="hobbies/h1/title"></h5>
                 <div id="carouselastro">
                     <div class="carousel-inner">
                         <div class="carousel-item">
                             <img src="img/hobbies/ha1-s.jpg">
-                            <h5 data-i18n="alt/img/hobbies/ha1-s.jpg"></h5>
                         </div>  
                         <div class="carousel-item">
                             <img src="img/hobbies/ha2-s.jpg">
-                            <h5 data-i18n="alt/img/hobbies/ha2-s.jpg"></h5>
                         </div>
                         <div class="carousel-item">
                             <img src="img/hobbies/ha3-s.jpg">
-                            <h5 data-i18n="alt/img/hobbies/ha3-s.jpg"></h5>
                         </div>
                     </div>
                 </div>
-                <script>decorateCarousel('carouselastro');</script>
-                <p>Appreciate the night sky with high-tech gadgets. </p>
+                <p id="astro-alt-message" class="text-center text-muted mt-2 mb-0"></p>
+                <script>setupCarouselAltMessage('carouselastro', 'astro-alt-message');</script>
+                <p data-i18n="hobbies/h1/summary"></p>
             </div>
             <div class="col-md-4">
-                <h5 class="text-center">Numismatics (Notaphily)</h5>
+                <h5 class="text-center" data-i18n="hobbies/h2/title"></h5>
                 <div id="carouselnote">
                     <div class="carousel-inner">
                         <div class="carousel-item">
                             <img alt="Zimbabwe Z$100 Trillion Dollar" title="Zimbabwe Z$100 Trillion Dollar" src="img/hobbies/hn1-s.jpg"/>
-                            <h5>Zimbabwe Z$100 Trillion Dollar<br>(One of The World's Highest Currencies)</h5>
                         </div>
                         <div class="carousel-item">
                             <img alt="Banknote Set Collections" title="Banknote Set Collections" src="img/hobbies/hn2-s.jpg"/>
-                            <h5>Banknote Set Collections<br>(Mongolian ₮0.1 to ₮20,000 Tugrik)</h5>
                         </div>
                         <div class="carousel-item">
                             <img alt="USA Coin Sets" title="USA Coin Sets" src="img/hobbies/hn3-s.jpg"/>
-                            <h5>USA Coin Sets</h5>
                         </div>
                     </div>
                 </div>
-                <script>decorateCarousel('carouselnote');</script>
-                <p>Treasure banknotes and coins gathered from travels, banks and dealers.</p> 
+                <p id="note-alt-message" class="text-center text-muted mt-2 mb-0"></p>
+                <script>setupCarouselAltMessage('carouselnote', 'note-alt-message');</script>
+                <p data-i18n="hobbies/h2/summary"></p>
             </div>
             <div class="col-md-4">
-                <h5 class="text-center">Phonetics</h5>
+                <h5 class="text-center" data-i18n="hobbies/h3/title"></h5>
                 <img class="card-img-top" alt="IPA" title="IPA" src="img/hobbies/IPA-t.jpg">
-                <p>Support the conservation of Wu Chinese. <br>"IPA 101 - All about IPA and Phonetics" Slides <a href="files/A Letter a Day (IPA 101).pdf" target="_blank">(pdf, 3.19 MB)</a></p>
+                <p data-i18n="hobbies/h3/summary"></p>
             </div>
         </div>
     </div>
     
-    <div class="container mt-4">
+    <div id="passion-panel-places" class="container mt-4 passion-panel">
         <h2 class="text-center" data-i18n="passion/m1/place"></h2>
         <div class="row">
             <div class="col-md-6">
                 <div class="plotly-map-wrap">
-                    <div id="plotly-map-hint" class="plotly-map-hint" data-i18n="places/hint">Click on the pins to reveal more info.</div>
+                    <div id="plotly-map-hint" class="plotly-map-hint" data-i18n="places/hint"></div>
                     <div id="plotly-map"></div>
                 </div>
-                <script>
-                    function getColorByType(type) {
-                        switch (type) {
-                            case 'home':
-                                return '#ff1e00';
-                            case 'sojourn':
-                                return '#fff500';
-                            default:
-                                return '#4bd8b5';
-                        }
-                    }
-                    
-                    window.placeMapSync = null;
-                    var plotlyMapHintEl = document.getElementById('plotly-map-hint');
-                    function hidePlotlyMapHint() {
-                        if (!plotlyMapHintEl) return;
-                        plotlyMapHintEl.classList.add('is-hidden');
-                    }
-                    setTimeout(hidePlotlyMapHint, 10000);
-
-                    d3.csv('data/map.csv', function(err, rows) {
-                        if (err) return;
-                        var typeArray = unpack(rows, 'type');
-                        var types = [...new Set(typeArray)];
-                        var rowIndexByLabel = {};
-                        var mapDiv = document.getElementById('plotly-map');
-
-                        rows.forEach(function (row, idx) {
-                            rowIndexByLabel[row.label] = idx;
-                        });
-
-                        function unpack(rows, key) {
-                            return rows.map(function(row) { return row[key]; });
-                        }
-                        function getLocalizedTypeName(type) {
-                            return window.i18nManager && typeof window.i18nManager.getContent === 'function'
-                                ? window.i18nManager.getContent('places/legend/' + type, type)
-                                : type;
-                        }
-                        function applyLocalizedLegendNames() {
-                            types.forEach(function(type, idx) {
-                                Plotly.restyle('plotly-map', { name: getLocalizedTypeName(type) }, [idx]);
-                            });
-                        }
-                        var data = types.map(function(type) {
-                            var rowsFiltered = rows.filter(function(row) {
-                                return (row.type === type);
-                            });
-                            return {
-                                type: 'scattermap',
-                                name: getLocalizedTypeName(type),
-                                lat: unpack(rowsFiltered, 'lat'),
-                                lon: unpack(rowsFiltered, 'lon'),
-                                text: unpack(rowsFiltered, 'label'),
-                                customdata: unpack(rowsFiltered, 'label').map(function(label) {
-                                    return rowIndexByLabel[label];
-                                }),
-                                hovertemplate: '%{text}<extra></extra>',
-                                marker: {
-                                    size: unpack(rowsFiltered, 'label').map(function() { return 14; }),
-                                    color: getColorByType(type),
-                                    opacity: unpack(rowsFiltered, 'label').map(function() { return 0.45; })
-                                }
-                            };
-                        });
-
-                        var pointRefByRowIndex = {};
-                        data.forEach(function(trace, curveNumber) {
-                            trace.customdata.forEach(function(rowIndex, pointNumber) {
-                                pointRefByRowIndex[rowIndex] = {
-                                    curveNumber: curveNumber,
-                                    pointNumber: pointNumber
-                                };
-                            });
-                        });
-                
-                        var layout = {
-                            map: {
-                                style: 'open-street-map',
-                                center: { lat: 38.03, lon: -90.70},
-                                zoom: 0
-                            },
-                            margin: { l: 0, r: 0, t: 0, b: 0, pad: 5},
-                            showlegend: true,
-                            legend: {
-                                x: 0,
-                                xanchor: 'left',
-                                y: 1,
-                                orientation: "h"
-                            }
-                        };
-
-                        var config = {
-                            responsive: true,
-                            modeBarButtonsToRemove: ['lasso2d', 'select2d']
-                        };
-
-                        var selectedPlaceIndex = 0;
-
-                        function applyMapSelection(rowIndex, keepTooltip) {
-                            selectedPlaceIndex = rowIndex;
-                            data.forEach(function(trace, curveNumber) {
-                                var opacity = trace.customdata.map(function(currentIndex) {
-                                    return currentIndex === rowIndex ? 1 : 0.6;
-                                });
-                                Plotly.restyle('plotly-map', {
-                                    'marker.opacity': [opacity]
-                                }, [curveNumber]);
-                            });
-
-                            if (!keepTooltip) return;
-                            var ref = pointRefByRowIndex[rowIndex];
-                            if (!ref) return;
-                            Plotly.Fx.hover('plotly-map', [{
-                                curveNumber: ref.curveNumber,
-                                pointNumber: ref.pointNumber
-                            }]);
-                        }
-
-                        window.placeMapSync = {
-                            selectPlace: function (rowIndex, keepTooltip) {
-                                if (rowIndex < 0 || rowIndex >= rows.length) return;
-                                applyMapSelection(rowIndex, keepTooltip !== false);
-                            }
-                        };
-                
-                        Plotly.newPlot('plotly-map', data, layout, config).then(function() {
-                            applyMapSelection(0, true);
-                        });
-                        mapDiv.on('plotly_click', function (data) {
-                            hidePlotlyMapHint();
-                            var rowIndex = data.points[0].customdata;
-                            applyMapSelection(rowIndex, true);
-                            goToSlideP(rowIndex + 1);
-                        });
-                        mapDiv.on('plotly_relayout', function () {
-                            applyMapSelection(selectedPlaceIndex, true);
-                        });
-                        document.addEventListener(window.I18N_READY_EVENT || 'i18n-ready', function () {
-                            applyLocalizedLegendNames();
-                        });
-                    });
-                </script>
             </div>
             <div class="col-md-6">
                 <div id="carouselplace">
@@ -406,30 +311,25 @@
                 </div>
                 <p id="place-alt-message" class="text-center text-muted mt-2 mb-0"></p>
                 <script>
-                    decorateCarousel('carouselplace');
-                    function updatePlaceAltMessageByIndex(index) {
-                        var items = document.querySelectorAll('#carouselplace .carousel-item');
-                        if (!items || !items.length || index < 0 || index >= items.length) return;
-                        var img = items[index].querySelector('img');
-                        var messageEl = document.getElementById('place-alt-message');
-                        if (!img || !messageEl) return;
-                        messageEl.textContent = img.getAttribute('alt') || '';
-                    }
+                    var placeMapSync = null;
                     function goToSlideP(id) {
                         $('#carouselplace').carousel(id - 1);
                     }
-                    document.getElementById('carouselplace').addEventListener('slid.bs.carousel', function (event) {
-                        if (window.placeMapSync) {
-                            window.placeMapSync.selectPlace(event.to, true);
+                    setupCarouselAltMessage('carouselplace', 'place-alt-message', {
+                        onSlide: function (index) {
+                            if (placeMapSync) {
+                                placeMapSync.selectPlace(index, true);
+                            }
                         }
-                        updatePlaceAltMessageByIndex(event.to);
                     });
-                    document.addEventListener(window.I18N_READY_EVENT || 'i18n-ready', function () {
-                        var activeItem = document.querySelector('#carouselplace .carousel-item.active');
-                        var activeIndex = activeItem ? Array.prototype.indexOf.call(activeItem.parentNode.children, activeItem) : 0;
-                        updatePlaceAltMessageByIndex(Math.max(0, activeIndex));
+                    placeMapSync = initPlacesMap({
+                        mapId: 'plotly-map',
+                        hintId: 'plotly-map-hint',
+                        csvUrl: 'data/map.csv',
+                        onPlaceClick: function (rowIndex) {
+                            goToSlideP(rowIndex + 1);
+                        }
                     });
-                    updatePlaceAltMessageByIndex(0);
                 </script>
             </div>
         </div>
@@ -442,28 +342,28 @@
                         font-style: oblique;
                     }
                 </style>
-                <h4 data-i18n="places/statistics/title">Statistics</h4>
-                <p><span data-i18n="places/statistics/s1">Countries/Regions Visited</span>: <span class="shownum" title="3 continents" style="cursor: help;">15</span></p>
-                <p><span data-i18n="places/statistics/s2">Longest Stay Away From Hometown</span>: <span class="shownum" title="In Houston" style="cursor: help;" id="dates">840
+                <h4 data-i18n="places/statistics/title"></h4>
+                <p><span data-i18n="places/statistics/s1"></span>: <span class="shownum" data-i18n-title="places/statistics/s1t" style="cursor: help;">15</span></p>
+                <p><span data-i18n="places/statistics/s2"></span>: <span class="shownum" data-i18n-title="places/statistics/s2t" style="cursor: help;" id="dates">840
                     <!-- <script>
                         var dn = new Date();
                         var d2 = new Date("2016/08/14");
                         document.getElementById("dates").innerHTML = Math.round((dn.getTime() - d2.getTime()) / 1000 / 60 / 60 / 24).toString();
                     </script>
                     -->
-                </span> <span data-i18n="places/statistics/s2u">days</span></p>
-                <p><span data-i18n="places/statistics/s3">Highest Peak Reached</span>: <span class="shownum" title="Shika Snow Mountain, 2007/06/27" style="cursor: help;">4440</span> <span data-i18n="places/statistics/s3u">m</span></p>
+                </span> <span data-i18n="places/statistics/s2u"></span></p>
+                <p><span data-i18n="places/statistics/s3"></span>: <span class="shownum" data-i18n-title="places/statistics/s3t" style="cursor: help;">4440</span> <span data-i18n="places/statistics/s3u"></span></p>
             </div>
             <div class="col-md-6">
-                <h4 data-i18n="places/goals/title">Goals</h4>
-                <p data-i18n="places/goals/g1">1. Enter the Southern Hemisphere;</p>
-                <p data-i18n="places/goals/g2">2. Across the Arctic Circle;</p>
-                <p data-i18n="places/goals/g3">3. Be on a New Continent.</p>
+                <h4 data-i18n="places/goals/title"></h4>
+                <p data-i18n="places/goals/g1"></p>
+                <p data-i18n="places/goals/g2"></p>
+                <p data-i18n="places/goals/g3"></p>
             </div>
         </div>
     </div>
 
-    <div class="container mt-4">
+    <div id="passion-panel-trivia" class="container mt-4 passion-panel">
         <h2 class="text-center" data-i18n="passion/m1/trivia"></h2>
         <div class="row">
             <style>
@@ -475,56 +375,114 @@
                 <div class="accordion" id="accordiontrivia">
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingOne">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                Q: Who is the little boy with you on your profile picture?
-                            </button>
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" data-i18n="trivia/q1"></button>
                         </h2>
                         <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordiontrivia">
-                            <div class="accordion-body">
-                                It was me 8 years ago! How appropriate 同登彼岸 means being on both sides of the shore!
-                            </div>
+                            <div class="accordion-body" data-i18n="trivia/a1"></div>
                         </div>
                     </div>
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingTwo">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                Q: What sports do you play?
-                            </button>
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" data-i18n="trivia/q2"></button>
                         </h2>
                         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordiontrivia">
-                            <div class="accordion-body">
-                                I'm good at swimming and other individual sports such as table tennis, and tennis.
-                            </div>
+                            <div class="accordion-body" data-i18n="trivia/a2"></div>
                         </div>
                     </div>
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingThree">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                Q: How do you spend your leisure time?
-                            </button>
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" data-i18n="trivia/q3"></button>
                         </h2>
                         <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordiontrivia">
-                            <div class="accordion-body">
-                                I cook, watch <span style="font-style:italic;">Doctor Who</span> and BBC documentaries, play space simulation games (SpaceEngine, KSP), and listen to Electronica albums (Engima, Conjure One).
-                            </div>
+                            <div class="accordion-body" data-i18n="trivia/a3"></div>
                         </div>
                     </div>
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingFour">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                Q: Anything else you want to show?
-                            </button>
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" data-i18n="trivia/q4"></button>
                         </h2>
                         <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordiontrivia">
-                            <div class="accordion-body">
-                                Anything you'd like to know!
-                            </div>
+                            <div class="accordion-body" data-i18n="trivia/a4"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        (function () {
+            var nav = document.getElementById('passion-section-nav');
+            if (!nav) return;
+            var buttons = Array.prototype.slice.call(nav.querySelectorAll('button[data-panel]'));
+            var panels = {
+                workspace: document.getElementById('passion-panel-workspace'),
+                hobbies: document.getElementById('passion-panel-hobbies'),
+                places: document.getElementById('passion-panel-places'),
+                trivia: document.getElementById('passion-panel-trivia')
+            };
+
+            function triggerLayoutRefresh() {
+                window.dispatchEvent(new Event('resize'));
+                setTimeout(function () {
+                    window.dispatchEvent(new Event('resize'));
+                }, 120);
+            }
+
+            function isValidPanelKey(panelKey) {
+                return Object.prototype.hasOwnProperty.call(panels, panelKey);
+            }
+
+            function getPanelFromHash() {
+                var hash = (window.location.hash || '').replace('#', '').trim().toLowerCase();
+                if (hash === 'hobby') hash = 'hobbies';
+                if (hash === 'place') hash = 'places';
+                return isValidPanelKey(hash) ? hash : 'workspace';
+            }
+
+            function setHash(panelKey) {
+                if (!isValidPanelKey(panelKey)) return;
+                if ((window.location.hash || '').toLowerCase() === '#' + panelKey) return;
+                if (window.history && typeof window.history.replaceState === 'function') {
+                    var url = new URL(window.location.href);
+                    url.hash = panelKey;
+                    window.history.replaceState(null, '', url.toString());
+                    return;
+                }
+                window.location.hash = panelKey;
+            }
+
+            function setActivePanel(panelKey, options) {
+                if (!isValidPanelKey(panelKey)) return;
+                var opts = options || {};
+                buttons.forEach(function (button) {
+                    var isActive = button.getAttribute('data-panel') === panelKey;
+                    button.classList.toggle('active', isActive);
+                    button.setAttribute('aria-selected', isActive ? 'true' : 'false');
+                });
+                Object.keys(panels).forEach(function (key) {
+                    var panel = panels[key];
+                    if (!panel) return;
+                    panel.classList.toggle('is-active', key === panelKey);
+                });
+                if (opts.syncHash !== false) {
+                    setHash(panelKey);
+                }
+                triggerLayoutRefresh();
+            }
+
+            buttons.forEach(function (button) {
+                button.addEventListener('click', function () {
+                    setActivePanel(button.getAttribute('data-panel'), { syncHash: true });
+                });
+            });
+
+            window.addEventListener('hashchange', function () {
+                setActivePanel(getPanelFromHash(), { syncHash: false });
+            });
+
+            setActivePanel(getPanelFromHash(), { syncHash: true });
+        })();
+    </script>
 
     <footer-component></footer-component>
 </body>

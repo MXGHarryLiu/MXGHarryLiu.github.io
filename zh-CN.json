@@ -194,15 +194,23 @@
         "timelineTitle": "金点子",
         "i1": {
             "title": "便携式半导体冰箱",
-            "shortTitle": "便携式冰箱"
+            "shortTitle": "便携式冰箱",
+            "bullet1": "<b>DIY 无压缩机便携冰箱，内置电池。</b>",
+            "bullet2": "从室温降至 4°C 约需 4 小时。",
+            "bullet3": "单次充电可续航 2 小时（25W），运行中约 4 小时可充满。",
+            "bullet4": "内置 LED 照明与空气循环。"
         },
         "i2": {
             "title": "英语增强器",
-            "shortTitle": "英语增强器"
+            "shortTitle": "英语增强器",
+            "bullet1": "该程序通过同义词扩展词汇量，帮助提升写作与阅读能力。",
+            "bullet2": "[下载最新版本](https://github.com/MXGHarryLiu/EnglishEnhancer/raw/main/zips/EnglishEnhancer%201.1.zip)（zip，221 KB，Windows 10+）"
         },
         "i3": {
             "title": "个人网站",
-            "shortTitle": "个人网站"
+            "shortTitle": "个人网站",
+            "bullet1": "于 2023 年 10 月实现静态国际化。",
+            "bullet2": "于 2023 年 12 月基于 Bootstrap 框架整体重构。"
         }
     },
     "passion": {
@@ -255,6 +263,21 @@
         "Word": "无纸化学习与工作的重要工具",
         "Illustrator": "用于论文图表的矢量图设计"
     },
+    "hobbies": {
+        "summary": "我的兴趣爱好覆盖广泛学科。即使再冷门，获得知识本身的快乐就是最大的动力。",
+        "h1": {
+            "title": "天文摄影",
+            "summary": "借助高科技设备欣赏夜空。"
+        },
+        "h2": {
+            "title": "钱币收藏（纸币学）",
+            "summary": "珍藏旅行、银行与收藏商渠道获得的纸币和硬币。"
+        },
+        "h3": {
+            "title": "语音学",
+            "summary": "支持吴语保护。<br>“IPA 101 - All about IPA and Phonetics” [讲义](files/A Letter a Day (IPA 101).pdf)（pdf，3.19 MB）"
+        }
+    },
     "places": {
         "hint": "点击地图图钉可查看更多信息。",
         "legend": {
@@ -265,9 +288,12 @@
         "statistics": {
             "title": "统计",
             "s1": "到访国家/地区",
+            "s1t": "3 大洲",
             "s2": "离开家乡最长时间",
+            "s2t": "在休斯顿",
             "s2u": "天",
             "s3": "到达最高海拔",
+            "s3t": "石卡雪山，2007/06/27",
             "s3u": "米"
         },
         "goals": {
@@ -277,6 +303,16 @@
             "g3": "3. 踏上新的大洲。"
         }
     },
+    "trivia": {
+        "q1": "问：头像里和你在一起的小男孩是谁？",
+        "a1": "那是 8 年前的我！“同登彼岸”这个词用在这里再合适不过了。",
+        "q2": "问：你会哪些运动？",
+        "a2": "我比较擅长游泳，也喜欢乒乓球、网球等个人项目。",
+        "q3": "问：你平时怎么安排休闲时间？",
+        "a3": "我会做饭，看 <span style=\"font-style:italic;\">Doctor Who</span> 和 BBC 纪录片，玩太空模拟游戏（SpaceEngine、KSP），也会听电子音乐专辑（Enigma、Conjure One）。",
+        "q4": "问：还有什么想展示的吗？",
+        "a4": "欢迎你想了解什么就问什么！"
+    },
     "timeline": {
         "clickHint": "点击节点查看详情",
         "toggleHint": "切换时间范围"
@@ -284,6 +320,7 @@
     "alt": {
         "img": {
             "homebanner.jpg": "冰封密西根湖（亲自摄于芝加哥 @ 2015/3/2）",
+            "placeholder2.jpg": "我的工作台",
             "vancouver-beatymuseum-s.jpg": "探索世界",
             "profile-s.jpg": "品味生活",
             "tale-s.jpg": "讲述轶事",
@@ -322,9 +359,13 @@
                 "p4-3-s.jpg": "来自我高中学校的参赛者与同学们"
             },
             "hobbies": {
-                "ha1-s.jpg": "Partial Solar Eclipse (05/21/2012, Shanghai)",
-                "ha2-s.jpg": "Total Lunar Eclipse (09/27/2015, Ann Arbor)",
-                "ha3-s.jpg": "Orion (02/10/2013, Shanghai)"
+                "ha1-s.jpg": "日偏食（2012/05/21，上海）",
+                "ha2-s.jpg": "月全食（2015/09/27，安娜堡）",
+                "ha3-s.jpg": "猎户座（2013/02/10，上海）",
+                "hn1-s.jpg": "津巴布韦100万亿纸币（世界最高面额货币之一）",
+                "hn2-s.jpg": "纸币套装收藏（蒙古图格里克 ₮0.1 至 ₮20,000）",
+                "hn3-s.jpg": "美国硬币套装",
+                "IPA-t.jpg": "IPA 101 - 国际音标与语音学"
             },
             "screen": {
                 "01.png": "Lumerical FDTD Solutions",

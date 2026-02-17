@@ -16,6 +16,7 @@ const LOCALE_CONFIG = [
     { code: 'zh-CN', switchLabel: 'English' }
 ];
 const LOCALE_STORAGE_KEY = 'locale';
+const LOCALE_QUERY_KEY = 'lang';
 const I18N_READY_EVENT = 'i18n-ready';
 
 /**
@@ -75,6 +76,49 @@ class I18nManager {
         }
         const found = this.locales.find(item => item.code === locale);
         return found ? found.code : this.defaultLocale;
+    }
+
+    /**
+     * Checks whether a locale is supported by current configuration.
+     * @param {string} locale Locale code to check.
+     * @returns {boolean} True when supported; false otherwise.
+     */
+    #isSupportedLocale(locale) {
+        if (!locale) {
+            return false;
+        }
+        return this.locales.some(item => item.code === locale);
+    }
+
+    /**
+     * Reads locale value from URL query parameter.
+     * @returns {string} Locale code from query, or empty string when missing.
+     */
+    #getLocaleFromQuery() {
+        try {
+            const params = new URLSearchParams(window.location.search || '');
+            return params.get(LOCALE_QUERY_KEY) || '';
+        } catch (error) {
+            return '';
+        }
+    }
+
+    /**
+     * Writes locale into URL query parameter without reloading the page.
+     * @param {string} locale Locale code to encode in URL.
+     * @returns {void}
+     */
+    #setLocaleQuery(locale) {
+        if (!locale || !window.history || typeof window.history.replaceState !== 'function') {
+            return;
+        }
+        try {
+            const url = new URL(window.location.href);
+            url.searchParams.set(LOCALE_QUERY_KEY, locale);
+            window.history.replaceState(null, '', url.toString());
+        } catch (error) {
+            // no-op
+        }
     }
 
     /**
@@ -225,6 +269,13 @@ class I18nManager {
                 element.innerHTML = this.#renderInlineLinks(content);
             }
         });
+        document.querySelectorAll('[data-i18n-title]').forEach(element => {
+            const keyPath = element.getAttribute('data-i18n-title');
+            const content = this.#getByPath(localeData, keyPath);
+            if (content !== undefined && content !== null) {
+                element.setAttribute('title', content);
+            }
+        });
         this.#normalizeExternalLinks(document);
 
         document.querySelectorAll('img').forEach(image => {
@@ -258,14 +309,19 @@ class I18nManager {
      * @param {object} localeData Resolved locale dictionary payload.
      * @param {object} options Locale application options.
      * @param {boolean} [options.persist=true] Persist locale selection in localStorage.
+     * @param {boolean} [options.updateQuery=true] Update locale in URL query parameter.
      * @returns {void}
      */
     #applyLocalePayload(locale, localeData, options) {
         const persist = options.persist !== false;
+        const updateQuery = options.updateQuery !== false;
         this.currentLocale = locale;
         this.localeData = localeData;
         if (persist) {
             localStorage.setItem(LOCALE_STORAGE_KEY, locale);
+        }
+        if (updateQuery) {
+            this.#setLocaleQuery(locale);
         }
         this.#updateContent(localeData);
         this.#applyI18nSideEffects(localeData);
@@ -277,6 +333,7 @@ class I18nManager {
      * @param {string} locale Locale code to activate.
      * @param {object} [options] Optional behavior controls.
      * @param {boolean} [options.persist=true] Persist preference to localStorage.
+     * @param {boolean} [options.updateQuery=true] Update locale query parameter.
      * @returns {Promise<void>}
      */
     async setLocale(locale, options = {}) {
@@ -318,8 +375,12 @@ class I18nManager {
      * @returns {Promise<void>}
      */
     async initialize() {
-        const userPreferredLocale = localStorage.getItem(LOCALE_STORAGE_KEY) || this.defaultLocale;
-        await this.setLocale(userPreferredLocale, { persist: false });
+        const queryLocale = this.#getLocaleFromQuery();
+        const storedLocale = localStorage.getItem(LOCALE_STORAGE_KEY) || '';
+        const initialLocale = this.#isSupportedLocale(queryLocale)
+            ? queryLocale
+            : (this.#isSupportedLocale(storedLocale) ? storedLocale : this.defaultLocale);
+        await this.setLocale(initialLocale, { persist: false, updateQuery: true });
     }
 }
 

@@ -194,15 +194,23 @@
         "timelineTitle": "Ideas",
         "i1": {
             "title": "Portable Fridge",
-            "shortTitle": "Portable Semiconductor Fridge"
+            "shortTitle": "Portable Semiconductor Fridge",
+            "bullet1": "<b>DIY portable compressor-less fridge with built-in battery.</b>",
+            "bullet2": "Cooling contents to 4°C from room temperature in 4 h.",
+            "bullet3": "Single charge lasts 2 h (25 W), 4 h to full charge while operation.",
+            "bullet4": "LED light and air circulation inside."
         },
         "i2": {
             "title": "English Enhancer",
-            "shortTitle": "English Enhancer"
+            "shortTitle": "English Enhancer",
+            "bullet1": "This program helps you to improve your writing and reading skills by enlarging your vocabulary through synonyms.",
+            "bullet2": "[Download the Latest Version](https://github.com/MXGHarryLiu/EnglishEnhancer/raw/main/zips/EnglishEnhancer%201.1.zip) (zip, 221 KB, Windows 10+)"
         },
         "i3": {
             "title": "Personal Website",
-            "shortTitle": "Personal Website"
+            "shortTitle": "Personal Website",
+            "bullet1": "Implemented static internationalization in Oct. 2023.",
+            "bullet2": "Overhaul using Bootstrap framework in Dec. 2023."
         }
     },
     "passion": {
@@ -255,6 +263,21 @@
         "Word": "Essential tool for paperless learning and working",
         "Illustrator": "Vector graphics design for publication figures"
     },
+    "hobbies": {
+        "summary": "My hobbies span a vast field of disciplines. Happiness from gaining knowledge despite being esoteric is the incentive.",
+        "h1": {
+            "title": "Astrophotography",
+            "summary": "Appreciate the night sky with high-tech gadgets."
+        },
+        "h2": {
+            "title": "Numismatics (Notaphily)",
+            "summary": "Treasure banknotes and coins gathered from travels, banks and dealers."
+        },
+        "h3": {
+            "title": "Phonetics",
+            "summary": "Support the conservation of Wu Chinese. <br>\"IPA 101 - All about IPA and Phonetics\" [Slides](files/A Letter a Day (IPA 101).pdf) (pdf, 3.19 MB)"
+        }
+    },
     "places": {
         "hint": "Click on the pins to reveal more info.",
         "legend": {
@@ -265,9 +288,12 @@
         "statistics": {
             "title": "Statistics",
             "s1": "Countries/Regions Visited",
+            "s1t": "3 continents",
             "s2": "Longest Stay Away From Hometown",
+            "s2t": "In Houston",
             "s2u": "days",
             "s3": "Highest Peak Reached",
+            "s3t": "Shika Snow Mountain, 2007/06/27",
             "s3u": "m"
         },
         "goals": {
@@ -277,6 +303,16 @@
             "g3": "3. Be on a New Continent."
         }
     },
+    "trivia": {
+        "q1": "Q: Who is the little boy with you on your profile picture?",
+        "a1": "It was me 8 years ago! How appropriate 同登彼岸 means being on both sides of the shore!",
+        "q2": "Q: What sports do you play?",
+        "a2": "I'm good at swimming and other individual sports such as table tennis, and tennis.",
+        "q3": "Q: How do you spend your leisure time?",
+        "a3": "I cook, watch <span style=\"font-style:italic;\">Doctor Who</span> and BBC documentaries, play space simulation games (SpaceEngine, KSP), and listen to Electronica albums (Engima, Conjure One).",
+        "q4": "Q: Anything else you want to show?",
+        "a4": "Anything you'd like to know!"
+    },
     "timeline": {
         "clickHint": "Click item to view details",
         "toggleHint": "Toggle timeline range"
@@ -284,6 +320,7 @@
     "alt": {
         "img": {
             "homebanner.jpg": "Arctic Scene at Chicago (Taken by me @ 2015/3/2)",
+            "placeholder2.jpg": "My Workspace",
             "vancouver-beatymuseum-s.jpg": "A world to explore",
             "profile-s.jpg": "A life to live",
             "tale-s.jpg": "A tale to tell",
@@ -324,7 +361,11 @@
             "hobbies": {
                 "ha1-s.jpg": "Partial Solar Eclipse (05/21/2012, Shanghai)",
                 "ha2-s.jpg": "Total Lunar Eclipse (09/27/2015, Ann Arbor)",
-                "ha3-s.jpg": "Orion (02/10/2013, Shanghai)"
+                "ha3-s.jpg": "Orion (02/10/2013, Shanghai)",
+                "hn1-s.jpg": "Zimbabwe Z$100 Trillion Dollar (One of The World's Highest Currencies)",
+                "hn2-s.jpg": "Banknote Set Collections (Mongolian ₮0.1 to ₮20,000 Tugrik)",
+                "hn3-s.jpg": "USA Coin Sets",
+                "IPA-t.jpg": "IPA 101 - All about IPA and Phonetics"
             },
             "screen": {
                 "01.png": "Lumerical FDTD Solutions",
