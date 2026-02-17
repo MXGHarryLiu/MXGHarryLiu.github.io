@@ -207,11 +207,74 @@
     },
     "passion": {
         "title": "Passions",
+        "summary": "The screenshots of my computer witness my academic endeavor. The work and collections from my hobbies illustrate my pursuit of knowledge outside the classroom. The scattered pins over the world map along with the photos of me show my joy of experiencing exotic custom and culture. MY PASSION is what I talk about with thrill and happiness.",
         "m1": {
             "workspace": "Workspace",
             "hobby": "Hobbies",
             "place": "Places I've Been",
             "trivia": "Trivia"
+        }
+    },
+    "workspace": {
+        "hint": "Click on a word to reveal comments",
+        "legend": {
+            "Productivity and Design": "Productivity and Design",
+            "Programming": "Programming",
+            "Research": "Research",
+            "fLabel": "Familiarity",
+            "f": {
+                "1": "Low",
+                "2": "Middle",
+                "3": "High"
+            }
+        },
+        "Lumerical": "EECS429 Semiconductor Optoelectronic Devices - Homework and final project simulation",
+        "MATLAB": "BME517 Neural Engineering - Homework and final project simulation",
+        "Visio": "EECS311 Electronic Circuits - Lab report visualization",
+        "SolidWorks": "BME450 Semester Senior Capstone Design - Prototype design",
+        "EndNote": "BME517 Neural Engineering - Literature review notes",
+        "Project": "BME450 Semester Senior Capstone Design - Productivity tools",
+        "COMSOL": "BME350 Introduction to Biomedical Engineering Design - Course focus",
+        "NEURON": "BME517 Neural Engineering - Homework",
+        "LabVIEW": "BME/EECS458 Biomedical Instrumentation & Design - Lab project",
+        "Cadence": "EECS311 Electronic Circuits - Lab",
+        "VisualStudio": "Personal interest",
+        "Premiere": "VE450 Major Design Experience - Promotional Video",
+        "Eclipse": "VE450 Major Design Experience - Android application development",
+        "Mathematica": "VE484 Data Mining - Course project and homework, Personal interest",
+        "MeshLab": "VE450 Major Design Experience - 3D model visualization",
+        "Publisher": "Adolescents Innovation Fair - Brochure design",
+        "Python": "ELEC 548 Machine Learning and Singal Processing for Neuro Engineering - Neural modeling",
+        "Photoshop": "High School Leadership, Personal interest",
+        "Dreamweaver": "My first ever computer programming language learned, helping me to build this site!",
+        "Latex": "SJTU Homeworks",
+        "Arduino": "VG100 Introduction to Engineering - Projects",
+        "Xilinx": "VE270 Introduction to Logic Design - FPGA Design Lab",
+        "Powerpoint": "Essential tool for paperless learning and working",
+        "Excel": "Essential tool for paperless learning and working",
+        "Word": "Essential tool for paperless learning and working",
+        "Illustrator": "Vector graphics design for publication figures"
+    },
+    "places": {
+        "hint": "Click on the pins to reveal more info.",
+        "legend": {
+            "home": "Hometown",
+            "sojourn": "Sojourn",
+            "trip": "Trip"
+        },
+        "statistics": {
+            "title": "Statistics",
+            "s1": "Countries/Regions Visited",
+            "s2": "Longest Stay Away From Hometown",
+            "s2u": "days",
+            "s3": "Highest Peak Reached",
+            "s3u": "m"
+        },
+        "goals": {
+            "title": "Goals",
+            "g1": "1. Enter the Southern Hemisphere;",
+            "g2": "2. Across the Arctic Circle;",
+            "g3": "3. Be on a New Continent."
         }
     },
     "timeline": {

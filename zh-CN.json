@@ -207,11 +207,74 @@
     },
     "passion": {
         "title": "兴趣",
+        "summary": "我的电脑截图见证了我的学业与探索。我的兴趣爱好相关作品与收藏，体现了我在课堂之外对知识的追求。世界地图上的点点足迹与旅行照片，记录了我体验各地风土人情的喜悦。所谓 PASSION，就是那些让我兴奋而乐于分享的事情。",
         "m1": {
             "workspace": "我的虚拟工作台",
             "hobby": "兴趣爱好",
             "place": "我的足迹",
             "trivia": "问答"
+        }
+    },
+    "workspace": {
+        "hint": "点击词条可查看说明",
+        "legend": {
+            "Productivity and Design": "效率与设计",
+            "Programming": "编程",
+            "Research": "科研",
+            "fLabel": "熟练度",
+            "f": {
+                "1": "低",
+                "2": "中",
+                "3": "高"
+            }
+        },
+        "Lumerical": "EECS429 半导体光电子器件课程：作业与期末项目仿真",
+        "MATLAB": "BME517 神经工程课程：作业与期末项目仿真",
+        "Visio": "EECS311 电子电路课程：实验报告可视化",
+        "SolidWorks": "BME450 毕业设计课程：原型设计",
+        "EndNote": "BME517 神经工程课程：文献综述笔记",
+        "Project": "BME450 毕业设计课程：项目管理工具",
+        "COMSOL": "BME350 生物医学工程设计导论：课程重点工具",
+        "NEURON": "BME517 神经工程课程：作业",
+        "LabVIEW": "BME/EECS458 生物医学仪器与设计：实验项目",
+        "Cadence": "EECS311 电子电路课程：实验",
+        "VisualStudio": "个人兴趣",
+        "Premiere": "VE450 综合设计实践：宣传视频制作",
+        "Eclipse": "VE450 综合设计实践：Android 应用开发",
+        "Mathematica": "VE484 数据挖掘课程：项目与作业，个人兴趣",
+        "MeshLab": "VE450 综合设计实践：三维模型可视化",
+        "Publisher": "青少年创新大赛：宣传册设计",
+        "Python": "ELEC 548 神经工程机器学习与信号处理：神经建模",
+        "Photoshop": "高中学生工作，个人兴趣",
+        "Dreamweaver": "我学习的第一门编程语言，也帮助我搭建了这个网站！",
+        "Latex": "上海交大课程作业",
+        "Arduino": "VG100 工程导论：课程项目",
+        "Xilinx": "VE270 逻辑设计导论：FPGA 实验",
+        "Powerpoint": "无纸化学习与工作的重要工具",
+        "Excel": "无纸化学习与工作的重要工具",
+        "Word": "无纸化学习与工作的重要工具",
+        "Illustrator": "用于论文图表的矢量图设计"
+    },
+    "places": {
+        "hint": "点击地图图钉可查看更多信息。",
+        "legend": {
+            "home": "家乡",
+            "sojourn": "逗留",
+            "trip": "旅行"
+        },
+        "statistics": {
+            "title": "统计",
+            "s1": "到访国家/地区",
+            "s2": "离开家乡最长时间",
+            "s2u": "天",
+            "s3": "到达最高海拔",
+            "s3u": "米"
+        },
+        "goals": {
+            "title": "目标",
+            "g1": "1. 到达南半球；",
+            "g2": "2. 穿越北极圈；",
+            "g3": "3. 踏上新的大洲。"
         }
     },
     "timeline": {
@@ -286,17 +349,17 @@
                 "20 Illustrator.png": "Adobe Illustrator"
             },
             "places": {
-                "ann arbor-s.jpg": "Ann Arbor (University of Michigan Law School), Michigan",
-                "athens acropolis-s.jpg": "Acropolis, Athens, Greece",
-                "bangkok-s.jpg": "The Grand Palace, Bangkok, Thailand",
-                "coloradosprings-s.jpg": "Pikes Peak, Colorado Springs",
-                "houston-s.jpg": "Houston (Houston Space Center), Texas",
-                "santorini-s.jpg": "Santorini, Greece",
-                "family-s.jpg": "My Family and Me (L2R: Aunt, Gfather, Gmother, Uncle, Me, Mom, Dad)",
-                "siem reap-s.jpg": "Siem Reap, Cambodia",
-                "singapore-s.jpg": "Singapore",
-                "vancouver-s.jpg": "Vancouver (Beaty Biodiversity Museum), Canada",
-                "vantican-s.jpg": "St. Peter's Basilica, Vantican City"
+                "ann arbor-s.jpg": "安娜堡（密歇根大学法学院），密歇根州，美国",
+                "athens acropolis-s.jpg": "雅典卫城，雅典，希腊",
+                "bangkok-s.jpg": "大皇宫，曼谷，泰国",
+                "coloradosprings-s.jpg": "派克峰，科罗拉多斯普林斯，美国",
+                "houston-s.jpg": "休斯顿（休斯顿太空中心），得克萨斯州，美国",
+                "santorini-s.jpg": "圣托里尼，希腊",
+                "family-s.jpg": "我和家人（左至右：舅妈、外公、外婆、舅舅、我、妈妈、爸爸）",
+                "siem reap-s.jpg": "暹粒，柬埔寨",
+                "singapore-s.jpg": "新加坡",
+                "vancouver-s.jpg": "温哥华（比蒂生物多样性博物馆），加拿大",
+                "vantican-s.jpg": "圣彼得大教堂，梵蒂冈城"
             }
         }
     },

@@ -17,6 +17,27 @@
         return Math.max(340, Math.min(500, Math.round(width * 0.82)));
     }
 
+    function getLocalizedLegendCategory(category) {
+        if (!window.i18nManager || typeof window.i18nManager.getContent !== "function") {
+            return category;
+        }
+        return window.i18nManager.getContent("workspace/legend/" + category, category);
+    }
+
+    function getLocalizedFamiliarityLabel() {
+        if (!window.i18nManager || typeof window.i18nManager.getContent !== "function") {
+            return "Familiarity";
+        }
+        return window.i18nManager.getContent("workspace/legend/fLabel", "Familiarity");
+    }
+
+    function getLocalizedFamiliarityValue(value) {
+        if (!window.i18nManager || typeof window.i18nManager.getContent !== "function") {
+            return value;
+        }
+        return window.i18nManager.getContent("workspace/legend/f/" + value, value);
+    }
+
     function makeLegend(legendEl) {
         if (!legendEl) return;
 
@@ -24,12 +45,11 @@
             return "<span class=\"legend-item\"><i class=\"legend-dot\" style=\"background-color:" +
                 CATEGORY_COLORS[category] +
                 ";\"></i>" +
-                category +
+                getLocalizedLegendCategory(category) +
                 "</span>";
         }).join("");
 
-        legendEl.innerHTML =
-            categoryLegend;
+        legendEl.innerHTML = categoryLegend;
     }
 
     function isNumericValue(value) {
@@ -193,7 +213,11 @@
 
         textNodes.append("title")
             .text(function (d) {
-                return d.meta.category + " | Familiarity: " + d.meta.familiarity;
+                return getLocalizedLegendCategory(d.meta.category) +
+                    " | " +
+                    getLocalizedFamiliarityLabel() +
+                    ": " +
+                    getLocalizedFamiliarityValue(d.meta.familiarity);
             });
 
         applySelectedClass(textNodes, selectionState.activeCommentId);
@@ -202,6 +226,18 @@
         return {
             textNodes: textNodes
         };
+    }
+
+    function refreshCloudTooltipText(renderedCloud) {
+        if (!renderedCloud || !renderedCloud.textNodes) return;
+        renderedCloud.textNodes.select("title")
+            .text(function (d) {
+                return getLocalizedLegendCategory(d.meta.category) +
+                    " | " +
+                    getLocalizedFamiliarityLabel() +
+                    ": " +
+                    getLocalizedFamiliarityValue(d.meta.familiarity);
+            });
     }
 
     function runCloudLayout(width, height, baseWords, familiaritySizeMap, onWordClick, onDone) {
@@ -301,9 +337,14 @@
         var legendId = opts.legendId || "workspace-cloud-legend";
         var legendEl = document.getElementById(legendId);
         makeLegend(legendEl);
+        document.addEventListener(window.I18N_READY_EVENT || "i18n-ready", function () {
+            makeLegend(legendEl);
+            refreshCloudTooltipText(renderedCloud);
+        });
 
         var hintId = opts.hintId || "workspace-cloud-hint";
         var hintEl = document.getElementById(hintId);
+        var hintTimeoutId = null;
         var hasInteracted = false;
         var selectionState = { activeCommentId: null };
         var renderedCloud = null;
@@ -316,6 +357,16 @@
             if (hintEl) {
                 hintEl.classList.add("is-hidden");
             }
+            if (hintTimeoutId) {
+                clearTimeout(hintTimeoutId);
+                hintTimeoutId = null;
+            }
+        }
+
+        if (hintEl) {
+            hintTimeoutId = setTimeout(function () {
+                hintEl.classList.add("is-hidden");
+            }, 10000);
         }
 
         function getWordByCommentId(commentId) {
@@ -348,6 +399,7 @@
             wordsState.list = loadedWords;
             renderCloud(containerEl, wordsState.list, onWordClick, onFirstInteraction, selectionState, function (rendered) {
                 renderedCloud = rendered;
+                refreshCloudTooltipText(renderedCloud);
             });
         });
 
@@ -361,6 +413,7 @@
             }
             renderCloud(containerEl, wordsState.list, onWordClick, onFirstInteraction, selectionState, function (rendered) {
                 renderedCloud = rendered;
+                refreshCloudTooltipText(renderedCloud);
             });
         }, 150);
 

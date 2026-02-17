@@ -128,6 +128,10 @@
     position: relative;
 }
 
+.plotly-map-wrap {
+    position: relative;
+}
+
 .workspace-cloud {
     width: 100%;
     min-height: 360px;
@@ -137,7 +141,8 @@
     overflow: hidden;
 }
 
-.workspace-cloud-hint {
+.workspace-cloud-hint,
+.plotly-map-hint {
     position: absolute;
     top: 0.6rem;
     left: 50%;
@@ -154,7 +159,8 @@
     animation: workspaceHintBreath 1.8s ease-in-out infinite;
 }
 
-.workspace-cloud-hint.is-hidden {
+.workspace-cloud-hint.is-hidden,
+.plotly-map-hint.is-hidden {
     opacity: 0;
     animation: none;
 }

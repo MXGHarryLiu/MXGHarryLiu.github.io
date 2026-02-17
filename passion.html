@@ -19,7 +19,7 @@
     <!-- Plotly map -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js'></script>
     <script src="https://cdn.jsdelivr.net/npm/d3-cloud@1/build/d3.layout.cloud.min.js"></script>
-    <script src="https://cdn.plot.ly/plotly-3.3.0.min.js" charset="utf-8"></script>
+    <script src="https://cdn.plot.ly/plotly-3.3.1.min.js" charset="utf-8"></script>
 </head>
 <body class="grid-1">
     <nav-component></nav-component>
@@ -39,38 +39,10 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="workspace-cloud-wrap">
-                    <div id="workspace-cloud-hint" class="workspace-cloud-hint">Click on a word to reveal comments</div>
+                    <div id="workspace-cloud-hint" class="workspace-cloud-hint" data-i18n="workspace/hint">Click on a word to reveal comments</div>
                     <div id="workspace-cloud" class="workspace-cloud"></div>
                 </div>
                 <div id="workspace-cloud-legend" class="workspace-cloud-legend"></div>
-                <p class="wCaption">
-                    <span id="Lumerical">EECS429 Semiconductor Optoelectronic Devices - Homework and final project simulation</span>
-                    <span id="MATLAB">BME517 Neural Engineering - Homework and final project simulation</span>
-                    <span id="Visio">EECS311 Electronic Circuits - Lab report visualization</span>
-                    <span id="SolidWorks">BME450 Semester Senior Capstone Design - Prototype design</span>
-                    <span id="EndNote">BME517 Neural Engineering - Literature review notes</span>
-                    <span id="Project">BME450 Semester Senior Capstone Design - Productivity tools</span>
-                    <span id="COMSOL">BME350 Introduction to Biomedical Engineering Design - Course focus</span>
-                    <span id="NEURON">BME517 Neural Engineering - Homework</span>
-                    <span id="LabVIEW">BME/EECS458 Biomedical Instrumentation &amp; Design - Lab project</span>
-                    <span id="Cadence">EECS311 Electronic Circuits - Lab</span>
-                    <span id="VisualStudio">Personal interest</span>
-                    <span id="Premiere">VE450 Major Design Experience - Promotional Video</span>
-                    <span id="Eclipse">VE450 Major Design Experience - Android application development</span>
-                    <span id="Mathematica">VE484 Data Mining - Course project and homework, Personal interest</span>
-                    <span id="MeshLab">VE450 Major Design Experience - 3D model visualization</span>
-                    <span id="Publisher">Adolescents Innovation Fair - Brochure design</span>
-                    <span id="Python">ELEC 548 Machine Learning and Singal Processing for Neuro Engineering - Neural modeling</span>
-                    <span id="Photoshop">High School Leadership, Personal interest</span>
-                    <span id="Dreamweaver">My first ever computer programming language learned, helping me to build this site! </span>
-                    <span id="Latex">SJTU Homeworks</span>
-                    <span id="Arduino">VG100 Introduction to Engineering - Projects</span>
-                    <span id="Xilinx">VE270 Introduction to Logic Design - FPGA Design Lab</span>
-                    <span id="Powerpoint">Essential tool for paperless learning and working</span>
-                    <span id="Excel">Essential tool for paperless learning and working</span>
-                    <span id="Word">Essential tool for paperless learning and working</span>
-                    <span id="Illustrator">Vector graphics design for publication figures</span>
-                </p>
             </div>
             <div class="col-md-6">
                 <div id="carouselw">
@@ -140,16 +112,29 @@
                         </div>
                     </div>
                 </div>
+                <p id="workspace-comment-message" class="text-center text-muted mt-2 mb-0"></p>
                 <script>
                     decorateCarousel('carouselw');
-                    $('.wCaption span').hide();
-                    function showWorkspaceCaption(name) {
-                        $('.wCaption span').hide();
-                        $('.wCaption #' + name).show();
+                    var activeWorkspaceCommentId = 'Lumerical';
+                    function updateWorkspaceComment(name) {
+                        var messageEl = document.getElementById('workspace-comment-message');
+                        if (!messageEl) return;
+                        if (name !== undefined && name !== null) {
+                            activeWorkspaceCommentId = name;
+                        }
+                        if (!activeWorkspaceCommentId) {
+                            messageEl.textContent = '';
+                            return;
+                        }
+                        if (!window.i18nManager || typeof window.i18nManager.getContent !== 'function') {
+                            messageEl.textContent = '';
+                            return;
+                        }
+                        messageEl.textContent = window.i18nManager.getContent('workspace/' + activeWorkspaceCommentId, '');
                     }
                     window.goToSlideW = function(id, name) {
                         $('#carouselw').carousel(id - 1);
-                        showWorkspaceCaption(name);
+                        updateWorkspaceComment(name);
                     };
                     var workspaceCloudApi = initWorkspaceWordCloud({
                         containerId: 'workspace-cloud',
@@ -159,14 +144,17 @@
                         }
                     });
                     document.getElementById('carouselw').addEventListener('slid.bs.carousel', function (event) {
-                        if (!workspaceCloudApi) return;
-                        var word = workspaceCloudApi.setActiveBySlide(event.to + 1);
+                        var word = workspaceCloudApi ? workspaceCloudApi.setActiveBySlide(event.to + 1) : null;
                         if (word) {
-                            showWorkspaceCaption(word.commentId);
+                            updateWorkspaceComment(word.commentId);
                         } else {
-                            $('.wCaption span').hide();
+                            updateWorkspaceComment('');
                         }
                     });
+                    document.addEventListener(window.I18N_READY_EVENT || 'i18n-ready', function () {
+                        updateWorkspaceComment(activeWorkspaceCommentId);
+                    });
+                    updateWorkspaceComment(activeWorkspaceCommentId);
                 </script>
             </div>
         </div>
@@ -230,25 +218,53 @@
         <h2 class="text-center" data-i18n="passion/m1/place"></h2>
         <div class="row">
             <div class="col-md-6">
-                <p>Click on the pins to reveal more info.</p>
-                <div id="plotly-map"></div>
+                <div class="plotly-map-wrap">
+                    <div id="plotly-map-hint" class="plotly-map-hint" data-i18n="places/hint">Click on the pins to reveal more info.</div>
+                    <div id="plotly-map"></div>
+                </div>
                 <script>
                     function getColorByType(type) {
                         switch (type) {
                             case 'home':
-                                return 'rgba(255,30,0,0.8)';
+                                return '#ff1e00';
                             case 'sojourn':
-                                return 'rgba(255,245,0,0.8)';
+                                return '#fff500';
                             default:
-                                return 'rgba(75,216,181,0.8)';
+                                return '#4bd8b5';
                         }
                     }
                     
+                    window.placeMapSync = null;
+                    var plotlyMapHintEl = document.getElementById('plotly-map-hint');
+                    function hidePlotlyMapHint() {
+                        if (!plotlyMapHintEl) return;
+                        plotlyMapHintEl.classList.add('is-hidden');
+                    }
+                    setTimeout(hidePlotlyMapHint, 10000);
+
                     d3.csv('data/map.csv', function(err, rows) {
+                        if (err) return;
                         var typeArray = unpack(rows, 'type');
                         var types = [...new Set(typeArray)];
+                        var rowIndexByLabel = {};
+                        var mapDiv = document.getElementById('plotly-map');
+
+                        rows.forEach(function (row, idx) {
+                            rowIndexByLabel[row.label] = idx;
+                        });
+
                         function unpack(rows, key) {
                             return rows.map(function(row) { return row[key]; });
+                        }
+                        function getLocalizedTypeName(type) {
+                            return window.i18nManager && typeof window.i18nManager.getContent === 'function'
+                                ? window.i18nManager.getContent('places/legend/' + type, type)
+                                : type;
+                        }
+                        function applyLocalizedLegendNames() {
+                            types.forEach(function(type, idx) {
+                                Plotly.restyle('plotly-map', { name: getLocalizedTypeName(type) }, [idx]);
+                            });
                         }
                         var data = types.map(function(type) {
                             var rowsFiltered = rows.filter(function(row) {
@@ -256,15 +272,30 @@
                             });
                             return {
                                 type: 'scattermap',
-                                name: type,
+                                name: getLocalizedTypeName(type),
                                 lat: unpack(rowsFiltered, 'lat'),
                                 lon: unpack(rowsFiltered, 'lon'),
                                 text: unpack(rowsFiltered, 'label'),
+                                customdata: unpack(rowsFiltered, 'label').map(function(label) {
+                                    return rowIndexByLabel[label];
+                                }),
+                                hovertemplate: '%{text}<extra></extra>',
                                 marker: {
-                                    size: 14, 
-                                    color: getColorByType(type)
+                                    size: unpack(rowsFiltered, 'label').map(function() { return 14; }),
+                                    color: getColorByType(type),
+                                    opacity: unpack(rowsFiltered, 'label').map(function() { return 0.45; })
                                 }
                             };
+                        });
+
+                        var pointRefByRowIndex = {};
+                        data.forEach(function(trace, curveNumber) {
+                            trace.customdata.forEach(function(rowIndex, pointNumber) {
+                                pointRefByRowIndex[rowIndex] = {
+                                    curveNumber: curveNumber,
+                                    pointNumber: pointNumber
+                                };
+                            });
                         });
                 
                         var layout = {
@@ -283,12 +314,54 @@
                             }
                         };
 
-                        var config = {responsive: true}
+                        var config = {
+                            responsive: true,
+                            modeBarButtonsToRemove: ['lasso2d', 'select2d']
+                        };
+
+                        var selectedPlaceIndex = 0;
+
+                        function applyMapSelection(rowIndex, keepTooltip) {
+                            selectedPlaceIndex = rowIndex;
+                            data.forEach(function(trace, curveNumber) {
+                                var opacity = trace.customdata.map(function(currentIndex) {
+                                    return currentIndex === rowIndex ? 1 : 0.6;
+                                });
+                                Plotly.restyle('plotly-map', {
+                                    'marker.opacity': [opacity]
+                                }, [curveNumber]);
+                            });
+
+                            if (!keepTooltip) return;
+                            var ref = pointRefByRowIndex[rowIndex];
+                            if (!ref) return;
+                            Plotly.Fx.hover('plotly-map', [{
+                                curveNumber: ref.curveNumber,
+                                pointNumber: ref.pointNumber
+                            }]);
+                        }
+
+                        window.placeMapSync = {
+                            selectPlace: function (rowIndex, keepTooltip) {
+                                if (rowIndex < 0 || rowIndex >= rows.length) return;
+                                applyMapSelection(rowIndex, keepTooltip !== false);
+                            }
+                        };
                 
-                        Plotly.newPlot('plotly-map', data, layout, config);
-                        document.getElementById('plotly-map').on('plotly_click', function (data) {
-                            var id = data.points[0].pointIndex;
-                            goToSlideP(id + 1);
+                        Plotly.newPlot('plotly-map', data, layout, config).then(function() {
+                            applyMapSelection(0, true);
+                        });
+                        mapDiv.on('plotly_click', function (data) {
+                            hidePlotlyMapHint();
+                            var rowIndex = data.points[0].customdata;
+                            applyMapSelection(rowIndex, true);
+                            goToSlideP(rowIndex + 1);
+                        });
+                        mapDiv.on('plotly_relayout', function () {
+                            applyMapSelection(selectedPlaceIndex, true);
+                        });
+                        document.addEventListener(window.I18N_READY_EVENT || 'i18n-ready', function () {
+                            applyLocalizedLegendNames();
                         });
                     });
                 </script>
@@ -331,11 +404,32 @@
                         </div>
                     </div>
                 </div>
+                <p id="place-alt-message" class="text-center text-muted mt-2 mb-0"></p>
                 <script>
                     decorateCarousel('carouselplace');
+                    function updatePlaceAltMessageByIndex(index) {
+                        var items = document.querySelectorAll('#carouselplace .carousel-item');
+                        if (!items || !items.length || index < 0 || index >= items.length) return;
+                        var img = items[index].querySelector('img');
+                        var messageEl = document.getElementById('place-alt-message');
+                        if (!img || !messageEl) return;
+                        messageEl.textContent = img.getAttribute('alt') || '';
+                    }
                     function goToSlideP(id) {
                         $('#carouselplace').carousel(id - 1);
                     }
+                    document.getElementById('carouselplace').addEventListener('slid.bs.carousel', function (event) {
+                        if (window.placeMapSync) {
+                            window.placeMapSync.selectPlace(event.to, true);
+                        }
+                        updatePlaceAltMessageByIndex(event.to);
+                    });
+                    document.addEventListener(window.I18N_READY_EVENT || 'i18n-ready', function () {
+                        var activeItem = document.querySelector('#carouselplace .carousel-item.active');
+                        var activeIndex = activeItem ? Array.prototype.indexOf.call(activeItem.parentNode.children, activeItem) : 0;
+                        updatePlaceAltMessageByIndex(Math.max(0, activeIndex));
+                    });
+                    updatePlaceAltMessageByIndex(0);
                 </script>
             </div>
         </div>
@@ -348,23 +442,23 @@
                         font-style: oblique;
                     }
                 </style>
-                <h4>Statistics</h4>
-                <p>Countries/Regions Visited: <span class="shownum" title="3 continents" style="cursor: help;">15</span></p>
-                <p>Longest Stay Away From Hometown: <span class="shownum" title="In Houston" style="cursor: help;" id="dates">840
+                <h4 data-i18n="places/statistics/title">Statistics</h4>
+                <p><span data-i18n="places/statistics/s1">Countries/Regions Visited</span>: <span class="shownum" title="3 continents" style="cursor: help;">15</span></p>
+                <p><span data-i18n="places/statistics/s2">Longest Stay Away From Hometown</span>: <span class="shownum" title="In Houston" style="cursor: help;" id="dates">840
                     <!-- <script>
                         var dn = new Date();
                         var d2 = new Date("2016/08/14");
                         document.getElementById("dates").innerHTML = Math.round((dn.getTime() - d2.getTime()) / 1000 / 60 / 60 / 24).toString();
                     </script>
                     -->
-                </span> days</p>
-                <p>Highest Peak Reached: <span class="shownum" title="Shika Snow Mountain, 2007/06/27" style="cursor: help;">4440</span>  m</p>
+                </span> <span data-i18n="places/statistics/s2u">days</span></p>
+                <p><span data-i18n="places/statistics/s3">Highest Peak Reached</span>: <span class="shownum" title="Shika Snow Mountain, 2007/06/27" style="cursor: help;">4440</span> <span data-i18n="places/statistics/s3u">m</span></p>
             </div>
             <div class="col-md-6">
-                <h4>Goals</h4>
-                <p>1. Enter the Southern Hemisphere; </p>
-                <p>2. Across the Arctic Circle; </p>
-                <p>3. Be on a New Continent. </p>
+                <h4 data-i18n="places/goals/title">Goals</h4>
+                <p data-i18n="places/goals/g1">1. Enter the Southern Hemisphere;</p>
+                <p data-i18n="places/goals/g2">2. Across the Arctic Circle;</p>
+                <p data-i18n="places/goals/g3">3. Be on a New Continent.</p>
             </div>
         </div>
     </div>
