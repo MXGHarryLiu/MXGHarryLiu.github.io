@@ -79,9 +79,38 @@
     "experience": {
         "timelineTitle": "履历",
         "e1": {
+            "title": "实验助理",
+            "shortTitle": "实验助理",
+            "place": "学生创新中心，[交大密西根联合学院](https://www.ji.sjtu.edu.cn/)<br>[上海交通大学](https://www.sjtu.edu.cn/)",
+            "date": "2012年9月至2013年8月",
+            "bullet1": "为学生解答专业相关技术问题。",
+            "bullet2": "维护实验室环境，并管理提供300名交大密院学生使用的设备。"
+        },
+        "e2": {
+            "title": "本科科研助理",
+            "shortTitle": "本科科研",
+            "place": "[Shea 实验室](https://shearesearch.engin.umich.edu/)，生物医学工程系<br>[密西根大学](https://umich.edu/)，美国密歇根州安娜堡",
+            "teams": "[Dr. Joseph Decker](https://www.linkedin.com/in/joe-decker-90474647/)（导师）",
+            "date": "2015年5月至2016年3月",
+            "bullet1": "开发生物发光活细胞微阵列相关技术。",
+            "bullet2": "使用 R 进行统计分析，研究转录因子 / microRNA 活性的时间依赖性变化。",
+            "bullet3": "完成 110 个 microRNA 的质粒克隆，用于构建荧光素酶报告载体。",
+            "bullet4": "开展慢病毒制备，并对目标人类细胞进行转染。",
+            "skill": "质粒克隆、细菌转化、病毒制备、慢病毒转染、DNA 微阵列分析、生物发光与生物荧光成像。"
+        },
+        "e3": {
+            "title": "助教",
+            "shortTitle": "助教",
+            "place": "电子和计算机工程系<br>[莱斯大学](https://www.rice.edu/)，美国德克萨斯州休斯顿",
+            "teams": "[Dr. Peter J. Varman](https://varman.rice.edu/)（<span style=\"font-style:italic\">ELEC326 Digital Logic Design</span> 课程教师）",
+            "date": "2017，2018，2021秋季学期",
+            "bullet1": "批改本科生关于 <b>Verilog</b> 的实验报告和作业。",
+            "bullet2": "带领 <b>FPGA</b> 开发板实验课程。"
+        },
+        "e4": {
             "title": "研究生",
             "shortTitle": "研究生",
-            "place": "贝勒医学院神经科学系 [St-Pierre 实验室](https://www.stpierrelab.com/)",
+            "place": "[St-Pierre 实验室](https://www.stpierrelab.com/)，神经科学系<br>[贝勒医学院](https://www.bcm.edu/)，美国德克萨斯州休斯顿",
             "teams": "[Dr. François St-Pierre](https://www.bcm.edu/people/view/francois-st-pierre/ce5139a8-20f1-11e5-8d53-005056b104be)（导师）",
             "date": "2017年1月至2022年12月",
             "reference": "[GEVI（我创建的维基百科词条）](https://en.wikipedia.org/wiki/Genetically_encoded_voltage_indicator)",
@@ -98,44 +127,23 @@
             "bullet3-1": "优化自动化流程，实现单细胞精度的载物台定位控制。",
             "bullet3-2": "相较孔板筛选方法，吞吐量提升至少 100 万倍。"
         },
-        "e2": {
-            "title": "助教",
-            "shortTitle": "助教",
-            "place": "[莱斯大学](https://www.rice.edu/)电子和计算机工程系",
-            "teams": "[Dr. Peter J. Varman](https://varman.rice.edu/)（<span style=\"font-style:italic\">ELEC326 Digital Logic Design</span> 课程教师）",
-            "date": "2017，2018，2021秋季学期",
-            "bullet1": "批改本科生关于 <b>Verilog</b> 的实验报告和作业。",
-            "bullet2": "带领 <b>FPGA</b> 开发板实验课程。"
-        },
-        "e3": {
-            "title": "本科科研助理",
-            "shortTitle": "本科科研",
-            "place": "[密西根大学](https://umich.edu/)生物医学工程系 [Shea 实验室](https://shearesearch.engin.umich.edu/)",
-            "teams": "[Dr. Joseph Decker](https://www.linkedin.com/in/joe-decker-90474647/)（导师）",
-            "date": "2015年5月至2016年3月",
-            "bullet1": "开发生物发光活细胞微阵列相关技术。",
-            "bullet2": "使用 R 进行统计分析，研究转录因子 / microRNA 活性的时间依赖性变化。",
-            "bullet3": "完成 110 个 microRNA 的质粒克隆，用于构建荧光素酶报告载体。",
-            "bullet4": "开展慢病毒制备，并对目标人类细胞进行转染。",
-            "skill": "质粒克隆、细菌转化、病毒制备、慢病毒转染、DNA 微阵列分析、生物发光与生物荧光成像。"
-        },
-        "e4": {
-            "title": "实验助理",
-            "shortTitle": "实验助理",
-            "place": "[交大密西根联合学院](https://www.ji.sjtu.edu.cn/)学生创新中心",
-            "date": "2012年9月至2013年8月",
-            "bullet1": "为学生解答专业相关技术问题。",
-            "bullet2": "维护实验室环境，并管理提供300名交大密院学生使用的设备。"
-        },
         "e5": {
             "title": "博士后研究员",
             "shortTitle": "博后",
-            "place": "贝勒医学院神经科学系 [St-Pierre 实验室](https://www.stpierrelab.com/)，美国德克萨斯州休斯顿",
+            "place": "[St-Pierre 实验室](https://www.stpierrelab.com/)，神经科学系<br>[贝勒医学院](https://www.bcm.edu/)，美国德克萨斯州休斯顿",
             "teams": "[Dr. François St-Pierre](https://www.bcm.edu/people/view/francois-st-pierre/ce5139a8-20f1-11e5-8d53-005056b104be)（研究员）",
             "date": "2023年1月至2023年7月",
             "bullet1": "开发面向 C++ 设备适配器的硬件控制 API，实现实时自适应显微成像。",
             "bullet2": "在 Python 中改造计算机视觉算法（如实例分割），以加速分析流程。",
             "bullet3": "组装模块化显微镜，并完成 SPOTlight 商业化所需的 BOM 分析。"
+        },
+        "e6": {
+            "title": "研究员（Fellow）",
+            "shortTitle": "研究员",
+            "place": "[肿瘤数据科学研究院（Institute for Data Science in Oncology）](https://www.mdanderson.org/research/departments-labs-institutes/institutes/institute-for-data-science-in-oncology.html)<br>[得克萨斯大学安德森癌症中心](https://www.mdanderson.org/)，美国得克萨斯州休斯顿",
+            "date": "2023年9月至2024年8月",
+            "bullet1": "试点一年期项目授予的荣誉称号，该项目共包含 18 名 Fellow。",
+            "bullet2": "通过处理肿瘤学数据，提升了数据科学能力。"
         }
     },
     "endeavor": {
@@ -145,14 +153,30 @@
         "title": "发表",
         "summary": "请参考[谷歌个人学术档案](https://scholar.google.com/citations?user=A1aLmWIAAAAJ)或[ORCID个人页面](https://orcid.org/0000-0002-1818-646X)以获取我的完整著作信息。",
         "timelineTitle": "发表",
-        "timeline": {
-            "2025": "Lee et al., 2025《自然·通讯》",
-            "2023": "Lu et al., 2023《自然·通讯》",
-            "2022b": "Lee et al., 2022《生物化学》",
-            "2022a": "Liu et al., 2022《细胞》",
-            "2020": "Lee et al., 2020《科学进展》"
-        },
         "m1": {
+            "title": "Versatile phenotype-activated cell sorting",
+            "journal": "科学进展",
+            "shortTitle": "Lee et al., 2020《科学进展》"
+        },
+        "m2": {
+            "title": "Sustained deep-tissue voltage recording using a fast indicator optimized for two-photon microscopy",
+            "journal": "细胞",
+            "shortTitle": "Liu et al., 2022《细胞》"
+        },
+        "m3": {
+            "title": "Automating the high-throughput screening of protein-based optical indicators and actuators",
+            "journal": "生物化学",
+            "shortTitle": "Lee et al., 2022《生物化学》"
+        },
+        "m4": {
+            "title": "Widefield imaging of rapid pan-cortical voltage dynamics with an indicator evolved for one-photon microscopy",
+            "journal": "自然·通讯",
+            "shortTitle": "Lu et al., 2023《自然·通讯》"
+        },
+        "m5": {
+            "title": "Bright and photostable yellow fluorescent proteins for extended imaging",
+            "journal": "自然·通讯",
+            "shortTitle": "Lee et al., 2025《自然·通讯》"
         }
     },
     "project": {
@@ -215,15 +239,10 @@
     },
     "passion": {
         "title": "兴趣",
-        "summary": "我的电脑截图见证了我的学业与探索。我的兴趣爱好相关作品与收藏，体现了我在课堂之外对知识的追求。世界地图上的点点足迹与旅行照片，记录了我体验各地风土人情的喜悦。所谓 PASSION，就是那些让我兴奋而乐于分享的事情。",
-        "m1": {
-            "workspace": "我的虚拟工作台",
-            "hobby": "兴趣爱好",
-            "place": "我的足迹",
-            "trivia": "问答"
-        }
+        "summary": "我的电脑截图见证了我的学业与探索。我的兴趣爱好相关作品与收藏，体现了我在课堂之外对知识的追求。世界地图上的点点足迹与旅行照片，记录了我体验各地风土人情的喜悦。所谓 PASSION，就是那些让我兴奋而乐于分享的事情。"
     },
     "workspace": {
+        "title": "我的虚拟工作台",
         "hint": "点击词条可查看说明",
         "legend": {
             "Productivity and Design": "效率与设计",
@@ -264,6 +283,7 @@
         "Illustrator": "用于论文图表的矢量图设计"
     },
     "hobbies": {
+        "title": "兴趣爱好",
         "summary": "我的兴趣爱好覆盖广泛学科。即使再冷门，获得知识本身的快乐就是最大的动力。",
         "h1": {
             "title": "天文摄影",
@@ -279,6 +299,7 @@
         }
     },
     "places": {
+        "title": "我的足迹",
         "hint": "点击地图图钉可查看更多信息。",
         "legend": {
             "home": "家乡",
@@ -304,6 +325,7 @@
         }
     },
     "trivia": {
+        "titles": "问答",
         "q1": "问：头像里和你在一起的小男孩是谁？",
         "a1": "那是 8 年前的我！“同登彼岸”这个词用在这里再合适不过了。",
         "q2": "问：你会哪些运动？",
@@ -414,12 +436,15 @@
         "team": "团队和导师",
         "reference": "参考"
     },
+    "button": {
+        "cite": "引用",
+        "copy": "复制",
+        "next": "下一个",
+        "previous": "上一个"
+    },
     "basic": {
         "brand": "刘卓和",
         "follow": "敬请关注",
         "copyright": "版权所有 &copy; 2016 - 2026 刘卓和"
     }
 }
-
-
-

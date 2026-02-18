@@ -21,8 +21,20 @@
         function showAuthorsModal(listId) {
             var authorList = document.getElementById(listId).innerHTML;
             document.getElementById('modalContent').innerHTML = authorList;
-            document.getElementById('authorsModalLabel').textContent = "Cite " + listId;
+            var citeLabel = (window.i18nManager && window.i18nManager.getContent('button/cite', 'Cite')) || 'Cite';
+            document.getElementById('authorsModalLabel').textContent = citeLabel + ' ' + listId;
             $('#authorsModal').modal('show');
+        }
+        function applyCiteButtonTooltips() {
+            var citeLabel = (window.i18nManager && window.i18nManager.getContent('button/cite', 'Cite')) || 'Cite';
+            var citeButtons = document.querySelectorAll("button[onclick^=\"showAuthorsModal(\"]");
+            citeButtons.forEach(function (button) {
+                var onclickAttr = button.getAttribute('onclick') || '';
+                var match = onclickAttr.match(/showAuthorsModal\('(.+)'\)/);
+                var title = citeLabel + (match ? (' ' + match[1]) : '');
+                button.setAttribute('title', title);
+                button.setAttribute('aria-label', title);
+            });
         }
         function copyToClipboard() {
             var modalContent = document.getElementById('modalContent');
@@ -48,6 +60,8 @@
             document.execCommand('copy');
             selection.removeAllRanges();
         }
+        document.addEventListener('DOMContentLoaded', applyCiteButtonTooltips);
+        document.addEventListener(window.I18N_READY_EVENT || 'i18n-ready', applyCiteButtonTooltips);
     </script>
 </head>
 <body>
@@ -58,11 +72,11 @@
     <div class="container mt-4">
         <script type="application/json" id="publication-timeline">
             [
-                { "labelKey": "publication/timeline/2025", "href": "#Lee2025", "start": "2025-04", "end": "2025-04", "position": "2" },
-                { "labelKey": "publication/timeline/2023", "href": "#Lu2023", "start": "2023-10", "end": "2023-10", "position": "1" },
-                { "labelKey": "publication/timeline/2022b", "href": "#Lee2022", "start": "2022-10", "end": "2022-10", "position": "2" },
-                { "labelKey": "publication/timeline/2022a", "href": "#Liu2022", "start": "2022-08", "end": "2022-08", "position": "1" },
-                { "labelKey": "publication/timeline/2020", "href": "#Lee2020", "start": "2020-10", "end": "2020-10", "position": "2" }
+                { "labelKey": "publication/m5/shortTitle", "href": "#m5", "start": "2025-04", "end": "2025-04", "position": "2" },
+                { "labelKey": "publication/m4/shortTitle", "href": "#m4", "start": "2023-10", "end": "2023-10", "position": "1" },
+                { "labelKey": "publication/m3/shortTitle", "href": "#m3", "start": "2022-10", "end": "2022-10", "position": "2" },
+                { "labelKey": "publication/m2/shortTitle", "href": "#m2", "start": "2022-08", "end": "2022-08", "position": "1" },
+                { "labelKey": "publication/m1/shortTitle", "href": "#m1", "start": "2020-10", "end": "2020-10", "position": "2" }
             ]
         </script>
         <timeline-component data-source="publication-timeline" data-min="2020-01" data-max="2026-02" data-activate-animation="pulse" data-highlight-color="#60a5fa" data-title-key="publication/timelineTitle" data-subtitle-key="publication/summary" data-toggle-title-key="timeline/toggleHint"></timeline-component>
@@ -90,8 +104,8 @@
     </div>
 
     <div class="container mt-4">
-        <div class="card mt-4 publication-card" id="Lee2025">
-            <h5 class="card-header">Bright and photostable yellow fluorescent proteins for extended imaging</h5>
+        <div class="card mt-4 publication-card" id="m5">
+            <h5 class="card-header" data-i18n="publication/m5/title"></h5>
             <div class="row">
                 <div class="col-md-6 order-md-2">
                     <a href="https://www.nature.com/articles/s41467-025-58223-5" target="_blank" rel="noopener noreferrer"><img class="card-img-top" src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41467-025-58223-5/MediaObjects/41467_2025_58223_Fig1_HTML.png"></a>
@@ -99,7 +113,7 @@
                 <div class="col-md-6 order-md-1">
                     <div class="card-body">
                         <a href="https://www.nature.com/articles/s41467-025-58223-5" target="_blank" rel="noopener noreferrer"><button type="button" class="btn btn-labeled btn-default">
-                                <span class="btn-label"><i class="bi bi-journal-bookmark"></i></span>Nature Communications
+                                <span class="btn-label"><i class="bi bi-journal-bookmark"></i></span><span data-i18n="publication/m5/journal"></span>
                             </button></a>
                         <button type="button" class="btn btn-labeled btn-default" onclick="showAuthorsModal('Lee et al., 2025')">
                             <span class="btn-label"><i class="bi bi-quote"></i></span>Lee et al., 2025
@@ -116,8 +130,8 @@
             </div>
         </div>
 
-        <div class="card mt-4 publication-card" id="Lu2023">
-            <h5 class="card-header">Widefield imaging of rapid pan-cortical voltage dynamics with an indicator evolved for one-photon microscopy</h5>
+        <div class="card mt-4 publication-card" id="m4">
+            <h5 class="card-header" data-i18n="publication/m4/title"></h5>
             <div class="row">
                 <div class="col-md-6 order-md-2">
                     <a href="https://doi.org/10.1038/s41467-023-41975-3" target="_blank" rel="noopener noreferrer"><img class="card-img-top" src="img/publication/20231012 Nature Communications.png"></a>
@@ -125,7 +139,7 @@
                 <div class="col-md-6 order-md-1">
                     <div class="card-body">
                         <a href="https://doi.org/10.1038/s41467-023-41975-3" target="_blank" rel="noopener noreferrer"><button type="button" class="btn btn-labeled btn-default">
-                                <span class="btn-label"><i class="bi bi-journal-bookmark"></i></span>Nature Communications
+                                <span class="btn-label"><i class="bi bi-journal-bookmark"></i></span><span data-i18n="publication/m4/journal"></span>
                             </button></a>
                         <button type="button" class="btn btn-labeled btn-default" onclick="showAuthorsModal('Lu et al., 2023')">
                             <span class="btn-label"><i class="bi bi-quote"></i></span>Lu et al., 2023
@@ -142,8 +156,8 @@
             </div>
         </div>
         
-        <div class="card mt-4 publication-card" id="Lee2022">
-            <h5 class="card-header">Automating the high-throughput screening of protein-based optical indicators and actuators</h5>
+        <div class="card mt-4 publication-card" id="m3">
+            <h5 class="card-header" data-i18n="publication/m3/title"></h5>
             <div class="row">
                 <div class="col-md-6 order-md-2">
                     <a href="https://doi.org/10.1021/acs.biochem.2c00357" target="_blank" rel="noopener noreferrer"><img class="card-img-top" title="ACS Biochemistry Abstract" alt="ACS Biochemistry Abstract" src="img/publication/20221031 ACS Biochemistry Abstract.png"></a>
@@ -151,7 +165,7 @@
                 <div class="col-md-6 order-md-1">
                     <div class="card-body">
                         <a href="https://doi.org/10.1021/acs.biochem.2c00357" target="_blank" rel="noopener noreferrer"><button type="button" class="btn btn-labeled btn-default">
-                                <span class="btn-label"><i class="bi bi-journal-bookmark"></i></span>ACS Biochemistry
+                                <span class="btn-label"><i class="bi bi-journal-bookmark"></i></span><span data-i18n="publication/m3/journal"></span>
                             </button></a>
                         <button type="button" class="btn btn-labeled btn-default" onclick="showAuthorsModal('Lee et al., 2022')">
                             <span class="btn-label"><i class="bi bi-quote"></i></span>Lee et al., 2022
@@ -169,8 +183,8 @@
             </div>
         </div>
 
-        <div class="card mt-4 publication-card" id="Liu2022">
-            <h5 class="card-header">Sustained deep-tissue voltage recording using a fast indicator optimized for two-photon microscopy</h5>
+        <div class="card mt-4 publication-card" id="m2">
+            <h5 class="card-header" data-i18n="publication/m2/title"></h5>
             <div class="row">
                 <div class="col-md-6 order-md-2">
                     <a href="https://doi.org/10.1016/j.cell.2022.07.013" target="_blank" rel="noopener noreferrer"><img class="card-img-top" title="Cell Abstract" alt="Cell Abstract" src="https://www.cell.com/cms/10.1016/j.cell.2022.07.013/asset/609b0b9b-89fa-40d4-ab28-6d00ee3e9ba4/main.assets/fx1_lrg.jpg"></a>
@@ -178,7 +192,7 @@
                 <div class="col-md-6 order-md-1">
                     <div class="card-body">
                         <a href="https://doi.org/10.1016/j.cell.2022.07.013" target="_blank" rel="noopener noreferrer"><button type="button" class="btn btn-labeled btn-default">
-                                <span class="btn-label"><i class="bi bi-journal-bookmark"></i></span>Cell
+                                <span class="btn-label"><i class="bi bi-journal-bookmark"></i></span><span data-i18n="publication/m2/journal"></span>
                             </button></a>
                         <button type="button" class="btn btn-labeled btn-default" onclick="showAuthorsModal('Liu et al., 2022')">
                             <span class="btn-label"><i class="bi bi-quote"></i></span>Liu et al., 2022</button>
@@ -197,8 +211,8 @@
             </div>
         </div>
 
-        <div class="card mt-4 publication-card" id="Lee2020">
-            <h5 class="card-header">Versatile phenotype-activated cell sorting</h5>
+        <div class="card mt-4 publication-card" id="m1">
+            <h5 class="card-header" data-i18n="publication/m1/title"></h5>
             <div class="row">
                 <div class="col-md-6 order-md-2">
                     <a href="https://doi.org/10.1126/sciadv.abb7438" target="_blank" rel="noopener noreferrer"><img class="card-img-top" title="Science Advances Figure 1" alt="Science Advances Figure 1" src="https://www.science.org/cms/10.1126/sciadv.abb7438/asset/94da3bc2-cd56-447b-862c-edaef6da86be/assets/graphic/abb7438-f1.jpeg"></a>
@@ -206,7 +220,7 @@
                 <div class="col-md-6 order-md-1">
                     <div class="card-body">
                         <a href="https://doi.org/10.1126/sciadv.abb7438" target="_blank" rel="noopener noreferrer"><button type="button" class="btn btn-labeled btn-default">
-                                <span class="btn-label"><i class="bi bi-journal-bookmark"></i></span>Science Advances
+                                <span class="btn-label"><i class="bi bi-journal-bookmark"></i></span><span data-i18n="publication/m1/journal"></span>
                             </button></a>
                         <button type="button" class="btn btn-labeled btn-default" onclick="showAuthorsModal('Lee et al., 2020')">
                             <span class="btn-label"><i class="bi bi-quote"></i></span>Lee et al., 2020
@@ -541,7 +555,7 @@
                     <div id="modalContent"></div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" onclick="copyToClipboard()" data-bs-dismiss="modal">Copy</button>
+                    <button type="button" class="btn btn-primary" onclick="copyToClipboard()" data-bs-dismiss="modal" data-i18n="button/copy">Copy</button>
                 </div>
             </div>
         </div>
@@ -560,6 +574,60 @@
             });
             manager.init();
             window.timelineManager = manager;
+        })();
+    </script>
+    <script>
+        (function () {
+            function buildCardHeaderNav(order) {
+                var previousLabel = (window.i18nManager && window.i18nManager.getContent('button/previous', 'Previous')) || 'Previous';
+                var nextLabel = (window.i18nManager && window.i18nManager.getContent('button/next', 'Next')) || 'Next';
+
+                order.forEach(function (id, index) {
+                    var card = document.getElementById(id);
+                    if (!card) return;
+                    var header = card.querySelector('.card-header');
+                    if (!header) return;
+
+                    var title = header.textContent.trim();
+                    header.classList.add('with-nav');
+                    header.innerHTML = '';
+
+                    var titleSpan = document.createElement('span');
+                    titleSpan.className = 'header-title';
+                    titleSpan.textContent = title;
+                    header.appendChild(titleSpan);
+
+                    var navSpan = document.createElement('span');
+                    navSpan.className = 'card-header-nav';
+
+                    if (index > 0) {
+                        var prev = document.createElement('a');
+                        prev.href = '#' + order[index - 1];
+                        prev.setAttribute('aria-label', previousLabel);
+                        prev.setAttribute('title', previousLabel);
+                        prev.innerHTML = '<i class="bi bi-chevron-left"></i>';
+                        navSpan.appendChild(prev);
+                    }
+                    if (index < order.length - 1) {
+                        var next = document.createElement('a');
+                        next.href = '#' + order[index + 1];
+                        next.setAttribute('aria-label', nextLabel);
+                        next.setAttribute('title', nextLabel);
+                        next.innerHTML = '<i class="bi bi-chevron-right"></i>';
+                        navSpan.appendChild(next);
+                    }
+
+                    header.appendChild(navSpan);
+                });
+            }
+
+            function rebuildHeaderNav() {
+                buildCardHeaderNav(['m1', 'm2', 'm3', 'm4', 'm5']);
+                buildCardHeaderNav(['p1', 'p2', 'p3', 'p4', 'p5', 'p6']);
+                buildCardHeaderNav(['i1', 'i2', 'i3']);
+            }
+
+            document.addEventListener(window.I18N_READY_EVENT || 'i18n-ready', rebuildHeaderNav);
         })();
     </script>
 

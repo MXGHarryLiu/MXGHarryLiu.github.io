@@ -79,9 +79,38 @@
     "experience": {
         "timelineTitle": "Experience",
         "e1": {
+            "title": "Laboratory Assistant",
+            "shortTitle": "Lab Assistant",
+            "place": "Student Innovation Center, [UM-SJTU Joint Institute](https://www.ji.sjtu.edu.cn/)<br>[Shanghai Jiao Tong University](https://www.sjtu.edu.cn/), Shanghai, China",
+            "date": "Sep. 2012 - Aug. 2013",
+            "bullet1": "Answered electrical &amp; computer engineering related technical questions for lab users.",
+            "bullet2": "Maintained lab environment, and managed equipment usage for 300 JI students."
+        },
+        "e2": {
+            "title": "Undergraduate Research Assistant",
+            "shortTitle": "Undergrad Research",
+            "place": "[Shea Lab](https://shearesearch.engin.umich.edu/), Department of Biomedical Engineering<br>[University of Michigan](https://umich.edu/), Ann Arbor, Michigan, USA",
+            "teams": "[Dr. Joseph Decker](https://www.linkedin.com/in/joe-decker-90474647/) (advisor)",
+            "date": "May 2015 - Mar. 2016",
+            "bullet1": "Developed techniques of bioluminescence living cell microarrays.",
+            "bullet2": "Studied the time-dependent transcription factor / microRNA activity using R for statistical analysis.",
+            "bullet3": "Performed plasmid cloning of 110 microRNA to make luciferase reporters.",
+            "bullet4": "Conducted lentiviruses production and the transfection on target human cells.",
+            "skill": "Plasmid cloning, Bacterial transformation, Virus production, Lentiviral transfection, DNA Microarray analysis, Bioluminescence and biofluorescence imaging."
+        },
+        "e3": {
+            "title": "Teaching Assistant",
+            "shortTitle": "Teaching Assistant",
+            "place": "Department of Electrical and Computer Engineering<br>[Rice University](https://www.rice.edu/), Houston, Texas, USA",
+            "teams": "[Dr. Peter J. Varman](https://varman.rice.edu/) (instructor of <span style=\"font-style:italic\">ELEC326 Digital Logic Design</span>)",
+            "date": "Fall 2017, Fall 2018, Fall 2021",
+            "bullet1": "Graded lab reports and homework on <b>Verilog</b> from undergraduate students.",
+            "bullet2": "Held lab sessions on <b>FPGA</b> board development."
+        },
+        "e4": {
             "title": "Guaduate Research Assistant",
             "shortTitle": "Grad Research",
-            "place": "[St-Pierre Lab](https://www.stpierrelab.com/), Department of Neurosciece, Baylor College of Medicine",
+            "place": "[St-Pierre Lab](https://www.stpierrelab.com/), Department of Neuroscience<br>[Baylor College of Medicine](https://www.bcm.edu/), Houston, Texas, USA",
             "teams": "[Dr. François St-Pierre](https://www.bcm.edu/people/view/francois-st-pierre/ce5139a8-20f1-11e5-8d53-005056b104be) (advisor)",
             "date": "Jan. 2017 - Dec. 2022",
             "reference": "[GEVI (Wikipedia page I created)](https://en.wikipedia.org/wiki/Genetically_encoded_voltage_indicator)",
@@ -98,44 +127,23 @@
             "bullet3-1": "Streamlined automated workflow to control stage position with single-cell precision.",
             "bullet3-2": "Achieved at least 1 million fold throughput improvement over well-based screening approaches."
         },
-        "e2": {
-            "title": "Teaching Assistant",
-            "shortTitle": "Teaching Assistant",
-            "place": "Department of Electrical and Computer Engineering, [Rice University](https://www.rice.edu/)",
-            "teams": "[Dr. Peter J. Varman](https://varman.rice.edu/) (instructor of <span style=\"font-style:italic\">ELEC326 Digital Logic Design</span>)",
-            "date": "Fall 2017, Fall 2018, Fall 2021",
-            "bullet1": "Graded lab reports and homework on <b>Verilog</b> from undergraduate students.",
-            "bullet2": "Held lab sessions on <b>FPGA</b> board development."
-        },
-        "e3": {
-            "title": "Undergraduate Research Assistant",
-            "shortTitle": "Undergrad Research",
-            "place": "[Shea Lab](https://shearesearch.engin.umich.edu/), Department of Biomedical Engineering, [University of Michigan](https://umich.edu/)",
-            "teams": "[Dr. Joseph Decker](https://www.linkedin.com/in/joe-decker-90474647/) (advisor)",
-            "date": "May 2015 - Mar. 2016",
-            "bullet1": "Developed techniques of bioluminescence living cell microarrays.",
-            "bullet2": "Studied the time-dependent transcription factor / microRNA activity using R for statistical analysis.",
-            "bullet3": "Performed plasmid cloning of 110 microRNA to make luciferase reporters.",
-            "bullet4": "Conducted lentiviruses production and the transfection on target human cells.",
-            "skill": "Plasmid cloning, Bacterial transformation, Virus production, Lentiviral transfection, DNA Microarray analysis, Bioluminescence and biofluorescence imaging."
-        },
-        "e4": {
-            "title": "Laboratory Assistant",
-            "shortTitle": "Lab Assistant",
-            "place": "Student Innovation Center, [UM-SJTU Joint Institute](https://www.ji.sjtu.edu.cn/), Shanghai Jiao Tong University",
-            "date": "Sep. 2012 - Aug. 2013",
-            "bullet1": "Answered electrical &amp; computer engineering related technical questions for lab users.",
-            "bullet2": "Maintained lab environment, and managed equipment usage for 300 JI students."
-        },
         "e5": {
             "title": "Postdoctoral Researcher",
             "shortTitle": "Postdoctoral",
-            "place": "[St-Pierre Lab](https://www.stpierrelab.com/), Department of Neuroscience, Baylor College of Medicine, Houston, Texas",
+            "place": "[St-Pierre Lab](https://www.stpierrelab.com/), Department of Neuroscience<br>[Baylor College of Medicine](https://www.bcm.edu/), Houston, Texas, USA",
             "teams": "[Dr. François St-Pierre](https://www.bcm.edu/people/view/francois-st-pierre/ce5139a8-20f1-11e5-8d53-005056b104be) (principal investigator)",
             "date": "Jan. 2023 - Jul. 2023",
             "bullet1": "Developed hardware control API to C++ device adapters to enable real-time adaptive microscopy.",
             "bullet2": "Adapted computer vision algorithms (e.g. instance segmentation) in Python to accelerate analysis.",
             "bullet3": "Assembled a modular microscope and did BOM analysis for commercialization of SPOTlight."
+        },
+        "e6": {
+            "title": "Fellow",
+            "shortTitle": "Fellow",
+            "place": "[Institute for Data Science in Oncology](https://www.mdanderson.org/research/departments-labs-institutes/institutes/institute-for-data-science-in-oncology.html)<br>[The University of Texas MD Anderson Cancer Center](https://www.mdanderson.org/), Houston, Texas",
+            "date": "Sep. 2023 - Aug. 2024",
+            "bullet1": "Honorary title under a piloting 1-year program that includes 18 fellows.",
+            "bullet2": "Developed data science skills by working with oncologic data."
         }
     },
     "endeavor": {
@@ -145,14 +153,30 @@
         "title": "Publication",
         "summary": "Please visit my [Google Scholar Profile](https://scholar.google.com/citations?user=A1aLmWIAAAAJ) or [ORCID Profile](https://orcid.org/0000-0002-1818-646X) for a complete list of publications. ",
         "timelineTitle": "Publication",
-        "timeline": {
-            "2025": "Lee et al., 2025 (Nat. Commun.)",
-            "2023": "Lu et al., 2023 (Nat. Commun.)",
-            "2022b": "Lee et al., 2022 (Biochemistry)",
-            "2022a": "Liu et al., 2022 (Cell)",
-            "2020": "Lee et al., 2020 (Sci. Adv.)"
-        },
         "m1": {
+            "title": "Versatile phenotype-activated cell sorting",
+            "journal": "Science Advances",
+            "shortTitle": "Lee et al., 2020 (Sci. Adv.)"
+        },
+        "m2": {
+            "title": "Sustained deep-tissue voltage recording using a fast indicator optimized for two-photon microscopy",
+            "journal": "Cell",
+            "shortTitle": "Liu et al., 2022 (Cell)"
+        },
+        "m3": {
+            "title": "Automating the high-throughput screening of protein-based optical indicators and actuators",
+            "journal": "ACS Biochemistry",
+            "shortTitle": "Lee et al., 2022 (Biochemistry)"
+        },
+        "m4": {
+            "title": "Widefield imaging of rapid pan-cortical voltage dynamics with an indicator evolved for one-photon microscopy",
+            "journal": "Nature Communications",
+            "shortTitle": "Lu et al., 2023 (Nat. Commun.)"
+        },
+        "m5": {
+            "title": "Bright and photostable yellow fluorescent proteins for extended imaging",
+            "journal": "Nature Communications",
+            "shortTitle": "Lee et al., 2025 (Nat. Commun.)"
         }
     },
     "project": {
@@ -215,15 +239,10 @@
     },
     "passion": {
         "title": "Passions",
-        "summary": "The screenshots of my computer witness my academic endeavor. The work and collections from my hobbies illustrate my pursuit of knowledge outside the classroom. The scattered pins over the world map along with the photos of me show my joy of experiencing exotic custom and culture. MY PASSION is what I talk about with thrill and happiness.",
-        "m1": {
-            "workspace": "Workspace",
-            "hobby": "Hobbies",
-            "place": "Places I've Been",
-            "trivia": "Trivia"
-        }
+        "summary": "The screenshots of my computer witness my academic endeavor. The work and collections from my hobbies illustrate my pursuit of knowledge outside the classroom. The scattered pins over the world map along with the photos of me show my joy of experiencing exotic custom and culture. MY PASSION is what I talk about with thrill and happiness."
     },
     "workspace": {
+        "title": "Workspace",
         "hint": "Click on a word to reveal comments",
         "legend": {
             "Productivity and Design": "Productivity and Design",
@@ -264,6 +283,7 @@
         "Illustrator": "Vector graphics design for publication figures"
     },
     "hobbies": {
+        "title": "Hobbies",
         "summary": "My hobbies span a vast field of disciplines. Happiness from gaining knowledge despite being esoteric is the incentive.",
         "h1": {
             "title": "Astrophotography",
@@ -279,6 +299,7 @@
         }
     },
     "places": {
+        "title": "Places I've Been",
         "hint": "Click on the pins to reveal more info.",
         "legend": {
             "home": "Hometown",
@@ -304,6 +325,7 @@
         }
     },
     "trivia": {
+        "titles": "Trivia",
         "q1": "Q: Who is the little boy with you on your profile picture?",
         "a1": "It was me 8 years ago! How appropriate 同登彼岸 means being on both sides of the shore!",
         "q2": "Q: What sports do you play?",
@@ -413,6 +435,12 @@
         "skill": "Skills",
         "team": "Teams and advisors",
         "reference": "References"
+    },
+    "button": {
+        "cite": "Cite",
+        "copy": "Copy",
+        "next": "Next",
+        "previous": "Previous"
     },
     "basic": {
         "brand": "Zhuohe Liu", 
