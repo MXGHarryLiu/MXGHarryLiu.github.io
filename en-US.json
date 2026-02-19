@@ -58,6 +58,7 @@
             "shortTitle": "High School",
             "place": "[No.2 Secondary School Attached to East China Normal University](http://www.hsefz.cn/), Shanghai, China",
             "focus": "Chemistry Concentration in College Entrance Examination",
+            "date": "2009 - 2012",
             "awards": "Honors &amp; Awards: ",
             "award1": "<b>Shanghai Future Science Star</b>: 1 of 10 awardees. ￥10,000 scholarship. ",
             "award2": "<b>First Prize</b> in The 26<sup>th</sup> Intel Shanghai Adolescents Science &amp; Technology Innovation Fair",
@@ -68,12 +69,14 @@
         "middle": {
             "title": "Middle School",
             "shortTitle": "Middle School",
-            "place": "[Shanghai Huayu Private Middle School](http://www.hy.sh.cn/), Shanghai, China"
+            "place": "[Shanghai Huayu Private Middle School](http://www.hy.sh.cn/), Shanghai, China",
+            "date": "2005 - 2009"
         },
         "elem": {
             "title": "Elementry School",
             "shortTitle": "Elementary",
-            "place": "[Shanghai Xuhui Xiangyang Elementry School](http://xyxx.xhedu.sh.cn/cms/), Shanghai, China"
+            "place": "[Shanghai Xuhui Xiangyang Elementry School](http://xyxx.xhedu.sh.cn/cms/), Shanghai, China",
+            "date": "2000 - 2005"
         }
     },
     "experience": {
@@ -129,7 +132,7 @@
         },
         "e5": {
             "title": "Postdoctoral Researcher",
-            "shortTitle": "Postdoctoral",
+            "shortTitle": "Postdoc",
             "place": "[St-Pierre Lab](https://www.stpierrelab.com/), Department of Neuroscience<br>[Baylor College of Medicine](https://www.bcm.edu/), Houston, Texas, USA",
             "teams": "[Dr. François St-Pierre](https://www.bcm.edu/people/view/francois-st-pierre/ce5139a8-20f1-11e5-8d53-005056b104be) (principal investigator)",
             "date": "Jan. 2023 - Jul. 2023",
@@ -144,6 +147,14 @@
             "date": "Sep. 2023 - Aug. 2024",
             "bullet1": "Honorary title under a piloting 1-year program that includes 18 fellows.",
             "bullet2": "Developed data science skills by working with oncologic data."
+        },
+        "e7": {
+            "title": "Postdoctoral Fellow",
+            "shortTitle": "Postdoc",
+            "place": "[Yuan Laboratory](https://www.mdanderson.org/research/departments-labs-institutes/labs/yuan-laboratory.html)<br>[The University of Texas MD Anderson Cancer Center](https://www.mdanderson.org/), Houston, Texas",
+            "date": "Aug. 2023 - Nov. 2024",
+            "bullet1": "Developed self-supervised computer vision models to classify white blood cells.",
+            "bullet2": "Designed web applications and data pipelines to deploy and validate AI models in clinical settings."
         }
     },
     "endeavor": {
@@ -156,27 +167,32 @@
         "m1": {
             "title": "Versatile phenotype-activated cell sorting",
             "journal": "Science Advances",
-            "shortTitle": "Lee et al., 2020 (Sci. Adv.)"
+            "shortTitle": "Lee et al., 2020 (Sci. Adv.)",
+            "date": "Oct. 23, 2020"
         },
         "m2": {
             "title": "Sustained deep-tissue voltage recording using a fast indicator optimized for two-photon microscopy",
             "journal": "Cell",
-            "shortTitle": "Liu et al., 2022 (Cell)"
+            "shortTitle": "Liu et al., 2022 (Cell)",
+            "date": "Aug. 18, 2022"
         },
         "m3": {
             "title": "Automating the high-throughput screening of protein-based optical indicators and actuators",
             "journal": "ACS Biochemistry",
-            "shortTitle": "Lee et al., 2022 (Biochemistry)"
+            "shortTitle": "Lee et al., 2022 (Biochemistry)",
+            "date": "Oct. 31, 2022"
         },
         "m4": {
             "title": "Widefield imaging of rapid pan-cortical voltage dynamics with an indicator evolved for one-photon microscopy",
             "journal": "Nature Communications",
-            "shortTitle": "Lu et al., 2023 (Nat. Commun.)"
+            "shortTitle": "Lu et al., 2023 (Nat. Commun.)",
+            "date": "Oct. 12, 2023"
         },
         "m5": {
             "title": "Bright and photostable yellow fluorescent proteins for extended imaging",
             "journal": "Nature Communications",
-            "shortTitle": "Lee et al., 2025 (Nat. Commun.)"
+            "shortTitle": "Lee et al., 2025 (Nat. Commun.)",
+            "date": "Apr. 4, 2025"
         }
     },
     "project": {
@@ -445,6 +461,7 @@
     "basic": {
         "brand": "Zhuohe Liu", 
         "follow": "Please follow me on: ",
+        "lastUpdated": "Last updated: ",
         "copyright": "Copyright &copy; 2016 - 2026 Zhuohe Liu"
     }
 }

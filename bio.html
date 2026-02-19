@@ -37,6 +37,7 @@
     <div class="container my-4">
         <script type="application/json" id="experience-timeline">
             [
+                { "labelKey": "experience/e7/shortTitle", "href": "#e7", "start": "2023-08", "end": "2024-11", "position": "2" },
                 { "labelKey": "experience/e6/shortTitle", "href": "#e6", "start": "2023-09", "end": "2024-08", "position": "1" },
                 { "labelKey": "experience/e5/shortTitle", "href": "#e5", "start": "2023-01", "end": "2023-07", "position": "2" },
                 { "labelKey": "experience/e4/shortTitle", "href": "#e4", "start": "2017-01", "end": "2022-12", "position": "1" },
@@ -45,7 +46,7 @@
                 { "labelKey": "experience/e1/shortTitle", "href": "#e1", "start": "2012-09", "end": "2013-08", "position": "2" }
             ]
         </script>
-        <timeline-component data-source="experience-timeline" data-min="2012-01" data-max="2026-01" data-activate-animation="pulse" data-title-key="experience/timelineTitle" data-toggle-title-key="timeline/toggleHint"></timeline-component>
+        <timeline-component data-source="experience-timeline" data-min="2012-01" data-max="2026-05" data-activate-animation="pulse" data-title-key="experience/timelineTitle" data-toggle-title-key="timeline/toggleHint"></timeline-component>
 
         <script type="application/json" id="education-timeline">
             [
@@ -148,6 +149,18 @@
                     <li><i class="i-date"></i><span data-i18n="experience/e6/date"></span></li>
                     <li><i class="i-dot"></i><span data-i18n="experience/e6/bullet1"></span></li>
                     <li><i class="i-dot"></i><span data-i18n="experience/e6/bullet2"></span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card mt-4 experience-card" id="e7">
+            <h5 class="card-header" data-i18n="experience/e7/title"></h5>
+            <div class="card-body">
+                <ul class="card-list">
+                    <li><i class="i-place"></i><span data-i18n="experience/e7/place"></span></li>
+                    <li><i class="i-date"></i><span data-i18n="experience/e7/date"></span></li>
+                    <li><i class="i-dot"></i><span data-i18n="experience/e7/bullet1"></span></li>
+                    <li><i class="i-dot"></i><span data-i18n="experience/e7/bullet2"></span></li>
                 </ul>
             </div>
         </div>
@@ -345,7 +358,7 @@
                         <ul class="card-list">
                             <li><i class="i-place"></i><span data-i18n="education/high/place"></span></li>
                             <li><i class="i-focus"></i><span data-i18n="education/high/focus"></span></li>
-                            <li><i class="i-date"></i>2009 - 2012</li>
+                            <li><i class="i-date"></i><span data-i18n="education/high/date"></span></li>
                             <li><i class="i-award"></i><span data-i18n="education/high/awards"></span>
                                 <ul class="card-list">
                                     <li><i class="i-dot"></i><span data-i18n="education/high/award1"></span></li>
@@ -381,7 +394,7 @@
                     <div class="card-body">
                         <ul class="card-list">
                             <li><i class="i-place"></i><span data-i18n="education/middle/place"></span></li>
-                            <li><i class="i-date"></i>2005 - 2009</li>
+                            <li><i class="i-date"></i><span data-i18n="education/middle/date"></span></li>
                         </ul>
                     </div>
                 </div>
@@ -393,7 +406,7 @@
             <div class="card-body">
                 <ul class="card-list">
                     <li><i class="i-place"></i><span data-i18n="education/elem/place"></span></li>
-                    <li><i class="i-date"></i>2000 - 2005</li>
+                    <li><i class="i-date"></i><span data-i18n="education/elem/date"></span></li>
                 </ul>
             </div>
         </div>
@@ -489,7 +502,7 @@
             function buildExperienceHeaderNav() {
                 var previousLabel = (window.i18nManager && window.i18nManager.getContent('button/previous', 'Previous')) || 'Previous';
                 var nextLabel = (window.i18nManager && window.i18nManager.getContent('button/next', 'Next')) || 'Next';
-                var expOrder = ['e1', 'e2', 'e3', 'e4', 'e5', 'e6'];
+                var expOrder = ['e1', 'e2', 'e3', 'e4', 'e5', 'e6', 'e7'];
                 expOrder.forEach(function (id, index) {
                     var card = document.getElementById(id);
                     if (!card) return;
@@ -541,5 +554,4 @@
     <footer-component></footer-component>
 </body>
 </html>
-
 

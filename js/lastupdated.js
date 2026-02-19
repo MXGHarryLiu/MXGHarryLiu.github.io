@@ -1,5 +1,11 @@
 const latestCommitComponent = {
   date: "",
+  getLabel: function () {
+      if (window.i18nManager && typeof window.i18nManager.getContent === "function") {
+          return window.i18nManager.getContent("basic/lastUpdated", "Last updated: ");
+      }
+      return "Last updated: ";
+  },
   fetchData: function () {
       fetch("https://api.github.com/repos/MXGHarryLiu/MXGHarryLiu.github.io/branches/main")
           .then(response => {
@@ -15,8 +21,11 @@ const latestCommitComponent = {
   render: function () {
       const spanElement = document.getElementById("lastupdated");
       if (spanElement) {
-          spanElement.innerHTML = `Last updated: ${this.date.slice(0, 10)}`;
+          spanElement.innerHTML = `${this.getLabel()}${this.date.slice(0, 10)}`;
       }
   }
 };
 latestCommitComponent.fetchData();
+document.addEventListener(window.I18N_READY_EVENT || "i18n-ready", function () {
+  latestCommitComponent.render();
+});

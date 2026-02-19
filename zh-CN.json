@@ -58,6 +58,7 @@
             "shortTitle": "高中",
             "place": "[华东师范大学第二附属中学](http://www.hsefz.cn/)（上海）",
             "focus": "高考化学学科",
+            "date": "2009 - 2012",
             "awards": "荣誉和奖项：",
             "award1": "<b>上海市明日科技之星</b>：共十名获奖者，一万元奖学金。",
             "award2": "第二十六届英特尔上海市青少年科技创新大赛<b>一等奖</b>",
@@ -68,12 +69,14 @@
         "middle": {
             "title": "初中",
             "shortTitle": "初中",
-            "place": "[上海市民办华育中学](http://www.hy.sh.cn/)"
+            "place": "[上海市民办华育中学](http://www.hy.sh.cn/)",
+            "date": "2005 - 2009"
         },
         "elem": {
             "title": "小学",
             "shortTitle": "小学",
-            "place":  "[上海市徐汇区向阳小学](http://xyxx.xhedu.sh.cn/cms/)"
+            "place":  "[上海市徐汇区向阳小学](http://xyxx.xhedu.sh.cn/cms/)",
+            "date": "2000 - 2005"
         }
     },
     "experience": {
@@ -144,6 +147,14 @@
             "date": "2023年9月至2024年8月",
             "bullet1": "试点一年期项目授予的荣誉称号，该项目共包含 18 名 Fellow。",
             "bullet2": "通过处理肿瘤学数据，提升了数据科学能力。"
+        },
+        "e7": {
+            "title": "博士后研究员",
+            "shortTitle": "博后",
+            "place": "[Yuan 实验室](https://www.mdanderson.org/research/departments-labs-institutes/labs/yuan-laboratory.html)<br>[得克萨斯大学安德森癌症中心](https://www.mdanderson.org/)，美国得克萨斯州休斯顿",
+            "date": "2023年8月至2024年11月",
+            "bullet1": "开发自监督计算机视觉模型，用于白细胞分类。",
+            "bullet2": "设计网页应用与数据管线，用于在临床场景部署并验证 AI 模型。"
         }
     },
     "endeavor": {
@@ -156,27 +167,32 @@
         "m1": {
             "title": "Versatile phenotype-activated cell sorting",
             "journal": "科学进展",
-            "shortTitle": "Lee et al., 2020《科学进展》"
+            "shortTitle": "Lee et al., 2020《科学进展》",
+            "date": "2020年10月23日"
         },
         "m2": {
             "title": "Sustained deep-tissue voltage recording using a fast indicator optimized for two-photon microscopy",
             "journal": "细胞",
-            "shortTitle": "Liu et al., 2022《细胞》"
+            "shortTitle": "Liu et al., 2022《细胞》",
+            "date": "2022年8月18日"
         },
         "m3": {
             "title": "Automating the high-throughput screening of protein-based optical indicators and actuators",
             "journal": "生物化学",
-            "shortTitle": "Lee et al., 2022《生物化学》"
+            "shortTitle": "Lee et al., 2022《生物化学》",
+            "date": "2022年10月31日"
         },
         "m4": {
             "title": "Widefield imaging of rapid pan-cortical voltage dynamics with an indicator evolved for one-photon microscopy",
             "journal": "自然·通讯",
-            "shortTitle": "Lu et al., 2023《自然·通讯》"
+            "shortTitle": "Lu et al., 2023《自然·通讯》",
+            "date": "2023年10月12日"
         },
         "m5": {
             "title": "Bright and photostable yellow fluorescent proteins for extended imaging",
             "journal": "自然·通讯",
-            "shortTitle": "Lee et al., 2025《自然·通讯》"
+            "shortTitle": "Lee et al., 2025《自然·通讯》",
+            "date": "2025年4月4日"
         }
     },
     "project": {
@@ -445,6 +461,7 @@
     "basic": {
         "brand": "刘卓和",
         "follow": "敬请关注",
+        "lastUpdated": "上次更新：",
         "copyright": "版权所有 &copy; 2016 - 2026 刘卓和"
     }
 }
