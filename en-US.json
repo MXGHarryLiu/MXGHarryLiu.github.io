@@ -456,7 +456,10 @@
         "cite": "Cite",
         "copy": "Copy",
         "next": "Next",
-        "previous": "Previous"
+        "previous": "Previous",
+        "themeDark": "Switch to dark mode",
+        "themeLight": "Switch to light mode",
+        "themeAuto": "Switch to auto mode"
     },
     "basic": {
         "brand": "Zhuohe Liu", 

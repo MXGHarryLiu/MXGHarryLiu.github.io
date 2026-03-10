@@ -1,24 +1,4 @@
-<style>
-    nav {
-        background-color: #262626;
-        text-align: center;
-        padding: 10px;
-    }
-
-    .navbar-dark .navbar-brand {
-        font-size: 18px;
-    }
-
-    .navbar-dark .navbar-nav .nav-link {
-        color: #ffffff; 
-        font-size: 16px;
-    }
-
-    .navbar-dark .navbar-toggler-icon {
-        background-color: #262626; 
-    }
-</style>
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+<nav class="navbar navbar-expand-sm site-navbar">
     <div class="container-fluid">
         <a class="navbar-brand" data-i18n="basic/brand" href="index.html"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,6 +17,11 @@
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto">
+                <li class="nav-item theme-toggle-item">
+                    <button class="btn btn-link nav-link theme-toggle-btn" id="themeToggle" type="button" aria-label="Switch theme" title="Switch theme">
+                        <i class="bi bi-moon-stars-fill" aria-hidden="true"></i>
+                    </button>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#" id="localeSelector"></a>
                 </li>

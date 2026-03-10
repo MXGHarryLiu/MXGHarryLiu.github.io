@@ -456,7 +456,10 @@
         "cite": "引用",
         "copy": "复制",
         "next": "下一个",
-        "previous": "上一个"
+        "previous": "上一个",
+        "themeDark": "切换到深色模式",
+        "themeLight": "切换到浅色模式",
+        "themeAuto": "切换到自动模式"
     },
     "basic": {
         "brand": "刘卓和",

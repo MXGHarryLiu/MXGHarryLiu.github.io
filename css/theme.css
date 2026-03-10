@@ -1,3 +1,122 @@
+:root {
+    --site-bg: #ffffff;
+    --site-text: #212529;
+    --site-muted: #6c757d;
+    --site-navbar-bg: #262626;
+    --site-navbar-text: #ffffff;
+    --site-navbar-hover: #e9ecef;
+    --site-card-border: rgba(55, 65, 81, 0.15);
+    --site-cloud-bg: rgba(249, 250, 251, 0.8);
+}
+
+[data-bs-theme="dark"] {
+    --site-bg: #1a1a1a;
+    --site-text: #e5e7eb;
+    --site-muted: #9ca3af;
+    --site-navbar-bg: #262626;
+    --site-navbar-text: #f8fafc;
+    --site-navbar-hover: #ffffff;
+    --site-card-border: rgba(148, 163, 184, 0.3);
+    --site-cloud-bg: rgba(15, 23, 42, 0.75);
+}
+
+body {
+    background-color: var(--site-bg);
+    color: var(--site-text);
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.site-navbar {
+    background-color: var(--site-navbar-bg);
+    text-align: center;
+    padding: 10px;
+}
+
+.site-navbar .navbar-brand {
+    color: var(--site-navbar-text);
+    font-size: 18px;
+}
+
+.site-navbar .navbar-nav .nav-link {
+    color: var(--site-navbar-text);
+    font-size: 16px;
+}
+
+.site-navbar .navbar-nav .nav-link:hover,
+.site-navbar .navbar-nav .nav-link:focus-visible {
+    color: var(--site-navbar-hover);
+}
+
+.site-navbar .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.35);
+    margin-bottom: 0;
+}
+
+.site-navbar .navbar-toggler-icon {
+    filter: invert(100%);
+}
+
+[data-bs-theme="dark"] .site-navbar .navbar-toggler-icon {
+    filter: invert(0%);
+}
+
+.theme-toggle-item {
+    display: none;
+}
+
+html.theme-toggle-ready .theme-toggle-item {
+    display: list-item;
+}
+
+.theme-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem 0.5rem;
+    line-height: 1;
+    text-decoration: none;
+    margin-bottom: 0;
+}
+
+.site-navbar .btn,
+.site-navbar .nav-link {
+    margin-bottom: 0;
+}
+
+.site-navbar .navbar-nav {
+    align-items: center;
+}
+
+#lastupdated {
+    color: var(--site-muted);
+}
+
+.bg-image {
+    background-image: url("../img/homebanner.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    max-width: 100%;
+    height: 300px;
+}
+
+.bg-image h1,
+.bg-image h2,
+.bg-image p {
+    color: #212529;
+    text-shadow: none;
+}
+
+.hero-img {
+    width: 100%;
+    min-height: 300px;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
 .card-img-top {
     max-height: 300px;
     width: 100%;
@@ -158,9 +277,9 @@
 .workspace-cloud {
     width: 100%;
     min-height: 360px;
-    border: 1px solid rgba(55, 65, 81, 0.15);
+    border: 1px solid var(--site-card-border);
     border-radius: 0.5rem;
-    background-color: rgba(249, 250, 251, 0.8);
+    background-color: var(--site-cloud-bg);
     overflow: hidden;
 }
 
