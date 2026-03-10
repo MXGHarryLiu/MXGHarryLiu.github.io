@@ -28,6 +28,24 @@
 
         var mapDiv = document.getElementById(mapId);
         if (!mapDiv) return null;
+        var getAppliedTheme = function () {
+            var theme = document.documentElement.getAttribute("data-bs-theme");
+            return theme === "dark" ? "dark" : "light";
+        };
+        function getMapThemeConfig() {
+            if (getAppliedTheme() === "dark") {
+                return {
+                    style: "carto-darkmatter",
+                    legendFontColor: "#e2e8f0",
+                    backgroundColor: "#000000"
+                };
+            }
+            return {
+                style: "carto-positron",
+                legendFontColor: "#1f2937",
+                backgroundColor: "#ffffff"
+            };
+        }
 
         var hintEl = document.getElementById(hintId);
         function hideHint() {
@@ -101,7 +119,7 @@
 
             var layout = {
                 map: {
-                    style: "open-street-map",
+                    style: getMapThemeConfig().style,
                     center: { lat: 38.03, lon: -90.70 },
                     zoom: 0
                 },
@@ -111,8 +129,11 @@
                     x: 0,
                     xanchor: "left",
                     y: 1,
-                    orientation: "h"
-                }
+                    orientation: "h",
+                    font: { color: getMapThemeConfig().legendFontColor }
+                },
+                paper_bgcolor: getMapThemeConfig().backgroundColor,
+                plot_bgcolor: getMapThemeConfig().backgroundColor
             };
 
             var config = {
@@ -151,6 +172,16 @@
                 applyMapSelection(0, true);
             });
 
+            function applyThemeToMap() {
+                var themeConfig = getMapThemeConfig();
+                Plotly.relayout(mapId, {
+                    "map.style": themeConfig.style,
+                    "legend.font.color": themeConfig.legendFontColor,
+                    "paper_bgcolor": themeConfig.backgroundColor,
+                    "plot_bgcolor": themeConfig.backgroundColor
+                });
+            }
+
             mapDiv.on("plotly_click", function (eventData) {
                 hideHint();
                 var rowIndex = eventData.points[0].customdata;
@@ -166,6 +197,9 @@
 
             document.addEventListener(window.I18N_READY_EVENT || "i18n-ready", function () {
                 applyLocalizedLegendNames();
+            });
+            document.addEventListener("theme-change", function () {
+                applyThemeToMap();
             });
         });
 

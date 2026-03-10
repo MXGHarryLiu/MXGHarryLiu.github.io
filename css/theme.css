@@ -7,6 +7,7 @@
     --site-navbar-hover: #e9ecef;
     --site-card-border: rgba(55, 65, 81, 0.15);
     --site-cloud-bg: rgba(249, 250, 251, 0.8);
+    --site-legend-text: rgba(30, 41, 59, 0.9);
 }
 
 [data-bs-theme="dark"] {
@@ -17,7 +18,8 @@
     --site-navbar-text: #f8fafc;
     --site-navbar-hover: #ffffff;
     --site-card-border: rgba(148, 163, 184, 0.3);
-    --site-cloud-bg: rgba(15, 23, 42, 0.75);
+    --site-cloud-bg: rgba(0, 0, 0, 0.92);
+    --site-legend-text: rgba(226, 232, 240, 0.95);
 }
 
 body {
@@ -355,7 +357,7 @@ html.theme-toggle-ready .theme-toggle-item {
     gap: 0.5rem 1rem;
     margin: 0.75rem 0 1rem;
     font-size: 0.9rem;
-    color: rgba(30, 41, 59, 0.9);
+    color: var(--site-legend-text);
 }
 
 .workspace-cloud-legend .legend-item {
@@ -373,5 +375,70 @@ html.theme-toggle-ready .theme-toggle-item {
 @media (max-width: 767.98px) {
     .workspace-cloud {
         min-height: 300px;
+    }
+}
+
+.passion-section-nav {
+    --passion-tab-bg: #ffffff;
+    --passion-tab-text: #495057;
+    --passion-tab-border: #6c757d;
+    --passion-tab-hover-text: #343a40;
+    --passion-tab-active-bg: #495057;
+    --passion-tab-active-text: #ffffff;
+    --passion-tab-active-shadow: rgba(73, 80, 87, 0.22);
+}
+
+.passion-section-nav .btn {
+    width: 100%;
+    font-weight: 600;
+    white-space: nowrap;
+    border-color: var(--passion-tab-border);
+    color: var(--passion-tab-text);
+    background-color: var(--passion-tab-bg);
+}
+
+.passion-section-nav .btn.active {
+    color: var(--passion-tab-active-text);
+    background-color: var(--passion-tab-active-bg);
+    border-color: var(--passion-tab-active-bg);
+    box-shadow: 0 0 0 0 var(--passion-tab-active-shadow);
+    animation: passionTabBreath 1.8s ease-in-out infinite;
+}
+
+.passion-section-nav .btn:hover {
+    border-color: var(--passion-tab-active-bg);
+    color: var(--passion-tab-hover-text);
+}
+
+[data-bs-theme="dark"] .passion-section-nav {
+    --passion-tab-bg: #111827;
+    --passion-tab-text: #e5e7eb;
+    --passion-tab-border: #475569;
+    --passion-tab-hover-text: #ffffff;
+    --passion-tab-active-bg: #64748b;
+    --passion-tab-active-text: #ffffff;
+    --passion-tab-active-shadow: rgba(100, 116, 139, 0.24);
+}
+
+.passion-panel {
+    display: none;
+}
+
+.passion-panel.is-active {
+    display: block;
+}
+
+@keyframes passionTabBreath {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(73, 80, 87, 0.2);
+    }
+    50% {
+        transform: scale(1.02);
+        box-shadow: 0 0 0 8px rgba(73, 80, 87, 0.05);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(73, 80, 87, 0);
     }
 }

@@ -2,6 +2,22 @@ const THEME_STORAGE_KEY = "preferred-theme";
 const THEME_MODES = ["auto", "light", "dark"];
 let activeThemeMode = "auto";
 
+// Apply resolved theme before first paint when this script is loaded in <head>.
+(function applyThemeEarly() {
+    try {
+        var mode = localStorage.getItem(THEME_STORAGE_KEY) || "auto";
+        if (mode !== "auto" && mode !== "light" && mode !== "dark") {
+            mode = "auto";
+        }
+        var isDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        var theme = mode === "dark" ? "dark" : (mode === "light" ? "light" : (isDark ? "dark" : "light"));
+        document.documentElement.setAttribute("data-bs-theme", theme);
+        document.documentElement.setAttribute("data-theme-mode", mode);
+    } catch (error) {
+        // no-op
+    }
+})();
+
 function isThemeMode(value) {
     return THEME_MODES.indexOf(value) >= 0;
 }
@@ -53,13 +69,20 @@ function updateThemeToggleIcon(themeMode) {
 function applyThemeMode(themeMode, options) {
     const shouldPersist = !options || options.persist !== false;
     const resolvedMode = isThemeMode(themeMode) ? themeMode : "auto";
+    const appliedTheme = resolveAppliedTheme(resolvedMode);
     activeThemeMode = resolvedMode;
-    document.documentElement.setAttribute("data-bs-theme", resolveAppliedTheme(resolvedMode));
+    document.documentElement.setAttribute("data-bs-theme", appliedTheme);
     document.documentElement.setAttribute("data-theme-mode", resolvedMode);
     if (shouldPersist) {
         localStorage.setItem(THEME_STORAGE_KEY, resolvedMode);
     }
     updateThemeToggleIcon(resolvedMode);
+    document.dispatchEvent(new CustomEvent("theme-change", {
+        detail: {
+            mode: resolvedMode,
+            appliedTheme: appliedTheme
+        }
+    }));
 }
 
 function initializeThemeToggle() {
