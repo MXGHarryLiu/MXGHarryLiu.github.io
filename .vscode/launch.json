@@ -5,7 +5,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "Debug",
-            "file": "./index.html",
+            "file": "./src/index.html",
             "runtimeArgs": ["--disable-web-security"]
         }
     ]

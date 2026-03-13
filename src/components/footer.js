@@ -7,6 +7,7 @@ class Footer extends HTMLElement {
             .then(response => response.text())
             .then(htmlTemplate => {
                 this.innerHTML = htmlTemplate;
+                document.dispatchEvent(new CustomEvent('footer-ready'));
             })
             .catch(error => {
                 console.error('Error loading footer:', error);
