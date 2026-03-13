@@ -81,7 +81,18 @@
 
             function applyLocalizedLegendNames() {
                 types.forEach(function (type, idx) {
-                    Plotly.restyle(mapId, { name: getLocalizedLegendName(type) }, [idx]);
+                    try {
+                        var restyleResult = Plotly.restyle(mapId, { name: getLocalizedLegendName(type) }, [idx]);
+                        if (restyleResult && typeof restyleResult.catch === "function") {
+                            restyleResult.catch(function () {
+                                queueLegendUpdate();
+                                scheduleMapReadyPoll();
+                            });
+                        }
+                    } catch (error) {
+                        queueLegendUpdate();
+                        scheduleMapReadyPoll();
+                    }
                 });
             }
 
@@ -142,25 +153,132 @@
             };
 
             var selectedPlaceIndex = 0;
+            var themeApplyTimer = null;
+            var maxThemeApplyRetries = 8;
+            var selectionApplyTimer = null;
+            var maxSelectionApplyRetries = 8;
+            var legendApplyTimer = null;
+            var mapIsReady = false;
+            var mapStyleTransitioning = false;
+            var pendingSelection = null;
+            var pendingLegendUpdate = false;
+            var mapReadyPollTimer = null;
 
-            function applyMapSelection(rowIndex, keepTooltip) {
+            function getUnderlyingMapInstance() {
+                try {
+                    var fullLayout = mapDiv && mapDiv._fullLayout;
+                    if (!fullLayout || !fullLayout.map || !fullLayout.map._subplot) {
+                        return null;
+                    }
+                    var subplot = fullLayout.map._subplot;
+                    return subplot.map || subplot._map || null;
+                } catch (error) {
+                    return null;
+                }
+            }
+
+            function isUnderlyingMapStyleLoaded() {
+                var mapInstance = getUnderlyingMapInstance();
+                if (!mapInstance) {
+                    return false;
+                }
+                if (typeof mapInstance.isStyleLoaded === "function") {
+                    return !!mapInstance.isStyleLoaded();
+                }
+                if (typeof mapInstance.loaded === "function") {
+                    return !!mapInstance.loaded();
+                }
+                return true;
+            }
+
+            function isMapMutationReady() {
+                return mapIsReady && !mapStyleTransitioning && isUnderlyingMapStyleLoaded();
+            }
+
+            function scheduleMapReadyPoll() {
+                if (mapReadyPollTimer) {
+                    clearTimeout(mapReadyPollTimer);
+                }
+                mapReadyPollTimer = setTimeout(function () {
+                    flushPendingSelection();
+                    flushPendingLegendUpdate();
+                }, 180);
+            }
+
+            function queueSelection(rowIndex, keepTooltip, retryCount) {
+                pendingSelection = {
+                    rowIndex: rowIndex,
+                    keepTooltip: keepTooltip,
+                    retryCount: retryCount || 0
+                };
+            }
+
+            function flushPendingSelection() {
+                if (!pendingSelection) return;
+                if (!isMapMutationReady()) {
+                    scheduleMapReadyPoll();
+                    return;
+                }
+                var next = pendingSelection;
+                pendingSelection = null;
+                applyMapSelection(next.rowIndex, next.keepTooltip, next.retryCount);
+            }
+
+            function queueLegendUpdate() {
+                pendingLegendUpdate = true;
+            }
+
+            function flushPendingLegendUpdate() {
+                if (!pendingLegendUpdate) return;
+                if (!isMapMutationReady()) {
+                    scheduleMapReadyPoll();
+                    return;
+                }
+                pendingLegendUpdate = false;
+                applyLocalizedLegendNames();
+            }
+
+            function scheduleSelectionRetry(rowIndex, keepTooltip, retryCount) {
+                var retries = typeof retryCount === "number" ? retryCount : 0;
+                if (retries >= maxSelectionApplyRetries) return;
+                if (selectionApplyTimer) {
+                    clearTimeout(selectionApplyTimer);
+                }
+                queueSelection(rowIndex, keepTooltip, retries + 1);
+                selectionApplyTimer = setTimeout(function () {
+                    flushPendingSelection();
+                }, 140);
+            }
+
+            function applyMapSelection(rowIndex, keepTooltip, retryCount) {
                 selectedPlaceIndex = rowIndex;
+                if (!isMapMutationReady()) {
+                    queueSelection(rowIndex, keepTooltip, retryCount);
+                    scheduleMapReadyPoll();
+                    return;
+                }
+
                 data.forEach(function (trace, curveNumber) {
                     var opacity = trace.customdata.map(function (currentIndex) {
                         return currentIndex === rowIndex ? 1 : 0.6;
                     });
-                    Plotly.restyle(mapId, {
-                        "marker.opacity": [opacity]
-                    }, [curveNumber]);
+                    try {
+                        var restyleResult = Plotly.restyle(mapId, {
+                            "marker.opacity": [opacity]
+                        }, [curveNumber]);
+                        if (restyleResult && typeof restyleResult.catch === "function") {
+                            restyleResult.catch(function () {
+                                scheduleSelectionRetry(rowIndex, keepTooltip, retryCount);
+                            });
+                        }
+                    } catch (error) {
+                        scheduleSelectionRetry(rowIndex, keepTooltip, retryCount);
+                    }
                 });
 
                 if (!keepTooltip) return;
-                var ref = pointRefByRowIndex[rowIndex];
-                if (!ref) return;
-                Plotly.Fx.hover(mapId, [{
-                    curveNumber: ref.curveNumber,
-                    pointNumber: ref.pointNumber
-                }]);
+                // Do not force Plotly.Fx.hover on map traces; it can emit
+                // "Unrecognized subplot: xy" warnings for scattermap/map subplots.
             }
 
             api.selectPlace = function (rowIndex, keepTooltip) {
@@ -169,17 +287,81 @@
             };
 
             Plotly.newPlot(mapId, data, layout, config).then(function () {
+                mapIsReady = true;
                 applyMapSelection(0, true);
+                flushPendingSelection();
+                flushPendingLegendUpdate();
             });
 
-            function applyThemeToMap() {
+            function applyThemeToMap(retryCount) {
                 var themeConfig = getMapThemeConfig();
-                Plotly.relayout(mapId, {
-                    "map.style": themeConfig.style,
-                    "legend.font.color": themeConfig.legendFontColor,
-                    "paper_bgcolor": themeConfig.backgroundColor,
-                    "plot_bgcolor": themeConfig.backgroundColor
-                });
+                var retries = typeof retryCount === "number" ? retryCount : 0;
+                mapStyleTransitioning = true;
+                try {
+                    var relayoutResult = Plotly.relayout(mapId, {
+                        "map.style": themeConfig.style,
+                        "legend.font.color": themeConfig.legendFontColor,
+                        "paper_bgcolor": themeConfig.backgroundColor,
+                        "plot_bgcolor": themeConfig.backgroundColor
+                    });
+                    if (relayoutResult && typeof relayoutResult.then === "function") {
+                        relayoutResult.then(function () {
+                            mapStyleTransitioning = false;
+                            flushPendingSelection();
+                            flushPendingLegendUpdate();
+                        });
+                    } else {
+                        mapStyleTransitioning = false;
+                        flushPendingSelection();
+                        flushPendingLegendUpdate();
+                    }
+                    if (relayoutResult && typeof relayoutResult.catch === "function") {
+                        relayoutResult.catch(function () {
+                            if (retries < maxThemeApplyRetries) {
+                                themeApplyTimer = setTimeout(function () {
+                                    applyThemeToMap(retries + 1);
+                                }, 160);
+                            } else {
+                                mapStyleTransitioning = false;
+                                flushPendingSelection();
+                                flushPendingLegendUpdate();
+                            }
+                        });
+                    }
+                } catch (error) {
+                    if (retries < maxThemeApplyRetries) {
+                        themeApplyTimer = setTimeout(function () {
+                            applyThemeToMap(retries + 1);
+                        }, 160);
+                    } else {
+                        mapStyleTransitioning = false;
+                        flushPendingSelection();
+                        flushPendingLegendUpdate();
+                    }
+                }
+            }
+
+            function scheduleThemeApply() {
+                if (themeApplyTimer) {
+                    clearTimeout(themeApplyTimer);
+                }
+                themeApplyTimer = setTimeout(function () {
+                    applyThemeToMap(0);
+                }, 80);
+            }
+
+            function scheduleLegendApply() {
+                if (legendApplyTimer) {
+                    clearTimeout(legendApplyTimer);
+                }
+                legendApplyTimer = setTimeout(function () {
+                    if (!isMapMutationReady()) {
+                        queueLegendUpdate();
+                        scheduleMapReadyPoll();
+                        return;
+                    }
+                    applyLocalizedLegendNames();
+                }, 80);
             }
 
             mapDiv.on("plotly_click", function (eventData) {
@@ -191,15 +373,18 @@
                 }
             });
 
-            mapDiv.on("plotly_relayout", function () {
-                applyMapSelection(selectedPlaceIndex, true);
+            mapDiv.on("plotly_afterplot", function () {
+                mapIsReady = true;
+                mapStyleTransitioning = false;
+                flushPendingSelection();
+                flushPendingLegendUpdate();
             });
 
             document.addEventListener(window.I18N_READY_EVENT || "i18n-ready", function () {
-                applyLocalizedLegendNames();
+                scheduleLegendApply();
             });
             document.addEventListener("theme-change", function () {
-                applyThemeToMap();
+                scheduleThemeApply();
             });
         });
 
