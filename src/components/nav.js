@@ -14,7 +14,29 @@ class Nav extends HTMLElement {
                 this.innerHTML = htmlTemplate;
                 document.dispatchEvent(new CustomEvent('nav-component-ready'));
                 if (window.i18nManager && typeof window.i18nManager.setLocale === 'function') {
-                    const activeLocale = window.i18nManager.currentLocale || 'en-US';
+                    const manager = window.i18nManager;
+                    const configuredLocales = Array.isArray(manager.locales)
+                        ? manager.locales.map(locale => locale.code)
+                        : [];
+                    const normalizeLocale = value => {
+                        if (!value || typeof value !== 'string') {
+                            return '';
+                        }
+                        const candidate = value.trim().replace(/_/g, '-').toLowerCase();
+                        const matched = configuredLocales.find(code => code.toLowerCase() === candidate);
+                        return matched || '';
+                    };
+                    let queryLocale = '';
+                    try {
+                        const params = new URLSearchParams(window.location.search || '');
+                        queryLocale = normalizeLocale(params.get('lang') || '');
+                    } catch (error) {
+                        queryLocale = '';
+                    }
+                    const storedLocale = normalizeLocale(localStorage.getItem('locale') || '');
+                    const currentLocale = normalizeLocale(manager.currentLocale || '');
+                    const defaultLocale = manager.defaultLocale || configuredLocales[0] || 'en-US';
+                    const activeLocale = queryLocale || storedLocale || currentLocale || defaultLocale;
                     window.i18nManager.setLocale(activeLocale, { persist: false, updateQuery: false });
                 }
             })
