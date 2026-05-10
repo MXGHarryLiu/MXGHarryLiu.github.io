@@ -12,6 +12,14 @@ class Nav extends HTMLElement {
             })
             .then(htmlTemplate => {
                 this.innerHTML = htmlTemplate;
+                const currentPage = (window.location.pathname.split('/').pop() || 'index.html').toLowerCase();
+                this.querySelectorAll('.navbar-nav .nav-link[href]').forEach(link => {
+                    const href = (link.getAttribute('href') || '').toLowerCase();
+                    if (href && href !== '#' && href === currentPage) {
+                        link.classList.add('active');
+                        link.setAttribute('aria-current', 'page');
+                    }
+                });
                 document.dispatchEvent(new CustomEvent('nav-component-ready'));
                 if (window.i18nManager && typeof window.i18nManager.setLocale === 'function') {
                     const manager = window.i18nManager;

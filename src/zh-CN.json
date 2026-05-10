@@ -155,6 +155,14 @@
             "date": "2023年8月至2024年11月",
             "bullet1": "开发自监督计算机视觉模型，用于白细胞分类。",
             "bullet2": "设计网页应用与数据管线，用于在临床场景部署并验证 AI 模型。"
+        },
+        "e8": {
+            "title": "数据科学家",
+            "shortTitle": "数据科学家",
+            "place": "[Yuan 实验室](https://www.mdanderson.org/research/departments-labs-institutes/labs/yuan-laboratory.html)<br>[得克萨斯大学安德森癌症中心](https://www.mdanderson.org/)，美国得克萨斯州休斯顿",
+            "date": "2024年11月至今",
+            "bullet1": "开发用于尿液细胞学样本的计算机视觉管线。",
+            "bullet2": "基于电子健康档案对输血风险进行建模。"
         }
     },
     "endeavor": {
@@ -465,6 +473,7 @@
         "brand": "刘卓和",
         "follow": "敬请关注",
         "lastUpdated": "上次更新",
-        "copyright": "版权所有 &copy; 2016 - 2026 刘卓和"
+        "copyright": "版权所有 &copy; 2016 - 2026 刘卓和",
+        "poweredBy": "由以下技术支持"
     }
 }

@@ -155,6 +155,14 @@
             "date": "Aug. 2023 - Nov. 2024",
             "bullet1": "Developed self-supervised computer vision models to classify white blood cells.",
             "bullet2": "Designed web applications and data pipelines to deploy and validate AI models in clinical settings."
+        },
+        "e8": {
+            "title": "Data Scientist",
+            "shortTitle": "Data Scientist",
+            "place": "[Yuan Laboratory](https://www.mdanderson.org/research/departments-labs-institutes/labs/yuan-laboratory.html)<br>[The University of Texas MD Anderson Cancer Center](https://www.mdanderson.org/), Houston, Texas",
+            "date": "Nov. 2024 - Present",
+            "bullet1": "Develop computer vision pipelines for urine cytology samples.",
+            "bullet2": "Model transfusion risks using Electronic Health Record."
         }
     },
     "endeavor": {
@@ -462,9 +470,10 @@
         "themeAuto": "Switch to auto mode"
     },
     "basic": {
-        "brand": "Zhuohe Liu", 
+        "brand": "Zhuohe Liu",
         "follow": "Please follow me on: ",
         "lastUpdated": "Last updated",
-        "copyright": "Copyright &copy; 2016 - 2026 Zhuohe Liu"
+        "copyright": "Copyright &copy; 2016 - 2026 Zhuohe Liu",
+        "poweredBy": "Powered by"
     }
 }
