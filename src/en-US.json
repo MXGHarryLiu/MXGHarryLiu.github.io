@@ -361,6 +361,7 @@
         "titles": "Trivia",
         "submit": "Submit",
         "selectAll": "Select all that apply.",
+        "selectOne": "Pick one.",
         "retry": "Try again",
         "correct": "Correct!",
         "incorrect": "Not quite.",
@@ -388,6 +389,14 @@
             "o3": "Playing space simulation games (SpaceEngine, KSP)",
             "o4": "Streaming reality TV shows",
             "description": "I cook, watch <span style=\"font-style:italic;\">Doctor Who</span> and BBC documentaries, play space simulation games (SpaceEngine, KSP), and listen to Electronica albums (Engima, Conjure One)."
+        },
+        "q4": {
+            "question": "Which continent have I not yet set foot on?",
+            "o1": "North America",
+            "o2": "Europe",
+            "o3": "Asia",
+            "o4": "Africa",
+            "description": "Africa is the only one I haven't visited yet — North America, Europe, and Asia are [already in the album](#places)."
         }
     },
     "timeline": {

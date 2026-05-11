@@ -1,4 +1,106 @@
 (function () {
+    var TRIVIA_QUESTIONS = [
+        { id: 'q1', type: 'single', correct: ['o2'], image: 'img/profile-s.jpg' },
+        { id: 'q2', type: 'multi',  correct: ['o1', 'o2', 'o3'] },
+        { id: 'q3', type: 'multi',  correct: ['o1', 'o2', 'o3'] },
+        { id: 'q4', type: 'single', correct: ['o4'] }
+    ];
+    var OPTION_KEYS = ['o1', 'o2', 'o3', 'o4'];
+
+    // Renders one quiz card. Example output for a multi-answer question with no image:
+    //   <div class="quiz-card" data-quiz-id="q2" data-quiz-type="multi"
+    //        data-quiz-correct="o1,o2,o3" data-quiz-question-key="trivia/q2/question">
+    //     <div class="quiz-body">
+    //       <div class="quiz-content">
+    //         <p class="quiz-hint text-muted" data-i18n="trivia/selectAll"></p>
+    //         <div class="quiz-options">
+    //           <button type="button" class="quiz-option" data-option="o1" data-i18n="trivia/q2/o1"></button>
+    //           <button type="button" class="quiz-option" data-option="o2" data-i18n="trivia/q2/o2"></button>
+    //           <button type="button" class="quiz-option" data-option="o3" data-i18n="trivia/q2/o3"></button>
+    //           <button type="button" class="quiz-option" data-option="o4" data-i18n="trivia/q2/o4"></button>
+    //         </div>
+    //         <div class="quiz-controls">
+    //           <button type="button" class="btn btn-primary quiz-submit" data-i18n="trivia/submit"></button>
+    //         </div>
+    //         <div class="quiz-feedback" hidden></div>
+    //         <p class="quiz-description" data-i18n="trivia/q2/description" hidden></p>
+    //       </div>
+    //     </div>
+    //   </div>
+    //
+    // Single-answer cards omit the .quiz-controls block (no Submit) and use data-i18n="trivia/selectOne".
+    // When `image` is set, a sibling .quiz-figure with <img class="img-fluid rounded"> is inserted before .quiz-content,
+    // and data-quiz-image="..." goes on the card root (CSS uses it to switch .quiz-body to a 2-column grid at ≥768px).
+    function buildCardElement(q) {
+        var card = document.createElement('div');
+        card.className = 'quiz-card';
+        card.setAttribute('data-quiz-id', q.id);
+        card.setAttribute('data-quiz-type', q.type);
+        card.setAttribute('data-quiz-correct', q.correct.join(','));
+        card.setAttribute('data-quiz-question-key', 'trivia/' + q.id + '/question');
+        if (q.image) card.setAttribute('data-quiz-image', q.image);
+
+        var body = document.createElement('div');
+        body.className = 'quiz-body';
+
+        if (q.image) {
+            var fig = document.createElement('div');
+            fig.className = 'quiz-figure';
+            var img = document.createElement('img');
+            img.src = q.image;
+            img.className = 'img-fluid rounded';
+            img.alt = '';
+            fig.appendChild(img);
+            body.appendChild(fig);
+        }
+
+        var content = document.createElement('div');
+        content.className = 'quiz-content';
+
+        var hint = document.createElement('p');
+        hint.className = 'quiz-hint text-muted';
+        hint.setAttribute('data-i18n', q.type === 'multi' ? 'trivia/selectAll' : 'trivia/selectOne');
+        content.appendChild(hint);
+
+        var options = document.createElement('div');
+        options.className = 'quiz-options';
+        OPTION_KEYS.forEach(function (key) {
+            var btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'quiz-option';
+            btn.setAttribute('data-option', key);
+            btn.setAttribute('data-i18n', 'trivia/' + q.id + '/' + key);
+            options.appendChild(btn);
+        });
+        content.appendChild(options);
+
+        if (q.type === 'multi') {
+            var controls = document.createElement('div');
+            controls.className = 'quiz-controls';
+            var submit = document.createElement('button');
+            submit.type = 'button';
+            submit.className = 'btn btn-primary quiz-submit';
+            submit.setAttribute('data-i18n', 'trivia/submit');
+            controls.appendChild(submit);
+            content.appendChild(controls);
+        }
+
+        var feedback = document.createElement('div');
+        feedback.className = 'quiz-feedback';
+        feedback.hidden = true;
+        content.appendChild(feedback);
+
+        var description = document.createElement('p');
+        description.className = 'quiz-description';
+        description.setAttribute('data-i18n', 'trivia/' + q.id + '/description');
+        description.hidden = true;
+        content.appendChild(description);
+
+        body.appendChild(content);
+        card.appendChild(body);
+        return card;
+    }
+
     function shuffle(arr) {
         for (var i = arr.length - 1; i > 0; i--) {
             var j = Math.floor(Math.random() * (i + 1));
@@ -100,6 +202,12 @@
 
         var body = quiz.querySelector('.trivia-card-body');
         if (!body) return;
+
+        if (!body.querySelector('.quiz-card')) {
+            TRIVIA_QUESTIONS.forEach(function (q) {
+                body.appendChild(buildCardElement(q));
+            });
+        }
 
         var cards = Array.prototype.slice.call(body.querySelectorAll('.quiz-card'));
         if (!cards.length) return;

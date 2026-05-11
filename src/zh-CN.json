@@ -361,6 +361,7 @@
         "titles": "问答",
         "submit": "提交",
         "selectAll": "可多选。",
+        "selectOne": "单选。",
         "retry": "再来一次",
         "correct": "回答正确！",
         "incorrect": "还差一点。",
@@ -388,6 +389,14 @@
             "o3": "玩太空模拟游戏（SpaceEngine、KSP）",
             "o4": "追真人秀节目",
             "description": "我会做饭，看 <span style=\"font-style:italic;\">Doctor Who</span> 和 BBC 纪录片，玩太空模拟游戏（SpaceEngine、KSP），也会听电子音乐专辑（Enigma、Conjure One）。"
+        },
+        "q4": {
+            "question": "我还没踏足过哪个大洲？",
+            "o1": "北美洲",
+            "o2": "欧洲",
+            "o3": "亚洲",
+            "o4": "非洲",
+            "description": "非洲是目前还没去过的——北美、欧洲、亚洲都[已经去过](#places)。"
         }
     },
     "timeline": {
