@@ -349,6 +349,7 @@
         var selectionState = { activeCommentId: null };
         var renderedCloud = null;
         var wordsState = { list: [] };
+        var lastRenderedWidth = 0;
         var dataUrl = opts.dataUrl || DEFAULT_WORKSPACE_DATA_URL;
 
         function onFirstInteraction() {
@@ -397,6 +398,7 @@
         var onWordClick = opts.onWordClick;
         loadWorkspaceWords(dataUrl, function (loadedWords) {
             wordsState.list = loadedWords;
+            lastRenderedWidth = containerEl.clientWidth || 0;
             renderCloud(containerEl, wordsState.list, onWordClick, onFirstInteraction, selectionState, function (rendered) {
                 renderedCloud = rendered;
                 refreshCloudTooltipText(renderedCloud);
@@ -408,6 +410,10 @@
         }
 
         var resizeHandler = debounce(function () {
+            var currentWidth = containerEl.clientWidth || 0;
+            if (!currentWidth) return;
+            if (currentWidth === lastRenderedWidth) return;
+            lastRenderedWidth = currentWidth;
             if (hasInteracted && hintEl) {
                 hintEl.classList.add("is-hidden");
             }

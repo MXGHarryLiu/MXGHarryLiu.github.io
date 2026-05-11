@@ -15,6 +15,7 @@
     <script src="components/footer.js"></script>
     <script src="js/timeline.js"></script>
     <script src="js/carousel.js"></script>
+    <script src="js/lightbox.js"></script>
     <script src="js/i18n.js" defer></script>
     <script src="js/lastupdated.js"></script>
     <script src="https://code.jquery.com/jquery-4.0.0.slim.min.js"></script>
@@ -427,33 +428,6 @@
         </div>
     </div>
     
-    <div class="modal fade" id="lightboxModal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="ModalLabel"></h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <img src="" class="img-fluid">
-                </div>
-            </div>
-        </div>
-        <script>
-            var lightboxModal = document.getElementById('lightboxModal');
-            lightboxModal.addEventListener('show.bs.modal', function (event) {
-                var button = event.relatedTarget;
-                var recipient = button.getAttribute('data-bs-img');
-                var modalTitle = lightboxModal.querySelector('.modal-title');
-                modalTitle.textContent = window.i18nManager.getContent("alt/" + recipient);
-                var modalImage = lightboxModal.querySelector('.modal-body img');
-                // remove "-s" from recipient to display full size image
-                recipient = recipient.replace(/-s\./, ".");
-                modalImage.src = recipient;
-            });
-        </script>
-    </div>
-
     <script>
         (function () {
             var manager = new TimelineManager({

@@ -13,6 +13,7 @@
     <script src="components/nav.js"></script>
     <script src="components/footer.js"></script>
     <script src="js/carousel.js"></script>
+    <script src="js/lightbox.js"></script>
     <script src="js/i18n.js" defer></script>
     <script src="js/lastupdated.js"></script>
     <script src="js/workspace-cloud.js"></script>
@@ -57,7 +58,7 @@
                 <div id="workspace-cloud-legend" class="workspace-cloud-legend"></div>
             </div>
             <div class="col-md-6">
-                <div id="carouselw">
+                <div id="carouselw" data-lightbox-gallery>
                     <div class="carousel-inner">
                         <div class="carousel-item">
                             <img src="img/screen/01.png">
@@ -179,7 +180,7 @@
         <div class="row">
             <div class="col-md-4">
                 <h5 class="text-center" data-i18n="hobbies/h1/title"></h5>
-                <div id="carouselastro">
+                <div id="carouselastro" data-lightbox-gallery>
                     <div class="carousel-inner">
                         <div class="carousel-item">
                             <img src="img/hobbies/ha1-s.jpg">
@@ -198,7 +199,7 @@
             </div>
             <div class="col-md-4">
                 <h5 class="text-center" data-i18n="hobbies/h2/title"></h5>
-                <div id="carouselnote">
+                <div id="carouselnote" data-lightbox-gallery>
                     <div class="carousel-inner">
                         <div class="carousel-item">
                             <img alt="Zimbabwe Z$100 Trillion Dollar" title="Zimbabwe Z$100 Trillion Dollar" src="img/hobbies/hn1-s.jpg"/>
@@ -233,7 +234,7 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div id="carouselplace">
+                <div id="carouselplace" data-lightbox-gallery>
                     <div class="carousel-inner">
                         <div class="carousel-item">
                             <img src="img/places/ann arbor-s.jpg">
@@ -415,8 +416,10 @@
             function setActivePanel(panelKey, options) {
                 if (!isValidPanelKey(panelKey)) return;
                 var opts = options || {};
+                var changed = false;
                 buttons.forEach(function (button) {
                     var isActive = button.getAttribute('data-panel') === panelKey;
+                    if (button.classList.contains('active') !== isActive) changed = true;
                     button.classList.toggle('active', isActive);
                     button.setAttribute('aria-selected', isActive ? 'true' : 'false');
                 });
@@ -428,7 +431,9 @@
                 if (opts.syncHash !== false) {
                     setHash(panelKey);
                 }
-                triggerLayoutRefresh();
+                if (changed) {
+                    triggerLayoutRefresh();
+                }
             }
 
             buttons.forEach(function (button) {
