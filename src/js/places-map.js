@@ -5,8 +5,19 @@
                 return "#ff1e00";
             case "sojourn":
                 return "#fff500";
+            case "layover":
+                return "#3b82f6";
             default:
                 return "#4bd8b5";
+        }
+    }
+
+    function getMarkerSizeByType(type) {
+        switch (type) {
+            case "layover":
+                return 10;
+            default:
+                return 14;
         }
     }
 
@@ -54,13 +65,34 @@
         }
         setTimeout(hideHint, 10000);
 
+        var readyCallbacks = [];
+        var countryByRowIndex = {};
         var api = {
-            selectPlace: function () {}
+            selectPlace: function () {},
+            getCountryByRowIndex: function (rowIndex) {
+                return countryByRowIndex[rowIndex] || '';
+            },
+            onReady: function (cb) {
+                if (typeof cb !== 'function') return;
+                if (api._ready) {
+                    cb();
+                } else {
+                    readyCallbacks.push(cb);
+                }
+            }
         };
         window.placeMapSync = api;
 
         d3.csv(csvUrl, function (err, rows) {
             if (err || !rows || !rows.length) return;
+
+            rows.forEach(function (row, idx) {
+                countryByRowIndex[idx] = (row.country || '').toLowerCase();
+            });
+            api._ready = true;
+            readyCallbacks.splice(0).forEach(function (cb) {
+                try { cb(); } catch (e) {}
+            });
 
             var typeArray = rows.map(function (row) { return row.type; });
             var types = [];
@@ -111,7 +143,7 @@
                     }),
                     hovertemplate: "%{text}<extra></extra>",
                     marker: {
-                        size: unpack(rowsFiltered, "label").map(function () { return 14; }),
+                        size: unpack(rowsFiltered, "label").map(function () { return getMarkerSizeByType(type); }),
                         color: getColorByType(type),
                         opacity: unpack(rowsFiltered, "label").map(function () { return 0.45; })
                     }

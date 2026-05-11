@@ -328,7 +328,8 @@
         "legend": {
             "home": "家乡",
             "sojourn": "逗留",
-            "trip": "旅行"
+            "trip": "旅行",
+            "layover": "经停"
         },
         "controls": {
             "attribution": "地图归属信息",
@@ -466,17 +467,17 @@
                 "20 Illustrator.png": "Adobe Illustrator"
             },
             "places": {
-                "ann arbor-s.jpg": "安娜堡（密歇根大学法学院），密歇根州，美国",
-                "athens acropolis-s.jpg": "雅典卫城，雅典，希腊",
-                "bangkok-s.jpg": "大皇宫，曼谷，泰国",
-                "coloradosprings-s.jpg": "派克峰，科罗拉多斯普林斯，美国",
-                "houston-s.jpg": "休斯顿（休斯顿太空中心），得克萨斯州，美国",
-                "santorini-s.jpg": "圣托里尼，希腊",
+                "ann arbor-s.jpg": "安娜堡（密歇根大学法学院），密歇根州",
+                "athens acropolis-s.jpg": "雅典卫城，雅典",
+                "bangkok-s.jpg": "大皇宫，曼谷",
+                "coloradosprings-s.jpg": "派克峰，科罗拉多斯普林斯",
+                "houston-s.jpg": "休斯顿（休斯顿太空中心），得克萨斯州",
+                "santorini-s.jpg": "圣托里尼",
                 "family-s.jpg": "我和家人（左至右：舅妈、外公、外婆、舅舅、我、妈妈、爸爸）",
-                "siem reap-s.jpg": "暹粒，柬埔寨",
+                "siem reap-s.jpg": "暹粒",
                 "singapore-s.jpg": "新加坡",
-                "vancouver-s.jpg": "温哥华（比蒂生物多样性博物馆），加拿大",
-                "vantican-s.jpg": "圣彼得大教堂，梵蒂冈城"
+                "vancouver-s.jpg": "温哥华（比蒂生物多样性博物馆）",
+                "vantican-s.jpg": "圣彼得大教堂"
             }
         }
     },
@@ -488,7 +489,18 @@
         "course": "课程",
         "skill": "技能",
         "team": "团队和导师",
-        "reference": "参考"
+        "reference": "参考",
+        "country": {
+            "us": "美国",
+            "gr": "希腊",
+            "th": "泰国",
+            "cn": "中国",
+            "kh": "柬埔寨",
+            "sg": "新加坡",
+            "ca": "加拿大",
+            "va": "梵蒂冈",
+            "ae": "阿联酋"
+        }
     },
     "button": {
         "cite": "引用",

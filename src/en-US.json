@@ -328,7 +328,8 @@
         "legend": {
             "home": "Hometown",
             "sojourn": "Sojourn",
-            "trip": "Trip"
+            "trip": "Trip",
+            "layover": "Layover"
         },
         "controls": {
             "attribution": "Map attribution",
@@ -467,16 +468,16 @@
             },
             "places": {
                 "ann arbor-s.jpg": "Ann Arbor (University of Michigan Law School), Michigan",
-                "athens acropolis-s.jpg": "Acropolis, Athens, Greece",
-                "bangkok-s.jpg": "The Grand Palace, Bangkok, Thailand",
+                "athens acropolis-s.jpg": "Acropolis, Athens",
+                "bangkok-s.jpg": "The Grand Palace, Bangkok",
                 "coloradosprings-s.jpg": "Pikes Peak, Colorado Springs",
                 "houston-s.jpg": "Houston (Houston Space Center), Texas",
-                "santorini-s.jpg": "Santorini, Greece",
+                "santorini-s.jpg": "Santorini",
                 "family-s.jpg": "My Family and Me (L2R: Aunt, Gfather, Gmother, Uncle, Me, Mom, Dad)",
-                "siem reap-s.jpg": "Siem Reap, Cambodia",
+                "siem reap-s.jpg": "Siem Reap",
                 "singapore-s.jpg": "Singapore",
-                "vancouver-s.jpg": "Vancouver (Beaty Biodiversity Museum), Canada",
-                "vantican-s.jpg": "St. Peter's Basilica, Vantican City"
+                "vancouver-s.jpg": "Vancouver (Beaty Biodiversity Museum)",
+                "vantican-s.jpg": "St. Peter's Basilica"
             }
         }
     },
@@ -488,7 +489,18 @@
         "course": "Courses",
         "skill": "Skills",
         "team": "Teams and advisors",
-        "reference": "References"
+        "reference": "References",
+        "country": {
+            "us": "United States",
+            "gr": "Greece",
+            "th": "Thailand",
+            "cn": "China",
+            "kh": "Cambodia",
+            "sg": "Singapore",
+            "ca": "Canada",
+            "va": "Vatican City",
+            "ae": "United Arab Emirates"
+        }
     },
     "button": {
         "cite": "Cite",

@@ -278,7 +278,26 @@
                     function goToSlideP(id) {
                         $('#carouselplace').carousel(id - 1);
                     }
-                    setupCarouselAltMessage('carouselplace', 'place-alt-message', {
+                    var placeAltMessage = setupCarouselAltMessage('carouselplace', 'place-alt-message', {
+                        formatMessage: function (target, text, item) {
+                            var idx = item ? Array.prototype.indexOf.call(item.parentNode.children, item) : -1;
+                            var code = (placeMapSync && idx >= 0) ? placeMapSync.getCountryByRowIndex(idx) : '';
+                            if (code) {
+                                var flag = document.createElement('img');
+                                flag.className = 'place-flag';
+                                flag.src = 'https://cdn.jsdelivr.net/gh/HatScripts/circle-flags/flags/' + code + '.svg';
+                                flag.alt = '';
+                                var tooltip = (window.i18nManager && typeof window.i18nManager.getContent === 'function')
+                                    ? window.i18nManager.getContent('icon/country/' + code, '')
+                                    : '';
+                                if (tooltip) {
+                                    flag.title = tooltip;
+                                    flag.setAttribute('aria-label', tooltip);
+                                }
+                                target.appendChild(flag);
+                            }
+                            target.appendChild(document.createTextNode(text));
+                        },
                         onSlide: function (index) {
                             if (placeMapSync) {
                                 placeMapSync.selectPlace(index, true);
@@ -293,6 +312,11 @@
                             goToSlideP(rowIndex + 1);
                         }
                     });
+                    if (placeMapSync && typeof placeMapSync.onReady === 'function') {
+                        placeMapSync.onReady(function () {
+                            if (placeAltMessage) placeAltMessage.refresh();
+                        });
+                    }
                 </script>
             </div>
         </div>

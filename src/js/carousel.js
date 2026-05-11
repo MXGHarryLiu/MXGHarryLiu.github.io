@@ -78,10 +78,19 @@ function setupCarouselAltMessage(carouselId, messageId, options) {
         return img.getAttribute('alt') || '';
     }
 
+    function applyMessage(value, item) {
+        if (typeof opts.formatMessage === 'function') {
+            messageEl.innerHTML = '';
+            opts.formatMessage(messageEl, value, item);
+            return;
+        }
+        messageEl.textContent = value;
+    }
+
     function updateByIndex(index, event) {
         var items = carouselEl.querySelectorAll('.carousel-item');
         if (!items || !items.length || index < 0 || index >= items.length) return;
-        messageEl.textContent = getMessageFromItem(items[index]);
+        applyMessage(getMessageFromItem(items[index]), items[index]);
         if (typeof opts.onSlide === 'function') {
             opts.onSlide(index, event);
         }
@@ -91,11 +100,15 @@ function setupCarouselAltMessage(carouselId, messageId, options) {
         updateByIndex(event.to, event);
     });
 
-    document.addEventListener(window.I18N_READY_EVENT || 'i18n-ready', function () {
+    function refresh() {
         var activeItem = document.querySelector(carouselSelector + ' .carousel-item.active');
-        var activeIndex = activeItem ? Array.prototype.indexOf.call(activeItem.parentNode.children, activeItem) : 0;
-        updateByIndex(Math.max(0, activeIndex), null);
-    });
+        var idx = activeItem ? Array.prototype.indexOf.call(activeItem.parentNode.children, activeItem) : 0;
+        updateByIndex(Math.max(0, idx), null);
+    }
+
+    document.addEventListener(window.I18N_READY_EVENT || 'i18n-ready', refresh);
 
     updateByIndex(0, null);
+
+    return { refresh: refresh };
 }

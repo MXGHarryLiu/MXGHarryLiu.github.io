@@ -411,6 +411,15 @@ body.lightbox-open > :not(.modal):not(.modal-backdrop) {
     position: relative;
 }
 
+.place-flag {
+    width: 1.1em;
+    height: 1.1em;
+    vertical-align: -0.2em;
+    margin-right: 0.4rem;
+    display: inline-block;
+    border-radius: 50%;
+}
+
 .workspace-cloud {
     width: 100%;
     min-height: 360px;
