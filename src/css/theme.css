@@ -170,7 +170,7 @@ html.theme-toggle-ready .theme-toggle-item {
 .btn-labeled {
     padding-top: 0;
     padding-bottom: 0;
-    border: 1px solid #262626;
+    border: 1px solid var(--site-card-border);
 }
 
 .btn {
