@@ -358,14 +358,36 @@
     },
     "trivia": {
         "titles": "问答",
-        "q1": "问：头像里和你在一起的小男孩是谁？",
-        "a1": "那是 8 年前的我！“同登彼岸”这个词用在这里再合适不过了。",
-        "q2": "问：你会哪些运动？",
-        "a2": "我比较擅长游泳，也喜欢乒乓球、网球等个人项目。",
-        "q3": "问：你平时怎么安排休闲时间？",
-        "a3": "我会做饭，看 <span style=\"font-style:italic;\">Doctor Who</span> 和 BBC 纪录片，玩太空模拟游戏（SpaceEngine、KSP），也会听电子音乐专辑（Enigma、Conjure One）。",
-        "q4": "问：还有什么想展示的吗？",
-        "a4": "欢迎你想了解什么就问什么！"
+        "submit": "提交",
+        "selectAll": "可多选。",
+        "retry": "再来一次",
+        "correct": "回答正确！",
+        "incorrect": "还差一点。",
+        "allWrong": "都不对，再试试~",
+        "q1": {
+            "question": "头像里和你在一起的小男孩是谁？",
+            "o1": "我的外甥",
+            "o2": "8 年前的我",
+            "o3": "我的弟弟",
+            "o4": "朋友家的孩子",
+            "description": "那是 8 年前的我！“同登彼岸”这个词用在这里再合适不过了。"
+        },
+        "q2": {
+            "question": "我擅长哪些运动？",
+            "o1": "游泳",
+            "o2": "乒乓球",
+            "o3": "网球",
+            "o4": "篮球",
+            "description": "我比较擅长游泳，也喜欢乒乓球、网球等个人项目。"
+        },
+        "q3": {
+            "question": "我平时怎么安排休闲时间？",
+            "o1": "做饭",
+            "o2": "看 Doctor Who 和 BBC 纪录片",
+            "o3": "玩太空模拟游戏（SpaceEngine、KSP）",
+            "o4": "追真人秀节目",
+            "description": "我会做饭，看 <span style=\"font-style:italic;\">Doctor Who</span> 和 BBC 纪录片，玩太空模拟游戏（SpaceEngine、KSP），也会听电子音乐专辑（Enigma、Conjure One）。"
+        }
     },
     "timeline": {
         "clickHint": "点击节点查看详情",

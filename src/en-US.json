@@ -358,14 +358,36 @@
     },
     "trivia": {
         "titles": "Trivia",
-        "q1": "Q: Who is the little boy with you on your profile picture?",
-        "a1": "It was me 8 years ago! How appropriate 同登彼岸 means being on both sides of the shore!",
-        "q2": "Q: What sports do you play?",
-        "a2": "I'm good at swimming and other individual sports such as table tennis, and tennis.",
-        "q3": "Q: How do you spend your leisure time?",
-        "a3": "I cook, watch <span style=\"font-style:italic;\">Doctor Who</span> and BBC documentaries, play space simulation games (SpaceEngine, KSP), and listen to Electronica albums (Engima, Conjure One).",
-        "q4": "Q: Anything else you want to show?",
-        "a4": "Anything you'd like to know!"
+        "submit": "Submit",
+        "selectAll": "Select all that apply.",
+        "retry": "Try again",
+        "correct": "Correct!",
+        "incorrect": "Not quite.",
+        "allWrong": "Whoops — none of those count!",
+        "q1": {
+            "question": "Who is the little boy with you on your profile picture?",
+            "o1": "My nephew",
+            "o2": "Me 8 years ago",
+            "o3": "My younger brother",
+            "o4": "A friend's son",
+            "description": "It was me 8 years ago! How appropriate 同登彼岸 means being on both sides of the shore!"
+        },
+        "q2": {
+            "question": "Which sports am I good at?",
+            "o1": "Swimming",
+            "o2": "Table tennis",
+            "o3": "Tennis",
+            "o4": "Basketball",
+            "description": "I'm good at swimming and other individual sports such as table tennis, and tennis."
+        },
+        "q3": {
+            "question": "How do I spend my leisure time?",
+            "o1": "Cooking",
+            "o2": "Watching Doctor Who and BBC documentaries",
+            "o3": "Playing space simulation games (SpaceEngine, KSP)",
+            "o4": "Streaming reality TV shows",
+            "description": "I cook, watch <span style=\"font-style:italic;\">Doctor Who</span> and BBC documentaries, play space simulation games (SpaceEngine, KSP), and listen to Electronica albums (Engima, Conjure One)."
+        }
     },
     "timeline": {
         "clickHint": "Click item to view details",
