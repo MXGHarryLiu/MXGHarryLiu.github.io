@@ -1,15 +1,30 @@
-lat,lon,label,type,country
-42.7908,-83.9808,Ann Arbor,sojourn,us
-37.9838,23.7275,Athens,trip,gr
-13.7563,100.5018,Bangkok,trip,th
-38.8339,-104.8214,Colorado Springs,trip,us
-29.7604,-95.3698,Houston,sojourn,us
-36.3932,25.4615,Santorini,trip,gr
-31.2304,121.4737,Shanghai,home,cn
-13.3671,103.8448,Siem Reap,trip,kh
-1.3521,103.8198,Singapore,trip,sg
-49.2827,-123.1207,Vancouver,trip,ca
-41.9029,12.4534,Vatican City,trip,va
-24.4539,54.3773,Abu Dhabi,layover,ae
-53.5461,-113.4938,Edmonton,layover,ca
-43.6532,-79.3832,Toronto,layover,ca
+lat,lon,label,type,country,hasPhoto
+42.7908,-83.9808,Ann Arbor,sojourn,us,1
+37.9838,23.7275,Athens,trip,gr,1
+13.7563,100.5018,Bangkok,trip,th,1
+38.8339,-104.8214,Colorado Springs,trip,us,1
+29.7604,-95.3698,Houston,sojourn,us,1
+36.3932,25.4615,Santorini,trip,gr,1
+31.2304,121.4737,Shanghai,home,cn,1
+13.3671,103.8448,Siem Reap,trip,kh,1
+1.3521,103.8198,Singapore,trip,sg,1
+49.2827,-123.1207,Vancouver,trip,ca,1
+41.9029,12.4534,Vatican City,trip,va,1
+24.4539,54.3773,Abu Dhabi,layover,ae,0
+53.5461,-113.4938,Edmonton,layover,ca,0
+43.6532,-79.3832,Toronto,layover,ca,0
+25.0330,121.5654,Taipei,trip,tw,0
+22.3193,114.1694,Hong Kong,trip,hk,0
+22.1987,113.5439,Macao,trip,mo,0
+3.1390,101.6869,Kuala Lumpur,trip,my,0
+46.2044,6.1432,Geneva,trip,ch,0
+46.5197,6.6323,Lausanne,trip,ch,0
+41.9028,12.4964,Rome,trip,it,0
+48.8566,2.3522,Paris,trip,fr,0
+47.3220,5.0415,Dijon,trip,fr,0
+45.4642,9.1900,Milano,trip,it,0
+45.4408,12.3155,Venezia,trip,it,0
+43.7228,10.4017,Pisa,trip,it,0
+39.7188,21.6300,Kalambaka,trip,gr,0
+38.4824,22.5010,Delphi,trip,gr,0
+37.9381,22.9347,Corinth,trip,gr,0

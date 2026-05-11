@@ -40,30 +40,9 @@ Liberate Arts
 
 St-Pierre��s research focuses on optical methods for imaging brain activity with exquisite spatiotemporal resolution. These methods create a more complete and accurate image of how neuronal networks communicate �C how they send signals and the paths those signals take �C which ultimately guides our behavior. This in turn helps researchers understand what is happening in the brain when those processes are not working correctly.
 
-
-places
-Taiwan/Taipei 25.0330�� N, 121.5654�� E
-Hong Kong 22.3964�� N, 114.1095�� E
-Macao 22.1987�� N, 113.5439�� E
-France/Paris 48.8566�� N, 2.3522�� E
-Italy/Rome 41.9028�� N, 12.4964�� E
-Switzerland/Geneva 46.2044�� N, 6.1432�� E/Lausanne
-Cambodia/Siem Reap
-Thailand/Bangkok 13.7563�� N, 100.5018�� E
-Malaysia/Kuala Lumpur 3.1390�� N, 101.6869�� E
-Singapore 1.3521�� N, 103.8198�� E
-Cananda/Vancouver 49.2827�� N, 123.1207�� W
 USA(Danver 39.7392�� N, 104.9903�� W/Colorado Springs 38.8339�� N, 104.8214�� W/Estas Park 40.3772�� N, 105.5217�� W/Boston 42.3601�� N, 71.0589�� W/New York City 40.7128�� N, 74.0059�� W/Chicago 41.8781�� N, 87.6298�� W/Houston/Ann Arbor/Detroit 42.3314�� N, 83.0458�� W)
-UAE 
- 
-northest: edmonton 53.5444�� N, 113.4909�� W
-southest: singapore 1.3521�� N, 103.8198�� E
 
 My research is at the interdisciplinary field of software, hardware, and wetware. I enjoy working with a diverse team and challenge myself to bring innovations across boundaries of knowledge domains. I look forward to advancing image analysis, lab automation, and biomedical hardware, which will impact life science and healthcare and our daily lives.
 
 TODO:
-* Add card header and nav bar combo 
-* Add timeline effect https://mdbootstrap.com/docs/standard/extended/timeline/
 * Graph citation in plotly
-* Add lightbox for images. 
-* Add fourth marker for places without photos. 

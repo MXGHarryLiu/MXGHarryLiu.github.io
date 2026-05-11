@@ -12,14 +12,32 @@
         }
     }
 
-    function getMarkerSizeByType(type) {
-        switch (type) {
-            case "layover":
-                return 10;
-            default:
-                return 14;
-        }
+    function hasPhotoFlag(row) {
+        var v = row && row.hasPhoto;
+        return v === '1' || v === 'true' || v === true;
     }
+
+    function getMarkerSize(row) {
+        return hasPhotoFlag(row) ? 14 : 10;
+    }
+
+    var CONTINENT_BY_COUNTRY = {
+        us: 'NA', ca: 'NA', mx: 'NA',
+        ar: 'SA', br: 'SA', cl: 'SA', co: 'SA', pe: 'SA',
+        gb: 'EU', ie: 'EU', fr: 'EU', de: 'EU', es: 'EU', pt: 'EU', it: 'EU', va: 'EU',
+        ch: 'EU', at: 'EU', be: 'EU', nl: 'EU', lu: 'EU', dk: 'EU', se: 'EU', no: 'EU',
+        fi: 'EU', is: 'EU', pl: 'EU', cz: 'EU', sk: 'EU', hu: 'EU', ro: 'EU', bg: 'EU',
+        gr: 'EU', hr: 'EU', si: 'EU', rs: 'EU', tr: 'EU', ua: 'EU', ru: 'EU',
+        cn: 'AS', hk: 'AS', mo: 'AS', tw: 'AS', jp: 'AS', kr: 'AS', kp: 'AS', mn: 'AS',
+        sg: 'AS', my: 'AS', th: 'AS', kh: 'AS', vn: 'AS', la: 'AS', mm: 'AS', ph: 'AS',
+        id: 'AS', bn: 'AS', tl: 'AS', in: 'AS', pk: 'AS', bd: 'AS', np: 'AS', lk: 'AS',
+        mv: 'AS', bt: 'AS', af: 'AS', ir: 'AS', iq: 'AS', sy: 'AS', lb: 'AS', il: 'AS',
+        ps: 'AS', jo: 'AS', sa: 'AS', ae: 'AS', om: 'AS', ye: 'AS', qa: 'AS', bh: 'AS',
+        kw: 'AS', kz: 'AS', uz: 'AS', tm: 'AS', kg: 'AS', tj: 'AS', am: 'AS', az: 'AS', ge: 'AS',
+        eg: 'AF', ma: 'AF', dz: 'AF', tn: 'AF', ly: 'AF', sd: 'AF', et: 'AF', ke: 'AF',
+        ng: 'AF', za: 'AF', gh: 'AF', tz: 'AF', ug: 'AF', sn: 'AF', ci: 'AF',
+        au: 'OC', nz: 'OC', fj: 'OC', pg: 'OC'
+    };
 
     function getLocalizedLegendName(type) {
         if (!window.i18nManager || typeof window.i18nManager.getContent !== "function") {
@@ -67,10 +85,29 @@
 
         var readyCallbacks = [];
         var countryByRowIndex = {};
+        var hasPhotoByRowIndex = {};
         var api = {
             selectPlace: function () {},
             getCountryByRowIndex: function (rowIndex) {
                 return countryByRowIndex[rowIndex] || '';
+            },
+            hasPhoto: function (rowIndex) {
+                return hasPhotoByRowIndex[rowIndex] === true;
+            },
+            getStats: function () {
+                var countries = {};
+                var continents = {};
+                Object.keys(countryByRowIndex).forEach(function (idx) {
+                    var c = countryByRowIndex[idx];
+                    if (!c) return;
+                    countries[c] = true;
+                    var cont = CONTINENT_BY_COUNTRY[c];
+                    if (cont) continents[cont] = true;
+                });
+                return {
+                    countryCount: Object.keys(countries).length,
+                    continentCount: Object.keys(continents).length
+                };
             },
             onReady: function (cb) {
                 if (typeof cb !== 'function') return;
@@ -88,6 +125,7 @@
 
             rows.forEach(function (row, idx) {
                 countryByRowIndex[idx] = (row.country || '').toLowerCase();
+                hasPhotoByRowIndex[idx] = hasPhotoFlag(row);
             });
             api._ready = true;
             readyCallbacks.splice(0).forEach(function (cb) {
@@ -143,7 +181,7 @@
                     }),
                     hovertemplate: "%{text}<extra></extra>",
                     marker: {
-                        size: unpack(rowsFiltered, "label").map(function () { return getMarkerSizeByType(type); }),
+                        size: rowsFiltered.map(function (row) { return getMarkerSize(row); }),
                         color: getColorByType(type),
                         opacity: unpack(rowsFiltered, "label").map(function () { return 0.45; })
                     }

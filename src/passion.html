@@ -309,12 +309,20 @@
                         hintId: 'plotly-map-hint',
                         csvUrl: 'data/map.csv',
                         onPlaceClick: function (rowIndex) {
+                            if (placeMapSync && placeMapSync.hasPhoto && !placeMapSync.hasPhoto(rowIndex)) return;
                             goToSlideP(rowIndex + 1);
                         }
                     });
                     if (placeMapSync && typeof placeMapSync.onReady === 'function') {
                         placeMapSync.onReady(function () {
                             if (placeAltMessage) placeAltMessage.refresh();
+                            if (typeof placeMapSync.getStats === 'function') {
+                                var stats = placeMapSync.getStats();
+                                var countEl = document.querySelector('[data-place-count]');
+                                var contEl = document.querySelector('[data-continent-count]');
+                                if (countEl) countEl.textContent = stats.countryCount;
+                                if (contEl) contEl.textContent = stats.continentCount;
+                            }
                         });
                     }
                 </script>
@@ -330,7 +338,7 @@
                     }
                 </style>
                 <h4 data-i18n="places/statistics/title"></h4>
-                <p><span data-i18n="places/statistics/s1"></span>: <span class="shownum" data-i18n-title="places/statistics/s1t" style="cursor: help;">15</span></p>
+                <p><span data-i18n="places/statistics/s1"></span>: <span class="shownum" data-place-count>—</span> (<span data-continent-count>—</span> <span data-i18n="places/statistics/continents"></span>)</p>
                 <p><span data-i18n="places/statistics/s2"></span>: <span class="shownum" data-i18n-title="places/statistics/s2t" style="cursor: help;" id="dates">840
                     <!-- <script>
                         var dn = new Date();

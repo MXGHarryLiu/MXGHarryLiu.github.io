@@ -342,7 +342,7 @@
         "statistics": {
             "title": "Statistics",
             "s1": "Countries/Regions Visited",
-            "s1t": "3 continents",
+            "continents": "continents",
             "s2": "Longest Stay Away From Hometown",
             "s2t": "In Houston",
             "s2u": "days",
@@ -491,15 +491,22 @@
         "team": "Teams and advisors",
         "reference": "References",
         "country": {
-            "us": "United States",
-            "gr": "Greece",
-            "th": "Thailand",
-            "cn": "China",
-            "kh": "Cambodia",
-            "sg": "Singapore",
+            "ae": "United Arab Emirates",
             "ca": "Canada",
-            "va": "Vatican City",
-            "ae": "United Arab Emirates"
+            "ch": "Switzerland",
+            "cn": "China",
+            "fr": "France",
+            "gr": "Greece",
+            "hk": "Hong Kong",
+            "it": "Italy",
+            "kh": "Cambodia",
+            "mo": "Macao",
+            "my": "Malaysia",
+            "sg": "Singapore",
+            "th": "Thailand",
+            "tw": "Taiwan",
+            "us": "United States",
+            "va": "Vatican City"
         }
     },
     "button": {
