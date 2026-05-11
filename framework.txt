@@ -46,10 +46,8 @@ Shanghai/
 Taiwan/Taipei 25.0330�� N, 121.5654�� E
 Hong Kong 22.3964�� N, 114.1095�� E
 Macao 22.1987�� N, 113.5439�� E
-Greece/Athens 37.9838�� N, 23.7275�� E
 France/Paris 48.8566�� N, 2.3522�� E
 Italy/Rome 41.9028�� N, 12.4964�� E
-Vantican City 41.9029�� N, 12.4534�� E
 Switzerland/Geneva 46.2044�� N, 6.1432�� E/Lausanne
 Cambodia/Siem Reap
 Thailand/Bangkok 13.7563�� N, 100.5018�� E

@@ -330,6 +330,14 @@
             "sojourn": "逗留",
             "trip": "旅行"
         },
+        "controls": {
+            "attribution": "地图归属信息",
+            "download": "下载为 PNG",
+            "pan": "平移",
+            "zoomIn": "放大",
+            "zoomOut": "缩小",
+            "reset": "重置视图"
+        },
         "statistics": {
             "title": "统计",
             "s1": "到访国家/地区",

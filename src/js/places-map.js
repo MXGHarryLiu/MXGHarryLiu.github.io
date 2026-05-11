@@ -139,7 +139,8 @@
                 legend: {
                     x: 0,
                     xanchor: "left",
-                    y: 1,
+                    y: 0,
+                    yanchor: "bottom",
                     orientation: "h",
                     font: { color: getMapThemeConfig().legendFontColor }
                 },
@@ -149,6 +150,8 @@
 
             var config = {
                 responsive: true,
+                displaylogo: false,
+                showTips: false,
                 modeBarButtonsToRemove: ["lasso2d", "select2d"]
             };
 
@@ -193,6 +196,117 @@
 
             function isMapMutationReady() {
                 return mapIsReady && !mapStyleTransitioning && isUnderlyingMapStyleLoaded();
+            }
+
+            function compactMapAttribution() {
+                var controls = mapDiv.querySelectorAll(".mapboxgl-ctrl-attrib, .maplibregl-ctrl-attrib");
+                controls.forEach(function (control) {
+                    control.classList.add("mapboxgl-compact", "maplibregl-compact");
+                    control.classList.remove("mapboxgl-compact-show", "maplibregl-compact-show");
+                    var button = control.querySelector(".mapboxgl-ctrl-attrib-button, .maplibregl-ctrl-attrib-button");
+                    if (button) {
+                        button.setAttribute("aria-expanded", "false");
+                    }
+                });
+            }
+
+            function getControlLabel(key, fallback) {
+                if (!window.i18nManager || typeof window.i18nManager.getContent !== "function") {
+                    return fallback;
+                }
+                return window.i18nManager.getContent("places/controls/" + key, fallback);
+            }
+
+            function setControlTooltip(element, label) {
+                if (!element || !label) return;
+                element.removeAttribute("title");
+                element.setAttribute("aria-label", label);
+                element.setAttribute("data-title", label);
+            }
+
+            function localizeMapControls() {
+                var modebarFallbackLabels = {
+                    download: "Download plot as PNG",
+                    pan: "Pan",
+                    zoomIn: "Zoom in",
+                    zoomOut: "Zoom out",
+                    reset: "Reset view"
+                };
+                var modebarIconKeys = {
+                    "icon-camera-retro": "download",
+                    "icon-pan": "pan",
+                    "icon-zoom-in": "zoomIn",
+                    "icon-zoom-plus": "zoomIn",
+                    "icon-zoom-out": "zoomOut",
+                    "icon-zoom-minus": "zoomOut",
+                    "icon-home": "reset"
+                };
+
+                [
+                    [".mapboxgl-ctrl-zoom-in, .maplibregl-ctrl-zoom-in", "zoomIn", "Zoom in"],
+                    [".mapboxgl-ctrl-zoom-out, .maplibregl-ctrl-zoom-out", "zoomOut", "Zoom out"],
+                    [".mapboxgl-ctrl-attrib-button, .maplibregl-ctrl-attrib-button", "attribution", "Map attribution"]
+                ].forEach(function (item) {
+                    var label = getControlLabel(item[1], item[2]);
+                    mapDiv.querySelectorAll(item[0]).forEach(function (element) {
+                        setControlTooltip(element, label);
+                    });
+                });
+
+                var modebarButtons = Array.prototype.slice.call(mapDiv.querySelectorAll(".modebar-btn"));
+                var fiveButtonOrder = ["download", "zoomIn", "zoomOut", "pan", "reset"];
+                modebarButtons.forEach(function (element, index) {
+                    var controlKey = element.getAttribute("data-i18n-control");
+                    var currentLabel = element.getAttribute("data-title") || element.getAttribute("title") || element.getAttribute("aria-label") || "";
+                    if (!controlKey) {
+                        controlKey = getModebarControlKey(element, currentLabel);
+                        if (controlKey) {
+                            element.setAttribute("data-i18n-control", controlKey);
+                        }
+                    }
+                    if (!controlKey) {
+                        Object.keys(modebarIconKeys).some(function (iconClass) {
+                            if (!element.querySelector("." + iconClass)) return false;
+                            controlKey = modebarIconKeys[iconClass];
+                            element.setAttribute("data-i18n-control", controlKey);
+                            return true;
+                        });
+                    }
+                    if (!controlKey && modebarButtons.length === fiveButtonOrder.length) {
+                        controlKey = fiveButtonOrder[index];
+                        element.setAttribute("data-i18n-control", controlKey);
+                    }
+                    if (!controlKey) return;
+                    setControlTooltip(element, getControlLabel(controlKey, modebarFallbackLabels[controlKey]));
+                });
+            }
+
+            function getModebarControlKey(element, label) {
+                var normalizedLabel = (label || "").toLowerCase();
+                if (normalizedLabel.indexOf("download") >= 0 || normalizedLabel.indexOf("png") >= 0) return "download";
+                if (normalizedLabel.indexOf("zoom in") >= 0 || normalizedLabel.indexOf("zoom-in") >= 0) return "zoomIn";
+                if (normalizedLabel.indexOf("zoom out") >= 0 || normalizedLabel.indexOf("zoom-out") >= 0) return "zoomOut";
+                if (normalizedLabel === "pan") return "pan";
+                if (normalizedLabel.indexOf("reset") >= 0 || normalizedLabel.indexOf("home") >= 0) return "reset";
+                if (normalizedLabel.indexOf("下载") >= 0) return "download";
+                if (normalizedLabel.indexOf("放大") >= 0) return "zoomIn";
+                if (normalizedLabel.indexOf("缩小") >= 0) return "zoomOut";
+                if (normalizedLabel.indexOf("平移") >= 0) return "pan";
+                if (normalizedLabel.indexOf("重置") >= 0) return "reset";
+
+                var className = element.getAttribute("class") || "";
+                if (className.indexOf("toImage") >= 0) return "download";
+                if (className.indexOf("zoomIn") >= 0) return "zoomIn";
+                if (className.indexOf("zoomOut") >= 0) return "zoomOut";
+                if (className.indexOf("pan") >= 0) return "pan";
+                if (className.indexOf("reset") >= 0 || className.indexOf("home") >= 0) return "reset";
+                return "";
+            }
+
+            function scheduleControlLocalization() {
+                localizeMapControls();
+                setTimeout(localizeMapControls, 120);
+                setTimeout(localizeMapControls, 500);
             }
 
             function scheduleMapReadyPoll() {
@@ -288,6 +402,8 @@
 
             Plotly.newPlot(mapId, data, layout, config).then(function () {
                 mapIsReady = true;
+                compactMapAttribution();
+                scheduleControlLocalization();
                 applyMapSelection(0, true);
                 flushPendingSelection();
                 flushPendingLegendUpdate();
@@ -376,12 +492,15 @@
             mapDiv.on("plotly_afterplot", function () {
                 mapIsReady = true;
                 mapStyleTransitioning = false;
+                compactMapAttribution();
+                scheduleControlLocalization();
                 flushPendingSelection();
                 flushPendingLegendUpdate();
             });
 
             document.addEventListener(window.I18N_READY_EVENT || "i18n-ready", function () {
                 scheduleLegendApply();
+                scheduleControlLocalization();
             });
             document.addEventListener("theme-change", function () {
                 scheduleThemeApply();

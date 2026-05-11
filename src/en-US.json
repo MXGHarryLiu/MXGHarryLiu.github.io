@@ -330,6 +330,14 @@
             "sojourn": "Sojourn",
             "trip": "Trip"
         },
+        "controls": {
+            "attribution": "Map attribution",
+            "download": "Download plot as PNG",
+            "pan": "Pan",
+            "zoomIn": "Zoom in",
+            "zoomOut": "Zoom out",
+            "reset": "Reset view"
+        },
         "statistics": {
             "title": "Statistics",
             "s1": "Countries/Regions Visited",
