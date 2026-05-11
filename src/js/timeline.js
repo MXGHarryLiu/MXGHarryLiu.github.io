@@ -135,11 +135,13 @@ class Timeline extends HTMLElement {
             var resolvedSubtitleHtml = renderInlineLinks(resolvedSubtitle);
             var rangeMode = self._rangeMode || self.getAttribute('data-range-mode') || 'data';
             var toggleIcon = rangeMode === 'wide' ? 'fa-link' : 'fa-link-slash';
+            var titleIcon = self.getAttribute('data-title-icon') || '';
+            var titleIconHtml = titleIcon ? '<i class="' + titleIcon + ' timeline-title-icon"></i>' : '';
             var titleHtml = '';
             if (resolvedTitle || resolvedHint) {
                 titleHtml = '<div class="timeline-title">' +
                     '<span class="timeline-title-left">' +
-                        (resolvedTitle ? '<span class="timeline-title-text">' + resolvedTitleHtml + '</span>' : '') +
+                        (resolvedTitle ? '<span class="timeline-title-text">' + titleIconHtml + resolvedTitleHtml + '</span>' : '') +
                         (resolvedHint ? '<span class="timeline-hint">' + resolvedHintHtml + '</span>' : '') +
                     '</span>' +
                     '<span class="timeline-toggle" title="' + resolvedToggleTitle + '" aria-label="' + resolvedToggleTitle + '">' +

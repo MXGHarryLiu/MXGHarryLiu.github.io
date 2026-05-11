@@ -34,6 +34,10 @@
     margin: 0 0 6px;
 }
 
+.timeline-title-icon {
+    margin-right: 0.4em;
+}
+
 .timeline-title-left {
     display: inline-flex;
     align-items: baseline;
