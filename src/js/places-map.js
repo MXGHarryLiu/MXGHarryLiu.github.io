@@ -85,6 +85,7 @@
 
         var readyCallbacks = [];
         var countryByRowIndex = {};
+        var stateByRowIndex = {};
         var hasPhotoByRowIndex = {};
         var api = {
             selectPlace: function () {},
@@ -97,16 +98,20 @@
             getStats: function () {
                 var countries = {};
                 var continents = {};
+                var usStates = {};
                 Object.keys(countryByRowIndex).forEach(function (idx) {
                     var c = countryByRowIndex[idx];
                     if (!c) return;
                     countries[c] = true;
                     var cont = CONTINENT_BY_COUNTRY[c];
                     if (cont) continents[cont] = true;
+                    var s = stateByRowIndex[idx];
+                    if (c === 'us' && s) usStates[s] = true;
                 });
                 return {
                     countryCount: Object.keys(countries).length,
-                    continentCount: Object.keys(continents).length
+                    continentCount: Object.keys(continents).length,
+                    usStateCount: Object.keys(usStates).length
                 };
             },
             onReady: function (cb) {
@@ -125,6 +130,7 @@
 
             rows.forEach(function (row, idx) {
                 countryByRowIndex[idx] = (row.country || '').toLowerCase();
+                stateByRowIndex[idx] = (row.state || '').toUpperCase();
                 hasPhotoByRowIndex[idx] = hasPhotoFlag(row);
             });
             api._ready = true;
@@ -140,9 +146,15 @@
                 }
             });
 
-            var rowIndexByLabel = {};
+            function getRowLabel(row) {
+                var locale = window.i18nManager ? window.i18nManager.currentLocale : 'en-US';
+                if (locale !== 'en-US' && row[locale]) return row[locale];
+                return row['en-US'] || row['label'] || '';
+            }
+
+            var rowIndexByKey = {};
             rows.forEach(function (row, idx) {
-                rowIndexByLabel[row.label] = idx;
+                rowIndexByKey[row['en-US'] || row['label']] = idx;
             });
 
             function unpack(list, key) {
@@ -175,9 +187,9 @@
                     name: getLocalizedLegendName(type),
                     lat: unpack(rowsFiltered, "lat"),
                     lon: unpack(rowsFiltered, "lon"),
-                    text: unpack(rowsFiltered, "label"),
-                    customdata: unpack(rowsFiltered, "label").map(function (label) {
-                        return rowIndexByLabel[label];
+                    text: rowsFiltered.map(getRowLabel),
+                    customdata: rowsFiltered.map(function (row) {
+                        return rowIndexByKey[row['en-US'] || row['label']];
                     }),
                     hovertemplate: "%{text}<extra></extra>",
                     marker: {
@@ -571,6 +583,10 @@
             document.addEventListener(window.I18N_READY_EVENT || "i18n-ready", function () {
                 scheduleLegendApply();
                 scheduleControlLocalization();
+                types.forEach(function (type, traceIdx) {
+                    var rowsFiltered = rows.filter(function (row) { return row.type === type; });
+                    try { Plotly.restyle(mapId, { text: [rowsFiltered.map(getRowLabel)] }, [traceIdx]); } catch (e) {}
+                });
             });
             document.addEventListener("theme-change", function () {
                 scheduleThemeApply();

@@ -320,8 +320,10 @@
                                 var stats = placeMapSync.getStats();
                                 var countEl = document.querySelector('[data-place-count]');
                                 var contEl = document.querySelector('[data-continent-count]');
+                                var stateEl = document.querySelector('[data-us-state-count]');
                                 if (countEl) countEl.textContent = stats.countryCount;
                                 if (contEl) contEl.textContent = stats.continentCount;
+                                if (stateEl) stateEl.textContent = stats.usStateCount;
                             }
                         });
                     }
@@ -338,8 +340,9 @@
                     }
                 </style>
                 <h4 data-i18n="places/statistics/title"></h4>
-                <p><span data-i18n="places/statistics/s1"></span>: <span class="shownum" data-place-count>—</span> (<span data-continent-count>—</span> <span data-i18n="places/statistics/continents"></span>)</p>
-                <p><span data-i18n="places/statistics/s2"></span>: <span class="shownum" data-i18n-title="places/statistics/s2t" style="cursor: help;" id="dates">840
+                <p class="mb-1"><span data-i18n="places/statistics/s1"></span>: <span class="shownum" data-place-count>—</span> (<span data-continent-count>—</span> <span data-i18n="places/statistics/continents"></span>)</p>
+                <p class="mb-1"><span data-i18n="places/statistics/s1us"></span>: <span class="shownum" data-us-state-count>—</span> <span data-i18n="places/statistics/states"></span></p>
+                <p class="mb-1"><span data-i18n="places/statistics/s2"></span>: <span class="shownum" data-i18n-title="places/statistics/s2t" style="cursor: help;" id="dates">840
                     <!-- <script>
                         var dn = new Date();
                         var d2 = new Date("2016/08/14");
@@ -347,7 +350,7 @@
                     </script>
                     -->
                 </span> <span data-i18n="places/statistics/s2u"></span></p>
-                <p><span data-i18n="places/statistics/s3"></span>: <span class="shownum" data-i18n-title="places/statistics/s3t" style="cursor: help;">4440</span> <span data-i18n="places/statistics/s3u"></span></p>
+                <p class="mb-1"><span data-i18n="places/statistics/s3"></span>: <span class="shownum" data-i18n-title="places/statistics/s3t" style="cursor: help;">4440</span> <span data-i18n="places/statistics/s3u"></span></p>
             </div>
             <div class="col-md-6">
                 <h4 data-i18n="places/goals/title"></h4>

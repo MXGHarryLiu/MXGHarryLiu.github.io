@@ -319,7 +319,7 @@
         },
         "h3": {
             "title": "Phonetics",
-            "summary": "Support the conservation of Wu Chinese. <br>\"IPA 101 - All about IPA and Phonetics\" [Slides](files/A Letter a Day (IPA 101).pdf) (pdf, 3.19 MB)"
+            "summary": "Support the conservation of Wu Chinese. <br>\"IPA 101 - All about IPA and Phonetics\" [Slides](files/A%20Letter%20a%20Day%20%28IPA%20101%29.pdf) (pdf, 3.19 MB)"
         }
     },
     "places": {
@@ -341,20 +341,22 @@
         },
         "statistics": {
             "title": "Statistics",
-            "s1": "Countries/Regions Visited",
+            "s1": "Countries/regions visited",
             "continents": "continents",
-            "s2": "Longest Stay Away From Hometown",
+            "s1us": "US states visited",
+            "states": "states",
+            "s2": "Longest stay away from hometown",
             "s2t": "In Houston",
             "s2u": "days",
-            "s3": "Highest Peak Reached",
+            "s3": "Highest peak reached",
             "s3t": "Shika Snow Mountain, 2007/06/27",
             "s3u": "m"
         },
         "goals": {
             "title": "Goals",
-            "g1": "1. Enter the Southern Hemisphere;",
+            "g1": "1. Enter the southern hemisphere;",
             "g2": "2. Across the Arctic Circle;",
-            "g3": "3. Be on a New Continent."
+            "g3": "3. Be on a new continent."
         }
     },
     "trivia": {

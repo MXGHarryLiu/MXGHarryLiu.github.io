@@ -319,7 +319,7 @@
         },
         "h3": {
             "title": "语音学",
-            "summary": "支持吴语保护。<br>“IPA 101 - All about IPA and Phonetics” [讲义](files/A Letter a Day (IPA 101).pdf)（pdf，3.19 MB）"
+            "summary": "支持吴语保护。<br>“IPA 101 - All about IPA and Phonetics” [讲义](files/A%20Letter%20a%20Day%20%28IPA%20101%29.pdf)（pdf，3.19 MB）"
         }
     },
     "places": {
@@ -343,6 +343,8 @@
             "title": "统计",
             "s1": "到访国家/地区",
             "continents": "大洲",
+            "s1us": "到访美国州数",
+            "states": "州",
             "s2": "离开家乡最长时间",
             "s2t": "在休斯顿",
             "s2u": "天",

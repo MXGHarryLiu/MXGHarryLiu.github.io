@@ -1,30 +1,65 @@
-lat,lon,label,type,country,hasPhoto
-42.7908,-83.9808,Ann Arbor,sojourn,us,1
-37.9838,23.7275,Athens,trip,gr,1
-13.7563,100.5018,Bangkok,trip,th,1
-38.8339,-104.8214,Colorado Springs,trip,us,1
-29.7604,-95.3698,Houston,sojourn,us,1
-36.3932,25.4615,Santorini,trip,gr,1
-31.2304,121.4737,Shanghai,home,cn,1
-13.3671,103.8448,Siem Reap,trip,kh,1
-1.3521,103.8198,Singapore,trip,sg,1
-49.2827,-123.1207,Vancouver,trip,ca,1
-41.9029,12.4534,Vatican City,trip,va,1
-24.4539,54.3773,Abu Dhabi,layover,ae,0
-53.5461,-113.4938,Edmonton,layover,ca,0
-43.6532,-79.3832,Toronto,layover,ca,0
-25.0330,121.5654,Taipei,trip,tw,0
-22.3193,114.1694,Hong Kong,trip,hk,0
-22.1987,113.5439,Macao,trip,mo,0
-3.1390,101.6869,Kuala Lumpur,trip,my,0
-46.2044,6.1432,Geneva,trip,ch,0
-46.5197,6.6323,Lausanne,trip,ch,0
-41.9028,12.4964,Rome,trip,it,0
-48.8566,2.3522,Paris,trip,fr,0
-47.3220,5.0415,Dijon,trip,fr,0
-45.4642,9.1900,Milano,trip,it,0
-45.4408,12.3155,Venezia,trip,it,0
-43.7228,10.4017,Pisa,trip,it,0
-39.7188,21.6300,Kalambaka,trip,gr,0
-38.4824,22.5010,Delphi,trip,gr,0
-37.9381,22.9347,Corinth,trip,gr,0
+key,lat,lon,en-US,zh-CN,type,country,state,hasPhoto
+annArbor,42.7908,-83.9808,Ann Arbor,安娜堡,sojourn,us,MI,1
+athens,37.9838,23.7275,Athens,雅典,trip,gr,,1
+bangkok,13.7563,100.5018,Bangkok,曼谷,trip,th,,1
+coloradoSprings,38.8339,-104.8214,Colorado Springs,科罗拉多斯普林斯,trip,us,CO,1
+houston,29.7604,-95.3698,Houston,休斯顿,sojourn,us,TX,1
+santorini,36.3932,25.4615,Santorini,圣托里尼,trip,gr,,1
+shanghai,31.2304,121.4737,Shanghai,上海,home,cn,SH,1
+siemReap,13.3671,103.8448,Siem Reap,暹粒,trip,kh,,1
+singapore,1.3521,103.8198,Singapore,新加坡,trip,sg,,1
+vancouver,49.2827,-123.1207,Vancouver,温哥华,trip,ca,BC,1
+vaticanCity,41.9029,12.4534,Vatican City,梵蒂冈城,trip,va,,1
+abuDhabi,24.4539,54.3773,Abu Dhabi,阿布扎比,layover,ae,,0
+edmonton,53.5461,-113.4938,Edmonton,埃德蒙顿,layover,ca,AB,0
+toronto,43.6532,-79.3832,Toronto,多伦多,layover,ca,ON,0
+taipei,25.0330,121.5654,Taipei,台北,trip,tw,,0
+hongKong,22.3193,114.1694,Hong Kong,香港,trip,hk,,0
+macao,22.1987,113.5439,Macao,澳门,trip,mo,,0
+kualaLumpur,3.1390,101.6869,Kuala Lumpur,吉隆坡,trip,my,,0
+geneva,46.2044,6.1432,Geneva,日内瓦,trip,ch,,0
+lausanne,46.5197,6.6323,Lausanne,洛桑,trip,ch,,0
+rome,41.9028,12.4964,Rome,罗马,trip,it,,0
+paris,48.8566,2.3522,Paris,巴黎,trip,fr,,0
+dijon,47.3220,5.0415,Dijon,第戎,trip,fr,,0
+milano,45.4642,9.1900,Milano,米兰,trip,it,,0
+venezia,45.4408,12.3155,Venezia,威尼斯,trip,it,,0
+pisa,43.7228,10.4017,Pisa,比萨,trip,it,,0
+kalambaka,39.7188,21.6300,Kalambaka,卡兰巴卡,trip,gr,,0
+delphi,38.4824,22.5010,Delphi,德尔菲,trip,gr,,0
+corinth,37.9381,22.9347,Corinth,科林斯,trip,gr,,0
+denver,39.7392,-104.9903,Denver,丹佛,trip,us,CO,0
+boston,42.3601,-71.0589,Boston,波士顿,trip,us,MA,0
+sanDiego,32.7157,-117.1611,San Diego,圣迭戈,trip,us,CA,0
+newYorkCity,40.7128,-74.0060,New York City,纽约市,trip,us,NY,0
+chicago,41.8781,-87.6298,Chicago,芝加哥,trip,us,IL,0
+detroit,42.3314,-83.0458,Detroit,底特律,trip,us,MI,0
+phoenix,33.4484,-112.0740,Phoenix,凤凰城,trip,us,AZ,0
+sanAntonio,29.4241,-98.4936,San Antonio,圣安东尼奥,trip,us,TX,0
+baltimore,39.2904,-76.6122,Baltimore,巴尔的摩,trip,us,MD,0
+newOrleans,29.9511,-90.0715,New Orleans,新奥尔良,trip,us,LA,0
+dallas,32.7767,-96.7970,Dallas,达拉斯,layover,us,TX,0
+austin,30.2672,-97.7431,Austin,奥斯汀,trip,us,TX,0
+terlingua,29.3202,-103.5649,Terlingua,特林瓜,trip,us,TX,0
+washingtonDc,38.9072,-77.0369,Washington DC,华盛顿特区,trip,us,DC,0
+calgary,51.0447,-114.0719,Calgary,卡尔加里,layover,ca,AB,0
+toledo,41.6639,-83.5552,Toledo,托莱多,trip,us,OH,0
+hangzhou,30.2741,120.1551,Hangzhou,杭州,trip,cn,ZJ,0
+xiamen,24.4798,118.0894,Xiamen,厦门,trip,cn,FJ,0
+hefei,31.8206,117.2272,Hefei,合肥,trip,cn,AH,0
+yangzhou,32.3947,119.4124,Yangzhou,扬州,trip,cn,JS,0
+beijing,39.9042,116.4074,Beijing,北京,trip,cn,BJ,0
+tianjin,39.3434,117.3616,Tianjin,天津,trip,cn,TJ,0
+lijiang,26.8721,100.2299,Lijiang,丽江,trip,cn,YN,0
+jiuquan,39.7432,98.5178,Jiuquan,酒泉,trip,cn,GS,0
+taiyuan,37.8706,112.5489,Taiyuan,太原,trip,cn,SX,0
+xian,34.3416,108.9398,Xi'an,西安,trip,cn,SN,0
+hohhot,40.8426,111.7490,Hohhot,呼和浩特,trip,cn,NM,0
+chengdu,30.5728,104.0668,Chengdu,成都,trip,cn,SC,0
+zhoushan,29.9853,122.2067,Zhoushan,舟山,trip,cn,ZJ,0
+sanya,18.2524,109.5119,Sanya,三亚,trip,cn,HI,0
+qingdao,36.0671,120.3826,Qingdao,青岛,trip,cn,SD,0
+guangzhou,23.1291,113.2644,Guangzhou,广州,trip,cn,GD,0
+shangrao,28.4419,117.9433,Shangrao,上饶,trip,cn,JX,0
+tiantai,29.1407,121.0079,Tiantai,天台,trip,cn,ZJ,0
+ningbo,29.8683,121.5440,Ningbo,宁波,trip,cn,ZJ,0

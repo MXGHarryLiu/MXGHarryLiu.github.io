@@ -40,8 +40,6 @@ Liberate Arts
 
 St-Pierre��s research focuses on optical methods for imaging brain activity with exquisite spatiotemporal resolution. These methods create a more complete and accurate image of how neuronal networks communicate �C how they send signals and the paths those signals take �C which ultimately guides our behavior. This in turn helps researchers understand what is happening in the brain when those processes are not working correctly.
 
-USA(Danver 39.7392�� N, 104.9903�� W/Colorado Springs 38.8339�� N, 104.8214�� W/Estas Park 40.3772�� N, 105.5217�� W/Boston 42.3601�� N, 71.0589�� W/New York City 40.7128�� N, 74.0059�� W/Chicago 41.8781�� N, 87.6298�� W/Houston/Ann Arbor/Detroit 42.3314�� N, 83.0458�� W)
-
 My research is at the interdisciplinary field of software, hardware, and wetware. I enjoy working with a diverse team and challenge myself to bring innovations across boundaries of knowledge domains. I look forward to advancing image analysis, lab automation, and biomedical hardware, which will impact life science and healthcare and our daily lives.
 
 TODO:
