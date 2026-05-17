@@ -78,17 +78,137 @@ body {
     text-decoration-thickness: 2px;
 }
 
+/* Narrow mode (mobile) - full-screen overlay navbar */
+@media (max-width: 767.98px) {
+    body {
+        padding-top: 3.5rem;
+    }
+
+    .site-navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1031;
+        padding: 0;
+    }
+
+    .site-navbar .container-fluid {
+        position: relative;
+        padding: 0.5rem 1rem;
+        min-height: 3.5rem;
+        align-items: center;
+    }
+
+    .site-navbar .navbar-brand {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        white-space: nowrap;
+        margin: 0;
+    }
+
+    /* Hamburger: left, no frame, Bootstrap icon */
+    .site-navbar .navbar-toggler {
+        border: none !important;
+        box-shadow: none !important;
+        background: transparent;
+        padding: 0.25rem;
+        margin: 0;
+        color: var(--site-navbar-text);
+        font-size: 1.5rem;
+        line-height: 1;
+        position: relative;
+        z-index: 1032;
+    }
+
+    /* Full-screen overlay when menu opens */
+     .site-navbar .navbar-collapse {
+        position: fixed !important;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 100vh !important;
+        height: 100dvh !important;
+        background-color: var(--site-navbar-bg);
+        z-index: 1030;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow-y: auto;
+        padding-top: 3.5rem;
+    }
+
+    .site-navbar .navbar-collapse.show {
+        display: flex !important;
+    }
+
+    .site-navbar .navbar-collapse.collapsing {
+        display: none !important;
+    }
+    
+    /* Animation for gradual display from top to bottom */
+    .site-navbar .nav-item {
+        opacity: 0;
+        animation: slideDownFade 0.4s ease-out forwards;
+    }
+
+    /* Staggered animation delays for items from top to bottom */
+    .site-navbar .me-auto .nav-item:nth-child(1) { animation-delay: 0.05s; }
+    .site-navbar .me-auto .nav-item:nth-child(2) { animation-delay: 0.10s; }
+    .site-navbar .me-auto .nav-item:nth-child(3) { animation-delay: 0.15s; }
+    .site-navbar .me-auto .nav-item:nth-child(4) { animation-delay: 0.20s; }
+
+    /* Separator before theme toggle button */
+    .site-navbar .theme-toggle-item {
+        position: relative;
+        padding-top: 1rem !important;
+    }
+    .site-navbar .theme-toggle-item::before {
+        content: '';
+        position: absolute;
+        top: 0.25rem;
+        left: 1rem;
+        right: 1rem;
+        height: 1px;
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    @keyframes slideDownFade {
+        0% {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .site-navbar .navbar-nav {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .site-navbar .navbar-collapse .nav-link {
+        font-size: 1.25rem;
+        padding: 0.75rem 2rem;
+        text-align: center;
+    }
+}
+
 .site-navbar .navbar-toggler {
-    border-color: rgba(255, 255, 255, 0.35);
+    border-color: transparent;
     margin-bottom: 0;
 }
 
-.site-navbar .navbar-toggler-icon {
-    filter: invert(100%);
-}
-
-[data-bs-theme="dark"] .site-navbar .navbar-toggler-icon {
-    filter: invert(0%);
+/* Desktop mode - hide hamburger since navbar is always visible */
+@media (min-width: 768px) {
+    .site-navbar .navbar-toggler {
+        display: none;
+    }
 }
 
 .theme-toggle-item {
@@ -129,6 +249,7 @@ html.theme-toggle-ready .theme-toggle-item {
     background-repeat: no-repeat;
     max-width: 100%;
     height: 300px;
+    overflow: hidden;
 }
 
 .bg-image h1,
@@ -519,6 +640,10 @@ body.lightbox-open > :not(.modal):not(.modal-backdrop) {
 @media (max-width: 767.98px) {
     .workspace-cloud {
         min-height: 300px;
+    }
+
+    .passion-section-nav .btn {
+        white-space: normal;
     }
 }
 
